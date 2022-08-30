@@ -92,7 +92,7 @@ void CObject_Manager::Clear(_uint iLevelIndex)
 	
 }
 
-bool CObject_Manager::Collision(_uint iLevelIndex, const _tchar * col1, const _tchar * col2,_float fTimeDelta)
+bool CObject_Manager::Collision(_uint iLevelIndex, const _tchar * col1, const _tchar * col2,_float fTimeDelta, _float3 f1Scale, _float3 f2Scale)
 {
 	if (iLevelIndex >= m_iNumLevels)
 		return false;
@@ -108,7 +108,7 @@ bool CObject_Manager::Collision(_uint iLevelIndex, const _tchar * col1, const _t
 	{
 		for (auto& P2 : iter2->Get_ObjectList())
 		{
-			if (pCollision->CollisionCheck(P1->Get_Transform(), P2->Get_Transform(), fTimeDelta))
+			if (pCollision->CollisionCheck(P1->Get_Transform(), P2->Get_Transform(), fTimeDelta, f1Scale, f2Scale))
 			{
 				return true;
 			}
@@ -120,7 +120,7 @@ bool CObject_Manager::Collision(_uint iLevelIndex, const _tchar * col1, const _t
 	return false;
 }
 
-bool CObject_Manager::Collision_Attacked(_uint iLevelIndex, const _tchar * col1, const _tchar * col2, _float fTimeDelta, int ioption)
+bool CObject_Manager::Collision_Attacked(_uint iLevelIndex, const _tchar * col1, const _tchar * col2, _float fTimeDelta, int ioption, _float3 f1Scale, _float3 f2Scale)
 {
 	if (iLevelIndex >= m_iNumLevels)
 		return false;
@@ -136,7 +136,7 @@ bool CObject_Manager::Collision_Attacked(_uint iLevelIndex, const _tchar * col1,
 	{
 		for (auto& P2 : iter2->Get_ObjectList())
 		{
-			if (pCollision->CollisionCheck(P1->Get_Transform(), P2->Get_Transform(), fTimeDelta))
+			if (pCollision->CollisionCheck(P1->Get_Transform(), P2->Get_Transform(), fTimeDelta, f1Scale, f2Scale))
 			{
 				if (ioption == 0)
 					P1->Get_Transform()->Attacked_Move(P2->Get_Transform()->Get_State(CTransform::STATE_POSITION), fTimeDelta);
