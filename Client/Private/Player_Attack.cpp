@@ -55,29 +55,9 @@ void CPlayer_Attack::Tick(_float fTimeDelta)
 {
 	__super::Tick(fTimeDelta);
 
-	CGameInstance*			pGameInstance = CGameInstance::Get_Instance();
-	Safe_AddRef(pGameInstance);
-
-	if (!pGameInstance->Check_Layer(LEVEL_GAMEPLAY, TEXT("Layer_Monster")))
-	{
-		m_bDead = true;
-		Safe_Release(pGameInstance);
-		return;
-	}
 
 	m_SkillTime += m_SkillTime+fTimeDelta+0.2f;
-	/*
-	RECT		rcRect;
-	SetRect(&rcRect, m_fX - m_fSizeX * 0.5f, m_fY - m_fSizeY * 0.5f, m_fX + m_fSizeX * 0.5f, m_fY + m_fSizeY * 0.5f);
 
-	POINT		ptMouse;
-	GetCursorPos(&ptMouse);
-	ScreenToClient(g_hWnd, &ptMouse);
-
-	if (PtInRect(&rcRect, ptMouse))
-	{
-	ERR_MSG(L"Ãæµ¹");
-	}*/
 
 	m_fAttack_Frame = m_fAttack_Frame + 0.2f;
 
@@ -86,57 +66,51 @@ void CPlayer_Attack::Tick(_float fTimeDelta)
 		m_fAttack_Frame = 0;
 
 	}
-	//_float MonsterPosx = Monster->CMonster::Get_Transform()->Get_State(CTransform::STATE_POSITION).x;
-	//_float MonsterPosy = Monster->CMonster::Get_Transform()->Get_State(CTransform::STATE_POSITION).y;
-	//_float MonsterPosz = Monster->CMonster::Get_Transform()->Get_State(CTransform::STATE_POSITION).z;
 
-	 //_float3 MonsterPos = Monster->Get_Transform()->Get_State(CTransform::STATE_POSITION);
-	//_float3 PlayerPos = Player->Get_Transform()->Get_State(CTransform::STATE_POSITION);
+
 
 	if (m_SkillTime > 0.3f)
-	{	
+	{
+		CGameInstance*			pGameInstance = CGameInstance::Get_Instance();
+		Safe_AddRef(pGameInstance);
+
+
+
 		auto Player_Pos = pGameInstance->Find_Target(LEVEL_GAMEPLAY, TEXT("Layer_Monster"));
+
 
 		_float3 TargetPos = Player_Pos->Get_Transform()->Get_State(CTransform::STATE_POSITION);
 
 		_float3 MyPos = m_pTransformCom->Get_State(CTransform::STATE_POSITION);
+
 
 		_float3 Target = TargetPos - MyPos;
 
 		MyPos += *D3DXVec3Normalize(&Target, &Target) * fTimeDelta*10.5;
 
 		m_pTransformCom->Set_Scaled(_float3(m_fSizeX, m_fSizeY, 1.f));
+		m_pTransformCom->Set_State(CTransform::STATE_POSITION, MyPos);
 
-		m_pTransformCom->Set_State(CTransform::STATE_POSITION, MyPos);		
 
-<<<<<<< HEAD
-=======
-		if (pGameInstance->Collision_Attacked(LEVEL_GAMEPLAY, TEXT("Layer_Monster"), TEXT("Layer_Playe_Attack"), fTimeDelta, 1))
+		if (pGameInstance->Collision_Attacked(LEVEL_GAMEPLAY, TEXT("Layer_Monster"), TEXT("Layer_Playe_Attack"), fTimeDelta, 1 ,_float3(0.15f, 0.3f, 0.15f), _float3(0.3f, 0.3f, 0.3f)))
 		{
 
 			Fire_Efect_On(TEXT("Layer_Attack"), fTimeDelta);
-			//CPlayer_Attack::Free();
+		
 		}
 
 		Safe_Release(pGameInstance);
 		
->>>>>>> BHW
 	}
 
  if (m_SkillTime >= 2.5f)
 	{
 		m_SkillTime = 0.f;
-	}
-	m_pTransformCom->Set_Scaled(_float3(m_fSizeX, m_fSizeY, 1.f));
-	
-	if (pGameInstance->Collision_Attacked(LEVEL_GAMEPLAY, TEXT("Layer_Playe_Attack"), TEXT("Layer_Monster"), fTimeDelta, 1, _float3(0.2f, 0.2f, 0.2f), _float3(0.45f, 0.45f, 0.45f)))
-	{
-		m_bDead = true;
-		Safe_Release(pGameInstance);
-		return;
+
 	}
 
-	Safe_Release(pGameInstance);
+	m_pTransformCom->Set_Scaled(_float3(m_fSizeX, m_fSizeY, 1.f));
+
 }
 
 void CPlayer_Attack::Late_Tick(_float fTimeDelta)
@@ -154,12 +128,6 @@ HRESULT CPlayer_Attack::Render()
 
 	if (FAILED(m_pTransformCom->Bind_OnGraphicDev()))
 		return E_FAIL;
-
-	//_float4x4		ViewMatrix;
-	//D3DXMatrixIdentity(&ViewMatrix);
-
-	//m_pGraphic_Device->SetTransform(D3DTS_VIEW, &ViewMatrix);
-	//m_pGraphic_Device->SetTransform(D3DTS_PROJECTION, &m_ProjMatrix);
 
 	if (FAILED(m_pTextureCom->Bind_OnGraphicDev(m_fAttack_Frame)))
 		return E_FAIL;
@@ -231,20 +199,11 @@ HRESULT CPlayer_Attack::Fire_Efect_On(const _tchar * pLayerTag, _float fTimeDelt
 {
 	CGameInstance*			pGameInstance = CGameInstance::Get_Instance();
 	Safe_AddRef(pGameInstance);
-	//pGameInstance->AddRef();
-
-	/*_float3 vPosition_Efect = m_pTransformCom->Get_State(CTransform::STATE_POSITION);*/
 
 	_float3 vPos_Efect = m_pTransformCom->Get_State(CTransform::STATE_POSITION);
 
 		if (FAILED(pGameInstance->Add_GameObject(TEXT("Prototype_GameObject_Fire_Effect"), LEVEL_GAMEPLAY, pLayerTag, vPos_Efect)))
 			return E_FAIL;
-
-	//m_fSkillTime = m_fSkillTime + 0.5f;
-
-	//auto Monster = pGameInstance->Find_Target(LEVEL_GAMEPLAY, TEXT("Layer_Monster"));
-
-
 
 	Safe_Release(pGameInstance);
 
@@ -287,7 +246,7 @@ void CPlayer_Attack::Free()
 {
 	__super::Free();
 
-	Safe_Release(m_pTransformCom);
+	//Safe_Release(m_pTransformCom);
 	Safe_Release(m_pVIBufferCom);
 	Safe_Release(m_pRendererCom);
 	Safe_Release(m_pTextureCom);

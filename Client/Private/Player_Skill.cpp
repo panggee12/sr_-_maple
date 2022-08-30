@@ -131,12 +131,11 @@ void CPlayer_Skill::Tick(_float fTimeDelta)
 
 
 
-<<<<<<< HEAD
 		//	Safe_Release(pGameInstance);*/
-=======
-			Safe_Release(pGameInstance);*/
+
+			Safe_Release(pGameInstance);
 			//CPlayer_Skill::Free();
->>>>>>> BHW
+
 		}
 
 

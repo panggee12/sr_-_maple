@@ -38,9 +38,7 @@ HRESULT CEffect::Initialize(void* pArg)
 
 	m_pTransformCom->Set_State(CTransform::STATE_POSITION, m_vEffectPos);
 
-	//m_pTransformCom->Set_Scaled(_float3(m_fSizeX, m_fSizeY, 1.f));
 
-	//m_pTransformCom->Set_Scaled(_float3(m_fSizeX, m_fSizeY, 1.f));
 
 	return S_OK;
 }
@@ -66,55 +64,6 @@ void CEffect::Tick(_float fTimeDelta)
 
 	CGameInstance*			pGameInstance = CGameInstance::Get_Instance();
 	Safe_AddRef(pGameInstance);
-
-	//if (pGameInstance->Collision_Attacked(LEVEL_GAMEPLAY, TEXT("Layer_Monster"), TEXT("Layer_Playe_Skill"), fTimeDelta, 1))
-	//{
-	//	
-	//}
-
-	//if (pGameInstance->Collision_Attacked(LEVEL_GAMEPLAY, TEXT("Layer_Monster"), TEXT("Layer_Playe_Attack"), fTimeDelta, 1))
-	//{
-
-	//	Fire_Efect_On(TEXT("Layer_Monster"), fTimeDelta);
-	//}
-
-	//_float MonsterPosx = Monster->CMonster::Get_Transform()->Get_State(CTransform::STATE_POSITION).x;
-	//_float MonsterPosy = Monster->CMonster::Get_Transform()->Get_State(CTransform::STATE_POSITION).y;
-	//_float MonsterPosz = Monster->CMonster::Get_Transform()->Get_State(CTransform::STATE_POSITION).z;
-
-
-	//if (m_Skill_Time_L > 0.5)
-	//{
-	//	CGameInstance*			pGameInstance = CGameInstance::Get_Instance();
-	//	Safe_AddRef(pGameInstance);
-
-	//	auto Player_Pos = pGameInstance->Find_Target(LEVEL_GAMEPLAY, TEXT("Layer_Monster"));
-
-	//	_float3 TargetPos = Player_Pos->Get_Transform()->Get_State(CTransform::STATE_POSITION);
-
-	//	_float3 MyPos = m_pTransformCom->Get_State(CTransform::STATE_POSITION);
-
-
-	//	_float3 Target = TargetPos - MyPos;
-
-
-	//	// _float3 Target ;
-
-
-	//	MyPos += *D3DXVec3Normalize(&Target, &Target) * fTimeDelta*1.5;
-
-	//	m_pTransformCom->Set_Scaled(_float3(m_fSizeX, m_fSizeY, 1.f));
-	//	m_pTransformCom->Set_State(CTransform::STATE_POSITION, MyPos);
-
-	//	if (pGameInstance->Collision_Attacked(LEVEL_GAMEPLAY, TEXT("Layer_Monster"), TEXT("Layer_Playe_Skill"), fTimeDelta, 1))
-	//	{
-
-	//	}
-
-
-	//	Safe_Release(pGameInstance);
-
-	//}
 
 }
 

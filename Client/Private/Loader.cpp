@@ -275,15 +275,13 @@ HRESULT CLoader::Loading_ForGamePlayLevel()
 		CPlayer_Attack::Create(m_pGraphic_Device))))
 		return E_FAIL;
 
-<<<<<<< HEAD
-=======
+
 	/*For.Prototype_GameObject_Player_Attack_Efect*/
 	if (FAILED(pGameInstance->Add_Prototype(TEXT("Prototype_GameObject_Fire_Effect"),
 		CEffect::Create(m_pGraphic_Device))))
 		return E_FAIL;
 
 
->>>>>>> BHW
 	/*For.Prototype_GameObject_Monster*/
 	if (FAILED(pGameInstance->Add_Prototype(TEXT("Prototype_GameObject_Monster"),
 		CLupangMonster::Create(m_pGraphic_Device))))
