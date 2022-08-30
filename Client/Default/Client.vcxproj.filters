@@ -103,6 +103,9 @@
     <Filter Include="03.Effect">
       <UniqueIdentifier>{2748ef4c-a299-45e9-ae65-9eba669e560d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="03.Effect\Skill_Efect">
+      <UniqueIdentifier>{333d49f0-79d6-42e2-936c-76aee19d7b73}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -204,6 +207,9 @@
     <ClInclude Include="..\public\Effect.h">
       <Filter>03.Effect</Filter>
     </ClInclude>
+    <ClInclude Include="..\public\Litening_Effect.h">
+      <Filter>03.Effect\Skill_Efect</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Private\MainApp.cpp">
@@ -292,6 +298,9 @@
     </ClCompile>
     <ClCompile Include="..\private\Effect.cpp">
       <Filter>03.Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\Litening_Effect.cpp">
+      <Filter>03.Effect\Skill_Efect</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

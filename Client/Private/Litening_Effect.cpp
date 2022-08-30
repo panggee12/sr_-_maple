@@ -1,18 +1,18 @@
 #include "stdafx.h"
-#include "..\Public\Effect.h"
+#include "..\Public\Litening_Effect.h"
 #include "GameInstance.h"
 
-CEffect::CEffect(LPDIRECT3DDEVICE9 pGraphic_Device)
+CLitening_Effect::CLitening_Effect(LPDIRECT3DDEVICE9 pGraphic_Device)
 	: CGameObject(pGraphic_Device)
 {
 }
 
-CEffect::CEffect(const CEffect & rhs)
+CLitening_Effect::CLitening_Effect(const CLitening_Effect & rhs)
 	: CGameObject(rhs)
 {
 }
 
-HRESULT CEffect::Initialize_Prototype()
+HRESULT CLitening_Effect::Initialize_Prototype()
 {
 	if (FAILED(__super::Initialize_Prototype()))
 		return E_FAIL;
@@ -20,14 +20,14 @@ HRESULT CEffect::Initialize_Prototype()
 	return S_OK;
 }
 
-HRESULT CEffect::Initialize(void* pArg)
+HRESULT CLitening_Effect::Initialize(void* pArg)
 {
 	if (FAILED(__super::Initialize(pArg)))
 		return E_FAIL;
 
 
-	m_fSizeX = 5.0f;
-	m_fSizeY = 5.0f;
+	m_fSizeX = 15.0f;
+	m_fSizeY = 15.0f;
 	/*m_fX = 10.f;
 	m_fY = 10.f;*/
 
@@ -38,16 +38,14 @@ HRESULT CEffect::Initialize(void* pArg)
 
 	m_pTransformCom->Set_State(CTransform::STATE_POSITION, m_vEffectPos);
 
-<<<<<<< HEAD
-=======
-	m_pTransformCom->Set_Scaled(_float3(m_fSizeX, m_fSizeY, 1.f));
->>>>>>> BHW
+	//m_pTransformCom->Set_Scaled(_float3(m_fSizeX, m_fSizeY, 1.f));
 
+	//m_pTransformCom->Set_Scaled(_float3(m_fSizeX, m_fSizeY, 1.f));
 
 	return S_OK;
 }
 
-void CEffect::Tick(_float fTimeDelta)
+void CLitening_Effect::Tick(_float fTimeDelta)
 {
 	__super::Tick(fTimeDelta);
 
@@ -66,17 +64,14 @@ void CEffect::Tick(_float fTimeDelta)
 		Free();
 	}
 
-	//CGameInstance*			pGameInstance = CGameInstance::Get_Instance();
-	//Safe_AddRef(pGameInstance);
+	CGameInstance*			pGameInstance = CGameInstance::Get_Instance();
+	Safe_AddRef(pGameInstance);
 
-<<<<<<< HEAD
-=======
-	
 
->>>>>>> BHW
+
 }
 
-void CEffect::Late_Tick(_float fTimeDelta)
+void CLitening_Effect::Late_Tick(_float fTimeDelta)
 {
 	__super::Late_Tick(fTimeDelta);
 
@@ -84,7 +79,7 @@ void CEffect::Late_Tick(_float fTimeDelta)
 		m_pRendererCom->Add_RenderGroup(CRenderer::RENDER_NONALPHABLEND, this);
 }
 
-HRESULT CEffect::Render()
+HRESULT CLitening_Effect::Render()
 {
 	if (FAILED(__super::Render()))
 		return E_FAIL;
@@ -110,7 +105,7 @@ HRESULT CEffect::Render()
 	return S_OK;
 }
 
-HRESULT CEffect::SetUp_Components()
+HRESULT CLitening_Effect::SetUp_Components()
 {
 	/* For.Com_Renderer */
 	if (FAILED(__super::Add_Components(TEXT("Com_Renderer"), LEVEL_STATIC, TEXT("Prototype_Component_Renderer"), (CComponent**)&m_pRendererCom)))
@@ -139,7 +134,7 @@ HRESULT CEffect::SetUp_Components()
 	return S_OK;
 }
 
-HRESULT CEffect::SetUp_RenderState()
+HRESULT CLitening_Effect::SetUp_RenderState()
 {
 	if (nullptr == m_pGraphic_Device)
 		return E_FAIL;
@@ -150,40 +145,40 @@ HRESULT CEffect::SetUp_RenderState()
 	return S_OK;
 }
 
-HRESULT CEffect::Release_RenderState()
+HRESULT CLitening_Effect::Release_RenderState()
 {
 	//m_pGraphic_Device->SetRenderState(D3DRS_FILLMODE, D3DFILL_SOLID);
 
 	return S_OK;
 }
 
-CEffect * CEffect::Create(LPDIRECT3DDEVICE9 pGraphic_Device)
+CLitening_Effect * CLitening_Effect::Create(LPDIRECT3DDEVICE9 pGraphic_Device)
 {
-	CEffect*	pInstance = new CEffect(pGraphic_Device);
+	CLitening_Effect*	pInstance = new CLitening_Effect(pGraphic_Device);
 
 	if (FAILED(pInstance->Initialize_Prototype()))
 	{
-		ERR_MSG(TEXT("Failed to Created : CEffect"));
+		ERR_MSG(TEXT("Failed to Created : CLitening_Effect"));
 		Safe_Release(pInstance);
 	}
 
 	return pInstance;
 }
 
-CGameObject * CEffect::Clone(void* pArg)
+CGameObject * CLitening_Effect::Clone(void* pArg)
 {
-	CEffect*	pInstance = new CEffect(*this);
+	CLitening_Effect*	pInstance = new CLitening_Effect(*this);
 
 	if (FAILED(pInstance->Initialize(pArg)))
 	{
-		ERR_MSG(TEXT("Failed to Cloned : CEffect"));
+		ERR_MSG(TEXT("Failed to Cloned : CLitening_Effect"));
 		Safe_Release(pInstance);
 	}
 
 	return pInstance;
 }
 
-void CEffect::Free()
+void CLitening_Effect::Free()
 {
 	__super::Free();
 

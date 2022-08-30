@@ -128,8 +128,13 @@ void CPlayer::Tick(_float fTimeDelta)
 		m_bPlayer_Idle = false;
 
 	}
+<<<<<<< HEAD
 	
 	if (GetKeyState('A') & 0x8000)
+=======
+
+	else if (GetKeyState('Q') & 0x8000)
+>>>>>>> BHW
 	{
 		if (pGameInstance->Check_Layer(LEVEL_GAMEPLAY, TEXT("Layer_Monster")))
 		{
@@ -140,7 +145,7 @@ void CPlayer::Tick(_float fTimeDelta)
 		}
 	}
 
-	else if (GetKeyState('S') & 0x8000)
+	else if (GetKeyState('X') & 0x8000)
 	{
 		if (pGameInstance->Check_Layer(LEVEL_GAMEPLAY, TEXT("Layer_Monster")))
 		{
@@ -159,7 +164,7 @@ void CPlayer::Tick(_float fTimeDelta)
 		m_ePlayer_State = PLAYER_ATTACK;
 	}
 	
-	if (Keyboard = pGameInstance->Get_DIKState(DIK_X))
+	if (Keyboard = pGameInstance->Get_DIKState(DIK_U))
 	{
 		m_pTransformCom->Down(fTimeDelta);
 	}
@@ -317,7 +322,7 @@ HRESULT CPlayer::Release_RenderState()
 
 void CPlayer::Player_Idel(PLAYER_STATE _PlayerState,_float fTimeDelta)
 {
-	if (m_ePlayer_State==PLAYER_IDLE&&m_bPlayer_Idle == true)
+	if (m_ePlayer_State==PLAYER_IDLE&&m_bPlayer_Move == false)
 	{
 		if (m_uFrameNum <= 0 || m_uFrameNum >= 7)
 		{
