@@ -64,6 +64,9 @@
     <Filter Include="02.GameObject\Monster\LupangMonster\LupangSkill">
       <UniqueIdentifier>{2808bf90-8294-4d2b-87ec-519e32e333bd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="02.GameObject\Player\Player_Attack">
+      <UniqueIdentifier>{1b3cb412-4efb-4328-b54c-5ebd95c28a5b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -135,6 +138,9 @@
     <ClInclude Include="..\Public\LupangSkill.h">
       <Filter>02.GameObject\Monster\LupangMonster\LupangSkill</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\sr-maple\Client\Public\Player_Attack.h">
+      <Filter>02.GameObject\Player\Player_Attack</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Private\MainApp.cpp">
@@ -193,6 +199,9 @@
     </ClCompile>
     <ClCompile Include="..\Private\LupangSkill.cpp">
       <Filter>02.GameObject\Monster\LupangMonster\LupangSkill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\sr-maple\Client\Private\Player_Attack.cpp">
+      <Filter>02.GameObject\Player\Player_Attack</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "..\Public\Player_Skill.h"
 #include "GameInstance.h"
+#include "LupangMonster.h"
 
 CPlayer_Skill::CPlayer_Skill(LPDIRECT3DDEVICE9 pGraphic_Device)
 	: CGameObject(pGraphic_Device)
