@@ -86,17 +86,17 @@ void CPlayer_Skill::Tick(_float fTimeDelta)
 		m_pTransformCom->Set_Scaled(_float3(m_fSizeX, m_fSizeY, 1.f));
 		m_pTransformCom->Set_State(CTransform::STATE_POSITION, MyPos);
 
-		if (pGameInstance->Collision_Attacked(LEVEL_GAMEPLAY, TEXT("Layer_Monster"), TEXT("Layer_Playe_Skill"), fTimeDelta, 1))
+		if (pGameInstance->Collision_Attacked(LEVEL_GAMEPLAY, TEXT("Layer_Monster"), TEXT("Layer_Playe_Skill"), fTimeDelta, 1, _float3(0.15f, 0.3f, 0.15f), _float3(0.3f, 0.3f, 0.3f)))
 		{
-			/*CGameInstance*			pGameInstance = CGameInstance::Get_Instance();
-			Safe_AddRef(pGameInstance);
+		//	/*CGameInstance*			pGameInstance = CGameInstance::Get_Instance();
+		//	Safe_AddRef(pGameInstance);
 
-			auto Player_Pos = pGameInstance->Find_Target(LEVEL_GAMEPLAY, TEXT("Layer_Monster"));
-
-
+		//	auto Player_Pos = pGameInstance->Find_Target(LEVEL_GAMEPLAY, TEXT("Layer_Monster"));
 
 
-			Safe_Release(pGameInstance);*/
+
+
+		//	Safe_Release(pGameInstance);*/
 		}
 
 
