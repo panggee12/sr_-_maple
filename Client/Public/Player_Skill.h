@@ -35,6 +35,7 @@ private:
 	_float4x4				m_ProjMatrix;
 	_float					m_fX, m_fY, m_fSizeX, m_fSizeY;
 	_float					m_fSkill_Frame = 0.f;
+	_float					m_Skill_Time_L=0.f;
 
 	_float3					m_vSkillPosition_2;
 private:

@@ -1,4 +1,5 @@
 #include "..\Public\GameInstance.h"
+#include "Layer.h"
 
 IMPLEMENT_SINGLETON(CGameInstance)
 
@@ -9,6 +10,7 @@ CGameInstance::CGameInstance()
 	, m_pObject_Manager(CObject_Manager::Get_Instance())
 	, m_pTimer_Manager(CTimer_Manager::Get_Instance())
 	, m_pComponent_Manager(CComponent_Manager::Get_Instance())
+	, m_pCollision_Manager(CCollisionMgr::Get_Instance())
 	//, m_pKeyComponent_Manager(CComponent_Manager::Get_Instance())
 
 {
@@ -20,6 +22,7 @@ CGameInstance::CGameInstance()
 	Safe_AddRef(m_pObject_Manager);
 	Safe_AddRef(m_pLevel_Manager);
 	Safe_AddRef(m_pInput_Device);
+	Safe_AddRef(m_pCollision_Manager);
 	Safe_AddRef(m_pGraphic_Device);
 }
 
@@ -186,29 +189,84 @@ CGameObject * CGameInstance::Get_BackObject(_uint iLevelIndex, const _tchar * pL
 
 bool CGameInstance::Collision(_uint iLevelIndex, const _tchar * col1, const _tchar * col2, _float fTimeDelta, _float3 f1Scale, _float3 f2Scale)
 {
-	if (nullptr == m_pObject_Manager)
+	if (nullptr == m_pObject_Manager ||
+		nullptr == m_pCollision_Manager)
 		return false;
 
-	if (m_pObject_Manager->Collision(iLevelIndex, col1, col2, fTimeDelta, f1Scale, f2Scale))
-		return true;
+	auto Col1Target = m_pObject_Manager->Find_Layer(iLevelIndex, col1);
+	auto Col2Target = m_pObject_Manager->Find_Layer(iLevelIndex, col2);
 
+	for (auto& Target1 : Col1Target->Get_ObjectList())
+	{
+		for (auto& Target2 : Col2Target->Get_ObjectList())
+		{
+			if (m_pCollision_Manager->CollisionCheck(Target1->Get_Transform(), Target2->Get_Transform(), fTimeDelta, f1Scale, f2Scale))
+			{
+				return true;
+			}
+		}
+	}
 	return false;
 }
 
 int CGameInstance::Collision_Rect_Cube(_uint iLevelIndex, const _tchar * col1, const _tchar * col2, _float fTimeDelta)
 {
-	if (nullptr == m_pObject_Manager)
+	if (nullptr == m_pObject_Manager ||
+		nullptr == m_pCollision_Manager)
 		return false;
 
-	return m_pObject_Manager->Collision_Rect_Cube(iLevelIndex, col1, col2, fTimeDelta);
+	int iReturn = 0;
+
+	auto Col1Target = m_pObject_Manager->Find_Layer(iLevelIndex, col1);
+	auto Col2Target = m_pObject_Manager->Find_Layer(iLevelIndex, col2);
+
+	for (auto& Target1 : Col1Target->Get_ObjectList())
+	{
+		for (auto& Target2 : Col2Target->Get_ObjectList())
+		{
+			if (m_pCollision_Manager->Collision_Rect_Cube(Target1->Get_Transform(), Target2->Get_Transform(), fTimeDelta))
+			{
+				iReturn = 1;
+			}
+		}
+	}
+
+	return iReturn;
 }
 
 bool CGameInstance::Collision_Attacked(_uint iLevelIndex, const _tchar * col1, const _tchar * col2, _float fTimeDelta, int ioption, _float3 f1Scale, _float3 f2Scale)
 {
+	if (nullptr == m_pObject_Manager||
+		nullptr == m_pCollision_Manager)
+		return false;
+
+	auto Col1Target = m_pObject_Manager->Find_Layer(iLevelIndex, col1);
+	auto Col2Target = m_pObject_Manager->Find_Layer(iLevelIndex, col2);
+
+	for (auto& Target1 : Col1Target->Get_ObjectList())
+	{
+		for (auto& Target2 : Col2Target->Get_ObjectList())
+		{
+			if (m_pCollision_Manager->CollisionCheck(Target1->Get_Transform(), Target2->Get_Transform(), fTimeDelta, f1Scale, f2Scale))
+			{
+				if (ioption == 0)
+					Target1->Get_Transform()->Attacked_Move(Target2->Get_Transform()->Get_State(CTransform::STATE_POSITION), fTimeDelta);
+				else if (ioption == 1)
+					Target2->Set_Dead(true);
+				return true;
+			}
+		}
+	}
+
+	return false;
+}
+
+bool CGameInstance::Check_Layer(_uint iLevelIndex, const _tchar * pLayerTag)
+{
 	if (nullptr == m_pObject_Manager)
 		return false;
 
-	return m_pObject_Manager->Collision_Attacked(iLevelIndex, col1, col2, fTimeDelta,ioption, f1Scale, f2Scale);
+	return m_pObject_Manager->Check_Layer(iLevelIndex, pLayerTag);
 }
 
 HRESULT CGameInstance::Add_Prototype(_uint iLevelIndex, const _tchar * pPrototypeTag, CComponent * pPrototype)
@@ -235,6 +293,8 @@ void CGameInstance::Release_Engine()
 
 	CObject_Manager::Get_Instance()->Destroy_Instance();
 
+	CCollisionMgr::Get_Instance()->Destroy_Instance();
+
 	CComponent_Manager::Get_Instance()->Destroy_Instance();
 
 	CTimer_Manager::Get_Instance()->Destroy_Instance();
@@ -251,6 +311,7 @@ void CGameInstance::Free()
 	Safe_Release(m_pObject_Manager);
 	Safe_Release(m_pLevel_Manager);
 	Safe_Release(m_pInput_Device);
+	Safe_Release(m_pCollision_Manager);
 	Safe_Release(m_pGraphic_Device);
 
 

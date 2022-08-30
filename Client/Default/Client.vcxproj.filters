@@ -97,6 +97,9 @@
     <Filter Include="02.GameObject\UI\GamePlayUI\InfoUI\SkillInfoUI">
       <UniqueIdentifier>{bf629d71-72a5-4532-99be-c318c93d18cb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="02.GameObject\Player\Attack">
+      <UniqueIdentifier>{c5cb8101-b198-4bcf-a1a1-648836e49c0d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -192,6 +195,9 @@
     <ClInclude Include="..\Public\SkillInfoUI.h">
       <Filter>02.GameObject\UI\GamePlayUI\InfoUI\SkillInfoUI</Filter>
     </ClInclude>
+    <ClInclude Include="..\Public\Player_Attack.h">
+      <Filter>02.GameObject\Player\Attack</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Private\MainApp.cpp">
@@ -274,6 +280,9 @@
     </ClCompile>
     <ClCompile Include="..\Private\SkillInfoUI.cpp">
       <Filter>02.GameObject\UI\GamePlayUI\InfoUI\SkillInfoUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\Player_Attack.cpp">
+      <Filter>02.GameObject\Player\Attack</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

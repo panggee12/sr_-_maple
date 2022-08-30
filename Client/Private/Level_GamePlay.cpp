@@ -23,8 +23,11 @@ HRESULT CLevel_GamePlay::Initialize()
 	if (FAILED(Ready_Layer_Player(TEXT("Layer_Player"))))
 		return E_FAIL;
 
-	if (FAILED(Ready_Layer_Monster(TEXT("Layer_Monster"))))
-		return E_FAIL;
+	for (int i = 0; i < 5; ++i)
+	{
+		if (FAILED(Ready_Layer_Monster(TEXT("Layer_Monster"))))
+			return E_FAIL;
+	}
 
 	if (FAILED(Ready_Layer_TestBox(TEXT("Layer_TestBox"))))
 		return E_FAIL;
@@ -126,7 +129,10 @@ HRESULT CLevel_GamePlay::Ready_Layer_TestBox(const _tchar * pLayerTag)
 		CubeDesc.r = 0.f;
 		CubeDesc.g = 0.f;
 		CubeDesc.b = 0.f;
+
 	}
+
+	m_CubeInfoList.clear();
 
 	Safe_Release(pGameInstance);
 }
@@ -311,6 +317,5 @@ CLevel_GamePlay * CLevel_GamePlay::Create(LPDIRECT3DDEVICE9 pGraphic_Device)
 void CLevel_GamePlay::Free()
 {
 	__super::Free();
-
 
 }

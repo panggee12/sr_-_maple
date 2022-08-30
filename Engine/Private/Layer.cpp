@@ -22,29 +22,27 @@ HRESULT CLayer::Add_GameObject(CGameObject * pGameObject)
 
 void CLayer::Tick(_float fTimeDelta)
 {
-	int iCehck = 0;
-
-	for (auto& pGameObject = m_GameObjects.begin(); pGameObject != m_GameObjects.end();)
+	for (auto& pGameObject : m_GameObjects)
 	{
-		if (nullptr != *pGameObject)
-			(*pGameObject)->Tick(fTimeDelta);
-
-		if ((*pGameObject)->Get_Dead())
-		{
-			Safe_Release(*pGameObject);
-			pGameObject = m_GameObjects.erase(pGameObject);
-		}
-		else
-			++pGameObject;
+		if (nullptr != pGameObject)
+			pGameObject->Tick(fTimeDelta);
 	}
 }
 
 void CLayer::Late_Tick(_float fTimeDelta)
 {
-	for (auto& pGameObject : m_GameObjects)
+	for (auto& pGameObject = m_GameObjects.begin(); pGameObject != m_GameObjects.end();)
 	{
-		if (nullptr != pGameObject)
-			pGameObject->Late_Tick(fTimeDelta);
+		if ((*pGameObject)->Get_Dead())
+		{
+			Safe_Release(*pGameObject);
+			pGameObject = m_GameObjects.erase(pGameObject);
+		}
+		else if(nullptr != *pGameObject&&!(*pGameObject)->Get_Dead())
+		{
+			(*pGameObject)->Late_Tick(fTimeDelta);
+			++pGameObject;
+		}
 	}
 }
 
