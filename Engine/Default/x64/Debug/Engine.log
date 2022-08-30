@@ -1,37 +1,49 @@
-﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppClean.targets(76,5): warning : 'c:\users\dev.bae\desktop\teampo6\sr_-_maple\engine\default\x64\debug\vc140.idb' 파일은 다른 프로세스에서 사용 중이므로 프로세스에서 액세스할 수 없습니다.
-  VIBuffer_Terrain.cpp
-c:\users\dev.bae\desktop\teampo6\sr_-_maple\engine\private\vibuffer_terrain.cpp(40): warning C4244: '인수': 'Engine::_uint'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  VIBuffer_Rect.cpp
-  VIBuffer_CubeTerrain.cpp
-c:\users\dev.bae\desktop\teampo6\sr_-_maple\engine\private\vibuffer_cubeterrain.cpp(37): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-c:\users\dev.bae\desktop\teampo6\sr_-_maple\engine\private\vibuffer_cubeterrain.cpp(39): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-c:\users\dev.bae\desktop\teampo6\sr_-_maple\engine\private\vibuffer_cubeterrain.cpp(43): warning C4244: '인수': 'Engine::_int'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\dev.bae\desktop\teampo6\sr_-_maple\engine\private\vibuffer_cubeterrain.cpp(46): warning C4244: '인수': 'Engine::_int'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  VIBuffer_Cube.cpp
+﻿  VIBuffer_Rect.cpp
+d:\project\visual studio 2015\projects\dx\include\d3d9.h(37): fatal error C1083: 포함 파일을 열 수 없습니다. 'stdlib.h': No such file or directory
   VIBuffer.cpp
+d:\project\visual studio 2015\projects\dx\include\d3d9.h(37): fatal error C1083: 포함 파일을 열 수 없습니다. 'stdlib.h': No such file or directory
   Transform.cpp
+d:\project\visual studio 2015\projects\dx\include\d3d9.h(37): fatal error C1083: 포함 파일을 열 수 없습니다. 'stdlib.h': No such file or directory
   Timer_Manager.cpp
-  Timer.cpp
+d:\project\visual studio 2015\projects\dx\include\d3d9.h(37): fatal error C1083: 포함 파일을 열 수 없습니다. 'stdlib.h': No such file or directory
   Texture.cpp
-c:\users\dev.bae\desktop\teampo6\sr_-_maple\engine\private\texture.cpp(79): warning C4244: '인수': 'Engine::_float'에서 'unsigned __int64'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\project\visual studio 2015\projects\dx\include\d3d9.h(37): fatal error C1083: 포함 파일을 열 수 없습니다. 'stdlib.h': No such file or directory
   Renderer.cpp
+d:\project\visual studio 2015\projects\dx\include\d3d9.h(37): fatal error C1083: 포함 파일을 열 수 없습니다. 'stdlib.h': No such file or directory
   Object_Manager.cpp
+d:\project\visual studio 2015\projects\dx\include\d3d9.h(37): fatal error C1083: 포함 파일을 열 수 없습니다. 'stdlib.h': No such file or directory
   Level_Manager.cpp
+d:\project\visual studio 2015\projects\dx\include\d3d9.h(37): fatal error C1083: 포함 파일을 열 수 없습니다. 'stdlib.h': No such file or directory
   Level.cpp
+d:\project\visual studio 2015\projects\dx\include\d3d9.h(37): fatal error C1083: 포함 파일을 열 수 없습니다. 'stdlib.h': No such file or directory
   Layer.cpp
-  KeyMgr.cpp
-  Input_Device.cpp
-  Graphic_Device.cpp
+d:\project\visual studio 2015\projects\dx\include\d3d9.h(37): fatal error C1083: 포함 파일을 열 수 없습니다. 'stdlib.h': No such file or directory
   GameObject.cpp
+d:\project\visual studio 2015\projects\dx\include\d3d9.h(37): fatal error C1083: 포함 파일을 열 수 없습니다. 'stdlib.h': No such file or directory
   GameInstance.cpp
-  Component_Manager.cpp
+d:\project\visual studio 2015\projects\dx\include\d3d9.h(37): fatal error C1083: 포함 파일을 열 수 없습니다. 'stdlib.h': No such file or directory
+  Component.cpp
+d:\project\visual studio 2015\projects\dx\include\d3d9.h(37): fatal error C1083: 포함 파일을 열 수 없습니다. 'stdlib.h': No such file or directory
+  Camera.cpp
+d:\project\visual studio 2015\projects\dx\include\d3d9.h(37): fatal error C1083: 포함 파일을 열 수 없습니다. 'stdlib.h': No such file or directory
+  VIBuffer_Terrain.cpp
+d:\project\visual studio 2015\projects\dx\include\d3d9.h(37): fatal error C1083: 포함 파일을 열 수 없습니다. 'stdlib.h': No such file or directory
+  VIBuffer_CubeTerrain.cpp
+d:\project\visual studio 2015\projects\dx\include\d3d9.h(37): fatal error C1083: 포함 파일을 열 수 없습니다. 'stdlib.h': No such file or directory
+  VIBuffer_Cube.cpp
+d:\project\visual studio 2015\projects\dx\include\d3d9.h(37): fatal error C1083: 포함 파일을 열 수 없습니다. 'stdlib.h': No such file or directory
+  Timer.cpp
+d:\project\visual studio 2015\projects\dx\include\d3d9.h(37): fatal error C1083: 포함 파일을 열 수 없습니다. 'stdlib.h': No such file or directory
+  Input_Device.cpp
+d:\project\visual studio 2015\projects\dx\include\d3d9.h(37): fatal error C1083: 포함 파일을 열 수 없습니다. 'stdlib.h': No such file or directory
+  Graphic_Device.cpp
+d:\project\visual studio 2015\projects\dx\include\d3d9.h(37): fatal error C1083: 포함 파일을 열 수 없습니다. 'stdlib.h': No such file or directory
   코드를 생성하고 있습니다...
   컴파일하고 있습니다...
-  Component.cpp
+  Component_Manager.cpp
+d:\project\visual studio 2015\projects\dx\include\d3d9.h(37): fatal error C1083: 포함 파일을 열 수 없습니다. 'stdlib.h': No such file or directory
   CollisionMgr.cpp
-  Camera.cpp
+d:\project\visual studio 2015\projects\dx\include\d3d9.h(37): fatal error C1083: 포함 파일을 열 수 없습니다. 'stdlib.h': No such file or directory
   Base.cpp
+d:\project\visual studio 2015\projects\dx\include\d3d9.h(37): fatal error C1083: 포함 파일을 열 수 없습니다. 'stdlib.h': No such file or directory
   코드를 생성하고 있습니다...
-     ..\Bin\Engine.lib 라이브러리 및 ..\Bin\Engine.exp 개체를 생성하고 있습니다.
-  Engine.vcxproj -> C:\Users\Dev.Bae\Desktop\TeamPo6\sr_-_maple\Engine\Default\..\Bin\Engine.dll
-  Engine.vcxproj -> ..\Bin\Engine.pdb (Full PDB)

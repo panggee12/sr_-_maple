@@ -252,6 +252,11 @@ HRESULT CPlayer_Attack::Fire_Efect_On(const _tchar * pLayerTag, _float fTimeDelt
 
 
 	Safe_Release(pGameInstance);
+
+	if (fTimeDelta > 0.2f)
+	{
+		__super::Free();
+	}
 	return S_OK;
 }
 

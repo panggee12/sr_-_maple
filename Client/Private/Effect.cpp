@@ -52,7 +52,7 @@ void CEffect::Tick(_float fTimeDelta)
 
 	//m_Skill_Time_L += fTimeDelta;
 
-	m_EffectFrame += m_EffectFrame + 0.2f;
+	m_EffectFrame += fTimeDelta + 0.2f;
 
 	if (m_EffectFrame <= 0 || m_EffectFrame >= 4)
 	{
@@ -67,10 +67,10 @@ void CEffect::Tick(_float fTimeDelta)
 	CGameInstance*			pGameInstance = CGameInstance::Get_Instance();
 	Safe_AddRef(pGameInstance);
 
-	if (pGameInstance->Collision_Attacked(LEVEL_GAMEPLAY, TEXT("Layer_Monster"), TEXT("Layer_Playe_Skill"), fTimeDelta, 1))
-	{
-		
-	}
+	//if (pGameInstance->Collision_Attacked(LEVEL_GAMEPLAY, TEXT("Layer_Monster"), TEXT("Layer_Playe_Skill"), fTimeDelta, 1))
+	//{
+	//	
+	//}
 
 	//if (pGameInstance->Collision_Attacked(LEVEL_GAMEPLAY, TEXT("Layer_Monster"), TEXT("Layer_Playe_Attack"), fTimeDelta, 1))
 	//{
