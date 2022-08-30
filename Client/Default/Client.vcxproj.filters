@@ -100,6 +100,9 @@
     <Filter Include="02.GameObject\Player\Player_Attack">
       <UniqueIdentifier>{d067b344-d3c5-453a-8f9d-839fdf50b1ab}</UniqueIdentifier>
     </Filter>
+    <Filter Include="03.Effect">
+      <UniqueIdentifier>{2748ef4c-a299-45e9-ae65-9eba669e560d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -198,6 +201,9 @@
     <ClInclude Include="..\Public\Player_Attack.h">
       <Filter>02.GameObject\Player\Player_Attack</Filter>
     </ClInclude>
+    <ClInclude Include="..\public\Effect.h">
+      <Filter>03.Effect</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Private\MainApp.cpp">
@@ -283,6 +289,9 @@
     </ClCompile>
     <ClCompile Include="..\Private\Player_Attack.cpp">
       <Filter>02.GameObject\Player\Player_Attack</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\Effect.cpp">
+      <Filter>03.Effect</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

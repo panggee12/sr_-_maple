@@ -42,8 +42,12 @@ private:
 	HRESULT SetUp_Components();
 	HRESULT SetUp_RenderState();
 	HRESULT Release_RenderState();
+	HRESULT Efect_On(const _tchar * pLayerTag);
 
 public:
+
+	
+
 	void LiteNing_Skill(_float _Player_Skill, _float fTimeDelta);
 	void Fireball_Skill(_float _Player_Skill, _float fTimeDelta);
 	/*void LiteNing_Skill(_float _Player_Skill, _float fTimeDelta);

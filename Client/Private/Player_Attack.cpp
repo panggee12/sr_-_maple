@@ -95,6 +95,8 @@ void CPlayer_Attack::Tick(_float fTimeDelta)
 		CGameInstance*			pGameInstance = CGameInstance::Get_Instance();
 		Safe_AddRef(pGameInstance);
 
+
+
 		auto Player_Pos = pGameInstance->Find_Target(LEVEL_GAMEPLAY, TEXT("Layer_Monster"));
 
 
@@ -114,6 +116,11 @@ void CPlayer_Attack::Tick(_float fTimeDelta)
 		m_pTransformCom->Set_Scaled(_float3(m_fSizeX, m_fSizeY, 1.f));
 		m_pTransformCom->Set_State(CTransform::STATE_POSITION, MyPos);
 
+
+		if (pGameInstance->Collision_Attacked(LEVEL_GAMEPLAY, TEXT("Layer_Monster"), TEXT("Layer_Playe_Attack"), fTimeDelta, 1))
+		{
+
+		}
 
 		Safe_Release(pGameInstance);
 		
