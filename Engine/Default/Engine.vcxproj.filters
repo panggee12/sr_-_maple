@@ -144,9 +144,6 @@
     <ClCompile Include="..\Private\VIBuffer_Cube.cpp">
       <Filter>01.Utility\03.Components\Transform\VIBuffer\Cube</Filter>
     </ClCompile>
-    <ClCompile Include="..\Private\CollisionMgr.cpp">
-      <Filter>01.Utility\04.Collision</Filter>
-    </ClCompile>
     <ClCompile Include="..\Private\VIBuffer_CubeTerrain.cpp">
       <Filter>01.Utility\03.Components\Transform\VIBuffer\CubeTerrain</Filter>
     </ClCompile>
@@ -155,6 +152,9 @@
     </ClCompile>
     <ClCompile Include="..\Private\KeyMgr.cpp">
       <Filter>01.Utility\03.Components\keyManager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\CollisionMgr.cpp">
+      <Filter>01.Utility\04.Collision</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -236,14 +236,14 @@
     <ClInclude Include="..\Public\VIBuffer_Cube.h">
       <Filter>01.Utility\03.Components\Transform\VIBuffer\Cube</Filter>
     </ClInclude>
-    <ClInclude Include="..\Public\CollisionMgr.h">
-      <Filter>01.Utility\04.Collision</Filter>
-    </ClInclude>
     <ClInclude Include="..\Public\VIBuffer_CubeTerrain.h">
       <Filter>01.Utility\03.Components\Transform\VIBuffer\CubeTerrain</Filter>
     </ClInclude>
     <ClInclude Include="..\Public\KeyMgr.h">
       <Filter>01.Utility\03.Components\keyManager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\CollisionMgr.h">
+      <Filter>01.Utility\04.Collision</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
