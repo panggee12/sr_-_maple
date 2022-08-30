@@ -42,6 +42,7 @@ private:
 	_float m_iTextureMaxCount = 10.f;
 	_bool m_bChase = false;
 	CGameObject* pPlayer = nullptr;
+
 	_bool m_bMotionCheck = false;
 	_float3 m_vPosition;
 	_float3 m_vMyLook;

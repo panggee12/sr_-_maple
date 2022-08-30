@@ -178,7 +178,11 @@
     <ClInclude Include="..\Public\MainApp.h" />
     <ClInclude Include="..\Public\Monster.h" />
     <ClInclude Include="..\Public\Player.h" />
+<<<<<<< HEAD
     <ClInclude Include="..\Public\PlayerInfoUI.h" />
+=======
+    <ClInclude Include="..\Public\Player_Attack.h" />
+>>>>>>> BHW
     <ClInclude Include="..\Public\Player_Skill.h" />
     <ClInclude Include="..\Public\SkillbookUI.h" />
     <ClInclude Include="..\Public\SkillInfoUI.h" />
@@ -209,7 +213,11 @@
     <ClCompile Include="..\Private\MainApp.cpp" />
     <ClCompile Include="..\Private\Monster.cpp" />
     <ClCompile Include="..\Private\Player.cpp" />
+<<<<<<< HEAD
     <ClCompile Include="..\Private\PlayerInfoUI.cpp" />
+=======
+    <ClCompile Include="..\Private\Player_Attack.cpp" />
+>>>>>>> BHW
     <ClCompile Include="..\Private\Player_Skill.cpp" />
     <ClCompile Include="..\Private\SkillbookUI.cpp" />
     <ClCompile Include="..\Private\SkillInfoUI.cpp" />
