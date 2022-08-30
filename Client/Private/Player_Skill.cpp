@@ -60,6 +60,12 @@ void CPlayer_Skill::Tick(_float fTimeDelta)
 	GetCursorPos(&ptMouse);
 	ScreenToClient(g_hWnd, &ptMouse);
 
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+	CGameInstance* pGameInstance = CGameInstance::Get_Instance();
+=======
+>>>>>>> Stashed changes
 	if (PtInRect(&rcRect, ptMouse))
 	{
 	ERR_MSG(L"Ãæµ¹");
@@ -84,6 +90,31 @@ void CPlayer_Skill::Tick(_float fTimeDelta)
 		Safe_AddRef(pGameInstance);
 
 		auto Player_Pos = pGameInstance->Find_Target(LEVEL_GAMEPLAY, TEXT("Layer_Monster"));
+<<<<<<< Updated upstream
+=======
+
+
+		_float3 TargetPos = Player_Pos->Get_Transform()->Get_State(CTransform::STATE_POSITION);
+
+		_float3 MyPos = m_pTransformCom->Get_State(CTransform::STATE_POSITION);
+
+
+		_float3 Target = TargetPos - MyPos;
+
+		
+		// _float3 Target ;
+
+
+		MyPos += *D3DXVec3Normalize(&Target, &Target) * fTimeDelta*1.5;
+
+		m_pTransformCom->Set_Scaled(_float3(m_fSizeX, m_fSizeY, 1.f));
+		m_pTransformCom->Set_State(CTransform::STATE_POSITION, MyPos);
+
+
+		Safe_Release(pGameInstance);
+	}
+>>>>>>> BHW
+>>>>>>> Stashed changes
 
 
 		_float3 TargetPos = Player_Pos->Get_Transform()->Get_State(CTransform::STATE_POSITION);

@@ -12,8 +12,24 @@
 #include "TestBox.h"
 #include "CubeTerrain.h"
 #include "LupangSkill.h"
+<<<<<<< Updated upstream
 #include "Player_Skill.h"
 #include "Player_Attack.h"
+=======
+<<<<<<< HEAD
+#include "LogoUI.h"
+#include "InventoryUI.h"
+#include "PlayerInfoUI.h"
+#include "SkillbookUI.h"
+#include "HpBarUI.h"
+#include "ExpBarUI.h"
+#include "SkillInfoUI.h"
+#include "ItemInfoUI.h"
+=======
+#include "Player_Skill.h"
+#include "Player_Attack.h"
+>>>>>>> BHW
+>>>>>>> Stashed changes
 
 CLoader::CLoader(LPDIRECT3DDEVICE9 pGraphic_Device)
 	: m_pGraphic_Device(pGraphic_Device)
