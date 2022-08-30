@@ -102,6 +102,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <ClInclude Include="..\Public\MainApp.h">
       <Filter>00.MainApp</Filter>
     </ClInclude>
@@ -200,6 +201,68 @@
     <ClCompile Include="Client.cpp">
       <Filter>98.Default</Filter>
     </ClCompile>
+=======
+    <ClInclude Include="..\public\BackGround.h" />
+    <ClInclude Include="..\Public\Camera_Dynamic.h" />
+    <ClInclude Include="..\Public\Client_Defines.h" />
+    <ClInclude Include="..\Public\CubeTerrain.h" />
+    <ClInclude Include="..\Public\ExpBarUI.h" />
+    <ClInclude Include="..\Public\HpBarUI.h" />
+    <ClInclude Include="..\Public\InventoryButtonUI.h" />
+    <ClInclude Include="..\Public\InventoryUI.h" />
+    <ClInclude Include="..\Public\ItemInfoUI.h" />
+    <ClInclude Include="..\Public\Level_GamePlay.h" />
+    <ClInclude Include="..\Public\Level_Loading.h" />
+    <ClInclude Include="..\public\Level_Logo.h" />
+    <ClInclude Include="..\public\Loader.h" />
+    <ClInclude Include="..\Public\LogoUI.h" />
+    <ClInclude Include="..\Public\LupangMonster.h" />
+    <ClInclude Include="..\Public\LupangSkill.h" />
+    <ClInclude Include="..\Public\MainApp.h" />
+    <ClInclude Include="..\Public\Monster.h" />
+    <ClInclude Include="..\Public\Player.h" />
+    <ClInclude Include="..\Public\PlayerInfoUI.h" />
+    <ClInclude Include="..\Public\Player_Attack.h" />
+    <ClInclude Include="..\Public\Player_Skill.h" />
+    <ClInclude Include="..\Public\SkillbookUI.h" />
+    <ClInclude Include="..\Public\SkillInfoUI.h" />
+    <ClInclude Include="..\Public\Sky.h" />
+    <ClInclude Include="..\Public\Terrain.h" />
+    <ClInclude Include="..\Public\TestBox.h" />
+    <ClInclude Include="Client.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\private\BackGround.cpp" />
+    <ClCompile Include="..\Private\Camera_Dynamic.cpp" />
+    <ClCompile Include="..\Private\CubeTerrain.cpp" />
+    <ClCompile Include="..\Private\ExpBarUI.cpp" />
+    <ClCompile Include="..\Private\HpBarUI.cpp" />
+    <ClCompile Include="..\Private\InventoryButtonUI.cpp" />
+    <ClCompile Include="..\Private\InventoryUI.cpp" />
+    <ClCompile Include="..\Private\ItemInfoUI.cpp" />
+    <ClCompile Include="..\Private\Level_GamePlay.cpp" />
+    <ClCompile Include="..\Private\Level_Loading.cpp" />
+    <ClCompile Include="..\private\Level_Logo.cpp" />
+    <ClCompile Include="..\private\Loader.cpp" />
+    <ClCompile Include="..\Private\LogoUI.cpp" />
+    <ClCompile Include="..\Private\LupangMonster.cpp" />
+    <ClCompile Include="..\Private\LupangSkill.cpp" />
+    <ClCompile Include="..\Private\MainApp.cpp" />
+    <ClCompile Include="..\Private\Monster.cpp" />
+    <ClCompile Include="..\Private\Player.cpp" />
+    <ClCompile Include="..\Private\PlayerInfoUI.cpp" />
+    <ClCompile Include="..\Private\Player_Attack.cpp" />
+    <ClCompile Include="..\Private\Player_Skill.cpp" />
+    <ClCompile Include="..\Private\SkillbookUI.cpp" />
+    <ClCompile Include="..\Private\SkillInfoUI.cpp" />
+    <ClCompile Include="..\Private\Sky.cpp" />
+    <ClCompile Include="..\Private\Terrain.cpp" />
+    <ClCompile Include="..\Private\TestBox.cpp" />
+    <ClCompile Include="Client.cpp" />
+>>>>>>> BHW
     <ClCompile Include="stdafx.cpp">
       <Filter>98.Default</Filter>
     </ClCompile>

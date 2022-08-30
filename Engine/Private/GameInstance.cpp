@@ -12,8 +12,7 @@ CGameInstance::CGameInstance()
 	//, m_pKeyComponent_Manager(CComponent_Manager::Get_Instance())
 
 {
-	//sdsdsdsds
-	//TEXT
+
 	//Safe_AddRef(m_pKeyComponent_Manager);
 	Safe_AddRef(m_pComponent_Manager);
 	Safe_AddRef(m_pTimer_Manager);

@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 ﻿  Level_GamePlay.cpp
 c:\users\user\documents\github\sr_-_maple\client\private\level_gameplay.cpp(126): warning C4244: '=': 'float'에서 'Engine::_int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
 c:\users\user\documents\github\sr_-_maple\client\private\level_gameplay.cpp(127): warning C4244: '=': 'float'에서 'Engine::_int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
@@ -17,4 +18,8 @@ c:\users\rkdtm\onedrive\바탕 화면\git\sr_-_maple\client\private\inventoryui.
 c:\users\rkdtm\onedrive\바탕 화면\git\sr_-_maple\client\private\inventoryui.cpp(59): warning C4101: 'fMx' :참조되지 않은 지역 변수입니다.
   Client.vcxproj -> C:\Users\rkdtm\OneDrive\바탕 화면\Git\sr_-_maple\Client\Default\..\Bin\Client.exe
 >>>>>>> panggee
+=======
+﻿  Loader.cpp
+  Client.vcxproj -> C:\Users\Dev.Bae\Desktop\TeamPo6\sr_-_maple\Client\Default\..\Bin\Client.exe
+>>>>>>> BHW
   Client.vcxproj -> ..\Bin\Client.pdb (Full PDB)

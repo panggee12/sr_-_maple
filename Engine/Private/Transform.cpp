@@ -234,6 +234,7 @@ void CTransform::LookAt(_float3 vPoint)
 
 	_float3		vUp = *D3DXVec3Cross(&vUp, &vLook, &vRight);
 
+
 	_float3		vScale = Get_Scale();
 
 	Set_State(CTransform::STATE_RIGHT, *D3DXVec3Normalize(&vRight, &vRight) * vScale.x);

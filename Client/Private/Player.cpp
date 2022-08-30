@@ -168,7 +168,7 @@ void CPlayer::Tick(_float fTimeDelta)
 	}
 	//m_pTransformCom->Fall(fTimeDelta);
 	
-	if (Keyboard = pGameInstance->Get_DIKState(DIK_C) && !m_pTransformCom->Get_Fall())
+	if (Keyboard = pGameInstance->Get_DIKState(DIK_C)&& !m_pTransformCom->Get_Fall())
 	{
 		m_pTransformCom->Set_Jump(true);
 		m_pTransformCom->Set_Fall(true);
@@ -418,16 +418,11 @@ HRESULT CPlayer::Ready_Layer_Player_Skill(const _tchar * pLayerTag, _float fTime
 	if (FAILED(pGameInstance->Add_GameObject(TEXT("Prototype_GameObject_Player_Skill"), LEVEL_GAMEPLAY, pLayerTag, vPosition_S)))
 		return E_FAIL;
 
-	m_fSkillTime = m_fSkillTime + 0.5f;
+	//m_fSkillTime = m_fSkillTime + 0.5f;
+	
+	auto Monster = pGameInstance->Find_Target(LEVEL_GAMEPLAY, TEXT("Layer_Monster"));
 
-	//if (m_fSkillTime >= 1.f)
-	//{
-	//	//auto Targer =pGameInstance->Find_Target(LEVEL_GAMEPLAY, (TEXT("Layer_Playe_Skill")));
-	//	//pGameInstance->Free();
-
-	//	Safe_Release(pGameInstance);
-
-	//}
+	
 
 	Safe_Release(pGameInstance);
 	return S_OK;
@@ -445,7 +440,7 @@ HRESULT CPlayer::Ready_Layer_Player_Attack(const _tchar * pLayerTag, _float fTim
 	if (FAILED(pGameInstance->Add_GameObject(TEXT("Prototype_GameObject_Player_Attack"), LEVEL_GAMEPLAY, pLayerTag, vPosition_)))
 		return E_FAIL;
 
-	m_fSkillTime = m_fSkillTime + 0.5f;
+	//m_fSkillTime = m_fSkillTime + 0.5f;
 
 	auto Monster = pGameInstance->Find_Target(LEVEL_GAMEPLAY, TEXT("Layer_Monster"));
 

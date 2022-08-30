@@ -96,6 +96,12 @@
     </Filter>
     <Filter Include="02.GameObject\UI\GamePlayUI\InfoUI\SkillInfoUI">
       <UniqueIdentifier>{bf629d71-72a5-4532-99be-c318c93d18cb}</UniqueIdentifier>
+<<<<<<< HEAD
+=======
+    </Filter>
+    <Filter Include="02.GameObject\Player\Player_Attack">
+      <UniqueIdentifier>{d067b344-d3c5-453a-8f9d-839fdf50b1ab}</UniqueIdentifier>
+>>>>>>> BHW
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -191,6 +197,12 @@
     </ClInclude>
     <ClInclude Include="..\Public\SkillInfoUI.h">
       <Filter>02.GameObject\UI\GamePlayUI\InfoUI\SkillInfoUI</Filter>
+<<<<<<< HEAD
+=======
+    </ClInclude>
+    <ClInclude Include="..\Public\Player_Attack.h">
+      <Filter>02.GameObject\Player\Player_Attack</Filter>
+>>>>>>> BHW
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -274,6 +286,12 @@
     </ClCompile>
     <ClCompile Include="..\Private\SkillInfoUI.cpp">
       <Filter>02.GameObject\UI\GamePlayUI\InfoUI\SkillInfoUI</Filter>
+<<<<<<< HEAD
+=======
+    </ClCompile>
+    <ClCompile Include="..\Private\Player_Attack.cpp">
+      <Filter>02.GameObject\Player\Player_Attack</Filter>
+>>>>>>> BHW
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
