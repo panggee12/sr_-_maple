@@ -129,7 +129,7 @@ void CPlayer::Tick(_float fTimeDelta)
 
 	}
 
-	else if (GetKeyState('A') & 0x8000)
+	else if (GetKeyState('Q') & 0x8000)
 	{
 		m_ePlayer_State = PLAYER_ATTACK;
 
@@ -138,7 +138,7 @@ void CPlayer::Tick(_float fTimeDelta)
 
 	}
 
-	else if (GetKeyState('S') & 0x8000)
+	else if (GetKeyState('X') & 0x8000)
 	{
 		Player_Attack(m_ePlayer_State, m_ePlayer_Attack, fTimeDelta);
 
@@ -162,7 +162,7 @@ void CPlayer::Tick(_float fTimeDelta)
 		m_ePlayer_State = PLAYER_ATTACK;
 	}
 	
-	if (Keyboard = pGameInstance->Get_DIKState(DIK_X))
+	if (Keyboard = pGameInstance->Get_DIKState(DIK_U))
 	{
 		m_pTransformCom->Down(fTimeDelta);
 	}
