@@ -183,12 +183,12 @@ CGameObject * CGameInstance::Get_BackObject(_uint iLevelIndex, const _tchar * pL
 	return m_pObject_Manager->Get_BackObject(iLevelIndex, pLayerTag);
 }
 
-bool CGameInstance::Collision(_uint iLevelIndex, const _tchar * col1, const _tchar * col2, _float fTimeDelta)
+bool CGameInstance::Collision(_uint iLevelIndex, const _tchar * col1, const _tchar * col2, _float fTimeDelta, _float3 f1Scale, _float3 f2Scale)
 {
 	if (nullptr == m_pObject_Manager)
 		return false;
 
-	if (m_pObject_Manager->Collision(iLevelIndex, col1, col2, fTimeDelta))
+	if (m_pObject_Manager->Collision(iLevelIndex, col1, col2, fTimeDelta, f1Scale, f2Scale))
 		return true;
 
 	return false;
@@ -202,12 +202,12 @@ int CGameInstance::Collision_Rect_Cube(_uint iLevelIndex, const _tchar * col1, c
 	return m_pObject_Manager->Collision_Rect_Cube(iLevelIndex, col1, col2, fTimeDelta);
 }
 
-bool CGameInstance::Collision_Attacked(_uint iLevelIndex, const _tchar * col1, const _tchar * col2, _float fTimeDelta, int ioption)
+bool CGameInstance::Collision_Attacked(_uint iLevelIndex, const _tchar * col1, const _tchar * col2, _float fTimeDelta, int ioption, _float3 f1Scale, _float3 f2Scale)
 {
 	if (nullptr == m_pObject_Manager)
 		return false;
 
-	return m_pObject_Manager->Collision_Attacked(iLevelIndex, col1, col2, fTimeDelta,ioption);
+	return m_pObject_Manager->Collision_Attacked(iLevelIndex, col1, col2, fTimeDelta,ioption, f1Scale, f2Scale);
 }
 
 HRESULT CGameInstance::Add_Prototype(_uint iLevelIndex, const _tchar * pPrototypeTag, CComponent * pPrototype)

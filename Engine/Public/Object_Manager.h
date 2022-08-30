@@ -22,8 +22,8 @@ public:
 	void Late_Tick(_float fTimeDelta);
 	void Clear(_uint iLevelIndex);
 public:
-	bool Collision(_uint iLevelIndex, const _tchar* col1, const _tchar* col2, _float fTimeDelta);
-	bool Collision_Attacked(_uint iLevelIndex, const _tchar* col1, const _tchar* col2, _float fTimeDelta, int ioption);
+	bool Collision(_uint iLevelIndex, const _tchar* col1, const _tchar* col2, _float fTimeDelta, _float3 f1Scale, _float3 f2Scale);
+	bool Collision_Attacked(_uint iLevelIndex, const _tchar* col1, const _tchar* col2, _float fTimeDelta, int ioption, _float3 f1Scale, _float3 f2Scale);
 	int Collision_Rect_Cube(_uint iLevelIndex, const _tchar* col1, const _tchar* col2, _float fTimeDelta);
 	class CGameObject* Find_Target(_uint iLevelIndex, const _tchar* pLayerTag);
 	class CGameObject* Get_BackObject(_uint iLevelIndex, const _tchar* pLayerTag);

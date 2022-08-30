@@ -10,7 +10,7 @@ public:
 	virtual ~CCollisionMgr()=default;
 
 public:
-	bool CollisionCheck(class CTransform* p1Trans, class CTransform* p2Trans, _float fTimeDelta);
+	bool CollisionCheck(class CTransform* p1Trans, class CTransform* p2Trans, _float fTimeDelta, _float3 f1Scale, _float3 f2Scale);
 	bool Collision_Rect_Cube(class CTransform* p1Trans, class CTransform* p2Trans, _float fTimeDelta);
 	bool CollisionBlock(class CTransform* p1Trans, class CTransform* p2Trans, _float fTimeDelta);
 

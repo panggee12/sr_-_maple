@@ -7,17 +7,17 @@ CCollisionMgr::CCollisionMgr()
 {
 }
 
-bool CCollisionMgr::CollisionCheck(class CTransform * p1Trans, class CTransform * p2Trans, _float fTimeDelta)
-{
+bool CCollisionMgr::CollisionCheck(class CTransform * p1Trans, class CTransform * p2Trans, _float fTimeDelta, _float3 f1Scale, _float3 f2Scale)
+{//0.15 0.3 0.15
 	_float3 p1pos = p1Trans->Get_State(CTransform::STATE_POSITION);
-	_float fx1 = 0.15f*D3DXVec3Length(&p1Trans->Get_State(CTransform::STATE_RIGHT));
-	_float fy1 = 0.3f*D3DXVec3Length(&p1Trans->Get_State(CTransform::STATE_UP));
-	_float fz1 = 0.15f*D3DXVec3Length(&p1Trans->Get_State(CTransform::STATE_LOOK));
+	_float fx1 = f1Scale.x*D3DXVec3Length(&p1Trans->Get_State(CTransform::STATE_RIGHT));
+	_float fy1 = f1Scale.y*D3DXVec3Length(&p1Trans->Get_State(CTransform::STATE_UP));
+	_float fz1 = f1Scale.z*D3DXVec3Length(&p1Trans->Get_State(CTransform::STATE_LOOK));
 
 	_float3 p2pos = p2Trans->Get_State(CTransform::STATE_POSITION);
-	_float fx2 = 0.5f*D3DXVec3Length(&p2Trans->Get_State(CTransform::STATE_RIGHT));
-	_float fy2 = 0.5f*D3DXVec3Length(&p2Trans->Get_State(CTransform::STATE_UP));
-	_float fz2 = 0.5f*D3DXVec3Length(&p2Trans->Get_State(CTransform::STATE_LOOK));
+	_float fx2 = f2Scale.x*D3DXVec3Length(&p2Trans->Get_State(CTransform::STATE_RIGHT));
+	_float fy2 = f2Scale.y*D3DXVec3Length(&p2Trans->Get_State(CTransform::STATE_UP));
+	_float fz2 = f2Scale.z*D3DXVec3Length(&p2Trans->Get_State(CTransform::STATE_LOOK));
 
 	//if( (  x1 <= x4  and   x2 >= x3 ) and ( y1 <= y4 and y2 >= y3 ) and ( z1 <= z4 and z2 >= z3 )
 	
