@@ -52,11 +52,13 @@ void CPlayer_Skill::Tick(_float fTimeDelta)
 	GetCursorPos(&ptMouse);
 	ScreenToClient(g_hWnd, &ptMouse);
 
-	if (PtInRect(&rcRect, ptMouse))
-	{
-		ERR_MSG(L"Ãæµ¹");
-	}
+	CGameInstance* pGameInstance = CGameInstance::Get_Instance();
 
+	Safe_AddRef(pGameInstance);
+
+	pGameInstance->Collision_Attacked(LEVEL_GAMEPLAY, TEXT(""))
+
+	Safe_Release(pGameInstance);
 }
 
 void CPlayer_Skill::Late_Tick(_float fTimeDelta)
