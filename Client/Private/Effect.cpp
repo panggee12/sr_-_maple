@@ -59,6 +59,25 @@ void CEffect::Tick(_float fTimeDelta)
 		m_EffectFrame = 0;
 
 	}
+	if (m_EffectFrame == 4)
+	{
+		Free();
+	}
+
+	CGameInstance*			pGameInstance = CGameInstance::Get_Instance();
+	Safe_AddRef(pGameInstance);
+
+	if (pGameInstance->Collision_Attacked(LEVEL_GAMEPLAY, TEXT("Layer_Monster"), TEXT("Layer_Playe_Skill"), fTimeDelta, 1))
+	{
+		
+	}
+
+	//if (pGameInstance->Collision_Attacked(LEVEL_GAMEPLAY, TEXT("Layer_Monster"), TEXT("Layer_Playe_Attack"), fTimeDelta, 1))
+	//{
+
+	//	Fire_Efect_On(TEXT("Layer_Monster"), fTimeDelta);
+	//}
+
 	//_float MonsterPosx = Monster->CMonster::Get_Transform()->Get_State(CTransform::STATE_POSITION).x;
 	//_float MonsterPosy = Monster->CMonster::Get_Transform()->Get_State(CTransform::STATE_POSITION).y;
 	//_float MonsterPosz = Monster->CMonster::Get_Transform()->Get_State(CTransform::STATE_POSITION).z;

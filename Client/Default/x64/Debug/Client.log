@@ -1,6 +1,4 @@
-﻿  Player_Attack.cpp
-c:\users\dev.bae\desktop\teampo6\sr_-_maple\client\private\player_attack.cpp(168): warning C4244: '인수': 'Engine::_float'에서 'Engine::_uint'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\dev.bae\desktop\teampo6\sr_-_maple\client\private\player_attack.cpp(240): error C2065: 'm_pTransformCom': 선언되지 않은 식별자입니다.
-c:\users\dev.bae\desktop\teampo6\sr_-_maple\client\private\player_attack.cpp(240): error C2227: '->Get_State' 왼쪽은 클래스/구조체/공용 구조체/제네릭 형식을 가리켜야 합니다.
-  c:\users\dev.bae\desktop\teampo6\sr_-_maple\client\private\player_attack.cpp(240): note: 'unknown-type' 형식입니다.
-c:\users\dev.bae\desktop\teampo6\sr_-_maple\client\private\player_attack.cpp(242): error C2065: 'vPosition_S': 선언되지 않은 식별자입니다.
+﻿  Effect.cpp
+c:\users\dev.bae\desktop\teampo6\sr_-_maple\client\private\effect.cpp(143): warning C4244: '인수': 'Engine::_float'에서 'Engine::_uint'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Client.vcxproj -> C:\Users\Dev.Bae\Desktop\TeamPo6\sr_-_maple\Client\Default\..\Bin\Client.exe
+  Client.vcxproj -> ..\Bin\Client.pdb (Full PDB)

@@ -45,6 +45,7 @@ private:
 	HRESULT Release_RenderState();
 	HRESULT Fire_Efect_On(const _tchar * pLayerTag, _float fTimeDelta);
 
+
 public:
 	static CPlayer_Attack* Create(LPDIRECT3DDEVICE9 pGraphic_Device);
 	virtual CGameObject* Clone(void* pArg = nullptr) override;
