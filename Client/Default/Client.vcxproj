@@ -102,106 +102,6 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
-    <ClInclude Include="..\Public\MainApp.h">
-      <Filter>00.MainApp</Filter>
-    </ClInclude>
-    <ClInclude Include="Client.h">
-      <Filter>98.Default</Filter>
-    </ClInclude>
-    <ClInclude Include="Resource.h">
-      <Filter>98.Default</Filter>
-    </ClInclude>
-    <ClInclude Include="targetver.h">
-      <Filter>98.Default</Filter>
-    </ClInclude>
-    <ClInclude Include="stdafx.h">
-      <Filter>98.Default</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Public\Client_Defines.h">
-      <Filter>99.Defines</Filter>
-    </ClInclude>
-    <ClInclude Include="..\public\Level_Logo.h">
-      <Filter>01.Levels\Logo</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Public\Level_GamePlay.h">
-      <Filter>01.Levels\GamePlay</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Public\Level_Loading.h">
-      <Filter>01.Levels\Loading</Filter>
-    </ClInclude>
-    <ClInclude Include="..\public\Loader.h">
-      <Filter>01.Levels\Loading\Loader</Filter>
-    </ClInclude>
-    <ClInclude Include="..\public\BackGround.h">
-      <Filter>02.GameObject\BackGround</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Public\Terrain.h">
-      <Filter>02.GameObject\Terrain</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Public\Camera_Dynamic.h">
-      <Filter>02.GameObject\Camera</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Public\Sky.h">
-      <Filter>02.GameObject\Sky</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Public\Player.h">
-      <Filter>02.GameObject\Player</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Public\TestBox.h">
-      <Filter>02.GameObject\TestBox</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Public\CubeTerrain.h">
-      <Filter>02.GameObject\CubeTerrain</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Public\Monster.h">
-      <Filter>02.GameObject\Monster</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Public\Player_Skill.h">
-      <Filter>02.GameObject\Player\Skill</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Public\LupangMonster.h">
-      <Filter>02.GameObject\Monster\LupangMonster</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Public\LupangSkill.h">
-      <Filter>02.GameObject\Monster\LupangMonster\LupangSkill</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Public\LogoUI.h">
-      <Filter>02.GameObject\UI\LogoUI</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Public\ExpBarUI.h">
-      <Filter>02.GameObject\UI\GamePlayUI\ExpBarUI</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Public\HpBarUI.h">
-      <Filter>02.GameObject\UI\GamePlayUI\HpBarUI</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Public\InventoryButtonUI.h">
-      <Filter>02.GameObject\UI\GamePlayUI\InventoryUI\Button</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Public\InventoryUI.h">
-      <Filter>02.GameObject\UI\GamePlayUI\InventoryUI</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Public\SkillbookUI.h">
-      <Filter>02.GameObject\UI\GamePlayUI\SkillBookUI</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Public\ItemInfoUI.h">
-      <Filter>02.GameObject\UI\GamePlayUI\InfoUI\ItemInfoUI</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Public\PlayerInfoUI.h">
-      <Filter>02.GameObject\UI\GamePlayUI\InfoUI\PlayerInfoUI</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Public\SkillInfoUI.h">
-      <Filter>02.GameObject\UI\GamePlayUI\InfoUI\SkillInfoUI</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\Private\MainApp.cpp">
-      <Filter>00.MainApp</Filter>
-    </ClCompile>
-    <ClCompile Include="Client.cpp">
-      <Filter>98.Default</Filter>
-    </ClCompile>
-=======
     <ClInclude Include="..\public\BackGround.h" />
     <ClInclude Include="..\Public\Camera_Dynamic.h" />
     <ClInclude Include="..\Public\Client_Defines.h" />
@@ -262,7 +162,6 @@
     <ClCompile Include="..\Private\Terrain.cpp" />
     <ClCompile Include="..\Private\TestBox.cpp" />
     <ClCompile Include="Client.cpp" />
->>>>>>> BHW
     <ClCompile Include="stdafx.cpp">
       <Filter>98.Default</Filter>
     </ClCompile>
