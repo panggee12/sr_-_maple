@@ -320,7 +320,7 @@ HRESULT CPlayer::Release_RenderState()
 
 void CPlayer::Player_Idel(PLAYER_STATE _PlayerState,_float fTimeDelta)
 {
-	if (m_ePlayer_State==PLAYER_IDLE&&m_bPlayer_Idle == true)
+	if (m_ePlayer_State==PLAYER_IDLE&&m_bPlayer_Move == false)
 	{
 		if (m_uFrameNum <= 0 || m_uFrameNum >= 7)
 		{
