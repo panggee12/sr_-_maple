@@ -56,7 +56,7 @@ void CPlayer_Skill::Tick(_float fTimeDelta)
 
 	Safe_AddRef(pGameInstance);
 
-	pGameInstance->Collision_Attacked(LEVEL_GAMEPLAY, TEXT(""))
+	//pGameInstance->Collision_Attacked(LEVEL_GAMEPLAY, TEXT(""))
 
 	Safe_Release(pGameInstance);
 }

@@ -142,7 +142,7 @@ void CPlayer::Tick(_float fTimeDelta)
 	}
 	//m_pTransformCom->Fall(fTimeDelta);
 	
-	if (Keyboard = pGameInstance->Get_DIKState(DIK_C)&& !m_pTransformCom->Get_Fall())
+	if (Keyboard = pGameInstance->Get_DIKState(DIK_C) && !m_pTransformCom->Get_Fall())
 	{
 		m_pTransformCom->Set_Jump(true);
 		m_pTransformCom->Set_Fall(true);
