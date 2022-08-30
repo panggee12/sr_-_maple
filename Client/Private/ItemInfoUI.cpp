@@ -1,18 +1,19 @@
 #include "stdafx.h"
-#include "..\Public\UI.h"
+#include "ItemInfoUI.h"
 #include "GameInstance.h"
+#include "Loader.h"
 
-CUI::CUI(LPDIRECT3DDEVICE9 pGraphic_Device)
+CItemInfoUI::CItemInfoUI(LPDIRECT3DDEVICE9 pGraphic_Device)
 	: CGameObject(pGraphic_Device)
 {
 }
 
-CUI::CUI(const CUI & rhs)
+CItemInfoUI::CItemInfoUI(const CItemInfoUI & rhs)
 	: CGameObject(rhs)
 {
 }
 
-HRESULT CUI::Initialize_Prototype()
+HRESULT CItemInfoUI::Initialize_Prototype()
 {
 	if (FAILED(__super::Initialize_Prototype()))
 		return E_FAIL;
@@ -20,46 +21,35 @@ HRESULT CUI::Initialize_Prototype()
 	return S_OK;
 }
 
-HRESULT CUI::Initialize(void* pArg)
+HRESULT CItemInfoUI::Initialize(void* pArg)
 {
 	if (FAILED(__super::Initialize(pArg)))
 		return E_FAIL;
 
+	_float3 vPos = {};
+
+	memcpy(&vPos, pArg, sizeof(_float3));
+
 	D3DXMatrixOrthoLH(&m_ProjMatrix, g_iWinSizeX, g_iWinSizeY, 0.f, 1.f);
 
-	m_fSizeX = 200.0f;
-	m_fSizeY = 200.0f;
-	m_fX = 100.f;
-	m_fY = 100.f;
+	m_fSizeX = 66.f;
+	m_fSizeY = 66.f;
 
 	if (FAILED(SetUp_Components()))
 		return E_FAIL;
 
 	m_pTransformCom->Set_Scaled(_float3(m_fSizeX, m_fSizeY, 1.f));
-	m_pTransformCom->Set_State(CTransform::STATE_POSITION, _float3(m_fX - g_iWinSizeX * 0.5f, -m_fY + g_iWinSizeY * 0.5f, 0.f));
+	m_pTransformCom->Set_State(CTransform::STATE_POSITION, _float3(vPos.x + 770.f - g_iWinSizeX * 0.5f , -vPos.y + g_iWinSizeY * 0.5f, 0.f));
 
 	return S_OK;
 }
 
-void CUI::Tick(_float fTimeDelta)
+void CItemInfoUI::Tick(_float fTimeDelta)
 {
 	__super::Tick(fTimeDelta);	
-
-	RECT		rcRect;
-	SetRect(&rcRect, m_fX - m_fSizeX * 0.5f, m_fY - m_fSizeY * 0.5f, m_fX + m_fSizeX * 0.5f, m_fY + m_fSizeY * 0.5f);
-
-	POINT		ptMouse;
-	GetCursorPos(&ptMouse);
-	ScreenToClient(g_hWnd, &ptMouse);
-
-	if (PtInRect(&rcRect, ptMouse))
-	{
-		ERR_MSG(L"Ãæµ¹");
-	}
-
 }
 
-void CUI::Late_Tick(_float fTimeDelta)
+void CItemInfoUI::Late_Tick(_float fTimeDelta)
 {
 	__super::Late_Tick(fTimeDelta);
 
@@ -67,7 +57,7 @@ void CUI::Late_Tick(_float fTimeDelta)
 		m_pRendererCom->Add_RenderGroup(CRenderer::RENDER_UI, this);
 }
 
-HRESULT CUI::Render()
+HRESULT CItemInfoUI::Render()
 {
 	if (FAILED(__super::Render()))
 		return E_FAIL;
@@ -97,14 +87,14 @@ HRESULT CUI::Render()
 	return S_OK;
 }
 
-HRESULT CUI::SetUp_Components()
+HRESULT CItemInfoUI::SetUp_Components()
 {
 	/* For.Com_Renderer */
 	if (FAILED(__super::Add_Components(TEXT("Com_Renderer"), LEVEL_STATIC, TEXT("Prototype_Component_Renderer"), (CComponent**)&m_pRendererCom)))
 		return E_FAIL;
 
 	/* For.Com_Texture */
-	if (FAILED(__super::Add_Components(TEXT("Com_Texture"), LEVEL_GAMEPLAY, TEXT("Prototype_Component_Texture_UI"), (CComponent**)&m_pTextureCom)))
+	if (FAILED(__super::Add_Components(TEXT("Com_Texture"), LEVEL_GAMEPLAY, TEXT("Prototype_Component_Texture_ItemInfoUI"), (CComponent**)&m_pTextureCom)))
 		return E_FAIL;
 
 	/* For.Com_VIBuffer */
@@ -126,50 +116,52 @@ HRESULT CUI::SetUp_Components()
 	return S_OK;
 }
 
-HRESULT CUI::SetUp_RenderState()
+HRESULT CItemInfoUI::SetUp_RenderState()
 {
 	if (nullptr == m_pGraphic_Device)
 		return E_FAIL;	
 
-	//m_pGraphic_Device->SetRenderState(D3DRS_FILLMODE, D3DFILL_WIREFRAME);
+	m_pGraphic_Device->SetRenderState(D3DRS_ALPHATESTENABLE, TRUE);
+	m_pGraphic_Device->SetRenderState(D3DRS_ALPHAREF, 60);
+	m_pGraphic_Device->SetRenderState(D3DRS_ALPHAFUNC, D3DCMP_GREATEREQUAL);
 
 	return S_OK;
 }
 
-HRESULT CUI::Release_RenderState()
+HRESULT CItemInfoUI::Release_RenderState()
 {
-	//m_pGraphic_Device->SetRenderState(D3DRS_FILLMODE, D3DFILL_SOLID);
+	m_pGraphic_Device->SetRenderState(D3DRS_ALPHATESTENABLE, FALSE);
 
 	return S_OK;
 }
 
-CUI * CUI::Create(LPDIRECT3DDEVICE9 pGraphic_Device)
+CItemInfoUI * CItemInfoUI::Create(LPDIRECT3DDEVICE9 pGraphic_Device)
 {
-	CUI*	pInstance = new CUI(pGraphic_Device);
+	CItemInfoUI*	pInstance = new CItemInfoUI(pGraphic_Device);
 
 	if (FAILED(pInstance->Initialize_Prototype()))
 	{
-		ERR_MSG(TEXT("Failed to Created : CUI"));
+		ERR_MSG(TEXT("Failed to Created : CItemInfoUI"));
 		Safe_Release(pInstance);
 	}
 
 	return pInstance;
 }
 
-CGameObject * CUI::Clone(void* pArg)
+CGameObject * CItemInfoUI::Clone(void* pArg)
 {
-	CUI*	pInstance = new CUI(*this);
+	CItemInfoUI*	pInstance = new CItemInfoUI(*this);
 
 	if (FAILED(pInstance->Initialize(pArg)))
 	{
-		ERR_MSG(TEXT("Failed to Cloned : CUI"));
+		ERR_MSG(TEXT("Failed to Cloned : CItemInfoUI"));
 		Safe_Release(pInstance);
 	}
 
 	return pInstance;
 }
 
-void CUI::Free()
+void CItemInfoUI::Free()
 {
 	__super::Free();
 
