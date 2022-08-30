@@ -64,8 +64,41 @@
     <Filter Include="02.GameObject\Monster\LupangMonster\LupangSkill">
       <UniqueIdentifier>{2808bf90-8294-4d2b-87ec-519e32e333bd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="02.GameObject\UI\LogoUI">
+      <UniqueIdentifier>{e45cd696-5c4e-4608-8404-cc891e7ae327}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObject\UI\GamePlayUI">
+      <UniqueIdentifier>{437274e9-4eef-4e36-aa83-d1ebdd575d4c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObject\UI\GamePlayUI\ExpBarUI">
+      <UniqueIdentifier>{a4a48b5e-8cfa-4616-ad81-fca75a26fdf7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObject\UI\GamePlayUI\HpBarUI">
+      <UniqueIdentifier>{05464129-667f-4360-a2d8-a876ad0fe01c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObject\UI\GamePlayUI\InventoryUI">
+      <UniqueIdentifier>{a291a183-2330-4579-ba70-aaf338b4d005}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObject\UI\GamePlayUI\InventoryUI\Button">
+      <UniqueIdentifier>{9629ab82-0010-4300-8653-bcaacf336e0a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObject\UI\GamePlayUI\SkillBookUI">
+      <UniqueIdentifier>{466509cb-c83d-443a-96a8-eaa1e63bc66a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObject\UI\GamePlayUI\InfoUI">
+      <UniqueIdentifier>{0b243368-34d9-434b-bb19-86fdff3ce950}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObject\UI\GamePlayUI\InfoUI\PlayerInfoUI">
+      <UniqueIdentifier>{add150b1-8b37-45a1-be53-b4f7af40d25a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObject\UI\GamePlayUI\InfoUI\ItemInfoUI">
+      <UniqueIdentifier>{d9a72fdc-e84f-44dd-80ca-6e7055122124}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObject\UI\GamePlayUI\InfoUI\SkillInfoUI">
+      <UniqueIdentifier>{bf629d71-72a5-4532-99be-c318c93d18cb}</UniqueIdentifier>
+    </Filter>
     <Filter Include="02.GameObject\Player\Player_Attack">
-      <UniqueIdentifier>{1b3cb412-4efb-4328-b54c-5ebd95c28a5b}</UniqueIdentifier>
+      <UniqueIdentifier>{d067b344-d3c5-453a-8f9d-839fdf50b1ab}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -86,6 +119,9 @@
     </ClInclude>
     <ClInclude Include="stdafx.h">
       <Filter>98.Default</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Client_Defines.h">
+      <Filter>99.Defines</Filter>
     </ClInclude>
     <ClInclude Include="..\public\Level_Logo.h">
       <Filter>01.Levels\Logo</Filter>
@@ -111,9 +147,6 @@
     <ClInclude Include="..\Public\Sky.h">
       <Filter>02.GameObject\Sky</Filter>
     </ClInclude>
-    <ClInclude Include="..\Public\UI.h">
-      <Filter>02.GameObject\UI</Filter>
-    </ClInclude>
     <ClInclude Include="..\Public\Player.h">
       <Filter>02.GameObject\Player</Filter>
     </ClInclude>
@@ -135,8 +168,32 @@
     <ClInclude Include="..\Public\LupangSkill.h">
       <Filter>02.GameObject\Monster\LupangMonster\LupangSkill</Filter>
     </ClInclude>
-    <ClInclude Include="..\Public\Client_Defines.h">
-      <Filter>99.Defines</Filter>
+    <ClInclude Include="..\Public\LogoUI.h">
+      <Filter>02.GameObject\UI\LogoUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\ExpBarUI.h">
+      <Filter>02.GameObject\UI\GamePlayUI\ExpBarUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\HpBarUI.h">
+      <Filter>02.GameObject\UI\GamePlayUI\HpBarUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\InventoryButtonUI.h">
+      <Filter>02.GameObject\UI\GamePlayUI\InventoryUI\Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\InventoryUI.h">
+      <Filter>02.GameObject\UI\GamePlayUI\InventoryUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\SkillbookUI.h">
+      <Filter>02.GameObject\UI\GamePlayUI\SkillBookUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\ItemInfoUI.h">
+      <Filter>02.GameObject\UI\GamePlayUI\InfoUI\ItemInfoUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\PlayerInfoUI.h">
+      <Filter>02.GameObject\UI\GamePlayUI\InfoUI\PlayerInfoUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\SkillInfoUI.h">
+      <Filter>02.GameObject\UI\GamePlayUI\InfoUI\SkillInfoUI</Filter>
     </ClInclude>
     <ClInclude Include="..\Public\Player_Attack.h">
       <Filter>02.GameObject\Player\Player_Attack</Filter>
@@ -176,9 +233,6 @@
     <ClCompile Include="..\Private\Sky.cpp">
       <Filter>02.GameObject\Sky</Filter>
     </ClCompile>
-    <ClCompile Include="..\Private\UI.cpp">
-      <Filter>02.GameObject\UI</Filter>
-    </ClCompile>
     <ClCompile Include="..\Private\Player.cpp">
       <Filter>02.GameObject\Player</Filter>
     </ClCompile>
@@ -199,6 +253,33 @@
     </ClCompile>
     <ClCompile Include="..\Private\LupangSkill.cpp">
       <Filter>02.GameObject\Monster\LupangMonster\LupangSkill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\LogoUI.cpp">
+      <Filter>02.GameObject\UI\LogoUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\ExpBarUI.cpp">
+      <Filter>02.GameObject\UI\GamePlayUI\ExpBarUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\HpBarUI.cpp">
+      <Filter>02.GameObject\UI\GamePlayUI\HpBarUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\InventoryButtonUI.cpp">
+      <Filter>02.GameObject\UI\GamePlayUI\InventoryUI\Button</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\InventoryUI.cpp">
+      <Filter>02.GameObject\UI\GamePlayUI\InventoryUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\SkillbookUI.cpp">
+      <Filter>02.GameObject\UI\GamePlayUI\SkillBookUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\ItemInfoUI.cpp">
+      <Filter>02.GameObject\UI\GamePlayUI\InfoUI\ItemInfoUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\PlayerInfoUI.cpp">
+      <Filter>02.GameObject\UI\GamePlayUI\InfoUI\PlayerInfoUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\SkillInfoUI.cpp">
+      <Filter>02.GameObject\UI\GamePlayUI\InfoUI\SkillInfoUI</Filter>
     </ClCompile>
     <ClCompile Include="..\Private\Player_Attack.cpp">
       <Filter>02.GameObject\Player\Player_Attack</Filter>

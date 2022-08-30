@@ -1,9 +1,6 @@
 #include "stdafx.h"
 #include "..\Public\Loader.h"
-
 #include "GameInstance.h"
-
-
 #include "Camera_Dynamic.h"
 #include "BackGround.h"
 #include "Terrain.h"
@@ -14,14 +11,6 @@
 #include "TestBox.h"
 #include "CubeTerrain.h"
 #include "LupangSkill.h"
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-#include "Player_Skill.h"
-#include "Player_Attack.h"
-=======
-<<<<<<< HEAD
-=======
->>>>>>> develop
 #include "LogoUI.h"
 #include "InventoryUI.h"
 #include "PlayerInfoUI.h"
@@ -30,14 +19,9 @@
 #include "ExpBarUI.h"
 #include "SkillInfoUI.h"
 #include "ItemInfoUI.h"
-<<<<<<< HEAD
-=======
 #include "Player_Skill.h"
 #include "Player_Attack.h"
->>>>>>> BHW
->>>>>>> Stashed changes
-=======
->>>>>>> develop
+
 
 CLoader::CLoader(LPDIRECT3DDEVICE9 pGraphic_Device)
 	: m_pGraphic_Device(pGraphic_Device)
@@ -172,6 +156,17 @@ HRESULT CLoader::Loading_ForGamePlayLevel()
 		CTexture::Create(m_pGraphic_Device, CTexture::TYPE_DEFAULT, TEXT("../Bin/Resources/Textures/Player/C_%d.png"), 88))))
 		return E_FAIL;
 
+	if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, TEXT("Prototype_Component_Texture_Player_Skill_Litening"),
+		CTexture::Create(m_pGraphic_Device, CTexture::TYPE_DEFAULT, TEXT("../Bin/Resources/Textures/Player/Skill/LT_%d.dds"), 7))))
+		return E_FAIL;
+
+	if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, TEXT("Prototype_Component_Texture_Player_Attack"),
+		CTexture::Create(m_pGraphic_Device, CTexture::TYPE_DEFAULT, TEXT("../Bin/Resources/Textures/Player/Player_Attack/FB_%d.dds"), 16))))
+		return E_FAIL;
+
+
+
+
 	/*For.Prototype_Component_Texture_Sky */
 	if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, TEXT("Prototype_Component_Texture_Sky"),
 		CTexture::Create(m_pGraphic_Device, CTexture::TYPE_CUBEMAP, TEXT("../Bin/Resources/Textures/SkyBox/Sky_%d.dds"), 13))))
@@ -201,6 +196,9 @@ HRESULT CLoader::Loading_ForGamePlayLevel()
 	if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, TEXT("Prototype_Component_Texture_MonkeySkill"),
 		CTexture::Create(m_pGraphic_Device, CTexture::TYPE_DEFAULT, TEXT("../Bin/Resources/Textures/Monster/Monkey/Skill/banana%d.png"), 6))))
 		return E_FAIL;
+
+
+
 
 	/* ¸ðµ¨ ·Îµù Áß. */
 	//lstrcpy(m_szLoadingText, TEXT("¸ðµ¨ ·Îµù Áß."));
@@ -262,6 +260,17 @@ HRESULT CLoader::Loading_ForGamePlayLevel()
 	if (FAILED(pGameInstance->Add_Prototype(TEXT("Prototype_GameObject_Player"),
 		CPlayer::Create(m_pGraphic_Device))))
 		return E_FAIL;
+
+	/*For.Prototype_GameObject_Player_Skill*/
+	if (FAILED(pGameInstance->Add_Prototype(TEXT("Prototype_GameObject_Player_Skill"),
+		CPlayer_Skill::Create(m_pGraphic_Device))))
+		return E_FAIL;
+
+	/*For.Prototype_GameObject_Player_Attack*/
+	if (FAILED(pGameInstance->Add_Prototype(TEXT("Prototype_GameObject_Player_Attack"),
+		CPlayer_Attack::Create(m_pGraphic_Device))))
+		return E_FAIL;
+
 
 	/*For.Prototype_GameObject_Monster*/
 	if (FAILED(pGameInstance->Add_Prototype(TEXT("Prototype_GameObject_Monster"),

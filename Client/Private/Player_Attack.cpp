@@ -12,7 +12,8 @@ CPlayer_Attack::CPlayer_Attack(LPDIRECT3DDEVICE9 pGraphic_Device)
 CPlayer_Attack::CPlayer_Attack(const CPlayer_Attack & rhs)
 	: CGameObject(rhs)
 {
-}
+} 
+
 
 HRESULT CPlayer_Attack::Initialize_Prototype()
 {
@@ -38,7 +39,7 @@ HRESULT CPlayer_Attack::Initialize(void* pArg)
 	m_fSizeX = 1.1f;
 	m_fSizeY = 1.1f;
 	m_fX = 1.f;
-	m_fY = 4.f;
+	m_fY = -4.f;
 
 	if (FAILED(SetUp_Components()))
 		return E_FAIL;
@@ -205,6 +206,7 @@ HRESULT CPlayer_Attack::SetUp_RenderState()
 {
 	if (nullptr == m_pGraphic_Device)
 		return E_FAIL;
+
 	m_pGraphic_Device->SetRenderState(D3DRS_ALPHATESTENABLE, TRUE);
 	//m_pGraphic_Device->SetRenderState(D3DRS_ALPHAREF, 250);
 	//m_pGraphic_Device->SetRenderState(D3DRS_ALPHAFUNC, D3DCMP_GREATEREQUAL);
