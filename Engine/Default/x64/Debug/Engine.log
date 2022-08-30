@@ -1,4 +1,5 @@
 ﻿  VIBuffer_Terrain.cpp
+<<<<<<< HEAD
 c:\users\rkdtm\onedrive\바탕 화면\git\sr_-_maple\engine\private\vibuffer_terrain.cpp(40): warning C4244: '인수': 'Engine::_uint'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   VIBuffer_Rect.cpp
   VIBuffer_CubeTerrain.cpp
@@ -6,13 +7,26 @@ c:\users\rkdtm\onedrive\바탕 화면\git\sr_-_maple\engine\private\vibuffer_cub
 c:\users\rkdtm\onedrive\바탕 화면\git\sr_-_maple\engine\private\vibuffer_cubeterrain.cpp(39): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
 c:\users\rkdtm\onedrive\바탕 화면\git\sr_-_maple\engine\private\vibuffer_cubeterrain.cpp(43): warning C4244: '인수': 'Engine::_int'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
 c:\users\rkdtm\onedrive\바탕 화면\git\sr_-_maple\engine\private\vibuffer_cubeterrain.cpp(46): warning C4244: '인수': 'Engine::_int'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+=======
+c:\users\user\documents\github\sr_-_maple\engine\private\vibuffer_terrain.cpp(40): warning C4244: '인수': 'Engine::_uint'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  VIBuffer_Rect.cpp
+  VIBuffer_CubeTerrain.cpp
+c:\users\user\documents\github\sr_-_maple\engine\private\vibuffer_cubeterrain.cpp(37): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\user\documents\github\sr_-_maple\engine\private\vibuffer_cubeterrain.cpp(39): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\user\documents\github\sr_-_maple\engine\private\vibuffer_cubeterrain.cpp(43): warning C4244: '인수': 'Engine::_int'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\user\documents\github\sr_-_maple\engine\private\vibuffer_cubeterrain.cpp(46): warning C4244: '인수': 'Engine::_int'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+>>>>>>> Jeong
   VIBuffer_Cube.cpp
   VIBuffer.cpp
   Transform.cpp
   Timer_Manager.cpp
   Timer.cpp
   Texture.cpp
+<<<<<<< HEAD
 c:\users\rkdtm\onedrive\바탕 화면\git\sr_-_maple\engine\private\texture.cpp(79): warning C4244: '인수': 'Engine::_float'에서 'unsigned __int64'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+=======
+c:\users\user\documents\github\sr_-_maple\engine\private\texture.cpp(79): warning C4244: '인수': 'Engine::_float'에서 'unsigned __int64'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+>>>>>>> Jeong
   Renderer.cpp
   Object_Manager.cpp
   Level_Manager.cpp
@@ -33,5 +47,9 @@ c:\users\rkdtm\onedrive\바탕 화면\git\sr_-_maple\engine\private\texture.cpp(
   코드를 생성하고 있습니다...
   LINK : ..\Bin\Engine.dll을(를) 찾을 수 없거나 마지막 증분 링크에 의해 빌드되지 않았습니다. 전체 링크를 수행하고 있습니다.
      ..\Bin\Engine.lib 라이브러리 및 ..\Bin\Engine.exp 개체를 생성하고 있습니다.
+<<<<<<< HEAD
   Engine.vcxproj -> C:\Users\rkdtm\OneDrive\바탕 화면\Git\sr_-_maple\Engine\Default\..\Bin\Engine.dll
+=======
+  Engine.vcxproj -> C:\Users\user\Documents\GitHub\sr_-_maple\Engine\Default\..\Bin\Engine.dll
+>>>>>>> Jeong
   Engine.vcxproj -> ..\Bin\Engine.pdb (Full PDB)
