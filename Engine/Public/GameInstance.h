@@ -6,6 +6,7 @@
 #include "Object_Manager.h"
 #include "Timer_Manager.h"
 #include "Component_Manager.h"
+#include "CollisionMgr.h"
 
 BEGIN(Engine)
 
@@ -45,9 +46,10 @@ public: /* For.Object_Manager */
 	HRESULT Add_GameObject(const _tchar* pPrototypeTag, _uint iLevelIndex, const _tchar* pLayerTag, void* pArg = nullptr);
 	class CGameObject* Find_Target(_uint iLevelIndex, const _tchar* pLayerTag);
 	class CGameObject* Get_BackObject(_uint iLevelIndex, const _tchar* pLayerTag);
-	bool Collision(_uint iLevelIndex, const _tchar* col1, const _tchar* col2, _float fTimeDelta, _float3 f1Scale, _float3 f2Scale);
-	int Collision_Rect_Cube(_uint iLevelIndex, const _tchar* col1, const _tchar* col2, _float fTimeDelta);
-	bool Collision_Attacked(_uint iLevelIndex, const _tchar* col1, const _tchar* col2, _float fTimeDelta, int ioption, _float3 f1Scale, _float3 f2Scale);
+	bool  Collision(_uint iLevelIndex, const _tchar* col1, const _tchar* col2, _float fTimeDelta, _float3 f1Scale, _float3 f2Scale);
+	int   Collision_Rect_Cube(_uint iLevelIndex, const _tchar* col1, const _tchar* col2, _float fTimeDelta);
+	bool  Collision_Attacked(_uint iLevelIndex, const _tchar* col1, const _tchar* col2, _float fTimeDelta, int ioption, _float3 f1Scale, _float3 f2Scale);
+	bool  Check_Layer(_uint iLevelIndex, const _tchar* pLayerTag);
 public: /* For.Component_Manager */
 	HRESULT Add_Prototype(_uint iLevelIndex, const _tchar* pPrototypeTag, class CComponent* pPrototype);
 	class CComponent* Clone_Component(_uint iLevelIndex, const _tchar* pPrototypeTag, void* pArg = nullptr);
@@ -62,6 +64,7 @@ private:
 	CObject_Manager*				m_pObject_Manager = nullptr;
 	CTimer_Manager*					m_pTimer_Manager = nullptr;
 	CComponent_Manager*				m_pComponent_Manager = nullptr;
+	CCollisionMgr*					m_pCollision_Manager = nullptr;
 	//CKeyMgr*						m_pKeyComponent_Manager = nullptr;
 public:
 	virtual void Free() override;

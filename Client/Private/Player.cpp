@@ -128,32 +128,29 @@ void CPlayer::Tick(_float fTimeDelta)
 		m_bPlayer_Idle = false;
 
 	}
-
-	else if (GetKeyState('A') & 0x8000)
+	
+	if (GetKeyState('A') & 0x8000)
 	{
-		m_ePlayer_State = PLAYER_ATTACK;
+		if (pGameInstance->Check_Layer(LEVEL_GAMEPLAY, TEXT("Layer_Monster")))
+		{
+			m_ePlayer_State = PLAYER_ATTACK;
 
-		if (FAILED(Ready_Layer_Player_Skill(TEXT("Layer_Playe_Skill"), fTimeDelta)));
-		return;
-
+			if (FAILED(Ready_Layer_Player_Skill(TEXT("Layer_Playe_Skill"), fTimeDelta)));
+			return;
+		}
 	}
 
 	else if (GetKeyState('S') & 0x8000)
 	{
-		Player_Attack(m_ePlayer_State, m_ePlayer_Attack, fTimeDelta);
+		if (pGameInstance->Check_Layer(LEVEL_GAMEPLAY, TEXT("Layer_Monster")))
+		{
+			Player_Attack(m_ePlayer_State, m_ePlayer_Attack, fTimeDelta);
 
-		if (FAILED(Ready_Layer_Player_Attack(TEXT("Layer_Playe_Attack"), fTimeDelta)));
-		return;
-
-		/*	CGameInstance* pAttack = CGameInstance::Get_Instance();
-
-		auto player_Attack_= pAttack->Find_Target(LEVEL_GAMEPLAY, TEXT("Layer_Playe_Attack"));
-
-		auto TargetP = player_Attack_->Get_Transform()->Get_State(CTransform::STATE_POSITION);
-
-		player_Attack_->Get_Transform()->Go_Straight(fTimeDelta);*/
-
+			if (FAILED(Ready_Layer_Player_Attack(TEXT("Layer_Playe_Attack"), fTimeDelta)));
+			return;
+		}
 	}
+	
 
 	_uint			Keyboard;
 	bool			bDown = false;
@@ -419,10 +416,6 @@ HRESULT CPlayer::Ready_Layer_Player_Skill(const _tchar * pLayerTag, _float fTime
 		return E_FAIL;
 
 	//m_fSkillTime = m_fSkillTime + 0.5f;
-	
-	auto Monster = pGameInstance->Find_Target(LEVEL_GAMEPLAY, TEXT("Layer_Monster"));
-
-	
 
 	Safe_Release(pGameInstance);
 	return S_OK;
@@ -439,11 +432,6 @@ HRESULT CPlayer::Ready_Layer_Player_Attack(const _tchar * pLayerTag, _float fTim
 
 	if (FAILED(pGameInstance->Add_GameObject(TEXT("Prototype_GameObject_Player_Attack"), LEVEL_GAMEPLAY, pLayerTag, vPosition_)))
 		return E_FAIL;
-
-	//m_fSkillTime = m_fSkillTime + 0.5f;
-
-	auto Monster = pGameInstance->Find_Target(LEVEL_GAMEPLAY, TEXT("Layer_Monster"));
-
 
 	Safe_Release(pGameInstance);
 

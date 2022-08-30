@@ -1,7 +1,4 @@
 ﻿  Player_Skill.cpp
-c:\users\dev.bae\desktop\teampo6\sr_-_maple\client\private\player_skill.cpp(131): warning C4244: '인수': 'Engine::_float'에서 'Engine::_uint'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  Player_Attack.cpp
-c:\users\dev.bae\desktop\teampo6\sr_-_maple\client\private\player_attack.cpp(167): warning C4244: '인수': 'Engine::_float'에서 'Engine::_uint'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  코드를 생성하고 있습니다...
-  Client.vcxproj -> C:\Users\Dev.Bae\Desktop\TeamPo6\sr_-_maple\Client\Default\..\Bin\Client.exe
+c:\users\rkdtm\onedrive\바탕 화면\git\sr_-_maple\client\private\player_skill.cpp(124): warning C4244: '인수': 'Engine::_float'에서 'Engine::_uint'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Client.vcxproj -> C:\Users\rkdtm\OneDrive\바탕 화면\Git\sr_-_maple\Client\Default\..\Bin\Client.exe
   Client.vcxproj -> ..\Bin\Client.pdb (Full PDB)
