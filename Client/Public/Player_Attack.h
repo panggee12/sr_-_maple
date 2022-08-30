@@ -37,6 +37,8 @@ private:
 	_float					m_fAttack_Frame = 0.f;
 	_float					m_SkillTime = 0.f;
 
+	_float3					m_vSkillPosition;
+
 private:
 	HRESULT SetUp_Components();
 	HRESULT SetUp_RenderState();

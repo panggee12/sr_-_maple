@@ -27,7 +27,10 @@ HRESULT CPlayer_Attack::Initialize(void* pArg)
 	if (FAILED(__super::Initialize(pArg)))
 		return E_FAIL;
 
-	D3DXMatrixOrthoLH(&m_ProjMatrix, g_iWinSizeX, g_iWinSizeY, 0.f, 1.f);
+
+	//memcpy(&m_vSkillPosition, pArg, sizeof(_float3));
+
+	//D3DXMatrixOrthoLH(&m_ProjMatrix, g_iWinSizeX, g_iWinSizeY, 0.f, 1.f);
 
 
 
@@ -40,6 +43,9 @@ HRESULT CPlayer_Attack::Initialize(void* pArg)
 	if (FAILED(SetUp_Components()))
 		return E_FAIL;
 
+	memcpy(&m_vSkillPosition, pArg, sizeof(_float3));
+
+	m_pTransformCom->Set_State(CTransform::STATE_POSITION, m_vSkillPosition);
 
 	return S_OK;
 }
@@ -82,27 +88,40 @@ void CPlayer_Attack::Tick(_float fTimeDelta)
 
 	 //_float3 MonsterPos = Monster->Get_Transform()->Get_State(CTransform::STATE_POSITION);
 	//_float3 PlayerPos = Player->Get_Transform()->Get_State(CTransform::STATE_POSITION);
-	CGameInstance*			pGameInstance = CGameInstance::Get_Instance();
 
 	if (m_SkillTime > 0.3f)
 	{
 		CGameInstance*			pGameInstance = CGameInstance::Get_Instance();
-
 		Safe_AddRef(pGameInstance);
 
-		auto Player = pGameInstance->Find_Target(LEVEL_GAMEPLAY, TEXT("Layer_Player"));
-
-		_float3 PlayerPos = Player->Get_Transform()->Get_State(CTransform::STATE_POSITION);
+		auto Player_Pos = pGameInstance->Find_Target(LEVEL_GAMEPLAY, TEXT("Layer_Monster"));
 
 
-		m_pTransformCom->Set_State(CTransform::STATE_POSITION, PlayerPos);// _float3(MonsterPos->x, MonsterPos->y+140,MonsterPos->z));
+		_float3 TargetPos = Player_Pos->Get_Transform()->Get_State(CTransform::STATE_POSITION);
 
+		_float3 MyPos = m_pTransformCom->Get_State(CTransform::STATE_POSITION);
+
+
+		_float3 Target = TargetPos - MyPos;
+
+
+		// _float3 Target ;
+
+
+		MyPos += *D3DXVec3Normalize(&Target, &Target) * fTimeDelta*10.5;
+
+		m_pTransformCom->Set_Scaled(_float3(m_fSizeX, m_fSizeY, 1.f));
+		m_pTransformCom->Set_State(CTransform::STATE_POSITION, MyPos);
+
+
+		Safe_Release(pGameInstance);
 		
 	}
+
  if (m_SkillTime >= 2.5f)
 	{
 
-	Safe_Release(pGameInstance);
+//	Safe_Release(pGameInstance);
 
 		m_SkillTime = 0.f;
 

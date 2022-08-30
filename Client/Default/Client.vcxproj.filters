@@ -87,9 +87,6 @@
     <ClInclude Include="stdafx.h">
       <Filter>98.Default</Filter>
     </ClInclude>
-    <ClInclude Include="..\Public\Client_Defines.h">
-      <Filter>99.Defines</Filter>
-    </ClInclude>
     <ClInclude Include="..\public\Level_Logo.h">
       <Filter>01.Levels\Logo</Filter>
     </ClInclude>
@@ -138,7 +135,10 @@
     <ClInclude Include="..\Public\LupangSkill.h">
       <Filter>02.GameObject\Monster\LupangMonster\LupangSkill</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\sr-maple\Client\Public\Player_Attack.h">
+    <ClInclude Include="..\Public\Client_Defines.h">
+      <Filter>99.Defines</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Player_Attack.h">
       <Filter>02.GameObject\Player\Player_Attack</Filter>
     </ClInclude>
   </ItemGroup>
@@ -200,7 +200,7 @@
     <ClCompile Include="..\Private\LupangSkill.cpp">
       <Filter>02.GameObject\Monster\LupangMonster\LupangSkill</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\sr-maple\Client\Private\Player_Attack.cpp">
+    <ClCompile Include="..\Private\Player_Attack.cpp">
       <Filter>02.GameObject\Player\Player_Attack</Filter>
     </ClCompile>
   </ItemGroup>

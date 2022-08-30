@@ -412,7 +412,10 @@ HRESULT CPlayer::Ready_Layer_Player_Skill(const _tchar * pLayerTag, _float fTime
 	CGameInstance*			pGameInstance = CGameInstance::Get_Instance();
 	Safe_AddRef(pGameInstance);
 	//pGameInstance->AddRef();
-	if (FAILED(pGameInstance->Add_GameObject(TEXT("Prototype_GameObject_Player_Skill"), LEVEL_GAMEPLAY, pLayerTag, nullptr)))
+
+	_float3 vPosition_S = m_pTransformCom->Get_State(CTransform::STATE_POSITION);
+
+	if (FAILED(pGameInstance->Add_GameObject(TEXT("Prototype_GameObject_Player_Skill"), LEVEL_GAMEPLAY, pLayerTag, vPosition_S)))
 		return E_FAIL;
 
 	m_fSkillTime = m_fSkillTime + 0.5f;
@@ -437,7 +440,9 @@ HRESULT CPlayer::Ready_Layer_Player_Attack(const _tchar * pLayerTag, _float fTim
 	Safe_AddRef(pGameInstance);
 	//pGameInstance->AddRef();
 
-	if (FAILED(pGameInstance->Add_GameObject(TEXT("Prototype_GameObject_Player_Attack"), LEVEL_GAMEPLAY, pLayerTag, nullptr)))
+	_float3 vPosition_ = m_pTransformCom->Get_State(CTransform::STATE_POSITION);
+
+	if (FAILED(pGameInstance->Add_GameObject(TEXT("Prototype_GameObject_Player_Attack"), LEVEL_GAMEPLAY, pLayerTag, vPosition_)))
 		return E_FAIL;
 
 	m_fSkillTime = m_fSkillTime + 0.5f;

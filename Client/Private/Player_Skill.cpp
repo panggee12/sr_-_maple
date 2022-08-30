@@ -1,7 +1,8 @@
 #include "stdafx.h"
 #include "..\Public\Player_Skill.h"
 #include "GameInstance.h"
-#include "LupangMonster.h"
+#include "Player.h"
+#include "Monster.h"
 
 CPlayer_Skill::CPlayer_Skill(LPDIRECT3DDEVICE9 pGraphic_Device)
 	: CGameObject(pGraphic_Device)
@@ -26,18 +27,24 @@ HRESULT CPlayer_Skill::Initialize(void* pArg)
 	if (FAILED(__super::Initialize(pArg)))
 		return E_FAIL;
 
-	D3DXMatrixOrthoLH(&m_ProjMatrix, g_iWinSizeX, g_iWinSizeY, 0.f, 1.f);
+	
 
-	m_fSizeX = 200.0f;
-	m_fSizeY = 200.0f;
-	m_fX = 100.f;
-	m_fY = 100.f;
+	//D3DXMatrixOrthoLH(&m_ProjMatrix, g_iWinSizeX, g_iWinSizeY, 0.f, 1.f);
+
+
+
+	m_fSizeX = 10.0f;
+	m_fSizeY = 20.0f;
+	m_fX = 1000.f;
+	m_fY = 400.f;
 
 	if (FAILED(SetUp_Components()))
 		return E_FAIL;
 
-	m_pTransformCom->Set_Scaled(_float3(m_fSizeX, m_fSizeY, 1.f));
-	m_pTransformCom->Set_State(CTransform::STATE_POSITION, _float3(m_fX - g_iWinSizeX * 0.5f, -m_fY + g_iWinSizeY * 0.5f, 0.f));
+	memcpy(&m_vSkillPosition_2, pArg, sizeof(_float3));
+
+	m_pTransformCom->Set_State(CTransform::STATE_POSITION, m_vSkillPosition_2);
+
 
 	return S_OK;
 }
@@ -45,7 +52,7 @@ HRESULT CPlayer_Skill::Initialize(void* pArg)
 void CPlayer_Skill::Tick(_float fTimeDelta)
 {
 	__super::Tick(fTimeDelta);
-
+	/*
 	RECT		rcRect;
 	SetRect(&rcRect, m_fX - m_fSizeX * 0.5f, m_fY - m_fSizeY * 0.5f, m_fX + m_fSizeX * 0.5f, m_fY + m_fSizeY * 0.5f);
 
@@ -55,7 +62,48 @@ void CPlayer_Skill::Tick(_float fTimeDelta)
 
 	if (PtInRect(&rcRect, ptMouse))
 	{
-		ERR_MSG(L"충돌");
+	ERR_MSG(L"충돌");
+	}*/
+
+	m_fSkill_Frame = m_fSkill_Frame + 0.2f;
+
+	if (m_fSkill_Frame <= 0 || m_fSkill_Frame >= 8)
+	{
+		m_fSkill_Frame = 0;
+
+	}
+	//_float MonsterPosx = Monster->CMonster::Get_Transform()->Get_State(CTransform::STATE_POSITION).x;
+	//_float MonsterPosy = Monster->CMonster::Get_Transform()->Get_State(CTransform::STATE_POSITION).y;
+	//_float MonsterPosz = Monster->CMonster::Get_Transform()->Get_State(CTransform::STATE_POSITION).z;
+
+
+	for (_uint i = 0; i < 3; i++)
+	{
+
+		CGameInstance*			pGameInstance = CGameInstance::Get_Instance();
+		Safe_AddRef(pGameInstance);
+
+		auto Player_Pos = pGameInstance->Find_Target(LEVEL_GAMEPLAY, TEXT("Layer_Monster"));
+
+
+		_float3 TargetPos = Player_Pos->Get_Transform()->Get_State(CTransform::STATE_POSITION);
+
+		_float3 MyPos = m_pTransformCom->Get_State(CTransform::STATE_POSITION);
+
+
+		_float3 Target = TargetPos - MyPos;
+
+		
+		// _float3 Target ;
+
+
+		MyPos += *D3DXVec3Normalize(&Target, &Target) * fTimeDelta*1.5;
+
+		m_pTransformCom->Set_Scaled(_float3(m_fSizeX, m_fSizeY, 1.f));
+		m_pTransformCom->Set_State(CTransform::STATE_POSITION, MyPos);
+
+
+		Safe_Release(pGameInstance);
 	}
 
 }
@@ -65,7 +113,7 @@ void CPlayer_Skill::Late_Tick(_float fTimeDelta)
 	__super::Late_Tick(fTimeDelta);
 
 	if (nullptr != m_pRendererCom)
-		m_pRendererCom->Add_RenderGroup(CRenderer::RENDER_UI, this);
+		m_pRendererCom->Add_RenderGroup(CRenderer::RENDER_NONALPHABLEND, this);
 }
 
 HRESULT CPlayer_Skill::Render()
@@ -76,13 +124,13 @@ HRESULT CPlayer_Skill::Render()
 	if (FAILED(m_pTransformCom->Bind_OnGraphicDev()))
 		return E_FAIL;
 
-	_float4x4		ViewMatrix;
-	D3DXMatrixIdentity(&ViewMatrix);
+	//_float4x4		ViewMatrix;
+	//D3DXMatrixIdentity(&ViewMatrix);
 
-	m_pGraphic_Device->SetTransform(D3DTS_VIEW, &ViewMatrix);
-	m_pGraphic_Device->SetTransform(D3DTS_PROJECTION, &m_ProjMatrix);
+	//m_pGraphic_Device->SetTransform(D3DTS_VIEW, &ViewMatrix);
+	//m_pGraphic_Device->SetTransform(D3DTS_PROJECTION, &m_ProjMatrix);
 
-	if (FAILED(m_pTextureCom->Bind_OnGraphicDev(0)))
+	if (FAILED(m_pTextureCom->Bind_OnGraphicDev(m_fSkill_Frame)))
 		return E_FAIL;
 
 	if (FAILED(SetUp_RenderState()))
@@ -105,7 +153,7 @@ HRESULT CPlayer_Skill::SetUp_Components()
 		return E_FAIL;
 
 	/* For.Com_Texture */
-	if (FAILED(__super::Add_Components(TEXT("Com_Texture"), LEVEL_GAMEPLAY, TEXT("Prototype_Component_Texture_UI"), (CComponent**)&m_pTextureCom)))
+	if (FAILED(__super::Add_Components(TEXT("Com_Texture"), LEVEL_GAMEPLAY, TEXT("Prototype_Component_Texture_Player_Skill_Litening"), (CComponent**)&m_pTextureCom)))
 		return E_FAIL;
 
 	/* For.Com_VIBuffer */
@@ -131,6 +179,9 @@ HRESULT CPlayer_Skill::SetUp_RenderState()
 {
 	if (nullptr == m_pGraphic_Device)
 		return E_FAIL;
+	m_pGraphic_Device->SetRenderState(D3DRS_ALPHATESTENABLE, TRUE);
+	//m_pGraphic_Device->SetRenderState(D3DRS_ALPHAREF, 250);
+	//m_pGraphic_Device->SetRenderState(D3DRS_ALPHAFUNC, D3DCMP_GREATEREQUAL);
 
 	//m_pGraphic_Device->SetRenderState(D3DRS_FILLMODE, D3DFILL_WIREFRAME);
 
@@ -142,6 +193,14 @@ HRESULT CPlayer_Skill::Release_RenderState()
 	//m_pGraphic_Device->SetRenderState(D3DRS_FILLMODE, D3DFILL_SOLID);
 
 	return S_OK;
+}
+
+void CPlayer_Skill::LiteNing_Skill(_float _Player_Skill, _float fTimeDelta)
+{
+}
+
+void CPlayer_Skill::Fireball_Skill(_float _Player_Skill, _float fTimeDelta)
+{
 }
 
 CPlayer_Skill * CPlayer_Skill::Create(LPDIRECT3DDEVICE9 pGraphic_Device)
@@ -174,7 +233,7 @@ void CPlayer_Skill::Free()
 {
 	__super::Free();
 
-	Safe_Release(m_pTransformCom);
+	//Safe_Release(m_pTransformCom);
 	Safe_Release(m_pVIBufferCom);
 	Safe_Release(m_pRendererCom);
 	Safe_Release(m_pTextureCom);
