@@ -163,6 +163,7 @@
     <ClInclude Include="..\Public\Camera_Dynamic.h" />
     <ClInclude Include="..\Public\Client_Defines.h" />
     <ClInclude Include="..\Public\CubeTerrain.h" />
+    <ClInclude Include="..\public\Effect.h" />
     <ClInclude Include="..\Public\ExpBarUI.h" />
     <ClInclude Include="..\Public\HpBarUI.h" />
     <ClInclude Include="..\Public\InventoryButtonUI.h" />
@@ -195,6 +196,7 @@
     <ClCompile Include="..\private\BackGround.cpp" />
     <ClCompile Include="..\Private\Camera_Dynamic.cpp" />
     <ClCompile Include="..\Private\CubeTerrain.cpp" />
+    <ClCompile Include="..\private\Effect.cpp" />
     <ClCompile Include="..\Private\ExpBarUI.cpp" />
     <ClCompile Include="..\Private\HpBarUI.cpp" />
     <ClCompile Include="..\Private\InventoryButtonUI.cpp" />

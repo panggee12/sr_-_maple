@@ -33,6 +33,7 @@ HRESULT CPlayer_Skill::Initialize(void* pArg)
 
 	if (FAILED(SetUp_Components()))
 		return E_FAIL;
+	//D3DXMatrixOrthoLH(&m_ProjMatrix, g_iWinSizeX, g_iWinSizeY, 0.f, 1.f);
 
 	memcpy(&m_vSkillPosition_2, pArg, sizeof(_float3));
 
@@ -50,7 +51,7 @@ void CPlayer_Skill::Tick(_float fTimeDelta)
 
 	m_Skill_Time_L += fTimeDelta;
 
-	m_fSkill_Frame += m_fSkill_Frame + 0.2f;
+	m_fSkill_Frame += fTimeDelta + 0.2f;
 
 	if (m_fSkill_Frame <= 0 || m_fSkill_Frame >= 8)
 	{
@@ -84,6 +85,19 @@ void CPlayer_Skill::Tick(_float fTimeDelta)
 
 		m_pTransformCom->Set_Scaled(_float3(m_fSizeX, m_fSizeY, 1.f));
 		m_pTransformCom->Set_State(CTransform::STATE_POSITION, MyPos);
+
+		if (pGameInstance->Collision_Attacked(LEVEL_GAMEPLAY, TEXT("Layer_Monster"), TEXT("Layer_Playe_Skill"), fTimeDelta, 1))
+		{
+			/*CGameInstance*			pGameInstance = CGameInstance::Get_Instance();
+			Safe_AddRef(pGameInstance);
+
+			auto Player_Pos = pGameInstance->Find_Target(LEVEL_GAMEPLAY, TEXT("Layer_Monster"));
+
+
+
+
+			Safe_Release(pGameInstance);*/
+		}
 
 
 		Safe_Release(pGameInstance);
@@ -176,6 +190,28 @@ HRESULT CPlayer_Skill::Release_RenderState()
 
 	return S_OK;
 }
+
+HRESULT CPlayer_Skill::Efect_On(const _tchar * pLayerTag)
+{
+	CGameInstance*			pGameInstance = CGameInstance::Get_Instance();
+	Safe_AddRef(pGameInstance);
+	//pGameInstance->AddRef();
+
+	_float3 vPosition_S = m_pTransformCom->Get_State(CTransform::STATE_POSITION);
+
+	if (FAILED(pGameInstance->Add_GameObject(TEXT("Prototype_GameObject_Effect"), LEVEL_GAMEPLAY, pLayerTag, vPosition_S)))
+		return E_FAIL;
+
+	//m_fSkillTime = m_fSkillTime + 0.5f;
+
+	auto Monster = pGameInstance->Find_Target(LEVEL_GAMEPLAY, TEXT("Layer_Monster"));
+
+
+
+	Safe_Release(pGameInstance);
+	return S_OK;
+}
+
 
 CPlayer_Skill * CPlayer_Skill::Create(LPDIRECT3DDEVICE9 pGraphic_Device)
 {

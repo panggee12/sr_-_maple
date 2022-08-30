@@ -12,12 +12,12 @@ END
 
 BEGIN(Client)
 
-class CPlayer_Skill final : public CGameObject
+class CEffect final : public CGameObject
 {
 private:
-	CPlayer_Skill(LPDIRECT3DDEVICE9 pGraphic_Device);
-	CPlayer_Skill(const CPlayer_Skill& rhs);
-	virtual ~CPlayer_Skill() = default;
+	CEffect(LPDIRECT3DDEVICE9 pGraphic_Device);
+	CEffect(const CEffect& rhs);
+	virtual ~CEffect() = default;
 
 public:
 	virtual HRESULT Initialize_Prototype() override;
@@ -34,20 +34,16 @@ private: /* For.Components */
 private:
 	_float4x4				m_ProjMatrix;
 	_float					m_fX, m_fY, m_fSizeX, m_fSizeY;
-	_float					m_fSkill_Frame = 0.f;
-	_float					m_Skill_Time_L=0.f;
+	_float					m_EffectFrame = 0.f;
+	_float					m_Skill_Time_L = 0.f;
 
-	_float3					m_vSkillPosition_2;
+	_float3					m_vEffectPos;
 private:
 	HRESULT SetUp_Components();
 	HRESULT SetUp_RenderState();
 	HRESULT Release_RenderState();
-	HRESULT Efect_On(const _tchar * pLayerTag);
 
 public:
-
-	
-
 	void LiteNing_Skill(_float _Player_Skill, _float fTimeDelta);
 	void Fireball_Skill(_float _Player_Skill, _float fTimeDelta);
 	/*void LiteNing_Skill(_float _Player_Skill, _float fTimeDelta);
@@ -55,7 +51,7 @@ public:
 	*/
 
 public:
-	static CPlayer_Skill* Create(LPDIRECT3DDEVICE9 pGraphic_Device);
+	static CEffect* Create(LPDIRECT3DDEVICE9 pGraphic_Device);
 	virtual CGameObject* Clone(void* pArg = nullptr) override;
 	virtual void Free() override;
 };
