@@ -1,103 +1,160 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <ItemGroup>
-    <Filter Include="99.Defines">
-      <UniqueIdentifier>{127f9ffa-dbe3-48d8-8f90-d9f2f940dde9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="98.Default">
-      <UniqueIdentifier>{3a02a7f2-f122-4e3f-ba73-7c184c26e2ca}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="00.MainApp">
-      <UniqueIdentifier>{846a7fd6-9bff-46df-a0df-d53f7bc7bf25}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="01.Levels">
-      <UniqueIdentifier>{e376087f-2316-4210-923f-73ce86c4f3fa}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="01.Levels\Logo">
-      <UniqueIdentifier>{9cd4d860-6255-46f1-8974-5088a1d359cd}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="01.Levels\Loading">
-      <UniqueIdentifier>{d0295cc5-86a0-4de0-bd55-3e301366d030}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="01.Levels\GamePlay">
-      <UniqueIdentifier>{66f494b9-9924-420d-b47d-fe913d73777b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="01.Levels\Loading\Loader">
-      <UniqueIdentifier>{51a8caee-15f6-46ec-a7c4-fc3ba8214797}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="02.GameObject">
-      <UniqueIdentifier>{7ef2d9ce-ece3-4860-9e4f-84f6fb56200b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="02.GameObject\BackGround">
-      <UniqueIdentifier>{338d1323-c14f-4477-a3c9-89e249b58e75}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="02.GameObject\Terrain">
-      <UniqueIdentifier>{27ae354b-4b52-4c4d-9a7e-009f3e4b9ec8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="02.GameObject\Camera">
-      <UniqueIdentifier>{6ad6400b-9d5a-4bf0-9b0f-946a3f09392e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="02.GameObject\Sky">
-      <UniqueIdentifier>{e7741bd6-d9aa-46ed-b919-46b39b50e7b7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="02.GameObject\UI">
-      <UniqueIdentifier>{c9026dbf-f788-4f36-aa49-1ca93b239aa1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="02.GameObject\Player">
-      <UniqueIdentifier>{8a64d64b-c7a5-4ff0-bdc8-f8e746588a56}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="02.GameObject\TestBox">
-      <UniqueIdentifier>{c5a8d62e-d7c2-4252-8c26-15cbe92feeb8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="02.GameObject\CubeTerrain">
-      <UniqueIdentifier>{ee8ab145-d89a-43b2-92da-609c2c9887f1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="02.GameObject\Monster">
-      <UniqueIdentifier>{ab851b9c-4d89-4208-84f3-bfd8429b29a8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="02.GameObject\Player\Skill">
-      <UniqueIdentifier>{1e98960f-6797-469c-b505-07f7a5f5830a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="02.GameObject\Monster\LupangMonster">
-      <UniqueIdentifier>{746451ef-1918-4c08-8356-2623371d83d6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="02.GameObject\Monster\LupangMonster\LupangSkill">
-      <UniqueIdentifier>{2808bf90-8294-4d2b-87ec-519e32e333bd}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="02.GameObject\UI\LogoUI">
-      <UniqueIdentifier>{e45cd696-5c4e-4608-8404-cc891e7ae327}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="02.GameObject\UI\GamePlayUI">
-      <UniqueIdentifier>{437274e9-4eef-4e36-aa83-d1ebdd575d4c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="02.GameObject\UI\GamePlayUI\ExpBarUI">
-      <UniqueIdentifier>{a4a48b5e-8cfa-4616-ad81-fca75a26fdf7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="02.GameObject\UI\GamePlayUI\HpBarUI">
-      <UniqueIdentifier>{05464129-667f-4360-a2d8-a876ad0fe01c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="02.GameObject\UI\GamePlayUI\InventoryUI">
-      <UniqueIdentifier>{a291a183-2330-4579-ba70-aaf338b4d005}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="02.GameObject\UI\GamePlayUI\InventoryUI\Button">
-      <UniqueIdentifier>{9629ab82-0010-4300-8653-bcaacf336e0a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="02.GameObject\UI\GamePlayUI\SkillBookUI">
-      <UniqueIdentifier>{466509cb-c83d-443a-96a8-eaa1e63bc66a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="02.GameObject\UI\GamePlayUI\InfoUI">
-      <UniqueIdentifier>{0b243368-34d9-434b-bb19-86fdff3ce950}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="02.GameObject\UI\GamePlayUI\InfoUI\PlayerInfoUI">
-      <UniqueIdentifier>{add150b1-8b37-45a1-be53-b4f7af40d25a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="02.GameObject\UI\GamePlayUI\InfoUI\ItemInfoUI">
-      <UniqueIdentifier>{d9a72fdc-e84f-44dd-80ca-6e7055122124}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="02.GameObject\UI\GamePlayUI\InfoUI\SkillInfoUI">
-      <UniqueIdentifier>{bf629d71-72a5-4532-99be-c318c93d18cb}</UniqueIdentifier>
-    </Filter>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
   </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{9D1FBAEF-8C9F-4E78-A197-BB96D69B3088}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>Client</RootNamespace>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>..\Bin\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>..\Bin\</OutDir>
+    <IncludePath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x64;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>..\Bin\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>..\Bin\</OutDir>
+    <IncludePath>D:\project\Visual Studio 2015\Projects\Dx\Include;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\project\Visual Studio 2015\Projects\Dx\Lib\x64;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>../../Reference/Headers/;../Public/</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>Engine.lib;d3d9.lib;d3dx9.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>../../Reference/Librarys/</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>../../Reference/Headers/;../Public/</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>Engine.lib;d3d9.lib;d3dx9.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>../../Reference/Librarys/</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
   </ItemGroup>
@@ -163,92 +220,20 @@
     <ClCompile Include="..\Private\TestBox.cpp" />
     <ClCompile Include="Client.cpp" />
     <ClCompile Include="stdafx.cpp">
-      <Filter>98.Default</Filter>
-    </ClCompile>
-    <ClCompile Include="..\private\Level_Logo.cpp">
-      <Filter>01.Levels\Logo</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Private\Level_GamePlay.cpp">
-      <Filter>01.Levels\GamePlay</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Private\Level_Loading.cpp">
-      <Filter>01.Levels\Loading</Filter>
-    </ClCompile>
-    <ClCompile Include="..\private\Loader.cpp">
-      <Filter>01.Levels\Loading\Loader</Filter>
-    </ClCompile>
-    <ClCompile Include="..\private\BackGround.cpp">
-      <Filter>02.GameObject\BackGround</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Private\Terrain.cpp">
-      <Filter>02.GameObject\Terrain</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Private\Camera_Dynamic.cpp">
-      <Filter>02.GameObject\Camera</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Private\Sky.cpp">
-      <Filter>02.GameObject\Sky</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Private\Player.cpp">
-      <Filter>02.GameObject\Player</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Private\TestBox.cpp">
-      <Filter>02.GameObject\TestBox</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Private\CubeTerrain.cpp">
-      <Filter>02.GameObject\CubeTerrain</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Private\Monster.cpp">
-      <Filter>02.GameObject\Monster</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Private\Player_Skill.cpp">
-      <Filter>02.GameObject\Player\Skill</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Private\LupangMonster.cpp">
-      <Filter>02.GameObject\Monster\LupangMonster</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Private\LupangSkill.cpp">
-      <Filter>02.GameObject\Monster\LupangMonster\LupangSkill</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Private\LogoUI.cpp">
-      <Filter>02.GameObject\UI\LogoUI</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Private\ExpBarUI.cpp">
-      <Filter>02.GameObject\UI\GamePlayUI\ExpBarUI</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Private\HpBarUI.cpp">
-      <Filter>02.GameObject\UI\GamePlayUI\HpBarUI</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Private\InventoryButtonUI.cpp">
-      <Filter>02.GameObject\UI\GamePlayUI\InventoryUI\Button</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Private\InventoryUI.cpp">
-      <Filter>02.GameObject\UI\GamePlayUI\InventoryUI</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Private\SkillbookUI.cpp">
-      <Filter>02.GameObject\UI\GamePlayUI\SkillBookUI</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Private\ItemInfoUI.cpp">
-      <Filter>02.GameObject\UI\GamePlayUI\InfoUI\ItemInfoUI</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Private\PlayerInfoUI.cpp">
-      <Filter>02.GameObject\UI\GamePlayUI\InfoUI\PlayerInfoUI</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Private\SkillInfoUI.cpp">
-      <Filter>02.GameObject\UI\GamePlayUI\InfoUI\SkillInfoUI</Filter>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="Client.ico">
-      <Filter>98.Default</Filter>
-    </Image>
-    <Image Include="small.ico">
-      <Filter>98.Default</Filter>
-    </Image>
+    <ResourceCompile Include="Client.rc" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="Client.rc">
-      <Filter>98.Default</Filter>
-    </ResourceCompile>
+    <Image Include="Client.ico" />
+    <Image Include="small.ico" />
   </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
 </Project>
