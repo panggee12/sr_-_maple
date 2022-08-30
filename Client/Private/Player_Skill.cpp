@@ -131,7 +131,12 @@ void CPlayer_Skill::Tick(_float fTimeDelta)
 
 
 
+<<<<<<< HEAD
 		//	Safe_Release(pGameInstance);*/
+=======
+			Safe_Release(pGameInstance);*/
+			//CPlayer_Skill::Free();
+>>>>>>> BHW
 		}
 
 
@@ -203,6 +208,8 @@ HRESULT CPlayer_Skill::SetUp_Components()
 
 	if (FAILED(__super::Add_Components(TEXT("Com_Transform"), LEVEL_STATIC, TEXT("Prototype_Component_Transform"), (CComponent**)&m_pTransformCom, &TransformDesc)))
 		return E_FAIL;
+
+
 
 
 	return S_OK;

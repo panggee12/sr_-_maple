@@ -43,6 +43,7 @@ private:
 	HRESULT SetUp_Components();
 	HRESULT SetUp_RenderState();
 	HRESULT Release_RenderState();
+	HRESULT Fire_Efect_On(const _tchar * pLayerTag, _float fTimeDelta);
 
 
 public:

@@ -163,8 +163,8 @@ HRESULT CLoader::Loading_ForGamePlayLevel()
 
 	/*For.Prototype_Component_Texture_Efect */
 
-	if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, TEXT("Prototype_Component_Texture_Skill_Effect"),
-		CTexture::Create(m_pGraphic_Device, CTexture::TYPE_DEFAULT, TEXT("../Bin/Resources/Textures/Effect/E_%d.dds"), 4))))
+	if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, TEXT("Prototype_Component_Texture_Skill_Fire_Effect"),
+		CTexture::Create(m_pGraphic_Device, CTexture::TYPE_DEFAULT, TEXT("../Bin/Resources/Textures/Player/Player_Attack/Efect_Fire/Explosion%d.png"), 8))))
 		return E_FAIL;
 
 	/*For.Prototype_Component_Texture_Sky */
@@ -260,10 +260,10 @@ HRESULT CLoader::Loading_ForGamePlayLevel()
 		CPlayer::Create(m_pGraphic_Device))))
 		return E_FAIL;
 
-	/*For.Prototype_GameObject_Efect*/
-	if (FAILED(pGameInstance->Add_Prototype(TEXT("Prototype_GameObject_Effect"),
-		CEffect::Create(m_pGraphic_Device))))
-		return E_FAIL;
+	///*For.Prototype_GameObject_Efect*/
+	//if (FAILED(pGameInstance->Add_Prototype(TEXT("Prototype_GameObject_Effect"),
+	//	CEffect::Create(m_pGraphic_Device))))
+	//	return E_FAIL;
 
 	/*For.Prototype_GameObject_Player_Skill*/
 	if (FAILED(pGameInstance->Add_Prototype(TEXT("Prototype_GameObject_Player_Skill"),
@@ -275,6 +275,15 @@ HRESULT CLoader::Loading_ForGamePlayLevel()
 		CPlayer_Attack::Create(m_pGraphic_Device))))
 		return E_FAIL;
 
+<<<<<<< HEAD
+=======
+	/*For.Prototype_GameObject_Player_Attack_Efect*/
+	if (FAILED(pGameInstance->Add_Prototype(TEXT("Prototype_GameObject_Fire_Effect"),
+		CEffect::Create(m_pGraphic_Device))))
+		return E_FAIL;
+
+
+>>>>>>> BHW
 	/*For.Prototype_GameObject_Monster*/
 	if (FAILED(pGameInstance->Add_Prototype(TEXT("Prototype_GameObject_Monster"),
 		CLupangMonster::Create(m_pGraphic_Device))))

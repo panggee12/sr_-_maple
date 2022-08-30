@@ -109,6 +109,18 @@ void CPlayer_Attack::Tick(_float fTimeDelta)
 
 		m_pTransformCom->Set_State(CTransform::STATE_POSITION, MyPos);		
 
+<<<<<<< HEAD
+=======
+		if (pGameInstance->Collision_Attacked(LEVEL_GAMEPLAY, TEXT("Layer_Monster"), TEXT("Layer_Playe_Attack"), fTimeDelta, 1))
+		{
+
+			Fire_Efect_On(TEXT("Layer_Attack"), fTimeDelta);
+			//CPlayer_Attack::Free();
+		}
+
+		Safe_Release(pGameInstance);
+		
+>>>>>>> BHW
 	}
 
  if (m_SkillTime >= 2.5f)
@@ -214,6 +226,36 @@ HRESULT CPlayer_Attack::Release_RenderState()
 
 	return S_OK;
 }
+
+HRESULT CPlayer_Attack::Fire_Efect_On(const _tchar * pLayerTag, _float fTimeDelta)
+{
+	CGameInstance*			pGameInstance = CGameInstance::Get_Instance();
+	Safe_AddRef(pGameInstance);
+	//pGameInstance->AddRef();
+
+	/*_float3 vPosition_Efect = m_pTransformCom->Get_State(CTransform::STATE_POSITION);*/
+
+	_float3 vPos_Efect = m_pTransformCom->Get_State(CTransform::STATE_POSITION);
+
+		if (FAILED(pGameInstance->Add_GameObject(TEXT("Prototype_GameObject_Fire_Effect"), LEVEL_GAMEPLAY, pLayerTag, vPos_Efect)))
+			return E_FAIL;
+
+	//m_fSkillTime = m_fSkillTime + 0.5f;
+
+	//auto Monster = pGameInstance->Find_Target(LEVEL_GAMEPLAY, TEXT("Layer_Monster"));
+
+
+
+	Safe_Release(pGameInstance);
+
+	if (fTimeDelta > 0.2f)
+	{
+		__super::Free();
+	}
+	return S_OK;
+}
+
+
 
 CPlayer_Attack * CPlayer_Attack::Create(LPDIRECT3DDEVICE9 pGraphic_Device)
 {

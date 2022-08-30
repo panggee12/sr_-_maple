@@ -38,6 +38,7 @@ protected:
 protected:
 	CTransform*				m_pTransformCom = nullptr;
 	_bool					m_bDead = false;
+
 public:	
 	virtual CGameObject* Clone(void* pArg = nullptr) = 0;
 	virtual void Free() override;
