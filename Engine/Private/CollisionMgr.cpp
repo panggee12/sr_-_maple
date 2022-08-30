@@ -26,14 +26,12 @@ bool CCollisionMgr::CollisionCheck(class CTransform * p1Trans, class CTransform 
 		((p1pos.z - fz1 <= p2pos.z + fz2) && (p1pos.z + fz1 >= p2pos.z - fz2)))
 	{
 
-		/*p1Trans->Set_Jump(false);
-		p1Trans->Set_Fall(false);*/
+	/*p1Trans->Set_Jump(false);
+	p1Trans->Set_Fall(false);*/
 	//	/*p1Trans->Set_State(CTransform::STATE_POSITION, _float3(p1Trans->Get_State(CTransform::STATE_POSITION).x,
 	//	p2Trans->Get_State(CTransform::STATE_POSITION).y + p2Trans->Get_Scale().y, p1Trans->Get_State(CTransform::STATE_POSITION).z));*/
-	//	
-		/*if(fabs(p1Trans->Get_State(CTransform::STATE_POSITION).y-p2Trans->Get_State(CTransform::STATE_POSITION).y)>=0.04)*/
-		//	p1Trans->Set_State(CTransform::STATE_POSITION, p1Trans->Get_Collision_Pos());
-
+	/*if(fabs(p1Trans->Get_State(CTransform::STATE_POSITION).y-p2Trans->Get_State(CTransform::STATE_POSITION).y)>=0.04)*/
+	//	p1Trans->Set_State(CTransform::STATE_POSITION, p1Trans->Get_Collision_Pos());
 	//	/*if (p1pos.y <= p2pos.y + p2Trans->Get_State(CTransform::STATE_POSITION).y)
 	//	{
 	//		if (p1pos.x < p2pos.x)
