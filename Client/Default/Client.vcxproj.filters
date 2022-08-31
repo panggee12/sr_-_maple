@@ -231,6 +231,9 @@
     <ClInclude Include="..\Public\YetiSkill.h">
       <Filter>02.GameObject\Monster\YetiMonster\YetiSkill</Filter>
     </ClInclude>
+    <ClInclude Include="..\public\Skill.h">
+      <Filter>02.GameObject\Player\Skill</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Private\MainApp.cpp">
@@ -331,6 +334,9 @@
     </ClCompile>
     <ClCompile Include="..\Private\YetiSkill.cpp">
       <Filter>02.GameObject\Monster\YetiMonster\YetiSkill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\Skill.cpp">
+      <Filter>02.GameObject\Player\Skill</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
