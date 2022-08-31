@@ -72,6 +72,7 @@ void CPlayer::Tick(_float fTimeDelta)
 		{
 			m_pTransformCom->Go_RT(fTimeDelta);
 			m_ePlayer_Dir = RU;	
+			m_bKeyInput = true;
 			m_bPlayer_Move = true;
 			m_bPlayer_Idle = false;
 		}
@@ -80,6 +81,7 @@ void CPlayer::Tick(_float fTimeDelta)
 			m_pTransformCom->Go_LT(fTimeDelta);
 			m_ePlayer_State = CPlayer::PLAYER_MOVE_STATE;
 			m_ePlayer_Dir = LU;
+			m_bKeyInput = true;
 			m_bPlayer_Move = true;
 			m_bPlayer_Idle = false;
 		}
@@ -88,6 +90,8 @@ void CPlayer::Tick(_float fTimeDelta)
 			m_pTransformCom->Go_Straight(fTimeDelta);
 			m_ePlayer_State = CPlayer::PLAYER_MOVE_STATE;
 			m_ePlayer_Dir = UP;
+			m_bKeyInput = true;
+
 			m_bPlayer_Move = true;
 			m_bPlayer_Idle = false;
 
@@ -102,6 +106,8 @@ void CPlayer::Tick(_float fTimeDelta)
 			m_pTransformCom->Go_Backward(fTimeDelta);
 			m_ePlayer_State = CPlayer::PLAYER_MOVE_STATE;
 			m_ePlayer_Dir = RD;
+			m_bKeyInput = true;
+
 			m_bPlayer_Move = true;
 			m_bPlayer_Idle = false;
 		}
@@ -111,6 +117,8 @@ void CPlayer::Tick(_float fTimeDelta)
 			m_pTransformCom->Go_Backward(fTimeDelta);
 			m_ePlayer_State = CPlayer::PLAYER_MOVE_STATE;
 			m_ePlayer_Dir = LD;
+			m_bKeyInput = true;
+
 			m_bPlayer_Move = true;
 			m_bPlayer_Idle = false;
 		}
@@ -119,6 +127,8 @@ void CPlayer::Tick(_float fTimeDelta)
 			m_pTransformCom->Go_Backward(fTimeDelta);
 			m_ePlayer_State = CPlayer::PLAYER_MOVE_STATE;
 			m_ePlayer_Dir = DOWN;
+			m_bKeyInput = true;
+
 			m_bPlayer_Move = true;
 			m_bPlayer_Idle = false;
 		}
@@ -130,6 +140,8 @@ void CPlayer::Tick(_float fTimeDelta)
 		m_pTransformCom->Go_Left(fTimeDelta);
 		m_ePlayer_State = CPlayer::PLAYER_MOVE_STATE;
 		m_ePlayer_Dir = LEFT;
+		m_bKeyInput = true;
+
 		m_bPlayer_Move = true;
 		m_bPlayer_Attack = true;
 		m_bPlayer_Idle = false;
@@ -143,6 +155,8 @@ void CPlayer::Tick(_float fTimeDelta)
 		m_pTransformCom->Go_Right(fTimeDelta);
 		m_ePlayer_State = CPlayer::PLAYER_MOVE_STATE;
 		m_ePlayer_Dir = RIGHT;
+		m_bKeyInput = true;
+
 		m_bPlayer_Move = true;
 		m_bPlayer_Attack = true;
 		m_bPlayer_Idle = false;
@@ -150,6 +164,8 @@ void CPlayer::Tick(_float fTimeDelta)
 	}
 	else if (Key_Pressing('Q'))
 	{
+		m_bKeyInput = true;
+
 		//m_ePlayer_Idle_State = IDLE_END;
 
 		if (pGameInstance->Check_Layer(LEVEL_GAMEPLAY, TEXT("Layer_Monster")))
@@ -162,6 +178,7 @@ void CPlayer::Tick(_float fTimeDelta)
 	}
 	else if (Key_Pressing('X'))
 	{
+		m_bKeyInput = true;
 
 		//m_ePlayer_Idle_State = IDLE_END;
 
@@ -177,20 +194,22 @@ void CPlayer::Tick(_float fTimeDelta)
 
 	else if (Key_Pressing('C') && !m_pTransformCom->Get_Fall())
 	{
+		m_bKeyInput = true;
+
 		m_pTransformCom->Set_Jump(true);
 		m_pTransformCom->Set_Fall(true);
 	}
 
-	else if (m_ePlayer_State == PLAYER_MOVE_STATE&&m_bPlayer_Move == true)
+	else if (m_ePlayer_State == PLAYER_MOVE_STATE&&m_bPlayer_Move == true&& m_bKeyInput == true)
 	{
-		Player_Move(m_ePlayer_State, m_ePlayer_Dir, fTimeDelta);
+		Player_Move(m_ePlayer_State, m_ePlayer_Dir, fTimeDelta, m_bKeyInput);
 	}
 	else
 	{
 		m_ePlayer_State = PLAYER_IDLE;
 		m_ePlayer_Dir = END_;
 		m_bPlayer_Move = false;
-		Player_Idle(m_ePlayer_State, m_ePlayer_Dir, fTimeDelta);
+		Player_Idle(m_ePlayer_State, m_ePlayer_Dir, fTimeDelta, m_bKeyInput,m_bPlayer_Move);
 
 	}
 
@@ -376,10 +395,10 @@ HRESULT CPlayer::Release_RenderState()
 	return S_OK;
 }
 
-void CPlayer::Player_Idle(PLAYER_STATE _PlayerState, PLAYER_DIR _ePlayer_Idle_State, _float fTimeDelta)
+void CPlayer::Player_Idle(PLAYER_STATE _PlayerState, PLAYER_DIR _ePlayer_Idle_State, _float fTimeDelta ,_bool KeyInput,_bool _bMove)
 {
 	//±âº»
-	if (_PlayerState == PLAYER_IDLE&&_ePlayer_Idle_State == END_&&m_bPlayer_Move == false)
+	if (_PlayerState == PLAYER_IDLE&&_ePlayer_Idle_State == END_&&_bMove == false&&KeyInput==false)
 	{
 		if (m_uFrameNum <= 0 || m_uFrameNum >= 7)
 		{
@@ -388,7 +407,7 @@ void CPlayer::Player_Idle(PLAYER_STATE _PlayerState, PLAYER_DIR _ePlayer_Idle_St
 	}
 
 	//RIGHT
-	if (_PlayerState == PLAYER_IDLE&&_ePlayer_Idle_State == RIGHT&&m_bPlayer_Move == false)
+	if (_PlayerState == PLAYER_IDLE&&_ePlayer_Idle_State == RIGHT&&_bMove == false && KeyInput == false)
 	{
 		if (m_uFrameNum <= 88 || m_uFrameNum >= 95)
 		{
@@ -396,7 +415,7 @@ void CPlayer::Player_Idle(PLAYER_STATE _PlayerState, PLAYER_DIR _ePlayer_Idle_St
 		}
 	}
 	//RU
-	else if (_PlayerState == PLAYER_IDLE&&_ePlayer_Idle_State == RU&&m_bPlayer_Move == false)
+	else if (_PlayerState == PLAYER_IDLE&&_ePlayer_Idle_State == RU&&_bMove == false && KeyInput == false)
 	{
 		if (m_uFrameNum <= 96 || m_uFrameNum >= 103)
 		{
@@ -404,7 +423,7 @@ void CPlayer::Player_Idle(PLAYER_STATE _PlayerState, PLAYER_DIR _ePlayer_Idle_St
 		}
 	}
 	//UP
-	else if (_PlayerState == PLAYER_IDLE&&_ePlayer_Idle_State == UP&&m_bPlayer_Move == false)
+	else if (_PlayerState == PLAYER_IDLE&&_ePlayer_Idle_State == UP&&_bMove == false && KeyInput == false)
 	{
 		if (m_uFrameNum <= 104 || m_uFrameNum >= 111)
 		{
@@ -412,7 +431,7 @@ void CPlayer::Player_Idle(PLAYER_STATE _PlayerState, PLAYER_DIR _ePlayer_Idle_St
 		}
 	}
 	//LU
-	else if (_PlayerState == PLAYER_IDLE&&_ePlayer_Idle_State == LU&&m_bPlayer_Move == false)
+	else if (_PlayerState == PLAYER_IDLE&&_ePlayer_Idle_State == LU&&_bMove == false && KeyInput == false)
 	{
 		if (m_uFrameNum <= 112 || m_uFrameNum >= 119)
 		{
@@ -420,7 +439,7 @@ void CPlayer::Player_Idle(PLAYER_STATE _PlayerState, PLAYER_DIR _ePlayer_Idle_St
 		}
 	}
 	//LEFT
-	else if (_PlayerState == PLAYER_IDLE&&_ePlayer_Idle_State == LEFT&&m_bPlayer_Move == false)
+	else if (_PlayerState == PLAYER_IDLE&&_ePlayer_Idle_State == LEFT&&_bMove == false && KeyInput == false)
 	{
 		if (m_uFrameNum <= 120 || m_uFrameNum >= 127)
 		{
@@ -429,7 +448,7 @@ void CPlayer::Player_Idle(PLAYER_STATE _PlayerState, PLAYER_DIR _ePlayer_Idle_St
 	}
 
 	//LD
-	else if (_PlayerState == PLAYER_IDLE&&_ePlayer_Idle_State == LD&&m_bPlayer_Move == false)
+	else if (_PlayerState == PLAYER_IDLE&&_ePlayer_Idle_State == LD&&_bMove == false && KeyInput == false)
 	{
 		if (m_uFrameNum <= 128 || m_uFrameNum >= 136)
 		{
@@ -437,7 +456,7 @@ void CPlayer::Player_Idle(PLAYER_STATE _PlayerState, PLAYER_DIR _ePlayer_Idle_St
 		}
 	}
 	//DOWN
-	else if (_PlayerState == PLAYER_IDLE&&_ePlayer_Idle_State == DOWN&&m_bPlayer_Move == false)
+	else if (_PlayerState == PLAYER_IDLE&&_ePlayer_Idle_State == DOWN&&_bMove == false && KeyInput == false)
 	{
 		if (m_uFrameNum <= 137 || m_uFrameNum >= 144)
 		{
@@ -445,26 +464,27 @@ void CPlayer::Player_Idle(PLAYER_STATE _PlayerState, PLAYER_DIR _ePlayer_Idle_St
 		}
 	}
 	//RD
-	else if (_PlayerState == PLAYER_IDLE&&_ePlayer_Idle_State == RD&&m_bPlayer_Move == false)
+	else if (_PlayerState == PLAYER_IDLE&&_ePlayer_Idle_State == RD&&_bMove == false && KeyInput == false)
 	{
 		if (m_uFrameNum <= 145 || m_uFrameNum >= 152)
 		{
 			m_uFrameNum = 145;
 		}
 	}
+	
 
 
 }
-void CPlayer::Player_Move(PLAYER_STATE _PlayerState, PLAYER_DIR _ePlayer_Move_State, _float fTimeDelta)
+void CPlayer::Player_Move(PLAYER_STATE _PlayerState, PLAYER_DIR _ePlayer_Move_State, _float fTimeDelta, _bool Key_Input)
 {
-	if (_PlayerState == PLAYER_MOVE_STATE&& _ePlayer_Move_State == UP)
+	if (_PlayerState == PLAYER_MOVE_STATE&& _ePlayer_Move_State == UP&&Key_Input==true)
 	{
 		if (m_uFrameNum <= 8 || m_uFrameNum >= 15)
 		{
 			m_uFrameNum = 8;
 		}
 	}
-	else if (_PlayerState == PLAYER_MOVE_STATE&& _ePlayer_Move_State == RIGHT)
+	else if (_PlayerState == PLAYER_MOVE_STATE&& _ePlayer_Move_State == RIGHT&&Key_Input == true)
 	{
 		if (m_uFrameNum <= 16 || m_uFrameNum >= 23)
 		{
@@ -472,28 +492,28 @@ void CPlayer::Player_Move(PLAYER_STATE _PlayerState, PLAYER_DIR _ePlayer_Move_St
 		}
 	}
 
-	else if (_PlayerState == PLAYER_MOVE_STATE&&_ePlayer_Move_State == LEFT)
+	else if (_PlayerState == PLAYER_MOVE_STATE&&_ePlayer_Move_State == LEFT&&Key_Input == true)
 	{
 		if (m_uFrameNum <= 24 || m_uFrameNum >= 32)
 		{
 			m_uFrameNum = 24;
 		}
 	}
-	else if (_PlayerState == PLAYER_MOVE_STATE&&_ePlayer_Move_State == DOWN)
+	else if (_PlayerState == PLAYER_MOVE_STATE&&_ePlayer_Move_State == DOWN&&Key_Input == true)
 	{
 		if (m_uFrameNum <= 32 || m_uFrameNum >= 40)
 		{
 			m_uFrameNum = 32;
 		}
 	}
-	else if (_PlayerState == PLAYER_MOVE_STATE&& _ePlayer_Move_State == RU)
+	else if (_PlayerState == PLAYER_MOVE_STATE&& _ePlayer_Move_State == RU&&Key_Input == true)
 	{
 		if (m_uFrameNum <= 56 || m_uFrameNum >= 63)
 		{
 			m_uFrameNum = 56;
 		}
 	}
-	else if (_PlayerState == PLAYER_MOVE_STATE&& _ePlayer_Move_State == LU)
+	else if (_PlayerState == PLAYER_MOVE_STATE&& _ePlayer_Move_State == LU&&Key_Input == true)
 	{
 		if (m_uFrameNum <= 64 || m_uFrameNum >= 71)
 		{
@@ -501,14 +521,14 @@ void CPlayer::Player_Move(PLAYER_STATE _PlayerState, PLAYER_DIR _ePlayer_Move_St
 		}
 	}
 
-	else if (_PlayerState == PLAYER_MOVE_STATE&& _ePlayer_Move_State == LD)
+	else if (_PlayerState == PLAYER_MOVE_STATE&& _ePlayer_Move_State == LD&&Key_Input == true)
 	{
 		if (m_uFrameNum <= 72 || m_uFrameNum >= 79)
 		{
 			m_uFrameNum = 72;
 		}
 	}
-	else if (_PlayerState == PLAYER_MOVE_STATE&& _ePlayer_Move_State == RD)
+	else if (_PlayerState == PLAYER_MOVE_STATE&& _ePlayer_Move_State == RD&&Key_Input == true)
 	{
 		if (m_uFrameNum <= 80 || m_uFrameNum >= 87)
 		{
@@ -516,7 +536,10 @@ void CPlayer::Player_Move(PLAYER_STATE _PlayerState, PLAYER_DIR _ePlayer_Move_St
 		}
 	}
 	else
+	{
 		m_ePlayer_State == PLAYER_IDLE;
+
+	}
 }
 
 void CPlayer::Player_Attack(PLAYER_STATE _PlayerState, PLAYER_DIR _PlayerAttack, float fTimeDelta)

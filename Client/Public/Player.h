@@ -54,8 +54,8 @@ private:
 	HRESULT SetUp_Components();
 	HRESULT SetUp_RenderState();
 	HRESULT Release_RenderState();
-	void Player_Idle(PLAYER_STATE _PlayerState, PLAYER_DIR _ePlayer_Idle_State, _float fTimeDelta);
-	void Player_Move(PLAYER_STATE _PlayerState, PLAYER_DIR _ePlayer_Move_State, _float fTimeDelta);
+	void Player_Idle(PLAYER_STATE _PlayerState, PLAYER_DIR _ePlayer_Idle_State, _float fTimeDelta, _bool KeyInput,_bool _bMove);
+	void Player_Move(PLAYER_STATE _PlayerState, PLAYER_DIR _ePlayer_Move_State, _float fTimeDelta,_bool Key_Input);
 	void Player_Attack(PLAYER_STATE _PlayerState, PLAYER_DIR _PlayerAttack, float fTimeDelta);
 	HRESULT Ready_Layer_Player_Skill(const _tchar * pLayerTag, _float fTimeDelta);
 	HRESULT Ready_Layer_Player_Attack(const _tchar * pLayerTag, _float fTimeDelta);
@@ -99,7 +99,7 @@ private:
 	_bool	m_bNoIdle = false;
 	_bool	m_bPlayer_Attack = false;
 	_bool   m_bSkill = false;
-	_bool	m_KeyInput = false;
+	_bool	m_bKeyInput = false;
 	_bool	m_bKeyState[VK_MAX];
 
 };
