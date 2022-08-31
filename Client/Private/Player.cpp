@@ -66,13 +66,15 @@ void CPlayer::Tick(_float fTimeDelta)
 			m_bPlayer_Move = true;
 			m_bPlayer_Idle = false;
 		}
-		else
+		else 
 		{
 			m_pTransformCom->Go_Straight(fTimeDelta);
 			m_ePlayer_State = CPlayer::UP_STATE;
 			m_ePlayer_Attack = CPlayer::UP_ATTACK;
 			m_bPlayer_Move = true;
 			m_bPlayer_Idle = false;
+		
+
 		}
 	}
 
@@ -127,6 +129,10 @@ void CPlayer::Tick(_float fTimeDelta)
 		//m_bPlayer_Attack = true;
 		m_bPlayer_Idle = false;
 
+	}
+	else
+	{
+		Player_Idel(PLAYER_IDLE, fTimeDelta);
 	}
 
 	

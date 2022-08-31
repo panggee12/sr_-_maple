@@ -70,6 +70,7 @@ private:
 
 	_bool	m_bPlayer_Move=false;
 	_bool	m_bPlayer_Idle = true;
+	_bool	m_bNoIlde = false;
 	_bool	m_bPlayer_Attack = false;
 	_bool   m_bSkill = false;
 	_bool	m_KeyInput = false;
