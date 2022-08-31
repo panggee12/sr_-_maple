@@ -22,7 +22,7 @@
 //{
 //	if (m_bKeyState[_Key] && !(GetAsyncKeyState(_Key) & 0x8000))
 //	{
-//		m_bKeyState[_Key] = !m_bKeyState[_Key];
+//		m_bKeyState[_Key] = !m_bKeyState[_Key];					
 //		return true;
 //	}
 //

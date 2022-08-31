@@ -52,17 +52,18 @@ void CEffect::Tick(_float fTimeDelta)
 
 	//m_Skill_Time_L += fTimeDelta;
 
-	m_EffectFrame += fTimeDelta + 0.08f;
+	m_EffectFrame += fTimeDelta + 0.2f;
+
 	if (m_EffectFrame <= 0 || m_EffectFrame >= 8)
 	{
 		m_bDead = true;
 
 	}
-	if (m_EffectFrame == 9)
-	{
 
-		m_bDead = true;
-	}
+	//CGameInstance*			pGameInstance = CGameInstance::Get_Instance();
+	//Safe_AddRef(pGameInstance);
+
+
 }
 
 void CEffect::Late_Tick(_float fTimeDelta)

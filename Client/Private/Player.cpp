@@ -16,7 +16,7 @@ HRESULT CPlayer::Initialize_Prototype()
 {
 	if (FAILED(__super::Initialize_Prototype()))
 		return E_FAIL;
-	
+
 	return S_OK;
 }
 
@@ -48,44 +48,57 @@ void CPlayer::Tick(_float fTimeDelta)
 	//m_pTransformCom->Down(fTimeDelta*1.0f);
 
 
+	_uint			Keyboard;
+	bool			bDown = false;
+
 	if (GetKeyState(VK_UP) < 0)
 	{
+		m_ePlayer_State = CPlayer::PLAYER_MOVE_STATE;
+
+		m_ePlayer_Idle_State = IDLE_END;
 		if (GetKeyState(VK_RIGHT) < 0)
 		{
 			m_pTransformCom->Go_RT(fTimeDelta);
-			m_ePlayer_State = CPlayer::RT_STATE;
-			m_ePlayer_Attack = CPlayer::UP_ATTACK;
+			m_ePlayer_State = CPlayer::PLAYER_MOVE_STATE;
+			m_ePlayer_Attack_State = CPlayer::RU_ATTACK;
+			m_ePlayer_Idle_State = CPlayer::RU_IDLE;
 			m_bPlayer_Move = true;
 			m_bPlayer_Idle = false;
 		}
 		else if (GetKeyState(VK_LEFT) < 0)
 		{
 			m_pTransformCom->Go_LT(fTimeDelta);
-			m_ePlayer_State = CPlayer::LT_STATE;
-			m_ePlayer_Attack = CPlayer::UP_ATTACK;
+			m_ePlayer_State = CPlayer::PLAYER_MOVE_STATE;
+			m_ePlayer_Attack_State = CPlayer::LU_ATTACK;
+			m_ePlayer_Idle_State = CPlayer::LU_IDLE;
 			m_bPlayer_Move = true;
 			m_bPlayer_Idle = false;
 		}
-		else 
+		else
 		{
 			m_pTransformCom->Go_Straight(fTimeDelta);
-			m_ePlayer_State = CPlayer::UP_STATE;
-			m_ePlayer_Attack = CPlayer::UP_ATTACK;
+			m_ePlayer_State = CPlayer::PLAYER_MOVE_STATE;
+			m_ePlayer_Attack_State = CPlayer::UP_ATTACK;
+			m_ePlayer_Idle_State = CPlayer::UP_IDLE;
+
 			m_bPlayer_Move = true;
 			m_bPlayer_Idle = false;
-		
-
 		}
 	}
 
-	else if (GetKeyState(VK_DOWN) < 0 )
+	else if (GetKeyState(VK_DOWN) < 0)
 	{
+		m_ePlayer_State = CPlayer::PLAYER_MOVE_STATE;
+		m_ePlayer_Idle_State = IDLE_END;
+
 		if (GetKeyState(VK_RIGHT) < 0)
 		{
 			m_pTransformCom->Go_Right(fTimeDelta);
 			m_pTransformCom->Go_Backward(fTimeDelta);
-			m_ePlayer_State = CPlayer::RD_STATE;
-			m_ePlayer_Attack = CPlayer::UP_ATTACK;
+			m_ePlayer_State = CPlayer::PLAYER_MOVE_STATE;
+			m_ePlayer_Attack_State = CPlayer::RD_ATTACK;
+			m_ePlayer_Idle_State = CPlayer::RD_IDLE;
+
 			m_bPlayer_Move = true;
 			m_bPlayer_Idle = false;
 		}
@@ -93,60 +106,54 @@ void CPlayer::Tick(_float fTimeDelta)
 		{
 			m_pTransformCom->Go_Left(fTimeDelta);
 			m_pTransformCom->Go_Backward(fTimeDelta);
-			m_ePlayer_State = CPlayer::LD_STATE;
-			m_ePlayer_Attack = CPlayer::UP_ATTACK;
+			m_ePlayer_State = CPlayer::PLAYER_MOVE_STATE;
+			m_ePlayer_Attack_State = CPlayer::LD_ATTACK;
+			m_ePlayer_Idle_State = CPlayer::LD_IDLE;
+
 			m_bPlayer_Move = true;
 			m_bPlayer_Idle = false;
 		}
 		else
 		{
 			m_pTransformCom->Go_Backward(fTimeDelta);
-			m_ePlayer_State = CPlayer::DOWN_STATE;
-			m_ePlayer_Attack = CPlayer::DOWN_ATTACK;
+			m_ePlayer_State = CPlayer::PLAYER_MOVE_STATE;
+			m_ePlayer_Attack_State = CPlayer::DOWN_ATTACK;
+			m_ePlayer_Idle_State = CPlayer::DOWN_IDLE;
 			m_bPlayer_Move = true;
 			m_bPlayer_Idle = false;
 		}
 	}
 
-	else if (GetKeyState(VK_LEFT) < 0 )
+	else if (GetKeyState(VK_LEFT) < 0)
 	{
+
 		m_pTransformCom->Go_Left(fTimeDelta);
-		m_ePlayer_State = CPlayer::LEFT_STATE;
-		m_ePlayer_Attack = CPlayer::LEFT_ATTACK;
+		m_ePlayer_State = CPlayer::PLAYER_MOVE_STATE;
+		m_ePlayer_Attack_State = CPlayer::LEFT_ATTACK;
+		m_ePlayer_Idle_State = CPlayer::LEFT_IDLE;
 		m_bPlayer_Move = true;
-		//m_bPlayer_Attack = true;
+		m_bPlayer_Attack = true;
 		m_bPlayer_Idle = false;
 
 
 	}
 
-	else if (GetKeyState(VK_RIGHT) < 0 )
+	else if (GetKeyState(VK_RIGHT) < 0)
 	{
+
 		m_pTransformCom->Go_Right(fTimeDelta);
-		m_ePlayer_State = CPlayer::RIGHT_STATE;
-		m_ePlayer_Attack = CPlayer::RIGHT_ATTACK;
+		m_ePlayer_State = CPlayer::PLAYER_MOVE_STATE;
+		m_ePlayer_Attack_State = CPlayer::RIGHT_ATTACK;
+		m_ePlayer_Idle_State = CPlayer::RIGHT_IDLE;
 		m_bPlayer_Move = true;
-		//m_bPlayer_Attack = true;
+		m_bPlayer_Attack = true;
 		m_bPlayer_Idle = false;
 
 	}
-	else
+	else if (Keyboard = pGameInstance->Get_DIKState(DIK_Q))
 	{
-		Player_Idel(PLAYER_IDLE, fTimeDelta);
-	}
+		m_ePlayer_Idle_State = IDLE_END;
 
-
-	
-	if (GetKeyState('A') & 0x8000)
-	{
-
-	}
-	else if (GetKeyState('Q') & 0x8000)
-
-	
-	if (GetKeyState('A') & 0x8000)
-
-	{
 		if (pGameInstance->Check_Layer(LEVEL_GAMEPLAY, TEXT("Layer_Monster")))
 		{
 			m_ePlayer_State = PLAYER_ATTACK;
@@ -155,26 +162,26 @@ void CPlayer::Tick(_float fTimeDelta)
 			return;
 		}
 	}
-
-	else if (GetKeyState('X') & 0x8000)
+	else if (Keyboard = pGameInstance->Get_DIKState(DIK_X))
 	{
+
+		m_ePlayer_Idle_State = IDLE_END;
+
 		if (pGameInstance->Check_Layer(LEVEL_GAMEPLAY, TEXT("Layer_Monster")))
 		{
-			Player_Attack(m_ePlayer_State, m_ePlayer_Attack, fTimeDelta);
+			Player_Attack(m_ePlayer_State, m_ePlayer_Attack_State, fTimeDelta);
 
 			if (FAILED(Ready_Layer_Player_Attack(TEXT("Layer_Playe_Attack"), fTimeDelta)));
 			return;
 		}
 	}
-	
 
-	_uint			Keyboard;
-	bool			bDown = false;
+
 	if (Keyboard = pGameInstance->Get_DIKState(DIK_Z))
 	{
 		m_ePlayer_State = PLAYER_ATTACK;
 	}
-	
+
 	if (Keyboard = pGameInstance->Get_DIKState(DIK_U))
 	{
 		m_pTransformCom->Down(fTimeDelta);
@@ -184,22 +191,24 @@ void CPlayer::Tick(_float fTimeDelta)
 		m_pTransformCom->Up(fTimeDelta);
 	}
 	//m_pTransformCom->Fall(fTimeDelta);
-	
-	if (Keyboard = pGameInstance->Get_DIKState(DIK_C)&& !m_pTransformCom->Get_Fall())
+
+	if (Keyboard = pGameInstance->Get_DIKState(DIK_C) && !m_pTransformCom->Get_Fall())
 	{
 		m_pTransformCom->Set_Jump(true);
 		m_pTransformCom->Set_Fall(true);
 	}
 
-	if (m_ePlayer_State == UP_STATE&&m_bPlayer_Move==true)
+	if (m_ePlayer_State == PLAYER_MOVE_STATE&&m_bPlayer_Move == true)
 	{
-		Player_Move(UP_STATE, fTimeDelta);
+		Player_Move(m_ePlayer_State, fTimeDelta);
 	}
-	else if (m_ePlayer_State == RIGHT_STATE&&m_bPlayer_Move == true )
+
+
+	/*else if (m_ePlayer_State == RIGHT_STATE&&m_bPlayer_Move == true)
 	{
 		Player_Move(RIGHT_STATE, fTimeDelta);
 	}
-	else if (m_ePlayer_State == LEFT_STATE&&m_bPlayer_Move == true )
+	else if (m_ePlayer_State == LEFT_STATE&&m_bPlayer_Move == true)
 	{
 		Player_Move(LEFT_STATE, fTimeDelta);
 	}
@@ -225,14 +234,14 @@ void CPlayer::Tick(_float fTimeDelta)
 	}
 	else if (m_ePlayer_State == PLAYER_ATTACK&&m_bPlayer_Move == false)
 	{
-		Player_Attack(m_ePlayer_State, m_ePlayer_Attack,fTimeDelta);
-	}
+		Player_Attack(m_ePlayer_State, m_ePlayer_Attack, fTimeDelta);
+	}*/
 
-	if (m_pTransformCom->Get_Jump())			
-		m_fJumpPower = 1.2f;	
-	else	
+	if (m_pTransformCom->Get_Jump())
+		m_fJumpPower = 1.2f;
+	else
 		m_fJumpPower = 0.f;
-		
+
 	if (m_pTransformCom->Get_Fall())
 	{
 		m_fFallSpeed += 0.04f;
@@ -244,13 +253,7 @@ void CPlayer::Tick(_float fTimeDelta)
 
 	m_pTransformCom->Jump(fTimeDelta, m_fJumpPower, m_fFallSpeed);
 
-	//m_pTransformCom->Set_Fall(true);
 
-	/*if (m_pTransformCom->Check_SecSavePos())
-	{
-		m_pTransformCom->Set_SecSavePosOn(false);
-		m_pTransformCom->Save_Collision_Pos(fTimeDelta);
-	}*/
 
 	Safe_Release(pGameInstance);
 }
@@ -267,7 +270,7 @@ HRESULT CPlayer::Render()
 {
 	if (FAILED(__super::Render()))
 		return E_FAIL;
-	
+
 	if (FAILED(m_pTransformCom->Bind_OnGraphicDev()))
 		return E_FAIL;
 
@@ -284,6 +287,25 @@ HRESULT CPlayer::Render()
 
 	return S_OK;
 }
+
+bool CPlayer::Key_Up(int _Key)
+{
+
+	if (m_bKeyState[_Key] && !(GetAsyncKeyState(_Key) & 0x8000))
+	{
+		m_bKeyState[_Key] = !m_bKeyState[_Key];
+		return true;
+	}
+
+	for (int i = 0; i < VK_MAX; ++i)
+	{
+		if (!m_bKeyState[_Key] && (GetAsyncKeyState(_Key) & 0x8000))
+			m_bKeyState[_Key] = !m_bKeyState[_Key];
+	}
+
+	return false;
+}
+
 
 HRESULT CPlayer::SetUp_Components()
 {
@@ -318,7 +340,7 @@ HRESULT CPlayer::SetUp_Components()
 HRESULT CPlayer::SetUp_RenderState()
 {
 	if (nullptr == m_pGraphic_Device)
-		return E_FAIL;	
+		return E_FAIL;
 
 	//m_pGraphic_Device->SetRenderState(D3DRS_FILLMODE, D3DFILL_WIREFRAME);
 	m_pGraphic_Device->SetRenderState(D3DRS_ALPHATESTENABLE, TRUE);
@@ -335,26 +357,86 @@ HRESULT CPlayer::Release_RenderState()
 	return S_OK;
 }
 
-void CPlayer::Player_Idel(PLAYER_STATE _PlayerState,_float fTimeDelta)
+void CPlayer::Player_Idle(PLAYER_STATE _PlayerState, _float fTimeDelta)
 {
-	if (m_ePlayer_State==PLAYER_IDLE&&m_bPlayer_Move == false)
+	if (m_ePlayer_Idle_State == IDLE_END&&m_ePlayer_State == PLAYER_IDLE&&m_bPlayer_Move == false)
 	{
 		if (m_uFrameNum <= 0 || m_uFrameNum >= 7)
 		{
 			m_uFrameNum = 0;
 		}
-	}				
+	}
+	if (m_ePlayer_Idle_State == RIGHT_IDLE&&m_ePlayer_State == PLAYER_IDLE&&m_bPlayer_Move == false)
+	{
+		if (m_uFrameNum <= 88 || m_uFrameNum >= 95)
+		{
+			m_uFrameNum = 88;
+		}
+	}
+	else if (m_ePlayer_Idle_State == RU_IDLE&&m_ePlayer_State == PLAYER_IDLE&&m_bPlayer_Move == false)
+	{
+		if (m_uFrameNum <= 96 || m_uFrameNum >= 103)
+		{
+			m_uFrameNum = 96;
+		}
+	}
+
+	else if (m_ePlayer_Idle_State == UP_IDLE&&m_ePlayer_State == PLAYER_IDLE&&m_bPlayer_Move == false)
+	{
+		if (m_uFrameNum <= 104 || m_uFrameNum >= 111)
+		{
+			m_uFrameNum = 104;
+		}
+	}
+	else if (m_ePlayer_Idle_State == LU_IDLE&&m_ePlayer_State == PLAYER_IDLE&&m_bPlayer_Move == false)
+	{
+		if (m_uFrameNum <= 112 || m_uFrameNum >= 119)
+		{
+			m_uFrameNum = 112;
+		}
+	}
+	else if (m_ePlayer_Idle_State == LEFT_IDLE&&m_ePlayer_State == PLAYER_IDLE&&m_bPlayer_Move == false)
+	{
+		if (m_uFrameNum <= 120 || m_uFrameNum >= 127)
+		{
+			m_uFrameNum = 120;
+		}
+	}
+	else if (m_ePlayer_Idle_State == LD_IDLE&&m_ePlayer_State == PLAYER_IDLE&&m_bPlayer_Move == false)
+	{
+		if (m_uFrameNum <= 128 || m_uFrameNum >= 136)
+		{
+			m_uFrameNum = 128;
+		}
+	}
+
+	else if (m_ePlayer_Idle_State == DOWN_IDLE&&m_ePlayer_State == PLAYER_IDLE&&m_bPlayer_Move == false)
+	{
+		if (m_uFrameNum <= 137 || m_uFrameNum >= 144)
+		{
+			m_uFrameNum = 137;
+		}
+	}
+	else if (m_ePlayer_Idle_State == RD_IDLE&&m_ePlayer_State == PLAYER_IDLE&&m_bPlayer_Move == false)
+	{
+		if (m_uFrameNum <= 145 || m_uFrameNum >= 152)
+		{
+			m_uFrameNum = 145;
+		}
+	}
+
+
 }
-void CPlayer::Player_Move(PLAYER_STATE _PlayerState, _float fTimeDelta)
+void CPlayer::Player_Move(PLAYER_STATE _PlayerState, PLAYER_MOVE _ePlayer_Move_State,  _float fTimeDelta)
 {
-	if (m_ePlayer_State == UP_STATE)
+	if (_PlayerState==PLAYER_MOVE_STATE&& _ePlayer_Move_State == UP_MOVE)
 	{
 		if (m_uFrameNum <= 8 || m_uFrameNum >= 15)
 		{
 			m_uFrameNum = 8;
 		}
 	}
-	else if (m_ePlayer_State == RIGHT_STATE)
+	else if (_PlayerState == PLAYER_MOVE_STATE&& _ePlayer_Move_State == RIGHT_MOVE)
 	{
 		if (m_uFrameNum <= 16 || m_uFrameNum >= 23)
 		{
@@ -362,28 +444,28 @@ void CPlayer::Player_Move(PLAYER_STATE _PlayerState, _float fTimeDelta)
 		}
 	}
 
-	else if (m_ePlayer_State == LEFT_STATE )
+	else if (_PlayerState == PLAYER_MOVE_STATE&&_ePlayer_Move_State == LEFT_MOVE)
 	{
 		if (m_uFrameNum <= 24 || m_uFrameNum >= 32)
 		{
 			m_uFrameNum = 24;
 		}
 	}
-	else if (m_ePlayer_State == DOWN_STATE )
+	else if (_PlayerState==PLAYER_MOVE_STATE&&_ePlayer_Move_State == DOWN_MOVE)
 	{
 		if (m_uFrameNum <= 32 || m_uFrameNum >= 40)
 		{
 			m_uFrameNum = 32;
 		}
 	}
-	else if (m_ePlayer_State == RT_STATE)
+	else if (_PlayerState == PLAYER_MOVE_STATE&& _ePlayer_Move_State == RU_MOVE)
 	{
 		if (m_uFrameNum <= 56 || m_uFrameNum >= 63)
 		{
 			m_uFrameNum = 56;
 		}
 	}
-	else if (m_ePlayer_State == LT_STATE)
+	else if (_PlayerState == PLAYER_MOVE_STATE&& _ePlayer_Move_State== LU_MOVE)
 	{
 		if (m_uFrameNum <= 64 || m_uFrameNum >= 71)
 		{
@@ -391,14 +473,14 @@ void CPlayer::Player_Move(PLAYER_STATE _PlayerState, _float fTimeDelta)
 		}
 	}
 
-	else if (m_ePlayer_State == LD_STATE)
+	else if (_PlayerState == PLAYER_MOVE_STATE&& _ePlayer_Move_State ==LD_MOVE)
 	{
 		if (m_uFrameNum <= 72 || m_uFrameNum >= 79)
 		{
 			m_uFrameNum = 72;
 		}
 	}
-	else if (m_ePlayer_State == RD_STATE)
+	else if (_PlayerState == PLAYER_MOVE_STATE&& _ePlayer_Move_State ==RD_MOVE)
 	{
 		if (m_uFrameNum <= 80 || m_uFrameNum >= 87)
 		{
@@ -412,12 +494,12 @@ void CPlayer::Player_Move(PLAYER_STATE _PlayerState, _float fTimeDelta)
 void CPlayer::Player_Attack(PLAYER_STATE _PlayerState, PLAYER_ATTACK_ _PlayerAttack, float fTimeDelta)
 {
 
-	if (m_ePlayer_State == RIGHT_STATE ||m_ePlayer_Attack == RIGHT_ATTACK&&m_uFrameNum <= 40 || m_uFrameNum >= 47)
+	if (m_ePlayer_State == RIGHT_STATE || m_ePlayer_Attack == RIGHT_ATTACK&&m_uFrameNum <= 40 || m_uFrameNum >= 47)
 	{
 		m_uFrameNum = 40;
 	}
 
-	 else if (m_ePlayer_State == UP_STATE||m_ePlayer_Attack == UP_ATTACK&&m_uFrameNum <= 47 || m_uFrameNum >= 55)	
+	else if (m_ePlayer_State == UP_STATE || m_ePlayer_Attack == UP_ATTACK&&m_uFrameNum <= 47 || m_uFrameNum >= 55)
 	{
 		m_uFrameNum = 48;
 	}

@@ -64,6 +64,7 @@ void CLevel_GamePlay::Tick(_float fTimeDelta)
 			for(int k=-1;k<2;++k)
 			{
 				auto eCubeDesc = m_MapCubeInfo.find(_float3(vPlayerPos.x + i, vPlayerPos.y + j, vPlayerPos.z + k));
+
 				if (m_MapCubeInfo.end() != eCubeDesc)
 				{
 					pGameInstance->Collision_Rect_Cube(LEVEL_GAMEPLAY, TEXT("Layer_Player"), eCubeDesc->second.vPos,
