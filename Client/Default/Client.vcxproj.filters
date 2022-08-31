@@ -323,8 +323,6 @@
     <ClCompile Include="..\Private\Level_GamePlay.cpp">
       <Filter>01.Levels\GamePlay</Filter>
     </ClCompile>
-<<<<<<< HEAD
-=======
     <ClCompile Include="..\Private\BellaMonster.cpp">
       <Filter>02.GameObject\Monster\BellaMonster</Filter>
     </ClCompile>
@@ -334,7 +332,6 @@
     <ClCompile Include="..\Private\YetiSkill.cpp">
       <Filter>02.GameObject\Monster\YetiMonster\YetiSkill</Filter>
     </ClCompile>
->>>>>>> origin/develop
   </ItemGroup>
   <ItemGroup>
     <Image Include="Client.ico">
