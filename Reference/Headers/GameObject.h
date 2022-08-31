@@ -19,10 +19,20 @@ public:
 	virtual void Tick(_float fTimeDelta);
 	virtual void Late_Tick(_float fTimeDelta);
 	virtual HRESULT Render();
+
 public:
 	virtual CTransform* Get_Transform() { return m_pTransformCom; }
 	virtual void		Set_Dead(_bool bDead) { m_bDead = bDead; }
 	virtual _bool		Get_Dead() { return m_bDead; }
+
+	virtual void		Set_Hit(_bool bHit) { m_bHit = bHit; }
+	virtual _bool		Get_Hit() { return m_bHit; }
+
+	virtual void		Set_Hp(_int iAttack) { m_iHp -= iAttack; }
+	virtual _int		Get_Hp() { return m_iHp; }
+
+	virtual _int		Get_iAttack() { return m_iAttack; }
+
 protected:
 	LPDIRECT3DDEVICE9			m_pGraphic_Device = nullptr;
 
@@ -37,7 +47,10 @@ protected:
 
 protected:
 	CTransform*				m_pTransformCom = nullptr;
-	_bool					m_bDead = false;
+	_bool							m_bDead = false;
+	_bool							m_bHit = false;
+	_int								m_iHp = 5;
+	_int								m_iAttack = 5;
 
 public:	
 	virtual CGameObject* Clone(void* pArg = nullptr) = 0;

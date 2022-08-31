@@ -7,6 +7,7 @@
 #include "Player.h"
 #include "Monster.h"
 #include "LupangMonster.h"
+#include "BellaMonster.h"
 #include "Sky.h"
 #include "TestBox.h"
 #include "CubeTerrain.h"
@@ -185,15 +186,20 @@ HRESULT CLoader::Loading_ForGamePlayLevel()
 		CTexture::Create(m_pGraphic_Device, CTexture::TYPE_DEFAULT, TEXT("../Bin/Resources/Textures/Monster/cow/M_%d.png"), 32))))
 		return E_FAIL;
 
+	/*루팡몬스터 (원숭이)*/
 	if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, TEXT("Prototype_Component_Texture_MonkeyMonster"),
-		CTexture::Create(m_pGraphic_Device, CTexture::TYPE_DEFAULT, TEXT("../Bin/Resources/Textures/Monster/Monkey/monkey%d.png"), 17))))
+		CTexture::Create(m_pGraphic_Device, CTexture::TYPE_DEFAULT, TEXT("../Bin/Resources/Textures/Monster/Monkey/monkey%d.png"), 20))))
 		return E_FAIL;
 
+	/*벨라모아 몬스터(뱀)*/
+	if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, TEXT("Prototype_Component_Texture_BellaMonster"),
+		CTexture::Create(m_pGraphic_Device, CTexture::TYPE_DEFAULT, TEXT("../Bin/Resources/Textures/Monster/Bella/Bam%d.png"), 15))))
+		return E_FAIL;
+
+	/*루팡스킬 바나나던지기*/
 	if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, TEXT("Prototype_Component_Texture_MonkeySkill"),
 		CTexture::Create(m_pGraphic_Device, CTexture::TYPE_DEFAULT, TEXT("../Bin/Resources/Textures/Monster/Monkey/Skill/banana%d.png"), 6))))
 		return E_FAIL;
-
-
 
 
 	/* 모델 로딩 중. */
@@ -279,9 +285,15 @@ HRESULT CLoader::Loading_ForGamePlayLevel()
 
 
 	/*For.Prototype_GameObject_Monster*/
-	if (FAILED(pGameInstance->Add_Prototype(TEXT("Prototype_GameObject_Monster"),
+	if (FAILED(pGameInstance->Add_Prototype(TEXT("Prototype_GameObject_MonkeyMonster"),
 		CLupangMonster::Create(m_pGraphic_Device))))
 		return E_FAIL;
+
+	/*For.Prototype_GameObject_BellaMonster*/
+	if (FAILED(pGameInstance->Add_Prototype(TEXT("Prototype_GameObject_BellaMonster"),
+		CBellaMonster::Create(m_pGraphic_Device))))
+		return E_FAIL;
+
 
 	/*For.Prototype_GameObject_MonkeySkill*/
 	if (FAILED(pGameInstance->Add_Prototype(TEXT("Prototype_GameObject_MonkeySkill"),

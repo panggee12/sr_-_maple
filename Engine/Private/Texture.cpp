@@ -66,12 +66,12 @@ HRESULT CTexture::Bind_FrameMove()
 {
 	if (m_FrameTexture.FirstFrame < m_FrameTexture.OriginFrame)
 		m_FrameTexture.FirstFrame = m_FrameTexture.OriginFrame;
-	else if(m_FrameTexture.FirstFrame > m_FrameTexture.EndFrame)
+	else if (m_FrameTexture.FirstFrame > m_FrameTexture.EndFrame)
 		m_FrameTexture.FirstFrame = m_FrameTexture.OriginFrame;
 
 	m_FrameTexture.FirstFrame += m_FrameTexture.FrameSpeed;
 
-	if (m_FrameTexture.FirstFrame > m_FrameTexture.EndFrame)
+	if ((_int)m_FrameTexture.FirstFrame > (_int)m_FrameTexture.EndFrame + 1)
 	{
 		m_FrameTexture.FirstFrame = m_FrameTexture.OriginFrame;
 	}

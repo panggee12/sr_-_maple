@@ -8,7 +8,7 @@ CLupangMonster::CLupangMonster(LPDIRECT3DDEVICE9 pGraphic_Device)
 }
 
 CLupangMonster::CLupangMonster(const CLupangMonster & rhs)
-	:CMonster(rhs)
+	: CMonster(rhs)
 {
 }
 
@@ -32,19 +32,9 @@ void CLupangMonster::Tick(_float fTimeDelta)
 {
 	__super::Tick(fTimeDelta);
 
-	MonsterMove();
 
-	if (!m_bMotionCheck)
-	{
-		if (m_eState == STATE_LEFT)
-		{
-			m_pTransformCom->Go_Left(fTimeDelta);
-		}
-		else if (m_eState = STATE_IDLE)
-		{
-			m_pTransformCom->Go_Left(fTimeDelta);
-		}
-	}
+	HitCheck(fTimeDelta);
+
 }
 
 void CLupangMonster::Late_Tick(_float fTimeDelta)
@@ -86,7 +76,7 @@ HRESULT CLupangMonster::SetUp_Components()
 	Safe_AddRef(m_pGameInstance);
 
 	pPlayer = m_pGameInstance->Find_Target(LEVEL_GAMEPLAY, TEXT("Layer_Player"));
-	 
+
 	Safe_Release(m_pGameInstance);
 
 	CTexture::FRAMETEXTURE		FrameTexture;
@@ -150,7 +140,7 @@ void CLupangMonster::MonsterMove()
 
 		_float fCurrentFrame = m_pTextureCom->m_FrameTexture.FirstFrame;
 
-		if (fCurrentFrame >= 9 && fCurrentFrame < 9+0.05f)
+		if (fCurrentFrame >= 9 && fCurrentFrame < 9 + 0.05f)
 		{
 			CGameInstance* m_pGameInstance = CGameInstance::Get_Instance();
 			Safe_AddRef(m_pGameInstance);
@@ -159,11 +149,11 @@ void CLupangMonster::MonsterMove()
 
 			if (FAILED(m_pGameInstance->Add_GameObject(TEXT("Prototype_GameObject_MonkeySkill"), LEVEL_GAMEPLAY, TEXT("Monkey_Skill"), &vPosition)))
 				return;
-			
+
 			Safe_Release(m_pGameInstance);
 		}
 
-		if (m_pTextureCom->m_FrameTexture.FirstFrame == m_pTextureCom->m_FrameTexture.OriginFrame)
+		if (m_pTextureCom->m_FrameTexture.FirstFrame >= 10)
 			m_bMotionCheck = false;
 	}
 
@@ -246,6 +236,11 @@ void CLupangMonster::MonsterMove()
 				m_iTextureCount = 0.f;
 				m_iTextureMaxCount = rand() % 10 + 5;
 
+				m_iUpDown++;
+
+				if (m_iUpDown >= 3)
+					m_iUpDown = 0;
+
 				if (m_eState == STATE_LEFT)
 				{
 					m_pTextureCom->m_FrameTexture.FirstFrame = 0;
@@ -261,6 +256,75 @@ void CLupangMonster::MonsterMove()
 					m_pTextureCom->m_FrameTexture.EndFrame = 3;
 					m_eState = STATE_LEFT;
 					m_pTransformCom->Set_Scaled(_float3(-2.f, 2.f, 2.f));
+				}
+			}
+		}
+	}
+}
+
+void CLupangMonster::HitCheck(_float fTimeDelta)
+{
+	if (m_bHit)
+	{
+		if (m_iHp <= 0)
+		{
+			m_pTextureCom->m_FrameTexture.OriginFrame = 13;
+			m_pTextureCom->m_FrameTexture.EndFrame = 15;
+			m_pTextureCom->m_FrameTexture.FrameSpeed = 0.05f;
+
+			if (m_pTextureCom->m_FrameTexture.FirstFrame >= 15.f)
+				m_bDead = true;
+		}
+		else
+		{
+			m_pTextureCom->m_FrameTexture.OriginFrame = 16;
+			m_pTextureCom->m_FrameTexture.EndFrame = 19;
+			m_pTextureCom->m_FrameTexture.FrameSpeed = 0.05f;
+			m_eState = STATE_HIT;
+
+			if (m_pTextureCom->m_FrameTexture.FirstFrame == m_pTextureCom->m_FrameTexture.OriginFrame)
+				m_bHit = false;
+
+		}
+	}
+	if (!m_bHit)
+	{
+		MonsterMove();
+
+		if (!m_bMotionCheck)
+		{
+			if (m_eState == STATE_LEFT)
+			{
+				if (m_iUpDown == 0)
+				{
+					m_pTransformCom->Go_Left(fTimeDelta);
+				}
+				else if (m_iUpDown == 1)
+				{
+					m_pTransformCom->Go_Left(fTimeDelta * 0.5f);
+					m_pTransformCom->Go_Straight(fTimeDelta * 0.5f);
+				}
+				else if (m_iUpDown == 2)
+				{
+					m_pTransformCom->Go_Left(fTimeDelta * 0.5f);
+					m_pTransformCom->Go_Backward(fTimeDelta * 0.5f);
+				}
+			}
+			else if (m_eState = STATE_IDLE)
+			{
+				if (m_iUpDown == 0)
+				{
+					m_pTransformCom->Go_Left(fTimeDelta);
+				}
+				else if (m_iUpDown == 1)
+				{
+					m_pTransformCom->Go_Left(fTimeDelta * 0.5f);
+					m_pTransformCom->Go_Straight(fTimeDelta * 0.5f);
+				}
+				else if (m_iUpDown == 2)
+				{
+					m_pTransformCom->Go_Left(fTimeDelta * 0.5f);
+					m_pTransformCom->Go_Backward(fTimeDelta * 0.5f);
 				}
 			}
 		}

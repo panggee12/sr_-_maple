@@ -106,6 +106,9 @@
     <Filter Include="03.Effect\Skill_Efect">
       <UniqueIdentifier>{333d49f0-79d6-42e2-936c-76aee19d7b73}</UniqueIdentifier>
     </Filter>
+    <Filter Include="02.GameObject\Monster\BellaMonster">
+      <UniqueIdentifier>{c083af79-4196-4936-a50e-fb25c9e2cc26}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -210,6 +213,9 @@
     <ClInclude Include="..\public\Litening_Effect.h">
       <Filter>03.Effect\Skill_Efect</Filter>
     </ClInclude>
+    <ClInclude Include="..\Public\BellaMonster.h">
+      <Filter>02.GameObject\Monster\BellaMonster</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Private\MainApp.cpp">
@@ -301,6 +307,9 @@
     </ClCompile>
     <ClCompile Include="..\Private\Level_GamePlay.cpp">
       <Filter>01.Levels\GamePlay</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\BellaMonster.cpp">
+      <Filter>02.GameObject\Monster\BellaMonster</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

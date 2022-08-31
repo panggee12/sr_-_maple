@@ -24,6 +24,7 @@ protected:
 	virtual HRESULT SetUp_RenderState();
 	virtual HRESULT Release_RenderState();
 	virtual void MonsterMove();
+	virtual void HitCheck(_float fTimeDelta);
 
 
 public:
