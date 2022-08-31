@@ -1,10 +1,61 @@
-﻿  InventoryUI.cpp
-c:\users\rkdtm\onedrive\바탕 화면\git\sr_-_maple\client\private\inventoryui.cpp(29): warning C4244: '인수': 'const unsigned int'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\rkdtm\onedrive\바탕 화면\git\sr_-_maple\client\private\inventoryui.cpp(57): warning C4244: '인수': 'Engine::_float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\rkdtm\onedrive\바탕 화면\git\sr_-_maple\client\private\inventoryui.cpp(95): warning C4244: '=': 'LONG'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\rkdtm\onedrive\바탕 화면\git\sr_-_maple\client\private\inventoryui.cpp(96): warning C4244: '=': 'LONG'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\rkdtm\onedrive\바탕 화면\git\sr_-_maple\client\private\inventoryui.cpp(108): warning C4244: '인수': 'Engine::_float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\rkdtm\onedrive\바탕 화면\git\sr_-_maple\client\private\inventoryui.cpp(63): warning C4101: 'fMy' :참조되지 않은 지역 변수입니다.
-c:\users\rkdtm\onedrive\바탕 화면\git\sr_-_maple\client\private\inventoryui.cpp(63): warning C4101: 'fMx' :참조되지 않은 지역 변수입니다.
-  Client.vcxproj -> C:\Users\rkdtm\OneDrive\바탕 화면\Git\sr_-_maple\Client\Default\..\Bin\Client.exe
-  Client.vcxproj -> ..\Bin\Client.pdb (Full PDB)
+﻿  Client.cpp
+c:\users\user\documents\github\sr_-_maple\client\public\client_defines.h(12): fatal error C1083: 포함 파일을 열 수 없습니다. 'process.h': No such file or directory
+  Loader.cpp
+c:\users\user\documents\github\sr_-_maple\client\public\client_defines.h(12): fatal error C1083: 포함 파일을 열 수 없습니다. 'process.h': No such file or directory
+  Litening_Effect.cpp
+c:\users\user\documents\github\sr_-_maple\client\public\client_defines.h(12): fatal error C1083: 포함 파일을 열 수 없습니다. 'process.h': No such file or directory
+  Level_Logo.cpp
+c:\users\user\documents\github\sr_-_maple\client\public\client_defines.h(12): fatal error C1083: 포함 파일을 열 수 없습니다. 'process.h': No such file or directory
+  Effect.cpp
+c:\users\user\documents\github\sr_-_maple\client\public\client_defines.h(12): fatal error C1083: 포함 파일을 열 수 없습니다. 'process.h': No such file or directory
+  BackGround.cpp
+c:\users\user\documents\github\sr_-_maple\client\public\client_defines.h(12): fatal error C1083: 포함 파일을 열 수 없습니다. 'process.h': No such file or directory
+  TestBox.cpp
+c:\users\user\documents\github\sr_-_maple\client\public\client_defines.h(12): fatal error C1083: 포함 파일을 열 수 없습니다. 'process.h': No such file or directory
+  Terrain.cpp
+c:\users\user\documents\github\sr_-_maple\client\public\client_defines.h(12): fatal error C1083: 포함 파일을 열 수 없습니다. 'process.h': No such file or directory
+  Sky.cpp
+c:\users\user\documents\github\sr_-_maple\client\public\client_defines.h(12): fatal error C1083: 포함 파일을 열 수 없습니다. 'process.h': No such file or directory
+  SkillbookUI.cpp
+c:\users\user\documents\github\sr_-_maple\client\public\client_defines.h(12): fatal error C1083: 포함 파일을 열 수 없습니다. 'process.h': No such file or directory
+  SkillInfoUI.cpp
+c:\users\user\documents\github\sr_-_maple\client\public\client_defines.h(12): fatal error C1083: 포함 파일을 열 수 없습니다. 'process.h': No such file or directory
+  Player_Skill.cpp
+c:\users\user\documents\github\sr_-_maple\client\public\client_defines.h(12): fatal error C1083: 포함 파일을 열 수 없습니다. 'process.h': No such file or directory
+  Player_Attack.cpp
+c:\users\user\documents\github\sr_-_maple\client\public\client_defines.h(12): fatal error C1083: 포함 파일을 열 수 없습니다. 'process.h': No such file or directory
+  PlayerInfoUI.cpp
+c:\users\user\documents\github\sr_-_maple\client\public\client_defines.h(12): fatal error C1083: 포함 파일을 열 수 없습니다. 'process.h': No such file or directory
+  Player.cpp
+c:\users\user\documents\github\sr_-_maple\client\public\client_defines.h(12): fatal error C1083: 포함 파일을 열 수 없습니다. 'process.h': No such file or directory
+  Monster.cpp
+c:\users\user\documents\github\sr_-_maple\client\public\client_defines.h(12): fatal error C1083: 포함 파일을 열 수 없습니다. 'process.h': No such file or directory
+  MainApp.cpp
+c:\users\user\documents\github\sr_-_maple\client\public\client_defines.h(12): fatal error C1083: 포함 파일을 열 수 없습니다. 'process.h': No such file or directory
+  LupangSkill.cpp
+c:\users\user\documents\github\sr_-_maple\client\public\client_defines.h(12): fatal error C1083: 포함 파일을 열 수 없습니다. 'process.h': No such file or directory
+  LupangMonster.cpp
+c:\users\user\documents\github\sr_-_maple\client\public\client_defines.h(12): fatal error C1083: 포함 파일을 열 수 없습니다. 'process.h': No such file or directory
+  LogoUI.cpp
+c:\users\user\documents\github\sr_-_maple\client\public\client_defines.h(12): fatal error C1083: 포함 파일을 열 수 없습니다. 'process.h': No such file or directory
+  코드를 생성하고 있습니다...
+  컴파일하고 있습니다...
+  Level_Loading.cpp
+c:\users\user\documents\github\sr_-_maple\client\public\client_defines.h(12): fatal error C1083: 포함 파일을 열 수 없습니다. 'process.h': No such file or directory
+  Level_GamePlay.cpp
+c:\users\user\documents\github\sr_-_maple\client\public\client_defines.h(12): fatal error C1083: 포함 파일을 열 수 없습니다. 'process.h': No such file or directory
+  ItemInfoUI.cpp
+c:\users\user\documents\github\sr_-_maple\client\public\client_defines.h(12): fatal error C1083: 포함 파일을 열 수 없습니다. 'process.h': No such file or directory
+  InventoryUI.cpp
+c:\users\user\documents\github\sr_-_maple\client\public\client_defines.h(12): fatal error C1083: 포함 파일을 열 수 없습니다. 'process.h': No such file or directory
+  InventoryButtonUI.cpp
+c:\users\user\documents\github\sr_-_maple\client\public\client_defines.h(12): fatal error C1083: 포함 파일을 열 수 없습니다. 'process.h': No such file or directory
+  HpBarUI.cpp
+c:\users\user\documents\github\sr_-_maple\client\public\client_defines.h(12): fatal error C1083: 포함 파일을 열 수 없습니다. 'process.h': No such file or directory
+  ExpBarUI.cpp
+c:\users\user\documents\github\sr_-_maple\client\public\client_defines.h(12): fatal error C1083: 포함 파일을 열 수 없습니다. 'process.h': No such file or directory
+  CubeTerrain.cpp
+c:\users\user\documents\github\sr_-_maple\client\public\client_defines.h(12): fatal error C1083: 포함 파일을 열 수 없습니다. 'process.h': No such file or directory
+  Camera_Dynamic.cpp
+c:\users\user\documents\github\sr_-_maple\client\public\client_defines.h(12): fatal error C1083: 포함 파일을 열 수 없습니다. 'process.h': No such file or directory
+  코드를 생성하고 있습니다...
