@@ -7,10 +7,13 @@
 #include "Player.h"
 #include "Monster.h"
 #include "LupangMonster.h"
+#include "BellaMonster.h"
+#include "YetiMonster.h"
 #include "Sky.h"
 #include "TestBox.h"
 #include "CubeTerrain.h"
 #include "LupangSkill.h"
+#include "YetiSkill.h"
 #include "LogoUI.h"
 #include "InventoryUI.h"
 #include "PlayerInfoUI.h"
@@ -172,29 +175,30 @@ HRESULT CLoader::Loading_ForGamePlayLevel()
 		CTexture::Create(m_pGraphic_Device, CTexture::TYPE_CUBEMAP, TEXT("../Bin/Resources/Textures/SkyBox/Sky_%d.dds"), 19))))
 		return E_FAIL;
 
-	/*For.Prototype_Component_Texture_Monster */
-	if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, TEXT("Prototype_Component_Texture_Monster"),
-		CTexture::Create(m_pGraphic_Device, CTexture::TYPE_DEFAULT, TEXT("../Bin/Resources/Textures/Monster/NornilAttack%d.png"), 20))))
-		return E_FAIL;
-
-	//if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, TEXT("Prototype_Component_Texture_Monster2"),
-	//	CTexture::Create(m_pGraphic_Device, CTexture::TYPE_DEFAULT, TEXT("../Bin/Resources/Textures/Monster/monster%d.png"), 1))))
-	//	return E_FAIL;
-
-	if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, TEXT("Prototype_Component_Texture_Monster3"),
-		CTexture::Create(m_pGraphic_Device, CTexture::TYPE_DEFAULT, TEXT("../Bin/Resources/Textures/Monster/cow/M_%d.png"), 32))))
-		return E_FAIL;
-
+	/*루팡몬스터 (원숭이) 텍스쳐*/
 	if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, TEXT("Prototype_Component_Texture_MonkeyMonster"),
-		CTexture::Create(m_pGraphic_Device, CTexture::TYPE_DEFAULT, TEXT("../Bin/Resources/Textures/Monster/Monkey/monkey%d.png"), 17))))
+		CTexture::Create(m_pGraphic_Device, CTexture::TYPE_DEFAULT, TEXT("../Bin/Resources/Textures/Monster/Monkey/monkey%d.png"), 20))))
 		return E_FAIL;
 
+	/*벨라모아 몬스터(뱀) 텍스쳐*/
+	if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, TEXT("Prototype_Component_Texture_BellaMonster"),
+		CTexture::Create(m_pGraphic_Device, CTexture::TYPE_DEFAULT, TEXT("../Bin/Resources/Textures/Monster/Bella/Bam%d.png"), 15))))
+		return E_FAIL;
+
+	/*예티 몬스터 텍스쳐*/
+	if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, TEXT("Prototype_Component_Texture_YetiMonster"),
+		CTexture::Create(m_pGraphic_Device, CTexture::TYPE_DEFAULT, TEXT("../Bin/Resources/Textures/Monster/Yeti/yeti%d.png"), 26))))
+		return E_FAIL;
+
+	/*루팡스킬 바나나던지기*/
 	if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, TEXT("Prototype_Component_Texture_MonkeySkill"),
 		CTexture::Create(m_pGraphic_Device, CTexture::TYPE_DEFAULT, TEXT("../Bin/Resources/Textures/Monster/Monkey/Skill/banana%d.png"), 6))))
 		return E_FAIL;
 
-
-
+	/* 예티 스킬*/
+	if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, TEXT("Prototype_Component_Texture_YetiSkill"),
+		CTexture::Create(m_pGraphic_Device, CTexture::TYPE_DEFAULT, TEXT("../Bin/Resources/Textures/Monster/Yeti/Skill/YetiSkill%d.png"), 4))))
+		return E_FAIL;
 
 	/* 모델 로딩 중. */
 	//lstrcpy(m_szLoadingText, TEXT("모델 로딩 중."));
@@ -278,14 +282,31 @@ HRESULT CLoader::Loading_ForGamePlayLevel()
 		return E_FAIL;
 
 
-	/*For.Prototype_GameObject_Monster*/
-	if (FAILED(pGameInstance->Add_Prototype(TEXT("Prototype_GameObject_Monster"),
+	/*For.Prototype_GameObject_MonkeyMonster 루팡(원숭이몬스터)*/
+	if (FAILED(pGameInstance->Add_Prototype(TEXT("Prototype_GameObject_MonkeyMonster"),
 		CLupangMonster::Create(m_pGraphic_Device))))
 		return E_FAIL;
+
+	/*For.Prototype_GameObject_BellaMonster 벨라(뱀몬스터)*/
+	if (FAILED(pGameInstance->Add_Prototype(TEXT("Prototype_GameObject_BellaMonster"),
+		CBellaMonster::Create(m_pGraphic_Device))))
+		return E_FAIL;
+
+
+	/*For.Prototype_GameObject_YetiMonster 예티(설인몬스터)*/
+	if (FAILED(pGameInstance->Add_Prototype(TEXT("Prototype_GameObject_YetiMonster"),
+		CYetiMonster::Create(m_pGraphic_Device))))
+		return E_FAIL;
+
 
 	/*For.Prototype_GameObject_MonkeySkill*/
 	if (FAILED(pGameInstance->Add_Prototype(TEXT("Prototype_GameObject_MonkeySkill"),
 		CLupangSkill::Create(m_pGraphic_Device))))
+		return E_FAIL;
+
+	/*For.Prototype_GameObject_YetiSkill 예티스킬*/
+	if (FAILED(pGameInstance->Add_Prototype(TEXT("Prototype_GameObject_YetiSkill"),
+		CYetiSkill::Create(m_pGraphic_Device))))
 		return E_FAIL;
 
 	if (FAILED(pGameInstance->Add_Prototype(TEXT("Prototype_GameObject_TestBox"),

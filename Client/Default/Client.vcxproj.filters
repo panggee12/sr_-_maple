@@ -106,6 +106,18 @@
     <Filter Include="03.Effect\Skill_Efect">
       <UniqueIdentifier>{333d49f0-79d6-42e2-936c-76aee19d7b73}</UniqueIdentifier>
     </Filter>
+    <Filter Include="02.GameObject\Monster\BellaMonster">
+      <UniqueIdentifier>{c083af79-4196-4936-a50e-fb25c9e2cc26}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObject\Monster\YetiMonster">
+      <UniqueIdentifier>{3ae5d27a-80aa-40d0-8695-cbc0ac7a830a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObject\Monster\YetiMonster\YetiSkill">
+      <UniqueIdentifier>{15a0c0ab-1a7f-4a3b-9d46-b46dbb5a2a82}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObject\Item">
+      <UniqueIdentifier>{5152df02-b298-4fbb-bbc0-0b6dab3c89ab}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -210,6 +222,15 @@
     <ClInclude Include="..\public\Litening_Effect.h">
       <Filter>03.Effect\Skill_Efect</Filter>
     </ClInclude>
+    <ClInclude Include="..\Public\BellaMonster.h">
+      <Filter>02.GameObject\Monster\BellaMonster</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\YetiMonster.h">
+      <Filter>02.GameObject\Monster\YetiMonster</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\YetiSkill.h">
+      <Filter>02.GameObject\Monster\YetiMonster\YetiSkill</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Private\MainApp.cpp">
@@ -302,6 +323,18 @@
     <ClCompile Include="..\Private\Level_GamePlay.cpp">
       <Filter>01.Levels\GamePlay</Filter>
     </ClCompile>
+<<<<<<< HEAD
+=======
+    <ClCompile Include="..\Private\BellaMonster.cpp">
+      <Filter>02.GameObject\Monster\BellaMonster</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\YetiMonster.cpp">
+      <Filter>02.GameObject\Monster\YetiMonster</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\YetiSkill.cpp">
+      <Filter>02.GameObject\Monster\YetiMonster\YetiSkill</Filter>
+    </ClCompile>
+>>>>>>> origin/develop
   </ItemGroup>
   <ItemGroup>
     <Image Include="Client.ico">

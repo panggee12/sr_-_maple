@@ -162,12 +162,18 @@ void CPlayer::Tick(_float fTimeDelta)
 		m_bPlayer_Idle = false;
 
 	}
+<<<<<<< HEAD
 	else if (Key_Pressing('Q'))
 	{
 		m_bKeyInput = true;
 
 		//m_ePlayer_Idle_State = IDLE_END;
 
+=======
+	
+	if (GetKeyState('A') & 0x8000)
+	{
+>>>>>>> origin/develop
 		if (pGameInstance->Check_Layer(LEVEL_GAMEPLAY, TEXT("Layer_Monster")))
 		{
 			m_ePlayer_State = PLAYER_ATTACK;
