@@ -13,14 +13,14 @@ END
 
 BEGIN(Client)
 
-class CLupangSkill final : public CGameObject
+class CYetiSkill final : public CGameObject
 {
 	enum STATE { STATE_IDLE, STATE_LEFT, STATE_RIGHT, STATE_ATTACK, STATE_END };
 
 private:
-	CLupangSkill(LPDIRECT3DDEVICE9 pGraphic_Device);
-	CLupangSkill(const CLupangSkill& rhs);
-	virtual ~CLupangSkill() = default;
+	CYetiSkill(LPDIRECT3DDEVICE9 pGraphic_Device);
+	CYetiSkill(const CYetiSkill& rhs);
+	virtual ~CYetiSkill() = default;
 
 public:
 	virtual HRESULT Initialize_Prototype() override;
@@ -54,7 +54,7 @@ public:
 	virtual HRESULT Release_RenderState();
 
 public:
-	static CLupangSkill* Create(LPDIRECT3DDEVICE9 pGraphic_Device);
+	static CYetiSkill* Create(LPDIRECT3DDEVICE9 pGraphic_Device);
 	virtual CGameObject* Clone(void* pArg = nullptr) override;
 	virtual void Free() override;
 };

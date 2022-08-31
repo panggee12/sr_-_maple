@@ -121,12 +121,17 @@ HRESULT CLevel_GamePlay::Ready_Layer_Monster(const _tchar * pLayerTag)
 	CGameInstance*			pGameInstance = CGameInstance::Get_Instance();
 	Safe_AddRef(pGameInstance);
 
+	/* 원숭이 몬스터 */
 	if (FAILED(pGameInstance->Add_GameObject(TEXT("Prototype_GameObject_MonkeyMonster"), LEVEL_GAMEPLAY, pLayerTag, nullptr)))
 		return E_FAIL;
 
+	/* 뱀 몬스터 */
 	if (FAILED(pGameInstance->Add_GameObject(TEXT("Prototype_GameObject_BellaMonster"), LEVEL_GAMEPLAY, pLayerTag, nullptr)))
 		return E_FAIL;
 
+	/* 설인 몬스터 */
+	if (FAILED(pGameInstance->Add_GameObject(TEXT("Prototype_GameObject_YetiMonster"), LEVEL_GAMEPLAY, pLayerTag, nullptr)))
+		return E_FAIL;
 
 	//auto pPlayer = pGameInstance->Find_Target(LEVEL_GAMEPLAY, TEXT("Layer_Player"));
 

@@ -1,19 +1,18 @@
-
 #include "stdafx.h"
-#include "..\Public\LupangSkill.h"
+#include "..\Public\YetiSkill.h"
 #include "GameInstance.h"
 
-CLupangSkill::CLupangSkill(LPDIRECT3DDEVICE9 pGraphic_Device)
+CYetiSkill::CYetiSkill(LPDIRECT3DDEVICE9 pGraphic_Device)
 	: CGameObject(pGraphic_Device)
 {
 }
 
-CLupangSkill::CLupangSkill(const CLupangSkill & rhs)
+CYetiSkill::CYetiSkill(const CYetiSkill & rhs)
 	: CGameObject(rhs)
 {
 }
 
-HRESULT CLupangSkill::Initialize_Prototype()
+HRESULT CYetiSkill::Initialize_Prototype()
 {
 	if (FAILED(__super::Initialize_Prototype()))
 		return E_FAIL;
@@ -21,7 +20,7 @@ HRESULT CLupangSkill::Initialize_Prototype()
 	return S_OK;
 }
 
-HRESULT CLupangSkill::Initialize(void* pArg)
+HRESULT CYetiSkill::Initialize(void* pArg)
 {
 	if (FAILED(__super::Initialize(pArg)))
 		return E_FAIL;
@@ -34,7 +33,7 @@ HRESULT CLupangSkill::Initialize(void* pArg)
 	return S_OK;
 }
 
-void CLupangSkill::Tick(_float fTimeDelta)
+void CYetiSkill::Tick(_float fTimeDelta)
 {
 	__super::Tick(fTimeDelta);
 
@@ -51,7 +50,7 @@ void CLupangSkill::Tick(_float fTimeDelta)
 
 	Safe_AddRef(pGameInstance);
 
-	if (pGameInstance->Collision_Attacked(LEVEL_GAMEPLAY, TEXT("Layer_Player"), TEXT("Monkey_Skill"), fTimeDelta, 1, _float3(0.15f, 0.3f, 0.15f),_float3(0.3f, 0.3f, 0.3f)))
+	if (pGameInstance->Collision_Attacked(LEVEL_GAMEPLAY, TEXT("Layer_Player"), TEXT("Yeti_Skill"), fTimeDelta, 1, _float3(0.15f, 0.3f, 0.15f), _float3(0.3f, 0.3f, 0.3f)))
 	{
 
 	}
@@ -61,7 +60,7 @@ void CLupangSkill::Tick(_float fTimeDelta)
 	m_pTransformCom->Set_State(CTransform::STATE_POSITION, vPos);
 }
 
-void CLupangSkill::Late_Tick(_float fTimeDelta)
+void CYetiSkill::Late_Tick(_float fTimeDelta)
 {
 	__super::Late_Tick(fTimeDelta);
 
@@ -69,7 +68,7 @@ void CLupangSkill::Late_Tick(_float fTimeDelta)
 		m_pRendererCom->Add_RenderGroup(CRenderer::RENDER_NONALPHABLEND, this);
 }
 
-HRESULT CLupangSkill::Render()
+HRESULT CYetiSkill::Render()
 {
 	if (FAILED(__super::Render()))
 		return E_FAIL;
@@ -93,7 +92,7 @@ HRESULT CLupangSkill::Render()
 	return S_OK;
 }
 
-HRESULT CLupangSkill::SetUp_Components()
+HRESULT CYetiSkill::SetUp_Components()
 {
 
 	m_pGameInstance = CGameInstance::Get_Instance();
@@ -111,11 +110,11 @@ HRESULT CLupangSkill::SetUp_Components()
 	ZeroMemory(&FrameTexture, sizeof(CTexture::FRAMETEXTURE));
 	FrameTexture.FirstFrame = 0;
 	FrameTexture.OriginFrame = 0;
-	FrameTexture.EndFrame = 5;
+	FrameTexture.EndFrame = 3;
 	FrameTexture.FrameSpeed = 0.1f;
 
 	/* For.Com_Texture */
-	if (FAILED(__super::Add_Components(TEXT("Com_Texture"), LEVEL_GAMEPLAY, TEXT("Prototype_Component_Texture_MonkeySkill"), (CComponent**)&m_pTextureCom, &FrameTexture)))
+	if (FAILED(__super::Add_Components(TEXT("Com_Texture"), LEVEL_GAMEPLAY, TEXT("Prototype_Component_Texture_YetiSkill"), (CComponent**)&m_pTextureCom, &FrameTexture)))
 		return E_FAIL;
 
 	/* For.Com_VIBuffer */
@@ -148,52 +147,52 @@ HRESULT CLupangSkill::SetUp_Components()
 	return S_OK;
 }
 
-HRESULT CLupangSkill::SetUp_RenderState()
+HRESULT CYetiSkill::SetUp_RenderState()
 {
 	if (nullptr == m_pGraphic_Device)
 		return E_FAIL;
 
 	m_pGraphic_Device->SetRenderState(D3DRS_ALPHATESTENABLE, TRUE);
-	m_pGraphic_Device->SetRenderState(D3DRS_ALPHAREF, 250);
+	m_pGraphic_Device->SetRenderState(D3DRS_ALPHAREF, 100);
 	m_pGraphic_Device->SetRenderState(D3DRS_ALPHAFUNC, D3DCMP_GREATEREQUAL);
 	m_pGraphic_Device->SetRenderState(D3DRS_CULLMODE, D3DCULL_NONE);
 	return S_OK;
 }
 
-HRESULT CLupangSkill::Release_RenderState()
+HRESULT CYetiSkill::Release_RenderState()
 {
 	m_pGraphic_Device->SetRenderState(D3DRS_ALPHATESTENABLE, FALSE);
 
 	return S_OK;
 }
 
-CLupangSkill * CLupangSkill::Create(LPDIRECT3DDEVICE9 pGraphic_Device)
+CYetiSkill * CYetiSkill::Create(LPDIRECT3DDEVICE9 pGraphic_Device)
 {
-	CLupangSkill*   pInstance = new CLupangSkill(pGraphic_Device);
+	CYetiSkill*   pInstance = new CYetiSkill(pGraphic_Device);
 
 	if (FAILED(pInstance->Initialize_Prototype()))
 	{
-		ERR_MSG(TEXT("Failed to Created : CLupangSkill"));
+		ERR_MSG(TEXT("Failed to Created : CYetiSkill"));
 		Safe_Release(pInstance);
 	}
 
 	return pInstance;
 }
 
-CGameObject * CLupangSkill::Clone(void* pArg)
+CGameObject * CYetiSkill::Clone(void* pArg)
 {
-	CLupangSkill*   pInstance = new CLupangSkill(*this);
+	CYetiSkill*   pInstance = new CYetiSkill(*this);
 
 	if (FAILED(pInstance->Initialize(pArg)))
 	{
-		ERR_MSG(TEXT("Failed to Cloned : CLupangSkill"));
+		ERR_MSG(TEXT("Failed to Cloned : CYetiSkill"));
 		Safe_Release(pInstance);
 	}
 
 	return pInstance;
 }
 
-void CLupangSkill::Free()
+void CYetiSkill::Free()
 {
 	__super::Free();
 
