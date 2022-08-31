@@ -19,11 +19,11 @@ class CPlayer final : public CGameObject
 	//PlayerState
 	enum PLAYER_STATE {PLAYER_IDLE,PLAYER_MOVE_STATE,PLAYER_ATTACK, PLAYER_SKILL, PLAYER_END };
 	//MoveState
-	enum PLAYER_MOVE { UP_MOVE, DOWN_MOVE, LEFT_MOVE, RIGHT_MOVE, RU_MOVE, LU_MOVE, RD_MOVE, LD_MOVE, MOVE_END };
+	enum PLAYER_MOVE { UP_MOVE, DOWN_MOVE, LEFT_MOVE, RIGHT_MOVE, RU_MOVE, LU_MOVE, RD_MOVE, LD_MOVE, STOP_MOVE,MOVE_END };
 	//AttackState
 	enum PLAYER_ATTACK_ {UP_ATTACK,DOWN_ATTACK,LEFT_ATTACK,RIGHT_ATTACK, RD_ATTACK,RU_ATTACK,LU_ATTACK,LD_ATTACK, ATTACK_END};
 	//아이들 상태 ;
-	enum PLATY_IDLE {IDLE_ON,UP_IDLE, DOWN_IDLE,LEFT_IDLE, RIGHT_IDLE,RU_IDLE,LU_IDLE,RD_IDLE,LD_IDLE,IDLE_END	};
+	enum PLATY_IDLE_STATE {IDLE_ON,UP_IDLE, DOWN_IDLE,LEFT_IDLE, RIGHT_IDLE,RU_IDLE,LU_IDLE,RD_IDLE,LD_IDLE,IDLE_END	};
 	//JumpState
 	enum PLAYER_JUMP { UP_ON,UP_JUMP, DOWN_JUMP, LEFT_JUMP, RIGHT_JUMP, RU_JUMP, LU_JUMP, RD_JUMP, LD_JUMP, JUMP_END };
 
@@ -50,14 +50,15 @@ private:
 	HRESULT SetUp_Components();
 	HRESULT SetUp_RenderState();
 	HRESULT Release_RenderState();
-	void Player_Idle(PLAYER_STATE _PlayerState,_float fTimeDelta);
+	void Player_Idle(PLAYER_STATE _PlayerState, PLATY_IDLE_STATE _ePlayer_Idle_State, _float fTimeDelta);
 	void Player_Move(PLAYER_STATE _PlayerState, PLAYER_MOVE _ePlayer_Move_State, _float fTimeDelta);
 	void Player_Attack(PLAYER_STATE _PlayerState,PLAYER_ATTACK_ _PlayerAttack, float fTimeDelta);
 	HRESULT Ready_Layer_Player_Skill(const _tchar * pLayerTag, _float fTimeDelta);
 	HRESULT Ready_Layer_Player_Attack(const _tchar * pLayerTag, _float fTimeDelta);
 
-	bool Key_Up(int _Key);
-
+	_bool Key_Up(int _Key);
+	_bool Key_Down(int _Key);
+	_bool Key_Pressing(int _Key);
 
 public:
 	static CPlayer* Create(LPDIRECT3DDEVICE9 pGraphic_Device);
@@ -76,6 +77,8 @@ private:
 
 	_float m_fFrameTime = 0.f;
 
+	_float		m_PlyerTime=0.f;
+
 	//Player_State
 	PLAYER_STATE   m_ePlayer_State= PLAYER_IDLE;
 	//Attack
@@ -83,7 +86,7 @@ private:
 	//Move
 	PLAYER_MOVE    m_ePlayer_Move_State = MOVE_END;
 	//IDle
-	PLATY_IDLE		m_ePlayer_Idle_State = IDLE_END;
+	PLATY_IDLE_STATE		m_ePlayer_Idle_State = IDLE_END;
 	//Jump
 	PLAYER_JUMP		m_ePlayer_Jump_State = JUMP_END;
 
