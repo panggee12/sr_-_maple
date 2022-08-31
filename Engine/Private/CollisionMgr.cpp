@@ -148,17 +148,17 @@ bool CCollisionMgr::CollisionCheck(class CTransform * p1Trans, class CTransform 
 	return false;
 }
 
-bool CCollisionMgr::Collision_Rect_Cube(CTransform * p1Trans, CTransform * p2Trans, _float fTimeDelta)
+bool CCollisionMgr::Collision_Rect_Cube(CTransform* p1Trans, _float3 v1Pos, _float3 v2Pos, _float fTimeDelta, _float3 fScale)
 { // 플레이어는 렉트고 블럭은 큐브 
-	_float3 p1pos = p1Trans->Get_State(CTransform::STATE_POSITION);
-	_float fx1 = 0.15f*D3DXVec3Length(&p1Trans->Get_State(CTransform::STATE_RIGHT));
-	_float fy1 = 0.3f*D3DXVec3Length(&p1Trans->Get_State(CTransform::STATE_UP));
-	_float fz1 = 0.15f*D3DXVec3Length(&p1Trans->Get_State(CTransform::STATE_LOOK)); //렉트 z는 그저 위치
+	_float3 p1pos = v1Pos;
+	_float fx1 = fScale.x;
+	_float fy1 = fScale.y;
+	_float fz1 = fScale.z; //렉트 z는 그저 위치
 
-	_float3 p2pos = p2Trans->Get_State(CTransform::STATE_POSITION);
-	_float fx2 = 0.5f*D3DXVec3Length(&p2Trans->Get_State(CTransform::STATE_RIGHT));
-	_float fy2 = 0.5f*D3DXVec3Length(&p2Trans->Get_State(CTransform::STATE_UP));
-	_float fz2 = 0.5f*D3DXVec3Length(&p2Trans->Get_State(CTransform::STATE_LOOK));
+	_float3 p2pos = v2Pos;
+	_float fx2 = 0.5f;
+	_float fy2 = 0.5f;
+	_float fz2 = 0.5f;
 
 	//if( (  x1 <= x4  and   x2 >= x3 ) and ( y1 <= y4 and y2 >= y3 ) and ( z1 <= z4 and z2 >= z3 )
 
