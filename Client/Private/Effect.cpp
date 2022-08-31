@@ -38,10 +38,8 @@ HRESULT CEffect::Initialize(void* pArg)
 
 	m_pTransformCom->Set_State(CTransform::STATE_POSITION, m_vEffectPos);
 
-<<<<<<< HEAD
-=======
 	m_pTransformCom->Set_Scaled(_float3(m_fSizeX, m_fSizeY, 1.f));
->>>>>>> BHW
+
 
 
 	return S_OK;
@@ -54,26 +52,22 @@ void CEffect::Tick(_float fTimeDelta)
 
 	//m_Skill_Time_L += fTimeDelta;
 
-	m_EffectFrame += fTimeDelta + 0.2f;
+	m_EffectFrame += fTimeDelta + 0.08f;
 
-	if (m_EffectFrame <= 0 || m_EffectFrame >= 4)
+	if (m_EffectFrame <= 0 || m_EffectFrame >= 9)
 	{
 		m_EffectFrame = 0;
 
 	}
-	if (m_EffectFrame == 4)
+	if (m_EffectFrame == 9)
 	{
-		Free();
+
+		m_bDead = true;
 	}
 
 	//CGameInstance*			pGameInstance = CGameInstance::Get_Instance();
 	//Safe_AddRef(pGameInstance);
 
-<<<<<<< HEAD
-=======
-	
-
->>>>>>> BHW
 }
 
 void CEffect::Late_Tick(_float fTimeDelta)
