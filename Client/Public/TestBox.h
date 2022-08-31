@@ -34,7 +34,8 @@ public:
 	virtual HRESULT Render() override;
 public:
 	CTransform* Get_TransformCom() { return m_pTransformCom; }
-
+	void		Set_CubeDesc(CUBEDESC& CubeDesc) { m_CubeDesc = CubeDesc; }
+	CUBEDESC&   Get_CubeDesc() { return m_CubeDesc; }
 private: /* For.Components */
 	CTexture*				m_pTextureCom = nullptr;
 	CRenderer*				m_pRendererCom = nullptr;

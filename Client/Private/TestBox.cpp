@@ -30,6 +30,8 @@ HRESULT CTestBox::Initialize(void* pArg)
 
 	memcpy(&m_CubeDesc, pArg, sizeof(CUBEDESC));
 
+	m_pTransformCom->Set_State(CTransform::STATE_POSITION, _float3(m_CubeDesc.vPos.x, m_CubeDesc.vPos.y, m_CubeDesc.vPos.z));
+
 	return S_OK;
 }
 
@@ -81,7 +83,7 @@ HRESULT CTestBox::SetUp_Components()
 		return E_FAIL;
 
 	/* For.Com_Texture */
-	if (FAILED(__super::Add_Components(TEXT("Com_Texture"), LEVEL_GAMEPLAY, TEXT("Prototype_Component_Texture_Sky2"), (CComponent**)&m_pTextureCom)))
+	if (FAILED(__super::Add_Components(TEXT("Com_Texture"), LEVEL_GAMEPLAY, TEXT("Prototype_Component_Texture_Sky"), (CComponent**)&m_pTextureCom)))
 		return E_FAIL;
 
 	/* For.Com_VIBuffer */

@@ -54,20 +54,31 @@ void CEffect::Tick(_float fTimeDelta)
 
 	m_EffectFrame += fTimeDelta + 0.08f;
 
+<<<<<<< HEAD
 	if (m_EffectFrame <= 0 || m_EffectFrame >= 9)
+=======
+	if (m_EffectFrame <= 0 || m_EffectFrame >= 8)
+>>>>>>> panggee
 	{
-		m_EffectFrame = 0;
+		m_bDead = true;
 
 	}
+<<<<<<< HEAD
 	if (m_EffectFrame == 9)
 	{
 
 		m_bDead = true;
 	}
+=======
+>>>>>>> panggee
 
 	//CGameInstance*			pGameInstance = CGameInstance::Get_Instance();
 	//Safe_AddRef(pGameInstance);
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> panggee
 }
 
 void CEffect::Late_Tick(_float fTimeDelta)

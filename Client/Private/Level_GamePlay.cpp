@@ -20,23 +20,17 @@ HRESULT CLevel_GamePlay::Initialize()
 	if (FAILED(Ready_Layer_Camera(TEXT("Layer_Camera"))))
 		return E_FAIL;
 
+	if (FAILED(Ready_Layer_TestBox(TEXT("Layer_TestBox"))))
+		return E_FAIL;
+
 	if (FAILED(Ready_Layer_Player(TEXT("Layer_Player"))))
 		return E_FAIL;
 
-	for (int i = 0; i < 5; ++i)
+	for (int i = 0; i < 2; ++i)
 	{
 		if (FAILED(Ready_Layer_Monster(TEXT("Layer_Monster"))))
 			return E_FAIL;
 	}
-
-	if (FAILED(Ready_Layer_TestBox(TEXT("Layer_TestBox"))))
-		return E_FAIL;
-	
-	if (FAILED(Ready_Layer_BackGround(TEXT("Layer_BackGround"))))
-		return E_FAIL;
-
-	/*if (FAILED(Ready_Layer_CubeTerrain(TEXT("Layer_CubeTerrain"))))
-		return E_FAIL;*/
 	
 	if (FAILED(Ready_Layer_UI(TEXT("Layer_UI"))))
 		return E_FAIL;
@@ -56,8 +50,30 @@ void CLevel_GamePlay::Tick(_float fTimeDelta)
 
 	auto Player = pGameInstance->Find_Target(LEVEL_GAMEPLAY, TEXT("Layer_Player"));
 
-	if (pGameInstance->Collision_Rect_Cube(LEVEL_GAMEPLAY, TEXT("Layer_Player"), TEXT("Layer_TestBox"), fTimeDelta) != 1)
-		Player->Get_Transform()->Set_Fall(true);
+	_float3 vPlayerPos = Player->Get_Transform()->Get_State(CTransform::STATE_POSITION);
+
+
+	vPlayerPos.x = round(vPlayerPos.x);
+	vPlayerPos.y = round(vPlayerPos.y);//플레이어 위치 반올림
+	vPlayerPos.z = round(vPlayerPos.z);
+
+	for (int i = -1; i < 2; ++i) //주변 3칸까지의 충돌 범위
+	{
+		for (int j = -1; j < 2; ++j)
+		{
+			for(int k=-1;k<2;++k)
+			{
+				auto eCubeDesc = m_MapCubeInfo.find(_float3(vPlayerPos.x + i, vPlayerPos.y + j, vPlayerPos.z + k));
+				if (m_MapCubeInfo.end() != eCubeDesc)
+				{
+					pGameInstance->Collision_Rect_Cube(LEVEL_GAMEPLAY, TEXT("Layer_Player"), eCubeDesc->second.vPos,
+						fTimeDelta, _float3(0.15f, 0.3f, 0.15f));
+				}
+					//Player->Get_Transform()->Set_Fall(true);
+			}
+		}
+	}
+//	pGameInstance->Collision_Rect_Cube(LEVEL_GAMEPLAY, TEXT("Layer_Monster"), TEXT("Layer_TestBox"), fTimeDelta);
 
 	pGameInstance->Collision_Attacked(LEVEL_GAMEPLAY, TEXT("Layer_Player"), TEXT("Layer_Monster"), fTimeDelta, 0, _float3(0.15f, 0.3f, 0.15f), _float3(0.45f, 0.45f, 0.45f));
 	
@@ -119,20 +135,13 @@ HRESULT CLevel_GamePlay::Ready_Layer_TestBox(const _tchar * pLayerTag)
 {
 	CGameInstance*			pGameInstance = CGameInstance::Get_Instance();
 	Safe_AddRef(pGameInstance);
-	for (auto& CubeDesc : m_CubeInfoList)
+	for (auto& mapCube : m_MapCubeInfo)
 	{
-		if (FAILED(pGameInstance->Add_GameObject(TEXT("Prototype_GameObject_TestBox"), LEVEL_GAMEPLAY, pLayerTag, &CubeDesc)))
+		if (FAILED(pGameInstance->Add_GameObject(TEXT("Prototype_GameObject_TestBox"), LEVEL_GAMEPLAY, pLayerTag, &mapCube.second)))
 			return E_FAIL;
 
-		pGameInstance->Get_BackObject(LEVEL_GAMEPLAY, pLayerTag)->Get_Transform()->Set_State(CTransform::STATE_POSITION, _float3(CubeDesc.vPos.x, CubeDesc.vPos.y, CubeDesc.vPos.z));
-
-		CubeDesc.r = 0.f;
-		CubeDesc.g = 0.f;
-		CubeDesc.b = 0.f;
 
 	}
-
-	m_CubeInfoList.clear();
 
 	Safe_Release(pGameInstance);
 }
@@ -290,7 +299,8 @@ void CLevel_GamePlay::LoadMapData()
 
 		tInfo.vPos.y += 0.5f;
 
-		m_CubeInfoList.push_back(CTestBox::CUBEDESC(tInfo));
+		m_MapCubeInfo.emplace(tInfo.vPos, tInfo);
+		//m_CubeInfoList.push_back(CTestBox::CUBEDESC(tInfo));
 	}
 
 	// 3. 파일 소멸
