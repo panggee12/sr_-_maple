@@ -128,18 +128,8 @@ void CPlayer::Tick(_float fTimeDelta)
 		m_bPlayer_Idle = false;
 
 	}
-<<<<<<< HEAD
-
 	
 	if (GetKeyState('A') & 0x8000)
-	{
-
-	}
-	else if (GetKeyState('Q') & 0x8000)
-=======
-	
-	if (GetKeyState('A') & 0x8000)
->>>>>>> panggee
 	{
 		if (pGameInstance->Check_Layer(LEVEL_GAMEPLAY, TEXT("Layer_Monster")))
 		{
