@@ -26,8 +26,8 @@ HRESULT CEffect::Initialize(void* pArg)
 		return E_FAIL;
 
 
-	m_fSizeX = 15.0f;
-	m_fSizeY = 15.0f;
+	m_fSizeX = 5.0f;
+	m_fSizeY = 5.0f;
 	/*m_fX = 10.f;
 	m_fY = 10.f;*/
 
@@ -38,9 +38,11 @@ HRESULT CEffect::Initialize(void* pArg)
 
 	m_pTransformCom->Set_State(CTransform::STATE_POSITION, m_vEffectPos);
 
-	//m_pTransformCom->Set_Scaled(_float3(m_fSizeX, m_fSizeY, 1.f));
+<<<<<<< HEAD
+=======
+	m_pTransformCom->Set_Scaled(_float3(m_fSizeX, m_fSizeY, 1.f));
+>>>>>>> BHW
 
-	//m_pTransformCom->Set_Scaled(_float3(m_fSizeX, m_fSizeY, 1.f));
 
 	return S_OK;
 }
@@ -52,51 +54,26 @@ void CEffect::Tick(_float fTimeDelta)
 
 	//m_Skill_Time_L += fTimeDelta;
 
-	m_EffectFrame += m_EffectFrame + 0.2f;
+	m_EffectFrame += fTimeDelta + 0.2f;
 
 	if (m_EffectFrame <= 0 || m_EffectFrame >= 4)
 	{
 		m_EffectFrame = 0;
 
 	}
-	//_float MonsterPosx = Monster->CMonster::Get_Transform()->Get_State(CTransform::STATE_POSITION).x;
-	//_float MonsterPosy = Monster->CMonster::Get_Transform()->Get_State(CTransform::STATE_POSITION).y;
-	//_float MonsterPosz = Monster->CMonster::Get_Transform()->Get_State(CTransform::STATE_POSITION).z;
+	if (m_EffectFrame == 4)
+	{
+		Free();
+	}
 
+	//CGameInstance*			pGameInstance = CGameInstance::Get_Instance();
+	//Safe_AddRef(pGameInstance);
 
-	//if (m_Skill_Time_L > 0.5)
-	//{
-	//	CGameInstance*			pGameInstance = CGameInstance::Get_Instance();
-	//	Safe_AddRef(pGameInstance);
+<<<<<<< HEAD
+=======
+	
 
-	//	auto Player_Pos = pGameInstance->Find_Target(LEVEL_GAMEPLAY, TEXT("Layer_Monster"));
-
-	//	_float3 TargetPos = Player_Pos->Get_Transform()->Get_State(CTransform::STATE_POSITION);
-
-	//	_float3 MyPos = m_pTransformCom->Get_State(CTransform::STATE_POSITION);
-
-
-	//	_float3 Target = TargetPos - MyPos;
-
-
-	//	// _float3 Target ;
-
-
-	//	MyPos += *D3DXVec3Normalize(&Target, &Target) * fTimeDelta*1.5;
-
-	//	m_pTransformCom->Set_Scaled(_float3(m_fSizeX, m_fSizeY, 1.f));
-	//	m_pTransformCom->Set_State(CTransform::STATE_POSITION, MyPos);
-
-	//	if (pGameInstance->Collision_Attacked(LEVEL_GAMEPLAY, TEXT("Layer_Monster"), TEXT("Layer_Playe_Skill"), fTimeDelta, 1))
-	//	{
-
-	//	}
-
-
-	//	Safe_Release(pGameInstance);
-
-	//}
-
+>>>>>>> BHW
 }
 
 void CEffect::Late_Tick(_float fTimeDelta)
@@ -115,11 +92,7 @@ HRESULT CEffect::Render()
 	if (FAILED(m_pTransformCom->Bind_OnGraphicDev()))
 		return E_FAIL;
 
-	//_float4x4		ViewMatrix;
-	//D3DXMatrixIdentity(&ViewMatrix);
 
-	/*m_pGraphic_Device->SetTransform(D3DTS_VIEW, &ViewMatrix);
-	m_pGraphic_Device->SetTransform(D3DTS_PROJECTION, &m_ProjMatrix);*/
 
 	if (FAILED(m_pTextureCom->Bind_OnGraphicDev(m_EffectFrame)))
 		return E_FAIL;
@@ -144,7 +117,7 @@ HRESULT CEffect::SetUp_Components()
 		return E_FAIL;
 
 	/* For.Com_Texture */
-	if (FAILED(__super::Add_Components(TEXT("Com_Texture"), LEVEL_GAMEPLAY, TEXT("Prototype_Component_Texture_Skill_Effect"), (CComponent**)&m_pTextureCom)))
+	if (FAILED(__super::Add_Components(TEXT("Com_Texture"), LEVEL_GAMEPLAY, TEXT("Prototype_Component_Texture_Skill_Fire_Effect"), (CComponent**)&m_pTextureCom)))
 		return E_FAIL;
 
 	/* For.Com_VIBuffer */
