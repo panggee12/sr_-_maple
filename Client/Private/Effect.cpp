@@ -52,7 +52,7 @@ void CEffect::Tick(_float fTimeDelta)
 
 	//m_Skill_Time_L += fTimeDelta;
 
-	m_EffectFrame += fTimeDelta + 0.2f;
+	m_EffectFrame += fTimeDelta + 0.08f;
 
 	if (m_EffectFrame <= 0 || m_EffectFrame >= 9)
 	{
@@ -61,6 +61,7 @@ void CEffect::Tick(_float fTimeDelta)
 	}
 	if (m_EffectFrame == 9)
 	{
+
 		m_bDead = true;
 	}
 
