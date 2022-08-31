@@ -130,10 +130,14 @@ void CPlayer::Tick(_float fTimeDelta)
 		m_bPlayer_Idle = false;
 
 	}
+<<<<<<< HEAD
 	else
 	{
 		Player_Idel(PLAYER_IDLE, fTimeDelta);
 	}
+=======
+<<<<<<< HEAD
+>>>>>>> develop
 
 	
 	if (GetKeyState('A') & 0x8000)
@@ -141,6 +145,10 @@ void CPlayer::Tick(_float fTimeDelta)
 
 	}
 	else if (GetKeyState('Q') & 0x8000)
+=======
+	
+	if (GetKeyState('A') & 0x8000)
+>>>>>>> panggee
 	{
 		if (pGameInstance->Check_Layer(LEVEL_GAMEPLAY, TEXT("Layer_Monster")))
 		{
@@ -173,6 +181,10 @@ void CPlayer::Tick(_float fTimeDelta)
 	if (Keyboard = pGameInstance->Get_DIKState(DIK_U))
 	{
 		m_pTransformCom->Down(fTimeDelta);
+	}
+	if (Keyboard = pGameInstance->Get_DIKState(DIK_Y))
+	{
+		m_pTransformCom->Up(fTimeDelta);
 	}
 	//m_pTransformCom->Fall(fTimeDelta);
 	

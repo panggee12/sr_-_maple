@@ -37,8 +37,8 @@ private://«¡∑π¿”
 	_float					m_fTimeAcc = 0.f;
 
 private:
-	list<CTestBox::CUBEDESC> m_CubeInfoList;
-
+	list<_float3> m_CubeInfoList;
+	map<_float3, CTestBox::CUBEDESC> m_MapCubeInfo;
 public:
 	static CLevel_GamePlay* Create(LPDIRECT3DDEVICE9 pGraphic_Device);
 	virtual void Free() override;
