@@ -46,6 +46,26 @@ void CPlayer::Tick(_float fTimeDelta)
 	m_uFrameNum = m_uFrameNum + 0.2f;
 
 
+	//if (m_pTransformCom->Get_Jump())
+	//	m_fJumpPower = 1.2f;
+	//else
+	//	m_fJumpPower = 0.f;
+
+	//if (m_pTransformCom->Get_Fall())
+	//{
+	//	m_fFallSpeed += 0.04f;
+	//	if (m_fFallSpeed >= m_fMaxFallSpeed)
+	//		m_fFallSpeed = m_fMaxFallSpeed;
+	//}
+	//else
+	//{
+	//	m_fFallSpeed = 0.f;
+
+	//	m_pTransformCom->Jump(fTimeDelta, m_fJumpPower, m_fFallSpeed);
+	//	//Player_Idle(m_ePlayer_State,m_ePlayer_Idle_State);
+	//}
+
+
 
 	if (Key_Pressing(DIK_Z))
 	{
@@ -164,118 +184,116 @@ void CPlayer::Tick(_float fTimeDelta)
 	}
 	else if (Key_Pressing('Q'))
 	{
+
+		//m_ePlayer_Idle_State = IDLE_END;
+
+		if (pGameInstance->Check_Layer(LEVEL_GAMEPLAY, TEXT("Layer_Monster")))
+		{
+			m_ePlayer_State = PLAYER_ATTACK;
+
+			if (FAILED(Ready_Layer_Player_Skill(TEXT("Layer_Playe_Skill"), fTimeDelta)));
+			return;
+		}
+		m_bKeyInput = true;
+
+	}
+
+	else if (Key_Pressing('X'))
+	{
 		m_bKeyInput = true;
 
 		//m_ePlayer_Idle_State = IDLE_END;
 
-
-		if (GetKeyState('A') & 0x8000)
+		if (pGameInstance->Check_Layer(LEVEL_GAMEPLAY, TEXT("Layer_Monster")))
 		{
-			if (pGameInstance->Check_Layer(LEVEL_GAMEPLAY, TEXT("Layer_Monster")))
-			{
-				m_ePlayer_State = PLAYER_ATTACK;
+			Player_Attack(m_ePlayer_State, m_ePlayer_Dir, fTimeDelta);
 
-				if (FAILED(Ready_Layer_Player_Skill(TEXT("Layer_Playe_Skill"), fTimeDelta)));
-				return;
-			}
+			if (FAILED(Ready_Layer_Player_Attack(TEXT("Layer_Playe_Attack"), fTimeDelta)));
+			return;
 		}
-		else if (Key_Pressing('X'))
-		{
-			m_bKeyInput = true;
-
-			//m_ePlayer_Idle_State = IDLE_END;
-
-			if (pGameInstance->Check_Layer(LEVEL_GAMEPLAY, TEXT("Layer_Monster")))
-			{
-				Player_Attack(m_ePlayer_State, m_ePlayer_Dir, fTimeDelta);
-
-				if (FAILED(Ready_Layer_Player_Attack(TEXT("Layer_Playe_Attack"), fTimeDelta)));
-				return;
-			}
-		}
-
-
-		else if (Key_Pressing('C') && !m_pTransformCom->Get_Fall())
-		{
-			m_bKeyInput = true;
-
-			m_pTransformCom->Set_Jump(true);
-			m_pTransformCom->Set_Fall(true);
-		}
-
-		else if (m_ePlayer_State == PLAYER_MOVE_STATE&&m_bPlayer_Move == true && m_bKeyInput == true)
-		{
-			Player_Move(m_ePlayer_State, m_ePlayer_Dir, fTimeDelta, m_bKeyInput);
-		}
-		else
-		{
-			m_ePlayer_State = PLAYER_IDLE;
-			m_ePlayer_Dir = END_;
-			m_bPlayer_Move = false;
-			Player_Idle(m_ePlayer_State, m_ePlayer_Dir, fTimeDelta, m_bKeyInput, m_bPlayer_Move);
-
-		}
-
-
-		/*else if (m_ePlayer_State == RIGHT_STATE&&m_bPlayer_Move == true)
-		{
-			Player_Move(RIGHT_STATE, fTimeDelta);
-		}
-		else if (m_ePlayer_State == LEFT_STATE&&m_bPlayer_Move == true)
-		{
-			Player_Move(LEFT_STATE, fTimeDelta);
-		}
-		else if (m_ePlayer_State == DOWN_STATE&&m_bPlayer_Move == true)
-		{
-			Player_Move(DOWN_STATE, fTimeDelta);
-		}
-		else if (m_ePlayer_State == RT_STATE&&m_bPlayer_Move == true)
-		{
-			Player_Move(RT_STATE, fTimeDelta);
-		}
-		else if (m_ePlayer_State == LT_STATE&&m_bPlayer_Move == true)
-		{
-			Player_Move(LT_STATE, fTimeDelta);
-		}
-		else if (m_ePlayer_State == LD_STATE&&m_bPlayer_Move == true)
-		{
-			Player_Move(LD_STATE, fTimeDelta);
-		}
-		else if (m_ePlayer_State == RD_STATE&&m_bPlayer_Move == true)
-		{
-			Player_Move(RD_STATE, fTimeDelta);
-		}
-		else if (m_ePlayer_State == PLAYER_ATTACK&&m_bPlayer_Move == false)
-		{
-			Player_Attack(m_ePlayer_State, m_ePlayer_Attack, fTimeDelta);
-		}*/
-
-		// if (m_pTransformCom->Get_Jump())
-		//	m_fJumpPower = 1.2f;
-		//else
-		//	m_fJumpPower = 0.f;
-
-		// if (m_pTransformCom->Get_Fall())
-		//{
-		//	m_fFallSpeed += 0.04f;
-		//	if (m_fFallSpeed >= m_fMaxFallSpeed)
-		//		m_fFallSpeed = m_fMaxFallSpeed;
-		//}
-		//else
-		//{
-		//	m_fFallSpeed = 0.f;
-
-		//	m_pTransformCom->Jump(fTimeDelta, m_fJumpPower, m_fFallSpeed);
-		//	//Player_Idle(m_ePlayer_State,m_ePlayer_Idle_State);
-		//}
-
-
-
-
-		Safe_Release(pGameInstance);
 	}
 
+
+	else if (Key_Pressing('C') && !m_pTransformCom->Get_Fall())
+	{
+		m_bKeyInput = true;
+
+		m_pTransformCom->Set_Jump(true);
+		m_pTransformCom->Set_Fall(true);
+	}
+
+	else if (m_ePlayer_State == PLAYER_MOVE_STATE&&m_bPlayer_Move == true && m_bKeyInput == true)
+	{
+		Player_Move(m_ePlayer_State, m_ePlayer_Dir, fTimeDelta, m_bKeyInput);
+	}
+	else
+	{
+		m_ePlayer_State = PLAYER_IDLE;
+		m_ePlayer_Dir = END_;
+		m_bPlayer_Move = false;
+		Player_Idle(m_ePlayer_State, m_ePlayer_Dir, fTimeDelta, m_bKeyInput, m_bPlayer_Move);
+
+	}
+
+
+	/*else if (m_ePlayer_State == RIGHT_STATE&&m_bPlayer_Move == true)
+	{
+		Player_Move(RIGHT_STATE, fTimeDelta);
+	}
+	else if (m_ePlayer_State == LEFT_STATE&&m_bPlayer_Move == true)
+	{
+		Player_Move(LEFT_STATE, fTimeDelta);
+	}
+	else if (m_ePlayer_State == DOWN_STATE&&m_bPlayer_Move == true)
+	{
+		Player_Move(DOWN_STATE, fTimeDelta);
+	}
+	else if (m_ePlayer_State == RT_STATE&&m_bPlayer_Move == true)
+	{
+		Player_Move(RT_STATE, fTimeDelta);
+	}
+	else if (m_ePlayer_State == LT_STATE&&m_bPlayer_Move == true)
+	{
+		Player_Move(LT_STATE, fTimeDelta);
+	}
+	else if (m_ePlayer_State == LD_STATE&&m_bPlayer_Move == true)
+	{
+		Player_Move(LD_STATE, fTimeDelta);
+	}
+	else if (m_ePlayer_State == RD_STATE&&m_bPlayer_Move == true)
+	{
+		Player_Move(RD_STATE, fTimeDelta);
+	}
+	else if (m_ePlayer_State == PLAYER_ATTACK&&m_bPlayer_Move == false)
+	{
+		Player_Attack(m_ePlayer_State, m_ePlayer_Attack, fTimeDelta);
+	}*/
+
+	// if (m_pTransformCom->Get_Jump())
+	//	m_fJumpPower = 1.2f;
+	//else
+	//	m_fJumpPower = 0.f;
+
+	// if (m_pTransformCom->Get_Fall())
+	//{
+	//	m_fFallSpeed += 0.04f;
+	//	if (m_fFallSpeed >= m_fMaxFallSpeed)
+	//		m_fFallSpeed = m_fMaxFallSpeed;
+	//}
+	//else
+	//{
+	//	m_fFallSpeed = 0.f;
+
+	//	m_pTransformCom->Jump(fTimeDelta, m_fJumpPower, m_fFallSpeed);
+	//	//Player_Idle(m_ePlayer_State,m_ePlayer_Idle_State);
+	//}
+
+
+
+
+	Safe_Release(pGameInstance);
 }
+
 void CPlayer::Late_Tick(_float fTimeDelta)
 {
 	__super::Late_Tick(fTimeDelta);
@@ -476,6 +494,7 @@ void CPlayer::Player_Idle(PLAYER_STATE _PlayerState, PLAYER_DIR _ePlayer_Idle_St
 			m_uFrameNum = 145;
 		}
 	}
+
 
 
 

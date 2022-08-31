@@ -123,18 +123,8 @@ void CPlayer_Skill::Tick(_float fTimeDelta)
 
 		if (pGameInstance->Collision_Attacked(LEVEL_GAMEPLAY, TEXT("Layer_Monster"), TEXT("Layer_Playe_Skill"), fTimeDelta, 1, _float3(0.15f, 0.3f, 0.15f), _float3(0.3f, 0.3f, 0.3f)))
 		{
-		//	/*CGameInstance*			pGameInstance = CGameInstance::Get_Instance();
-		//	Safe_AddRef(pGameInstance);
 
-		//	auto Player_Pos = pGameInstance->Find_Target(LEVEL_GAMEPLAY, TEXT("Layer_Monster"));
-
-
-
-
-		//	Safe_Release(pGameInstance);*/
-
-			Safe_Release(pGameInstance);
-			//CPlayer_Skill::Free();
+			m_bDead = true;
 
 		}
 
