@@ -39,6 +39,7 @@ private:
 	_float2					m_fMousePos;
 	_float2					m_fDifDis;
 	RECT					m_rcRect;
+	vector<RECT>			m_vecCheckRect;
 	int						m_iCheck=0;//µð¹ö±ë¿ë
 private:
 	HRESULT SetUp_Components();

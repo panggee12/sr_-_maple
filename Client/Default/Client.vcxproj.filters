@@ -79,23 +79,14 @@
     <Filter Include="02.GameObject\UI\GamePlayUI\InventoryUI">
       <UniqueIdentifier>{a291a183-2330-4579-ba70-aaf338b4d005}</UniqueIdentifier>
     </Filter>
-    <Filter Include="02.GameObject\UI\GamePlayUI\InventoryUI\Button">
-      <UniqueIdentifier>{9629ab82-0010-4300-8653-bcaacf336e0a}</UniqueIdentifier>
-    </Filter>
     <Filter Include="02.GameObject\UI\GamePlayUI\SkillBookUI">
       <UniqueIdentifier>{466509cb-c83d-443a-96a8-eaa1e63bc66a}</UniqueIdentifier>
     </Filter>
     <Filter Include="02.GameObject\UI\GamePlayUI\InfoUI">
       <UniqueIdentifier>{0b243368-34d9-434b-bb19-86fdff3ce950}</UniqueIdentifier>
     </Filter>
-    <Filter Include="02.GameObject\UI\GamePlayUI\InfoUI\PlayerInfoUI">
-      <UniqueIdentifier>{add150b1-8b37-45a1-be53-b4f7af40d25a}</UniqueIdentifier>
-    </Filter>
     <Filter Include="02.GameObject\UI\GamePlayUI\InfoUI\ItemInfoUI">
       <UniqueIdentifier>{d9a72fdc-e84f-44dd-80ca-6e7055122124}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="02.GameObject\UI\GamePlayUI\InfoUI\SkillInfoUI">
-      <UniqueIdentifier>{bf629d71-72a5-4532-99be-c318c93d18cb}</UniqueIdentifier>
     </Filter>
     <Filter Include="02.GameObject\Player\Attack">
       <UniqueIdentifier>{c5cb8101-b198-4bcf-a1a1-648836e49c0d}</UniqueIdentifier>
@@ -106,6 +97,7 @@
     <Filter Include="03.Effect\Skill_Efect">
       <UniqueIdentifier>{333d49f0-79d6-42e2-936c-76aee19d7b73}</UniqueIdentifier>
     </Filter>
+<<<<<<< HEAD
     <Filter Include="02.GameObject\Monster\BellaMonster">
       <UniqueIdentifier>{c083af79-4196-4936-a50e-fb25c9e2cc26}</UniqueIdentifier>
     </Filter>
@@ -117,6 +109,13 @@
     </Filter>
     <Filter Include="02.GameObject\Item">
       <UniqueIdentifier>{5152df02-b298-4fbb-bbc0-0b6dab3c89ab}</UniqueIdentifier>
+=======
+    <Filter Include="02.GameObject\UI\GamePlayUI\InfoUI\SkillInfoUI">
+      <UniqueIdentifier>{bf629d71-72a5-4532-99be-c318c93d18cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObject\UI\GamePlayUI\PlayerInfoUI">
+      <UniqueIdentifier>{add150b1-8b37-45a1-be53-b4f7af40d25a}</UniqueIdentifier>
+>>>>>>> Jeong
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -195,9 +194,6 @@
     <ClInclude Include="..\Public\HpBarUI.h">
       <Filter>02.GameObject\UI\GamePlayUI\HpBarUI</Filter>
     </ClInclude>
-    <ClInclude Include="..\Public\InventoryButtonUI.h">
-      <Filter>02.GameObject\UI\GamePlayUI\InventoryUI\Button</Filter>
-    </ClInclude>
     <ClInclude Include="..\Public\InventoryUI.h">
       <Filter>02.GameObject\UI\GamePlayUI\InventoryUI</Filter>
     </ClInclude>
@@ -208,7 +204,7 @@
       <Filter>02.GameObject\UI\GamePlayUI\InfoUI\ItemInfoUI</Filter>
     </ClInclude>
     <ClInclude Include="..\Public\PlayerInfoUI.h">
-      <Filter>02.GameObject\UI\GamePlayUI\InfoUI\PlayerInfoUI</Filter>
+      <Filter>02.GameObject\UI\GamePlayUI\PlayerInfoUI</Filter>
     </ClInclude>
     <ClInclude Include="..\Public\SkillInfoUI.h">
       <Filter>02.GameObject\UI\GamePlayUI\InfoUI\SkillInfoUI</Filter>
@@ -293,9 +289,6 @@
     <ClCompile Include="..\Private\HpBarUI.cpp">
       <Filter>02.GameObject\UI\GamePlayUI\HpBarUI</Filter>
     </ClCompile>
-    <ClCompile Include="..\Private\InventoryButtonUI.cpp">
-      <Filter>02.GameObject\UI\GamePlayUI\InventoryUI\Button</Filter>
-    </ClCompile>
     <ClCompile Include="..\Private\InventoryUI.cpp">
       <Filter>02.GameObject\UI\GamePlayUI\InventoryUI</Filter>
     </ClCompile>
@@ -306,7 +299,7 @@
       <Filter>02.GameObject\UI\GamePlayUI\InfoUI\ItemInfoUI</Filter>
     </ClCompile>
     <ClCompile Include="..\Private\PlayerInfoUI.cpp">
-      <Filter>02.GameObject\UI\GamePlayUI\InfoUI\PlayerInfoUI</Filter>
+      <Filter>02.GameObject\UI\GamePlayUI\PlayerInfoUI</Filter>
     </ClCompile>
     <ClCompile Include="..\Private\SkillInfoUI.cpp">
       <Filter>02.GameObject\UI\GamePlayUI\InfoUI\SkillInfoUI</Filter>
@@ -323,6 +316,7 @@
     <ClCompile Include="..\Private\Level_GamePlay.cpp">
       <Filter>01.Levels\GamePlay</Filter>
     </ClCompile>
+<<<<<<< HEAD
     <ClCompile Include="..\Private\BellaMonster.cpp">
       <Filter>02.GameObject\Monster\BellaMonster</Filter>
     </ClCompile>
@@ -332,6 +326,8 @@
     <ClCompile Include="..\Private\YetiSkill.cpp">
       <Filter>02.GameObject\Monster\YetiMonster\YetiSkill</Filter>
     </ClCompile>
+=======
+>>>>>>> Jeong
   </ItemGroup>
   <ItemGroup>
     <Image Include="Client.ico">
