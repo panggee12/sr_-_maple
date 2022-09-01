@@ -1,7 +1,5 @@
 #pragma once
-
-#include "Client_Defines.h"
-#include "GameObject.h"
+#include "Skill.h"
 
 BEGIN(Engine)
 class CTexture;
@@ -12,12 +10,14 @@ END
 
 BEGIN(Client)
 
-class CPlayer_Skill final : public CGameObject
+class CPlayer_Litening final : public CSkill
 {
+	enum STATE { STATE_IDLE, STATE_LEFT, STATE_RIGHT, STATE_ATTACK, STATE_END };
+
 private:
-	CPlayer_Skill(LPDIRECT3DDEVICE9 pGraphic_Device);
-	CPlayer_Skill(const CPlayer_Skill& rhs);
-	virtual ~CPlayer_Skill() = default;
+	CPlayer_Litening(LPDIRECT3DDEVICE9 pGraphic_Device);
+	CPlayer_Litening(const CPlayer_Litening& rhs);
+	virtual ~CPlayer_Litening() = default;
 
 public:
 	virtual HRESULT Initialize_Prototype() override;
@@ -29,33 +29,30 @@ public:
 private: /* For.Components */
 	CTexture*				m_pTextureCom = nullptr;
 	CRenderer*				m_pRendererCom = nullptr;
-	CVIBuffer_Rect*			m_pVIBufferCom = nullptr;
+	CVIBuffer_Rect*	m_pVIBufferCom = nullptr;
+	CGameInstance*	m_pGameInstance = nullptr;
 
 private:
-	_float4x4				m_ProjMatrix;
-	_float					m_fX, m_fY, m_fSizeX, m_fSizeY;
-	_float					m_fSkill_Frame = 0.f;
-	_float					m_Skill_Time_L=0.f;
+	STATE m_eState = STATE_IDLE;
+	STATE m_ePrevState = STATE_IDLE;
+	_float m_iTextureCount = 0.f;
+	_float m_iTextureMaxCount = 10.f;
+	_bool m_bChase = false;
+	CGameObject* pPlayer = nullptr;
 
-	_float3					m_vSkillPosition_2;
-private:
-	HRESULT SetUp_Components();
-	HRESULT SetUp_RenderState();
-	HRESULT Release_RenderState();
-	HRESULT Efect_On(const _tchar * pLayerTag);
-
-public:
-
-	
-
-	void LiteNing_Skill(_float _Player_Skill, _float fTimeDelta);
-	void Fireball_Skill(_float _Player_Skill, _float fTimeDelta);
-	/*void LiteNing_Skill(_float _Player_Skill, _float fTimeDelta);
-	void LiteNing_Skill(_float _Player_Skill, _float fTimeDelta);
-	*/
+	_bool m_bMotionCheck = false;
+	_float3 m_vPosition;
+	_float3 m_vMyLook;
+	_float	m_fDistance = 0.f;
 
 public:
-	static CPlayer_Skill* Create(LPDIRECT3DDEVICE9 pGraphic_Device);
+	virtual HRESULT SetUp_Components();
+	virtual HRESULT SetUp_RenderState();
+	HRESULT Fire_Efect_On(const _tchar * pLayerTag, _float fTimeDelta);
+	virtual HRESULT Release_RenderState();
+
+public:
+	static CPlayer_Litening* Create(LPDIRECT3DDEVICE9 pGraphic_Device);
 	virtual CGameObject* Clone(void* pArg = nullptr) override;
 	virtual void Free() override;
 };

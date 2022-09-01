@@ -76,9 +76,6 @@ HRESULT CYetiSkill::Render()
 	if (FAILED(m_pTransformCom->Bind_OnGraphicDev()))
 		return E_FAIL;
 
-	//	if (FAILED(m_pTextureCom->Bind_OnGraphicDev(iTest)))
-	//		return E_FAIL;
-
 	m_pTextureCom->Bind_FrameMove();
 
 	if (FAILED(SetUp_RenderState()))
