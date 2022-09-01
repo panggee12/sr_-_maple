@@ -4,14 +4,14 @@
 
 BEGIN(Client)
 
-class CLupangMonster final : public CMonster
+class CYetiMonster final : public CMonster
 {
 
 private:
-	CLupangMonster(LPDIRECT3DDEVICE9 pGraphic_Device);
-	CLupangMonster(const CLupangMonster& rhs);
-	virtual ~CLupangMonster() = default;
-	
+	CYetiMonster(LPDIRECT3DDEVICE9 pGraphic_Device);
+	CYetiMonster(const CYetiMonster& rhs);
+	virtual ~CYetiMonster() = default;
+
 public:
 	virtual HRESULT Initialize_Prototype() override;
 	virtual HRESULT Initialize(void* pArg)override;
@@ -28,7 +28,7 @@ protected:
 
 
 public:
-	static CLupangMonster* Create(LPDIRECT3DDEVICE9 pGraphic_Device);
+	static CYetiMonster* Create(LPDIRECT3DDEVICE9 pGraphic_Device);
 	virtual CGameObject* Clone(void* pArg = nullptr);
 	virtual void Free() override;
 };

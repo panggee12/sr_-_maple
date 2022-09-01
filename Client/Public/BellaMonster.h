@@ -4,14 +4,14 @@
 
 BEGIN(Client)
 
-class CLupangMonster final : public CMonster
+class CBellaMonster final : public CMonster
 {
 
 private:
-	CLupangMonster(LPDIRECT3DDEVICE9 pGraphic_Device);
-	CLupangMonster(const CLupangMonster& rhs);
-	virtual ~CLupangMonster() = default;
-	
+	CBellaMonster(LPDIRECT3DDEVICE9 pGraphic_Device);
+	CBellaMonster(const CBellaMonster& rhs);
+	virtual ~CBellaMonster() = default;
+
 public:
 	virtual HRESULT Initialize_Prototype() override;
 	virtual HRESULT Initialize(void* pArg)override;
@@ -26,9 +26,8 @@ protected:
 	virtual void MonsterMove();
 	virtual void HitCheck(_float fTimeDelta);
 
-
 public:
-	static CLupangMonster* Create(LPDIRECT3DDEVICE9 pGraphic_Device);
+	static CBellaMonster* Create(LPDIRECT3DDEVICE9 pGraphic_Device);
 	virtual CGameObject* Clone(void* pArg = nullptr);
 	virtual void Free() override;
 };

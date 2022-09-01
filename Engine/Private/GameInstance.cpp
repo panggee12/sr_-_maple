@@ -243,6 +243,15 @@ bool CGameInstance::Collision_Attacked(_uint iLevelIndex, const _tchar * col1, c
 					Target1->Get_Transform()->Attacked_Move(Target2->Get_Transform()->Get_State(CTransform::STATE_POSITION), fTimeDelta);
 				else if (ioption == 1)
 					Target2->Set_Dead(true);
+				else if (ioption == 2)
+				{
+					if (!Target2->Get_Hit())
+					{
+						Target1->Get_Transform()->Attacked_Move(Target2->Get_Transform()->Get_State(CTransform::STATE_POSITION), fTimeDelta);
+						Target2->Set_Hit(true);
+						Target2->Set_Hp(1);
+					}
+				}
 				return true;
 			}
 		}

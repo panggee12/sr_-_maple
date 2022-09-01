@@ -16,7 +16,7 @@ BEGIN(Client)
 class CMonster abstract : public CGameObject
 {
 public:
-	enum STATE {STATE_IDLE, STATE_LEFT, STATE_RIGHT, STATE_ATTACK, STATE_END };
+	enum STATE { STATE_IDLE, STATE_LEFT, STATE_RIGHT, STATE_ATTACK, STATE_HIT, STATE_DEAD, STATE_END };
 
 protected:
 	CMonster(LPDIRECT3DDEVICE9 pGraphic_Device);
@@ -45,6 +45,7 @@ protected:
 	_bool m_bChase = false;
 	CGameObject* pPlayer = nullptr;
 	_bool m_bMotionCheck = false;
+	_int m_iUpDown = 0;
 
 protected:
 	virtual void MonsterMove();
