@@ -36,8 +36,8 @@ private:
 	_float					m_fX, m_fY, m_fSizeX, m_fSizeY;
 	_float					m_fAttack_Frame = 0.f;
 	_float					m_SkillTime = 0.f;
-
-	_float3					m_vSkillPosition;
+	CGameObject*			m_pTarget=nullptr;
+	_float3					m_vPosition;
 
 private:
 	HRESULT SetUp_Components();

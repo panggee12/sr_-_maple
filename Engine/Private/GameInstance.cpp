@@ -11,11 +11,11 @@ CGameInstance::CGameInstance()
 	, m_pTimer_Manager(CTimer_Manager::Get_Instance())
 	, m_pComponent_Manager(CComponent_Manager::Get_Instance())
 	, m_pCollision_Manager(CCollisionMgr::Get_Instance())
-	//, m_pKeyComponent_Manager(CComponent_Manager::Get_Instance())
+	, m_pKeyComponent_Manager(CComponent_Manager::Get_Instance())
 
 {
 
-	//Safe_AddRef(m_pKeyComponent_Manager);
+	Safe_AddRef(m_pKeyComponent_Manager);
 	Safe_AddRef(m_pComponent_Manager);
 	Safe_AddRef(m_pTimer_Manager);
 	Safe_AddRef(m_pObject_Manager);
@@ -66,6 +66,7 @@ void CGameInstance::Tick_Engine(_float fTimeDelta)
 
 	m_pLevel_Manager->Tick(fTimeDelta);
 	m_pObject_Manager->Tick(fTimeDelta);
+
 
 
 	m_pLevel_Manager->Late_Tick(fTimeDelta);

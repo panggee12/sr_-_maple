@@ -240,11 +240,8 @@ HRESULT CPlayer_Skill::Efect_On(const _tchar * pLayerTag)
 
 	_float3 vPosition_S = m_pTransformCom->Get_State(CTransform::STATE_POSITION);
 
-<<<<<<< HEAD
+
 	if (FAILED(pGameInstance->Add_GameObject(TEXT("Prototype_GameObject_Litenig_Effect"), LEVEL_GAMEPLAY, pLayerTag, vPos_Efect)))
-=======
-	if (FAILED(pGameInstance->Add_GameObject(TEXT("Prototype_GameObject_Effect"), LEVEL_GAMEPLAY, pLayerTag, vPosition_S)))
->>>>>>> bf356d80309bcd323a4df46af9d27d0e7845c1fb
 		return E_FAIL;
 
 	//m_fSkillTime = m_fSkillTime + 0.5f;

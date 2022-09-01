@@ -63,11 +63,7 @@ void CConsumItem::Tick(_float fTimeDelta)
 			m_iHeight += 0.1f;
 			vMyPosition.y += 0.1f;
 		}
-<<<<<<< HEAD
-		else if(m_bHeightCheck == 1)
-=======
 		else if (m_bHeightCheck == 1)
->>>>>>> bf356d80309bcd323a4df46af9d27d0e7845c1fb
 		{
 			m_iHeight -= 0.1f;
 			vMyPosition.y += 0.1f;
@@ -106,11 +102,7 @@ HRESULT CConsumItem::Render()
 
 	if (FAILED(m_pTextureCom->Bind_OnGraphicDev(m_iTextureNum)))
 		return E_FAIL;
-<<<<<<< HEAD
-	
-=======
 
->>>>>>> bf356d80309bcd323a4df46af9d27d0e7845c1fb
 	if (FAILED(SetUp_RenderState()))
 		return E_FAIL;
 

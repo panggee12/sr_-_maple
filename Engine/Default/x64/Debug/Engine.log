@@ -1,51 +1,8 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-﻿  LINK : ..\Bin\Engine.dll을(를) 찾을 수 없거나 마지막 증분 링크에 의해 빌드되지 않았습니다. 전체 링크를 수행하고 있습니다.
-     ..\Bin\Engine.lib 라이브러리 및 ..\Bin\Engine.exp 개체를 생성하고 있습니다.
-  Engine.vcxproj -> C:\Users\허준석\Desktop\메이플팀프로젝트\sr_-_maple\Engine\Default\..\Bin\Engine.dll
-=======
-﻿  Engine.vcxproj -> C:\Users\user\Documents\GitHub\sr_-_maple\Engine\Default\..\Bin\Engine.dll
->>>>>>> Jeong
-=======
-﻿  VIBuffer_Rect.cpp
-  VIBuffer.cpp
-  Transform.cpp
-  Timer_Manager.cpp
-  Texture.cpp
-c:\users\dev.bae\desktop\teampo6\sr_-_maple\engine\private\texture.cpp(79): warning C4244: '인수': 'Engine::_float'에서 'unsigned __int64'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  Renderer.cpp
-  Object_Manager.cpp
-  Level_Manager.cpp
-  Level.cpp
-  Layer.cpp
+﻿  Level_Manager.cpp
   GameObject.cpp
   GameInstance.cpp
-  Component.cpp
-  Camera.cpp
-  VIBuffer_Terrain.cpp
-c:\users\dev.bae\desktop\teampo6\sr_-_maple\engine\private\vibuffer_terrain.cpp(40): warning C4244: '인수': 'Engine::_uint'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  VIBuffer_CubeTerrain.cpp
-c:\users\dev.bae\desktop\teampo6\sr_-_maple\engine\private\vibuffer_cubeterrain.cpp(37): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-c:\users\dev.bae\desktop\teampo6\sr_-_maple\engine\private\vibuffer_cubeterrain.cpp(39): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-c:\users\dev.bae\desktop\teampo6\sr_-_maple\engine\private\vibuffer_cubeterrain.cpp(43): warning C4244: '인수': 'Engine::_int'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\dev.bae\desktop\teampo6\sr_-_maple\engine\private\vibuffer_cubeterrain.cpp(46): warning C4244: '인수': 'Engine::_int'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  VIBuffer_Cube.cpp
-  Timer.cpp
-  KeyMgr.cpp
-  Input_Device.cpp
+c:\users\dev.bae\desktop\teampo6\sr_-_maple\engine\private\gameinstance.cpp(16): error C2440: '초기화 중': 'Engine::CComponent_Manager *'에서 'Engine::CKeyMgr *'(으)로 변환할 수 없습니다.
+  c:\users\dev.bae\desktop\teampo6\sr_-_maple\engine\private\gameinstance.cpp(16): note: 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 함수 스타일 캐스트가 필요합니다.
+c:\users\dev.bae\desktop\teampo6\sr_-_maple\engine\private\gameinstance.cpp(16): error C2439: 'Engine::CGameInstance::m_pKeyComponent_Manager': 멤버를 초기화할 수 없습니다.
+  c:\users\dev.bae\desktop\teampo6\sr_-_maple\engine\public\gameinstance.h(70): note: 'Engine::CGameInstance::m_pKeyComponent_Manager' 선언을 참조하십시오.
   코드를 생성하고 있습니다...
-  컴파일하고 있습니다...
-  Graphic_Device.cpp
-  Component_Manager.cpp
-  CollisionMgr.cpp
-  Base.cpp
-  코드를 생성하고 있습니다...
-  LINK : ..\Bin\Engine.dll을(를) 찾을 수 없거나 마지막 증분 링크에 의해 빌드되지 않았습니다. 전체 링크를 수행하고 있습니다.
-     ..\Bin\Engine.lib 라이브러리 및 ..\Bin\Engine.exp 개체를 생성하고 있습니다.
-  Engine.vcxproj -> C:\Users\Dev.Bae\Desktop\TeamPo6\sr_-_maple\Engine\Default\..\Bin\Engine.dll
->>>>>>> e8a7accc92a0666938010f64fe805e1f1445c9cf
-=======
-﻿  Engine.vcxproj -> C:\Users\rkdtm\OneDrive\바탕 화면\Git\sr_-_maple\Engine\Default\..\Bin\Engine.dll
->>>>>>> bf356d80309bcd323a4df46af9d27d0e7845c1fb
-  Engine.vcxproj -> ..\Bin\Engine.pdb (Full PDB)
