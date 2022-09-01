@@ -71,8 +71,7 @@ void CSkillbookUI::Tick(_float fTimeDelta)
 	}
 
 	m_pTransformCom->Set_State(CTransform::STATE_POSITION, _float3(m_fX - g_iWinSizeX * 0.5f - m_fDifDis.x, -m_fY + g_iWinSizeY * 0.5f + m_fDifDis.y, 0.f));
-
-	SetRect(&m_rcRect, m_fX - m_fSizeX * 0.5f + m_fDifDis.x, m_fY - m_fSizeY * 0.5f, m_fX + m_fSizeX * 0.5f + m_fDifDis.x, m_fY - m_fSizeY * 0.4f);
+	SetRect(&m_rcRect, m_fX - m_fSizeX * 0.5f-m_fDifDis.x, m_fY - m_fSizeY * 0.5f+ m_fDifDis.y, m_fX + m_fSizeX * 0.5f- m_fDifDis.x, m_fY - m_fSizeY * 0.4f+ m_fDifDis.y);
 
 
 	_float fMx, fMy;

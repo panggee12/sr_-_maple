@@ -190,7 +190,7 @@ bool CCollisionMgr::Collision_Rect_Cube(CTransform* p1Trans,_float3 vPos1, _floa
 				{
 					if (p1pos.y > p2pos.y)
 						p1Trans->Up(fTimeDelta*0.04f);
-					else if (p1pos.y < p2pos.y)
+					if (p1pos.y < p2pos.y)
 						p1Trans->Down(fTimeDelta);
 				}
 				else if (fDisZ > fDisY&&fDisZ > fDisX)
@@ -236,10 +236,6 @@ bool CCollisionMgr::Collision_Rect_Cube(CTransform* p1Trans,_float3 vPos1, _floa
 	return false;
 }
 
-bool CCollisionMgr::CollisionBlock(CTransform * p1Trans, CTransform * p2Trans, _float fTimeDelta)
-{
-	return false;
-}
 
 void CCollisionMgr::Free()
 {

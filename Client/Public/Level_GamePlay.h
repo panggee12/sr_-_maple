@@ -14,6 +14,7 @@ private:
 		RECT  rc;
 		_uint iIndex;
 	}QUICKINFO;
+	enum TEXTUREPOS {Pos_Player,Pos_Monkey, Pos_Under_Bella, Pos_Under_Yeti, Pos_END};
 private:
 	CLevel_GamePlay(LPDIRECT3DDEVICE9 pGraphic_Device);
 	virtual ~CLevel_GamePlay() = default;
@@ -33,6 +34,9 @@ public:
 	HRESULT Ready_Layer_UI(const _tchar* pLayerTag);
 
 	void LoadMapData(); // 맵 불러오기
+
+private:
+	void Check_Collision_Cube(const _tchar* pLayerTag, _float fTimeDelta, TEXTUREPOS ePos);
 	
 private://프레임
 	_uint					m_iNumRender = 0;
