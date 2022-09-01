@@ -155,11 +155,9 @@ void CPlayer::Tick(_float fTimeDelta)
 
 	}
 
-<<<<<<< HEAD
-	else if (pGameInstance->Key_Down('X'))
-=======
+
 	else if (Key_Pressing('X') && m_bPlayer_Attack == true)
->>>>>>> BaeH
+
 	{
 		Player_Attack(m_ePlayer_Dir, fTimeDelta);
 

@@ -153,11 +153,9 @@ HRESULT CLoader::Loading_ForGamePlayLevel()
 		return E_FAIL;*/
 
 	if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, TEXT("Prototype_Component_Texture_Player"),
-<<<<<<< HEAD
-		CTexture::Create(m_pGraphic_Device, CTexture::TYPE_DEFAULT, TEXT("../Bin/Resources/Textures/Player/C_%d.png"), 152))))
-=======
+
 		CTexture::Create(m_pGraphic_Device, CTexture::TYPE_DEFAULT, TEXT("../Bin/Resources/Textures/Player/C_%d.png"),200))))
->>>>>>> BaeH
+
 		return E_FAIL;
 
 
