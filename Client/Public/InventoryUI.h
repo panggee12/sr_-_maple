@@ -37,6 +37,7 @@ public:
 
 	vector<INVEN> Get_InvenInfo() { return m_vecInven; }
 	_bool Get_OnCheck() { return m_bOnCheck; }
+	_float2 Get_DifDis() { return m_fDifDis; }
 
 private: /* For.Components */
 	CTexture*				m_pTextureCom = nullptr;

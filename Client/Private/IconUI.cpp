@@ -59,17 +59,30 @@ void CIconUI::Tick(_float fTimeDelta)
 	GetCursorPos(&ptMouse);
 	ScreenToClient(g_hWnd, &ptMouse);
 
-	_float fMX = ptMouse.x;
-	_float fMY = ptMouse.y;
-	
 	auto pInven = pGameInstance->Find_Target(LEVEL_GAMEPLAY, TEXT("Layer_InvenUI"));
 
 	if (PtInRect(&m_rcRect, ptMouse))
-		m_bRectInCheck = true;
-	
-	if (pGameInstance->Key_Pressing(VK_LBUTTON) && m_bRectInCheck)
 	{
-		m_pTransformCom->Set_State(CTransform::STATE_POSITION, _float3(fMX - g_iWinSizeX * 0.5f, -fMY + g_iWinSizeY * 0.5f, 0.f));	
+		m_bRectInCheck = true;
+		if (pGameInstance->Key_Pressing(VK_LBUTTON) && !m_bMoveUi)
+		{
+			m_bMoveUi = true;
+			m_fMousePos.x = ptMouse.x;
+			m_fMousePos.y = ptMouse.y;
+		}
+		else if (m_bMoveUi && !pGameInstance->Key_Pressing(VK_LBUTTON))
+			m_bMoveUi = false;
+	}
+	if (m_bMoveUi)
+	{
+		m_fDifDis.x = m_fMousePos.x - ptMouse.x;
+		m_fDifDis.y = m_fMousePos.y - ptMouse.y;
+	}
+		
+	
+	if (pGameInstance->Key_Pressing(VK_LBUTTON) && m_bRectInCheck )
+	{
+		m_pTransformCom->Set_State(CTransform::STATE_POSITION, _float3(ptMouse.x - m_fDifDis.x - g_iWinSizeX * 0.5f, -ptMouse.y - m_fDifDis.y + g_iWinSizeY * 0.5f, 0.f));
 	}
 
 	if (pGameInstance->Key_Up(VK_LBUTTON))
