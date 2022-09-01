@@ -168,11 +168,8 @@
     <ClInclude Include="..\public\Effect.h" />
     <ClInclude Include="..\Public\ExpBarUI.h" />
     <ClInclude Include="..\Public\HpBarUI.h" />
-<<<<<<< HEAD
     <ClInclude Include="..\Public\ConsumItem.h" />
-=======
     <ClInclude Include="..\Public\IconUI.h" />
->>>>>>> Jeong
     <ClInclude Include="..\Public\InventoryUI.h" />
     <ClInclude Include="..\Public\Item.h" />
     <ClInclude Include="..\Public\ItemInfoUI.h" />
@@ -212,11 +209,8 @@
     <ClCompile Include="..\private\Effect.cpp" />
     <ClCompile Include="..\Private\ExpBarUI.cpp" />
     <ClCompile Include="..\Private\HpBarUI.cpp" />
-<<<<<<< HEAD
     <ClCompile Include="..\Private\ConsumItem.cpp" />
-=======
     <ClCompile Include="..\Private\IconUI.cpp" />
->>>>>>> Jeong
     <ClCompile Include="..\Private\InventoryUI.cpp" />
     <ClCompile Include="..\Private\Item.cpp" />
     <ClCompile Include="..\Private\ItemInfoUI.cpp" />
