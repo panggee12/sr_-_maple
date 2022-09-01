@@ -52,9 +52,10 @@ void CPlayer_Attack::Tick(_float fTimeDelta)
 
 	if (pGameInstance->Collision_Attacked(LEVEL_GAMEPLAY, TEXT("Layer_Playe_Attack"), TEXT("Layer_Monster"), fTimeDelta, 1, _float3(0.15f, 0.3f, 0.15f), _float3(0.3f, 0.3f, 0.3f)))
 	{
-		m_bDead = true;
 
 		Fire_Efect_On(TEXT("Layer_Attack"), fTimeDelta);
+		m_bDead = true;
+
 	}
 
 	Safe_Release(pGameInstance);

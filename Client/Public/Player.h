@@ -16,6 +16,7 @@ BEGIN(Client)
 class CPlayer final : public CGameObject
 {
 
+	//enum PLAYER_BEFORE { PLAYER_BEFORE_IDLE, PLAYER_BEFORE_MOVE, PLAYER_BEFORE_ATTACK, PLAYER_BEFORE_SKILL, PLAYER_BEFORE_END };
 	enum PLAYER_STATE { PLAYER_IDLE, PLAYER_MOVE_STATE, PLAYER_ATTACK, PLAYER_SKILL, PLAYER_END };
 	enum PLAYER_DIR { UP, DOWN, LEFT, RIGHT, RU, LU, RD, LD, STOP, END_ };
 
@@ -44,8 +45,8 @@ private:
 	HRESULT SetUp_Components();
 	HRESULT SetUp_RenderState();
 	HRESULT Release_RenderState();
-	void Player_Idle(PLAYER_STATE _PlayerState, PLAYER_DIR _ePlayer_Idle_State, _float fTimeDelta, _bool KeyInput,_bool _bMove);
-	void Player_Move(PLAYER_STATE _PlayerState, PLAYER_DIR _ePlayer_Move_State, _float fTimeDelta,_bool Key_Input);
+	void Player_Idle(PLAYER_DIR _ePlayer_Idle_State, _float fTimeDelta);
+	void Player_Move(PLAYER_DIR _ePlayer_Move_State, _float fTimeDelta);
 	void Player_Attack(PLAYER_STATE _PlayerState, PLAYER_DIR _PlayerAttack, float fTimeDelta);
 	HRESULT Ready_Layer_Player_Skill(const _tchar * pLayerTag, _float fTimeDelta);
 	HRESULT Ready_Layer_Player_Attack(const _tchar * pLayerTag, _float fTimeDelta);
@@ -71,17 +72,11 @@ private:
 
 	//Player_State
 	PLAYER_STATE   m_ePlayer_State = PLAYER_IDLE;
+	//이전
+	PLAYER_STATE  m_ePlayer_brfore = PLAYER_END;
 
 	// 방향 
 	PLAYER_DIR		m_ePlayer_Dir = END_;
-	////Attack
-	//PLAYER_ATTACK_  m_ePlayer_Attack_State = ATTACK_END;
-	////Move
-	//PLAYER_MOVE    m_ePlayer_Move_State = MOVE_END;
-	////IDle
-	//PLATY_IDLE_STATE		m_ePlayer_Idle_State = IDLE_END;
-	////Jump
-	//PLAYER_JUMP		m_ePlayer_Jump_State = JUMP_END;
 
 
 	_bool	m_bPlayer_Move = false;

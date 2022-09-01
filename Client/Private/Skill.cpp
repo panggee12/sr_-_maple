@@ -25,9 +25,6 @@ HRESULT CSkill::Initialize(void* pArg)
 	if (FAILED(__super::Initialize(pArg)))
 		return E_FAIL;
 
-	if (FAILED(SetUp_Components()))
-		return E_FAIL;
-
 	return S_OK;
 }
 
@@ -84,8 +81,8 @@ void CSkill::Free()
 {
 	__super::Free();
 
-	Safe_Release(m_pTransformCom);
-	Safe_Release(m_pVIBufferCom);
-	Safe_Release(m_pRendererCom);
-	Safe_Release(m_pTextureCom);
+	//Safe_Release(m_pTransformCom);
+	//Safe_Release(m_pVIBufferCom);
+	//Safe_Release(m_pRendererCom);
+	//Safe_Release(m_pTextureCom);
 }
