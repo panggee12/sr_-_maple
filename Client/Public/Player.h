@@ -16,7 +16,6 @@ BEGIN(Client)
 class CPlayer final : public CGameObject
 {
 
-	//enum PLAYER_BEFORE { PLAYER_BEFORE_IDLE, PLAYER_BEFORE_MOVE, PLAYER_BEFORE_ATTACK, PLAYER_BEFORE_SKILL, PLAYER_BEFORE_END };
 	enum PLAYER_STATE { PLAYER_IDLE, PLAYER_MOVE_STATE, PLAYER_ATTACK, PLAYER_SKILL, PLAYER_END };
 	enum PLAYER_DIR { UP, DOWN, LEFT, RIGHT, RU, LU, RD, LD, STOP, END_ };
 
@@ -35,7 +34,7 @@ public:
 	virtual HRESULT Render() override;
 public:
 	CTransform* Get_TransformCom() { return m_pTransformCom; }
-	//void		Set_OnBlock(bool bOn) { m_bOnBlock = bOn; }
+
 private: /* For.Components */
 	CTexture*				m_pTextureCom = nullptr;
 	CRenderer*				m_pRendererCom = nullptr;
@@ -50,10 +49,13 @@ private:
 	void Player_Attack(PLAYER_DIR _PlayerAttack, float fTimeDelta);
 	HRESULT Ready_Layer_Player_Skill(const _tchar * pLayerTag, _float fTimeDelta);
 	HRESULT Ready_Layer_Player_Attack(const _tchar * pLayerTag, _float fTimeDelta);
-
+public:
 	_bool Key_Up(int _Key);
 	_bool Key_Down(int _Key);
 	_bool Key_Pressing(int _Key);
+public:
+	HRESULT Fire_Body_On(const _tchar* pEffet_LayerTag, _float fTimeDelta);
+
 
 public:
 	static CPlayer* Create(LPDIRECT3DDEVICE9 pGraphic_Device);

@@ -62,7 +62,6 @@ void CPlayer::Tick(_float fTimeDelta)
 	{
 		if (Key_Pressing(VK_RIGHT))
 		{
-			//m_ePlayer_brfore = CPlayer::PLAYER_BEFORE_IDLE;
 			m_ePlayer_State = CPlayer::PLAYER_MOVE_STATE;
 			m_ePlayer_Dir = CPlayer::RU;
 			m_pTransformCom->Go_RT(fTimeDelta);
@@ -70,7 +69,6 @@ void CPlayer::Tick(_float fTimeDelta)
 		}
 		else if (Key_Pressing(VK_LEFT))
 		{
-			//m_ePlayer_brfore = CPlayer::PLAYER_BEFORE_IDLE;
 			m_ePlayer_State = CPlayer::PLAYER_MOVE_STATE;
 			m_ePlayer_Dir = CPlayer::LU;
 			m_pTransformCom->Go_LT(fTimeDelta);
@@ -78,7 +76,6 @@ void CPlayer::Tick(_float fTimeDelta)
 		}
 		else
 		{
-			//m_ePlayer_brfore = CPlayer::PLAYER_BEFORE_IDLE;
 			m_ePlayer_State = CPlayer::PLAYER_MOVE_STATE;
 			m_ePlayer_Dir = CPlayer::UP;
 			m_pTransformCom->Go_Straight(fTimeDelta);
@@ -92,7 +89,6 @@ void CPlayer::Tick(_float fTimeDelta)
 		if (Key_Pressing(VK_RIGHT))
 		{
 			m_ePlayer_State = CPlayer::PLAYER_MOVE_STATE;
-			//m_ePlayer_brfore = CPlayer::PLAYER_BEFORE_IDLE;
 			m_ePlayer_Dir = CPlayer::RD;
 			m_pTransformCom->Go_Right(fTimeDelta);
 			m_pTransformCom->Go_Backward(fTimeDelta);
@@ -102,7 +98,6 @@ void CPlayer::Tick(_float fTimeDelta)
 		else if (Key_Pressing(VK_LEFT))
 		{
 			
-			//m_ePlayer_brfore = CPlayer::PLAYER_BEFORE_IDLE;
 			m_ePlayer_State = CPlayer::PLAYER_MOVE_STATE;
 			m_ePlayer_Dir = LD;
 			m_pTransformCom->Go_Left(fTimeDelta);
@@ -110,7 +105,6 @@ void CPlayer::Tick(_float fTimeDelta)
 		}
 		else
 		{
-			//m_ePlayer_brfore = CPlayer::PLAYER_BEFORE_IDLE;
 			m_ePlayer_State = CPlayer::PLAYER_MOVE_STATE;
 			m_ePlayer_Dir = CPlayer::DOWN;
 			m_pTransformCom->Go_Backward(fTimeDelta);
@@ -121,7 +115,6 @@ void CPlayer::Tick(_float fTimeDelta)
 	else if (Key_Pressing(VK_LEFT))
 	{
 
-		//m_ePlayer_brfore = CPlayer::PLAYER_BEFORE_IDLE;
 		m_ePlayer_State = CPlayer::PLAYER_MOVE_STATE;
 		m_ePlayer_Dir = CPlayer::LEFT;
 		m_pTransformCom->Go_Left(fTimeDelta);
@@ -132,7 +125,6 @@ void CPlayer::Tick(_float fTimeDelta)
 	else if (Key_Pressing(VK_RIGHT))
 	{
 
-		//m_ePlayer_brfore = CPlayer::PLAYER_BEFORE_IDLE;
 		m_ePlayer_State = CPlayer::PLAYER_MOVE_STATE;
 		m_ePlayer_Dir = CPlayer::RIGHT;
 		m_pTransformCom->Go_Right(fTimeDelta);
@@ -141,7 +133,7 @@ void CPlayer::Tick(_float fTimeDelta)
 	}
 
 
-	else if (Key_Pressing('Q')&& m_bPlayer_Attack==true)
+	else if (Key_Down('Q')&& m_bPlayer_Attack==true)
 	{
 		Player_Attack(m_ePlayer_Dir, fTimeDelta);
 
@@ -155,21 +147,28 @@ void CPlayer::Tick(_float fTimeDelta)
 
 	}
 
-	else if (Key_Pressing('X') && m_bPlayer_Attack == true)
+	else if (Key_Down('X') && m_bPlayer_Attack == true)
 	{
+		
 		Player_Attack(m_ePlayer_Dir, fTimeDelta);
 
 
 		if (pGameInstance->Check_Layer(LEVEL_GAMEPLAY, TEXT("Layer_Monster")))
 		{
 
+			
+
+
 			if (FAILED(Ready_Layer_Player_Attack(TEXT("Layer_Playe_Attack"), fTimeDelta)));
 			return;
 		}
+
+		if (FAILED(Ready_Layer_Player_Attack(TEXT("Layer_Fire_Body_Effect"), fTimeDelta)));
+		return;
 	}
 
 
-	else if (Key_Pressing('C') && !m_pTransformCom->Get_Fall() && m_bKeyInput == true)
+	else if (Key_Down('C') && !m_pTransformCom->Get_Fall())
 	{
 
 		m_pTransformCom->Set_Jump(true);
@@ -262,6 +261,23 @@ _bool CPlayer::Key_Pressing(int _Key)
 	return false;
 }
 
+HRESULT CPlayer::Fire_Body_On(const _tchar * pEffet_LayerTag, _float fTimeDelta)
+{
+	CGameInstance*			pGameInstance = CGameInstance::Get_Instance();
+	Safe_AddRef(pGameInstance);
+	//pGameInstance->AddRef();
+
+	_float3 vPosition_B = m_pTransformCom->Get_State(CTransform::STATE_POSITION);
+
+	if (FAILED(pGameInstance->Add_GameObject(TEXT("Prototype_GameObject_FireBody_Effect"), LEVEL_GAMEPLAY, pEffet_LayerTag, vPosition_B)))
+		return E_FAIL;
+
+	//m_fSkillTime = m_fSkillTime + 0.5f;
+
+	Safe_Release(pGameInstance);
+	return S_OK;
+}
+
 HRESULT CPlayer::SetUp_Components()
 {
 	/* For.Com_Renderer */
@@ -326,7 +342,7 @@ void CPlayer::Player_Idle(PLAYER_DIR _ePlayer_Dir_State, _float fTimeDelta)
 	}
 
 	//RIGHT
-	if (_ePlayer_Dir_State == CPlayer::RIGHT)
+	 if (_ePlayer_Dir_State == CPlayer::RIGHT)
 	{
 		if (m_uFrameNum <= 88 || m_uFrameNum >= 95)
 		{

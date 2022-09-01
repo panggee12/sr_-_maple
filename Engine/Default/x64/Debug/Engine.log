@@ -1,2 +1,55 @@
-﻿  Engine.vcxproj -> C:\Users\Dev.Bae\Desktop\sr_-_maple\Engine\Default\..\Bin\Engine.dll
-  Engine.vcxproj -> ..\Bin\Engine.pdb (Full PDB)
+﻿  VIBuffer_Terrain.cpp
+c:\users\dev.bae\desktop\backup\5665\engine\private\vibuffer_terrain.cpp(40): warning C4244: '인수': 'Engine::_uint'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  VIBuffer_Rect.cpp
+  VIBuffer_CubeTerrain.cpp
+c:\users\dev.bae\desktop\backup\5665\engine\private\vibuffer_cubeterrain.cpp(37): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\dev.bae\desktop\backup\5665\engine\private\vibuffer_cubeterrain.cpp(39): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\dev.bae\desktop\backup\5665\engine\private\vibuffer_cubeterrain.cpp(43): warning C4244: '인수': 'Engine::_int'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\dev.bae\desktop\backup\5665\engine\private\vibuffer_cubeterrain.cpp(46): warning C4244: '인수': 'Engine::_int'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  VIBuffer_Cube.cpp
+  VIBuffer.cpp
+  Transform.cpp
+  Timer_Manager.cpp
+  Timer.cpp
+  Texture.cpp
+c:\users\dev.bae\desktop\backup\5665\engine\private\texture.cpp(79): warning C4244: '인수': 'Engine::_float'에서 'unsigned __int64'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Renderer.cpp
+  Object_Manager.cpp
+  Level_Manager.cpp
+  Level.cpp
+  Layer.cpp
+  KeyMgr.cpp
+c:\users\dev.bae\desktop\backup\5665\engine\public\keymgr.h(23): error C2686: 매개 변수 형식이 같은 정적 및 비정적 멤버 함수를 오버로드할 수 없습니다.
+  c:\users\dev.bae\desktop\backup\5665\engine\public\keymgr.h(23): note: 'Engine::CKeyMgr *Engine::CKeyMgr::Get_Instance(void)'일 수 있습니다.
+  c:\users\dev.bae\desktop\backup\5665\engine\public\keymgr.h(23): note: 또는       'Engine::CKeyMgr *Engine::CKeyMgr::Get_Instance(void)'
+c:\users\dev.bae\desktop\backup\5665\engine\public\keymgr.h(24): error C2059: 구문 오류: 'if'
+c:\users\dev.bae\desktop\backup\5665\engine\public\keymgr.h(25): error C2238: ';' 앞에 예기치 않은 토큰이 있습니다.
+c:\users\dev.bae\desktop\backup\5665\engine\public\keymgr.h(27): error C2059: 구문 오류: 'return'
+c:\users\dev.bae\desktop\backup\5665\engine\public\keymgr.h(27): error C2238: ';' 앞에 예기치 않은 토큰이 있습니다.
+c:\users\dev.bae\desktop\backup\5665\engine\public\keymgr.h(32): error C2059: 구문 오류: 'private'
+c:\users\dev.bae\desktop\backup\5665\engine\public\keymgr.h(32): error C2143: 구문 오류: ';'이(가) ':' 앞에 없습니다.
+c:\users\dev.bae\desktop\backup\5665\engine\public\keymgr.h(32): error C2059: 구문 오류: ':'
+c:\users\dev.bae\desktop\backup\5665\engine\public\keymgr.h(38): error C2059: 구문 오류: '}'
+c:\users\dev.bae\desktop\backup\5665\engine\public\keymgr.h(38): error C2143: 구문 오류: ';'이(가) '}' 앞에 없습니다.
+c:\users\dev.bae\desktop\backup\5665\engine\private\keymgr.cpp(3): error C3622: 'Engine::CKeyMgr': 'abstract'(으)로 선언된 클래스를 인스턴스화할 수 없습니다.
+  c:\users\dev.bae\desktop\backup\5665\engine\public\keymgr.h(7): note: 'Engine::CKeyMgr' 선언을 참조하십시오.
+c:\users\dev.bae\desktop\backup\5665\engine\private\keymgr.cpp(8): error C2512: 'Engine::CComponent': 사용할 수 있는 적절한 기본 생성자가 없습니다.
+  c:\users\dev.bae\desktop\backup\5665\engine\public\component.h(7): note: 'Engine::CComponent' 선언을 참조하십시오.
+c:\users\dev.bae\desktop\backup\5665\engine\private\keymgr.cpp(56): error C2556: 'void Engine::CKeyMgr::Destroy_Instance(void)': 오버로드된 함수가 'unsigned long Engine::CKeyMgr::Destroy_Instance(void)'과(와) 반환 형식만 다릅니다.
+  c:\users\dev.bae\desktop\backup\5665\engine\private\keymgr.cpp(3): note: 'Engine::CKeyMgr::Destroy_Instance' 선언을 참조하십시오.
+c:\users\dev.bae\desktop\backup\5665\engine\private\keymgr.cpp(55): error C2371: 'Engine::CKeyMgr::Destroy_Instance': 재정의. 기본 형식이 다릅니다.
+  c:\users\dev.bae\desktop\backup\5665\engine\private\keymgr.cpp(3): note: 'Engine::CKeyMgr::Destroy_Instance' 선언을 참조하십시오.
+c:\users\dev.bae\desktop\backup\5665\engine\private\keymgr.cpp(56): error C2084: 'unsigned long Engine::CKeyMgr::Destroy_Instance(void)' 함수에 이미 본문이 있습니다.
+  c:\users\dev.bae\desktop\backup\5665\engine\private\keymgr.cpp(3): note: 'Destroy_Instance'의 이전 정의를 참조하십시오.
+  Input_Device.cpp
+  Graphic_Device.cpp
+  GameObject.cpp
+  GameInstance.cpp
+  Component_Manager.cpp
+  코드를 생성하고 있습니다...
+  컴파일하고 있습니다...
+  Component.cpp
+  CollisionMgr.cpp
+  Camera.cpp
+  Base.cpp
+  코드를 생성하고 있습니다...
