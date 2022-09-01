@@ -115,6 +115,9 @@
     <Filter Include="02.GameObject\Item">
       <UniqueIdentifier>{5152df02-b298-4fbb-bbc0-0b6dab3c89ab}</UniqueIdentifier>
     </Filter>
+    <Filter Include="02.GameObject\UI\GamePlayUI\IconUI">
+      <UniqueIdentifier>{8c9d3df2-575d-4f4d-9a13-7a0d56014575}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -225,8 +228,14 @@
     <ClInclude Include="..\Public\YetiSkill.h">
       <Filter>02.GameObject\Monster\YetiMonster\YetiSkill</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="..\Public\ConsumItem.h" />
     <ClInclude Include="..\Public\Item.h" />
+=======
+    <ClInclude Include="..\Public\IconUI.h">
+      <Filter>02.GameObject\UI\GamePlayUI\IconUI</Filter>
+    </ClInclude>
+>>>>>>> Jeong
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Private\MainApp.cpp">
@@ -325,8 +334,14 @@
     <ClCompile Include="..\Private\YetiSkill.cpp">
       <Filter>02.GameObject\Monster\YetiMonster\YetiSkill</Filter>
     </ClCompile>
+<<<<<<< HEAD
     <ClCompile Include="..\Private\ConsumItem.cpp" />
     <ClCompile Include="..\Private\Item.cpp" />
+=======
+    <ClCompile Include="..\Private\IconUI.cpp">
+      <Filter>02.GameObject\UI\GamePlayUI\IconUI</Filter>
+    </ClCompile>
+>>>>>>> Jeong
   </ItemGroup>
   <ItemGroup>
     <Image Include="Client.ico">

@@ -1,19 +1,19 @@
 #include "stdafx.h"
-#include "..\Public\InventoryUI.h"
+#include "IconUI.h"
 #include "GameInstance.h"
+#include "InventoryUI.h"
 
-CInventoryUI::CInventoryUI(LPDIRECT3DDEVICE9 pGraphic_Device)
+CIconUI::CIconUI(LPDIRECT3DDEVICE9 pGraphic_Device)
 	: CGameObject(pGraphic_Device)
 {
-	ZeroMemory(&m_vecCheckRect, sizeof(RECT));
 }
 
-CInventoryUI::CInventoryUI(const CInventoryUI & rhs)
+CIconUI::CIconUI(const CIconUI & rhs)
 	: CGameObject(rhs)
 {
 }
 
-HRESULT CInventoryUI::Initialize_Prototype()
+HRESULT CIconUI::Initialize_Prototype()
 {
 	if (FAILED(__super::Initialize_Prototype()))
 		return E_FAIL;
@@ -21,40 +21,38 @@ HRESULT CInventoryUI::Initialize_Prototype()
 	return S_OK;
 }
 
-HRESULT CInventoryUI::Initialize(void* pArg)
+HRESULT CIconUI::Initialize(void* pArg)
 {
 	if (FAILED(__super::Initialize(pArg)))
 		return E_FAIL;
 
 	D3DXMatrixOrthoLH(&m_ProjMatrix, g_iWinSizeX, g_iWinSizeY, 0.f, 1.f);
 
-	m_fSizeX = 468.f;
-	m_fSizeY = 702.f;
-	m_fX = 500.f;
+	m_fSizeX = 37.5f;
+	m_fSizeY = 36.f;
+	m_fX = 100.f;
 	m_fY = 400.f;
-	
 
 	if (FAILED(SetUp_Components()))
 		return E_FAIL;
-	
+
 	m_pTransformCom->Set_Scaled(_float3(m_fSizeX, m_fSizeY, 1.f));
 	ZeroMemory(&m_fDifDis, sizeof(_float2));
 	//m_pTransformCom->Set_State(CTransform::STATE_POSITION, _float3(m_fX - g_iWinSizeX * 0.5f, -m_fY + g_iWinSizeY * 0.5f, 0.f));
 
-
 	return S_OK;
 }
 
-void CInventoryUI::Tick(_float fTimeDelta)
+void CIconUI::Tick(_float fTimeDelta)
 {
-	__super::Tick(fTimeDelta);	 
-	
+	__super::Tick(fTimeDelta);	
+
 	CGameInstance* pGameInstance = CGameInstance::Get_Instance();
 
 	Safe_AddRef(pGameInstance);
-	
-	if(!m_bMoveUi)
-		SetRect(&m_rcRect, m_fX - m_fSizeX * 0.5f, m_fY - m_fSizeY * 0.5f, m_fX + m_fSizeX * 0.5f, m_fY - m_fSizeY * 0.4f);
+
+	if (!m_bMoveUi)
+		SetRect(&m_rcRect, m_fX - m_fSizeX * 0.5f, m_fY - m_fSizeY * 0.5f, m_fX + m_fSizeX * 0.5f, m_fY + m_fSizeY * 0.5f);
 
 	POINT		ptMouse;
 	GetCursorPos(&ptMouse);
@@ -69,9 +67,8 @@ void CInventoryUI::Tick(_float fTimeDelta)
 			m_bMoveUi = true;
 			m_fMousePos.x = ptMouse.x;
 			m_fMousePos.y = ptMouse.y;
-			m_iCheck++;
 		}
-		else if(m_bMoveUi&& !(MouseMove = pGameInstance->Get_DIMKeyState(DIMK_LBUTTON)))
+		else if (m_bMoveUi && !(MouseMove = pGameInstance->Get_DIMKeyState(DIMK_LBUTTON)))
 			m_bMoveUi = false;
 	}
 	if (m_bMoveUi)
@@ -79,71 +76,36 @@ void CInventoryUI::Tick(_float fTimeDelta)
 		m_fDifDis.x = m_fMousePos.x - ptMouse.x;
 		m_fDifDis.y = m_fMousePos.y - ptMouse.y;
 	}
-	m_pTransformCom->Set_State(CTransform::STATE_POSITION, _float3(m_fX - m_fDifDis.x - m_fSizeX*1.25f, m_fY + m_fDifDis.y - m_fSizeY*0.7f, 0.f));
-	SetRect(&m_rcRect, m_fX - m_fDifDis.x - m_fSizeX * 0.5f, m_fY + m_fDifDis.y - m_fSizeY * 0.5f, m_fX - m_fDifDis.x + m_fSizeX * 0.5f, m_fY + m_fDifDis.y - m_fSizeY * 0.4f);
+	//m_pTransformCom->Set_State(CTransform::STATE_POSITION, _float3(m_fX - m_fDifDis.x - m_fSizeX*1.25f, m_fY + m_fDifDis.y - m_fSizeY*0.7f, 0.f));
+	//SetRect(&m_rcRect, m_fX - m_fDifDis.x - m_fSizeX * 0.5f, m_fY + m_fDifDis.y - m_fSizeY * 0.5f, m_fX - m_fDifDis.x + m_fSizeX * 0.5f, m_fY + m_fDifDis.y - m_fSizeY * 0.4f);
 
-	if (m_iCheck > 1)
-		int a = 10;
-	Safe_Release(pGameInstance);
-
-}
-
-void CInventoryUI::Late_Tick(_float fTimeDelta)
-{
-	__super::Late_Tick(fTimeDelta);
-
-	POINT		ptMouse;
-	GetCursorPos(&ptMouse);
-	ScreenToClient(g_hWnd, &ptMouse);
-
-	CGameInstance* pGameInstance = CGameInstance::Get_Instance();
-
-	Safe_AddRef(pGameInstance);
-
-	_float fLeft = m_fX - m_fDifDis.x - m_fSizeX * 0.5f;
-	_float fTop = m_fY - m_fDifDis.y - m_fSizeY * 0.5f;
-	_float fRight = m_fX + m_fDifDis.x + m_fSizeX * 0.5f;
-	_float fBottom = m_fY + m_fDifDis.y + m_fSizeY * 0.5f;
-
-	if (GetKeyState('I') & 0x0001)
+	
+	
+	CInventoryUI* pInvenUI = nullptr;
+	
+	for (auto& pInvenRect : pInvenUI->Get_VecRect())
 	{
-		if (m_bOnCheck == true)
+		if (PtInRect(&pInvenRect, ptMouse))
 		{
-			if (nullptr != m_pRendererCom)
-				m_pRendererCom->Add_RenderGroup(CRenderer::RENDER_UI, this);		
 
-			for (_uint i = 1; i <= 8; ++i) //y
-			{
-				for (_uint j = 1; j <= 6; ++j) //x
-				{
-					RECT rcRect;
-
-					SetRect(&rcRect,
-						fLeft + 48.f + j * 37.5f,
-						fTop + 130.f + i * 36.f,
-						fLeft + 48.f + j * 75.f,
-						fTop + 130.f + i * 72.f);
-
-					m_vecCheckRect.push_back(rcRect);
-
-				}
-			}
 		}
-		else
-		{
-			m_bOnCheck = true;
-		}
-
-		
 	}
-
-
-
+	
+	Safe_Release(pInvenUI);
 	Safe_Release(pGameInstance);
+
 	
 }
 
-HRESULT CInventoryUI::Render()
+void CIconUI::Late_Tick(_float fTimeDelta)
+{
+	__super::Late_Tick(fTimeDelta);
+
+	if (nullptr != m_pRendererCom)
+		m_pRendererCom->Add_RenderGroup(CRenderer::RENDER_UI, this);
+}
+
+HRESULT CIconUI::Render()
 {
 	if (FAILED(__super::Render()))
 		return E_FAIL;
@@ -157,14 +119,13 @@ HRESULT CInventoryUI::Render()
 	m_pGraphic_Device->SetTransform(D3DTS_VIEW, &ViewMatrix);
 	m_pGraphic_Device->SetTransform(D3DTS_PROJECTION, &m_ProjMatrix);
 
-	if (FAILED(m_pTextureCom->Bind_OnGraphicDev(0)))
+	if (FAILED(m_pTextureCom->Bind_OnGraphicDev()))
 		return E_FAIL;
 
 	if (FAILED(SetUp_RenderState()))
 		return E_FAIL;
 
 	m_pVIBufferCom->Render();
-		
 
 	if (FAILED(Release_RenderState()))
 		return E_FAIL;
@@ -174,14 +135,14 @@ HRESULT CInventoryUI::Render()
 	return S_OK;
 }
 
-HRESULT CInventoryUI::SetUp_Components()
+HRESULT CIconUI::SetUp_Components()
 {
 	/* For.Com_Renderer */
 	if (FAILED(__super::Add_Components(TEXT("Com_Renderer"), LEVEL_STATIC, TEXT("Prototype_Component_Renderer"), (CComponent**)&m_pRendererCom)))
 		return E_FAIL;
 
 	/* For.Com_Texture */
-	if (FAILED(__super::Add_Components(TEXT("Com_Texture"), LEVEL_GAMEPLAY, TEXT("Prototype_Component_Texture_InventoryUI"), (CComponent**)&m_pTextureCom)))
+	if (FAILED(__super::Add_Components(TEXT("Com_Texture"), LEVEL_GAMEPLAY, TEXT("Prototype_Component_Texture_IconUI"), (CComponent**)&m_pTextureCom)))
 		return E_FAIL;
 
 	/* For.Com_VIBuffer */
@@ -203,52 +164,51 @@ HRESULT CInventoryUI::SetUp_Components()
 	return S_OK;
 }
 
-HRESULT CInventoryUI::SetUp_RenderState()
+HRESULT CIconUI::SetUp_RenderState()
 {
 	if (nullptr == m_pGraphic_Device)
 		return E_FAIL;	
 
 	m_pGraphic_Device->SetRenderState(D3DRS_ALPHATESTENABLE, TRUE);
-	m_pGraphic_Device->SetRenderState(D3DRS_ALPHAREF, 250);
+	m_pGraphic_Device->SetRenderState(D3DRS_ALPHAREF, 15);
 	m_pGraphic_Device->SetRenderState(D3DRS_ALPHAFUNC, D3DCMP_GREATEREQUAL);
-
 	return S_OK;
 }
 
-HRESULT CInventoryUI::Release_RenderState()
+HRESULT CIconUI::Release_RenderState()
 {
 	m_pGraphic_Device->SetRenderState(D3DRS_ALPHATESTENABLE, FALSE);
 
 	return S_OK;
 }
 
-CInventoryUI * CInventoryUI::Create(LPDIRECT3DDEVICE9 pGraphic_Device)
+CIconUI * CIconUI::Create(LPDIRECT3DDEVICE9 pGraphic_Device)
 {
-	CInventoryUI*	pInstance = new CInventoryUI(pGraphic_Device);
+	CIconUI*	pInstance = new CIconUI(pGraphic_Device);
 
 	if (FAILED(pInstance->Initialize_Prototype()))
 	{
-		ERR_MSG(TEXT("Failed to Created : CInventoryUI"));
+		ERR_MSG(TEXT("Failed to Created : CIconUI"));
 		Safe_Release(pInstance);
 	}
 
 	return pInstance;
 }
 
-CGameObject * CInventoryUI::Clone(void* pArg)
+CGameObject * CIconUI::Clone(void* pArg)
 {
-	CInventoryUI*	pInstance = new CInventoryUI(*this);
+	CIconUI*	pInstance = new CIconUI(*this);
 
 	if (FAILED(pInstance->Initialize(pArg)))
 	{
-		ERR_MSG(TEXT("Failed to Cloned : CInventoryUI"));
+		ERR_MSG(TEXT("Failed to Cloned : CIconUI"));
 		Safe_Release(pInstance);
 	}
 
 	return pInstance;
 }
 
-void CInventoryUI::Free()
+void CIconUI::Free()
 {
 	__super::Free();
 
