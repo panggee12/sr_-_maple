@@ -79,9 +79,6 @@
     <Filter Include="02.GameObject\UI\GamePlayUI\InventoryUI">
       <UniqueIdentifier>{a291a183-2330-4579-ba70-aaf338b4d005}</UniqueIdentifier>
     </Filter>
-    <Filter Include="02.GameObject\UI\GamePlayUI\InventoryUI\Button">
-      <UniqueIdentifier>{9629ab82-0010-4300-8653-bcaacf336e0a}</UniqueIdentifier>
-    </Filter>
     <Filter Include="02.GameObject\UI\GamePlayUI\SkillBookUI">
       <UniqueIdentifier>{466509cb-c83d-443a-96a8-eaa1e63bc66a}</UniqueIdentifier>
     </Filter>
@@ -115,14 +112,8 @@
     <Filter Include="02.GameObject\Monster\YetiMonster\YetiSkill">
       <UniqueIdentifier>{15a0c0ab-1a7f-4a3b-9d46-b46dbb5a2a82}</UniqueIdentifier>
     </Filter>
-    <Filter Include="01.Levels\Loading\Item">
-      <UniqueIdentifier>{5152df02-b298-4fbb-bbc0-0b6dab3c89ab}</UniqueIdentifier>
-    </Filter>
     <Filter Include="02.GameObject\Item">
-      <UniqueIdentifier>{6370cecc-5980-4a8d-98b1-39d7e5f7bb24}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="02.GameObject\Item\ConsumItem">
-      <UniqueIdentifier>{7be4902d-6ce9-427b-b83f-59458c7eeae3}</UniqueIdentifier>
+      <UniqueIdentifier>{5152df02-b298-4fbb-bbc0-0b6dab3c89ab}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -201,9 +192,6 @@
     <ClInclude Include="..\Public\HpBarUI.h">
       <Filter>02.GameObject\UI\GamePlayUI\HpBarUI</Filter>
     </ClInclude>
-    <ClInclude Include="..\Public\InventoryButtonUI.h">
-      <Filter>02.GameObject\UI\GamePlayUI\InventoryUI\Button</Filter>
-    </ClInclude>
     <ClInclude Include="..\Public\InventoryUI.h">
       <Filter>02.GameObject\UI\GamePlayUI\InventoryUI</Filter>
     </ClInclude>
@@ -228,26 +216,17 @@
     <ClInclude Include="..\public\Litening_Effect.h">
       <Filter>03.Effect\Skill_Efect</Filter>
     </ClInclude>
+    <ClInclude Include="..\Public\BellaMonster.h">
+      <Filter>02.GameObject\Monster\BellaMonster</Filter>
+    </ClInclude>
     <ClInclude Include="..\Public\YetiMonster.h">
       <Filter>02.GameObject\Monster\YetiMonster</Filter>
     </ClInclude>
     <ClInclude Include="..\Public\YetiSkill.h">
       <Filter>02.GameObject\Monster\YetiMonster\YetiSkill</Filter>
     </ClInclude>
-<<<<<<< HEAD
-    <ClInclude Include="..\Public\Item.h">
-      <Filter>02.GameObject\Item</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Public\ConsumItem.h">
-      <Filter>02.GameObject\Item\ConsumItem</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Public\BellaMonster.h">
-      <Filter>02.GameObject\Monster\BellaMonster</Filter>
-=======
-    <ClInclude Include="..\public\Skill.h">
-      <Filter>02.GameObject\Player\Skill</Filter>
->>>>>>> develop
-    </ClInclude>
+    <ClInclude Include="..\Public\ConsumItem.h" />
+    <ClInclude Include="..\Public\Item.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Private\MainApp.cpp">
@@ -310,9 +289,6 @@
     <ClCompile Include="..\Private\HpBarUI.cpp">
       <Filter>02.GameObject\UI\GamePlayUI\HpBarUI</Filter>
     </ClCompile>
-    <ClCompile Include="..\Private\InventoryButtonUI.cpp">
-      <Filter>02.GameObject\UI\GamePlayUI\InventoryUI\Button</Filter>
-    </ClCompile>
     <ClCompile Include="..\Private\InventoryUI.cpp">
       <Filter>02.GameObject\UI\GamePlayUI\InventoryUI</Filter>
     </ClCompile>
@@ -349,17 +325,8 @@
     <ClCompile Include="..\Private\YetiSkill.cpp">
       <Filter>02.GameObject\Monster\YetiMonster\YetiSkill</Filter>
     </ClCompile>
-<<<<<<< HEAD
-    <ClCompile Include="..\Private\Item.cpp">
-      <Filter>02.GameObject\Item</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Private\ConsumItem.cpp">
-      <Filter>02.GameObject\Item\ConsumItem</Filter>
-=======
-    <ClCompile Include="..\private\Skill.cpp">
-      <Filter>02.GameObject\Player\Skill</Filter>
->>>>>>> develop
-    </ClCompile>
+    <ClCompile Include="..\Private\ConsumItem.cpp" />
+    <ClCompile Include="..\Private\Item.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Client.ico">
