@@ -163,12 +163,14 @@
     <ClInclude Include="..\Public\BellaMonster.h" />
     <ClInclude Include="..\Public\Camera_Dynamic.h" />
     <ClInclude Include="..\Public\Client_Defines.h" />
+    <ClInclude Include="..\Public\ConsumItem.h" />
     <ClInclude Include="..\Public\CubeTerrain.h" />
     <ClInclude Include="..\public\Effect.h" />
     <ClInclude Include="..\Public\ExpBarUI.h" />
     <ClInclude Include="..\Public\HpBarUI.h" />
     <ClInclude Include="..\Public\InventoryButtonUI.h" />
     <ClInclude Include="..\Public\InventoryUI.h" />
+    <ClInclude Include="..\Public\Item.h" />
     <ClInclude Include="..\Public\ItemInfoUI.h" />
     <ClInclude Include="..\Public\Level_GamePlay.h" />
     <ClInclude Include="..\Public\Level_Loading.h" />
@@ -184,7 +186,6 @@
     <ClInclude Include="..\Public\PlayerInfoUI.h" />
     <ClInclude Include="..\Public\Player_Attack.h" />
     <ClInclude Include="..\Public\Player_Skill.h" />
-    <ClInclude Include="..\public\Skill.h" />
     <ClInclude Include="..\Public\SkillbookUI.h" />
     <ClInclude Include="..\Public\SkillInfoUI.h" />
     <ClInclude Include="..\Public\Sky.h" />
@@ -201,12 +202,14 @@
     <ClCompile Include="..\private\BackGround.cpp" />
     <ClCompile Include="..\Private\BellaMonster.cpp" />
     <ClCompile Include="..\Private\Camera_Dynamic.cpp" />
+    <ClCompile Include="..\Private\ConsumItem.cpp" />
     <ClCompile Include="..\Private\CubeTerrain.cpp" />
     <ClCompile Include="..\private\Effect.cpp" />
     <ClCompile Include="..\Private\ExpBarUI.cpp" />
     <ClCompile Include="..\Private\HpBarUI.cpp" />
     <ClCompile Include="..\Private\InventoryButtonUI.cpp" />
     <ClCompile Include="..\Private\InventoryUI.cpp" />
+    <ClCompile Include="..\Private\Item.cpp" />
     <ClCompile Include="..\Private\ItemInfoUI.cpp" />
     <ClCompile Include="..\Private\Level_GamePlay.cpp" />
     <ClCompile Include="..\Private\Level_Loading.cpp" />
@@ -222,7 +225,6 @@
     <ClCompile Include="..\Private\PlayerInfoUI.cpp" />
     <ClCompile Include="..\Private\Player_Attack.cpp" />
     <ClCompile Include="..\Private\Player_Skill.cpp" />
-    <ClCompile Include="..\private\Skill.cpp" />
     <ClCompile Include="..\Private\SkillbookUI.cpp" />
     <ClCompile Include="..\Private\SkillInfoUI.cpp" />
     <ClCompile Include="..\Private\Sky.cpp" />

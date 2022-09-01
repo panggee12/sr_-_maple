@@ -25,7 +25,7 @@ protected:
 	virtual HRESULT Release_RenderState();
 	virtual void MonsterMove();
 	virtual void HitCheck(_float fTimeDelta);
-
+	virtual void CreateItem();
 
 public:
 	static CLupangMonster* Create(LPDIRECT3DDEVICE9 pGraphic_Device);

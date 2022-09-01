@@ -38,6 +38,7 @@ void CYetiSkill::Tick(_float fTimeDelta)
 	__super::Tick(fTimeDelta);
 
 	_float3 vPos = m_pTransformCom->Get_State(CTransform::STATE_POSITION);
+	_float fOriginYPos = vPos.y;
 
 	vPos = vPos + m_vMyLook * 0.1f;
 
@@ -57,7 +58,7 @@ void CYetiSkill::Tick(_float fTimeDelta)
 
 	Safe_Release(pGameInstance);
 
-	m_pTransformCom->Set_State(CTransform::STATE_POSITION, vPos);
+	m_pTransformCom->Set_State(CTransform::STATE_POSITION, _float3(vPos.x, fOriginYPos, vPos.z));
 }
 
 void CYetiSkill::Late_Tick(_float fTimeDelta)
@@ -193,7 +194,6 @@ void CYetiSkill::Free()
 {
 	__super::Free();
 
-	Safe_Release(m_pTransformCom);
 	Safe_Release(m_pVIBufferCom);
 	Safe_Release(m_pRendererCom);
 	Safe_Release(m_pTextureCom);
