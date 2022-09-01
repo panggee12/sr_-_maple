@@ -1,5 +1,20 @@
-﻿  IconUI.cpp
-c:\users\user\documents\github\sr_-_maple\client\private\iconui.cpp(29): warning C4244: '인수': 'const unsigned int'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\user\documents\github\sr_-_maple\client\private\iconui.cpp(57): warning C4244: '인수': 'Engine::_float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+﻿  LINK : ..\Bin\Client.exe을(를) 찾을 수 없거나 마지막 증분 링크에 의해 빌드되지 않았습니다. 전체 링크를 수행하고 있습니다.
+YetiSkill.obj : warning LNK4099: 'vc140.pdb' PDB를 'YetiSkill.obj' 또는 'C:\Users\user\Documents\GitHub\sr_-_maple\Client\Bin\vc140.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
+YetiMonster.obj : warning LNK4099: 'vc140.pdb' PDB를 'YetiMonster.obj' 또는 'C:\Users\user\Documents\GitHub\sr_-_maple\Client\Bin\vc140.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
+SkillInfoUI.obj : warning LNK4099: 'vc140.pdb' PDB를 'SkillInfoUI.obj' 또는 'C:\Users\user\Documents\GitHub\sr_-_maple\Client\Bin\vc140.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
+SkillbookUI.obj : warning LNK4099: 'vc140.pdb' PDB를 'SkillbookUI.obj' 또는 'C:\Users\user\Documents\GitHub\sr_-_maple\Client\Bin\vc140.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
+Player_Skill.obj : warning LNK4099: 'vc140.pdb' PDB를 'Player_Skill.obj' 또는 'C:\Users\user\Documents\GitHub\sr_-_maple\Client\Bin\vc140.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
+Player_Attack.obj : warning LNK4099: 'vc140.pdb' PDB를 'Player_Attack.obj' 또는 'C:\Users\user\Documents\GitHub\sr_-_maple\Client\Bin\vc140.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
+PlayerInfoUI.obj : warning LNK4099: 'vc140.pdb' PDB를 'PlayerInfoUI.obj' 또는 'C:\Users\user\Documents\GitHub\sr_-_maple\Client\Bin\vc140.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
+LogoUI.obj : warning LNK4099: 'vc140.pdb' PDB를 'LogoUI.obj' 또는 'C:\Users\user\Documents\GitHub\sr_-_maple\Client\Bin\vc140.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
+Loader.obj : warning LNK4099: 'vc140.pdb' PDB를 'Loader.obj' 또는 'C:\Users\user\Documents\GitHub\sr_-_maple\Client\Bin\vc140.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
+Litening_Effect.obj : warning LNK4099: 'vc140.pdb' PDB를 'Litening_Effect.obj' 또는 'C:\Users\user\Documents\GitHub\sr_-_maple\Client\Bin\vc140.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
+ItemInfoUI.obj : warning LNK4099: 'vc140.pdb' PDB를 'ItemInfoUI.obj' 또는 'C:\Users\user\Documents\GitHub\sr_-_maple\Client\Bin\vc140.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
+InventoryUI.obj : warning LNK4099: 'vc140.pdb' PDB를 'InventoryUI.obj' 또는 'C:\Users\user\Documents\GitHub\sr_-_maple\Client\Bin\vc140.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
+IconUI.obj : warning LNK4099: 'vc140.pdb' PDB를 'IconUI.obj' 또는 'C:\Users\user\Documents\GitHub\sr_-_maple\Client\Bin\vc140.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
+HpBarUI.obj : warning LNK4099: 'vc140.pdb' PDB를 'HpBarUI.obj' 또는 'C:\Users\user\Documents\GitHub\sr_-_maple\Client\Bin\vc140.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
+ExpBarUI.obj : warning LNK4099: 'vc140.pdb' PDB를 'ExpBarUI.obj' 또는 'C:\Users\user\Documents\GitHub\sr_-_maple\Client\Bin\vc140.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
+Effect.obj : warning LNK4099: 'vc140.pdb' PDB를 'Effect.obj' 또는 'C:\Users\user\Documents\GitHub\sr_-_maple\Client\Bin\vc140.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
+BellaMonster.obj : warning LNK4099: 'vc140.pdb' PDB를 'BellaMonster.obj' 또는 'C:\Users\user\Documents\GitHub\sr_-_maple\Client\Bin\vc140.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
   Client.vcxproj -> C:\Users\user\Documents\GitHub\sr_-_maple\Client\Default\..\Bin\Client.exe
   Client.vcxproj -> ..\Bin\Client.pdb (Full PDB)
