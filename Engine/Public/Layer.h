@@ -20,6 +20,7 @@ public:
 	list<class CGameObject*> Get_ObjectList() { return m_GameObjects; }
 	class CGameObject* Get_FirstObject() { return m_GameObjects.front(); }
 	class CGameObject* Get_BackObject() { return m_GameObjects.back(); }
+	
 private:
 	list<class CGameObject*>			m_GameObjects;
 	typedef list<class CGameObject*>	GAMEOBJECTS;

@@ -1,3 +1,17 @@
+<<<<<<< HEAD
 ﻿cl : 명령줄 warning D9028: 최소 다시 빌드에 실패했습니다. 정상 빌드로 되돌립니다.
   IconUI.cpp
 c:\users\user\documents\github\sr_-_maple\client\private\iconui.cpp(1): fatal error C1041: 프로그램 데이터베이스 'C:\Users\user\Documents\GitHub\sr_-_maple\Client\Default\x64\Debug\vc140.idb'을(를) 열 수 없습니다. 여러 CL.EXE에서 동일한 .PDB 파일에 쓰는 경우 /FS를 사용하십시오.
+=======
+﻿  Loader.cpp
+  코드를 생성하고 있습니다...
+  컴파일하고 있습니다...
+  IconUI.cpp
+c:\users\허준석\desktop\깃고장내지마세요\sr_-_maple\client\private\iconui.cpp(29): warning C4244: '인수': 'const unsigned int'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\허준석\desktop\깃고장내지마세요\sr_-_maple\client\private\iconui.cpp(55): warning C4244: '인수': 'Engine::_float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\허준석\desktop\깃고장내지마세요\sr_-_maple\client\private\iconui.cpp(61): warning C4244: '초기화 중': 'LONG'에서 'Engine::_float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\허준석\desktop\깃고장내지마세요\sr_-_maple\client\private\iconui.cpp(62): warning C4244: '초기화 중': 'LONG'에서 'Engine::_float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  코드를 생성하고 있습니다...
+  Client.vcxproj -> C:\Users\허준석\Desktop\깃고장내지마세요\sr_-_maple\Client\Default\..\Bin\Client.exe
+  Client.vcxproj -> ..\Bin\Client.pdb (Full PDB)
+>>>>>>> aa192b3238a5dae7f5a2cf8c530fc184cccd860b

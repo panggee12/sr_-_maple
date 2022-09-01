@@ -58,7 +58,7 @@ void CPlayer_Attack::Tick(_float fTimeDelta)
 	CGameInstance*			pGameInstance = CGameInstance::Get_Instance();
 	Safe_AddRef(pGameInstance);
 
-	if (!pGameInstance->Check_Layer(LEVEL_GAMEPLAY, TEXT("Layer_Monster")))
+	if (!pGameInstance->Check_Layer(LEVEL_GAMEPLAY, TEXT("Layer_MonkeyMonster")))
 	{
 		m_bDead = true;
 		Safe_Release(pGameInstance);
@@ -78,7 +78,7 @@ void CPlayer_Attack::Tick(_float fTimeDelta)
 
 	if (m_SkillTime > 0.3f)
 	{
-		auto Player_Pos = pGameInstance->Find_Target(LEVEL_GAMEPLAY, TEXT("Layer_Monster"));
+		auto Player_Pos = pGameInstance->Find_Target(LEVEL_GAMEPLAY, TEXT("Layer_MonkeyMonster"));
 
 
 		_float3 TargetPos = Player_Pos->Get_Transform()->Get_State(CTransform::STATE_POSITION);
@@ -93,7 +93,7 @@ void CPlayer_Attack::Tick(_float fTimeDelta)
 		m_pTransformCom->Set_Scaled(_float3(m_fSizeX, m_fSizeY, 1.f));
 		m_pTransformCom->Set_State(CTransform::STATE_POSITION, MyPos);
 
-		if (pGameInstance->Collision_Attacked(LEVEL_GAMEPLAY, TEXT("Layer_Playe_Attack"), TEXT("Layer_Monster"), fTimeDelta, 1 ,_float3(0.15f, 0.3f, 0.15f), _float3(0.3f, 0.3f, 0.3f)))
+		if (pGameInstance->Collision_Attacked(LEVEL_GAMEPLAY, TEXT("Layer_Playe_Attack"), TEXT("Layer_MonkeyMonster"), fTimeDelta, 1 ,_float3(0.15f, 0.3f, 0.15f), _float3(0.3f, 0.3f, 0.3f)))
 		{
 			Fire_Efect_On(TEXT("Layer_Attack"), fTimeDelta);
 			m_bDead = true;

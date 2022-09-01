@@ -74,13 +74,13 @@ HRESULT CVIBuffer_Cube::Initialize_Prototype()
 	pIndices[4]._0 = 4; pIndices[4]._1 = 5; pIndices[4]._2 = 1;
 	pIndices[5]._0 = 4; pIndices[5]._1 = 1; pIndices[5]._2 = 0;
 
-	/* -Y */
-	pIndices[6]._0 = 3; pIndices[6]._1 = 2; pIndices[6]._2 = 6;
-	pIndices[7]._0 = 3; pIndices[7]._1 = 6; pIndices[7]._2 = 7;
+	///* -Y */
+	//pIndices[6]._0 = 3; pIndices[6]._1 = 2; pIndices[6]._2 = 6; 최적화 아랫면과 뒷면은 보일 일이 없음 
+	//pIndices[7]._0 = 3; pIndices[7]._1 = 6; pIndices[7]._2 = 7; 그리지 않을 수 있으면 안그리는게 가장 좋음
 
-	/* +Z */
-	pIndices[8]._0 = 5; pIndices[8]._1 = 4; pIndices[8]._2 = 7;
-	pIndices[9]._0 = 5; pIndices[9]._1 = 7; pIndices[9]._2 = 6;
+	///* +Z */
+	//pIndices[8]._0 = 5; pIndices[8]._1 = 4; pIndices[8]._2 = 7;
+	//pIndices[9]._0 = 5; pIndices[9]._1 = 7; pIndices[9]._2 = 6;
 
 	/* -Z */
 	pIndices[10]._0 = 0; pIndices[10]._1 = 1; pIndices[10]._2 = 2;

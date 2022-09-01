@@ -131,7 +131,7 @@ void CPlayer::Tick(_float fTimeDelta)
 	
 	if (GetKeyState('A') & 0x8000)
 	{
-		if (pGameInstance->Check_Layer(LEVEL_GAMEPLAY, TEXT("Layer_Monster")))
+		if (pGameInstance->Check_Layer(LEVEL_GAMEPLAY, TEXT("Layer_MonkeyMonster")))
 		{
 			m_ePlayer_State = PLAYER_ATTACK;
 
@@ -140,9 +140,9 @@ void CPlayer::Tick(_float fTimeDelta)
 		}
 	}
 
-	else if (GetKeyState('X') & 0x8000)
+	else if (pGameInstance->Key_Down('X'))
 	{
-		if (pGameInstance->Check_Layer(LEVEL_GAMEPLAY, TEXT("Layer_Monster")))
+		if (pGameInstance->Check_Layer(LEVEL_GAMEPLAY, TEXT("Layer_MonkeyMonster")))
 		{
 			Player_Attack(m_ePlayer_State, m_ePlayer_Attack, fTimeDelta);
 
@@ -235,6 +235,8 @@ void CPlayer::Tick(_float fTimeDelta)
 		m_pTransformCom->Set_SecSavePosOn(false);
 		m_pTransformCom->Save_Collision_Pos(fTimeDelta);
 	}*/
+
+	m_pTransformCom->Set_Fall(true);
 
 	Safe_Release(pGameInstance);
 }

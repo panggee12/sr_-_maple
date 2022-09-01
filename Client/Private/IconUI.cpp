@@ -28,7 +28,6 @@ HRESULT CIconUI::Initialize(void* pArg)
 
 	D3DXMatrixOrthoLH(&m_ProjMatrix, g_iWinSizeX, g_iWinSizeY, 0.f, 1.f);
 
-
 	m_fSizeX = 68.f;
 	m_fSizeY = 67.f;
 	m_fX = 0.f;
@@ -47,7 +46,7 @@ HRESULT CIconUI::Initialize(void* pArg)
 
 void CIconUI::Tick(_float fTimeDelta)
 {
-	__super::Tick(fTimeDelta);	
+	__super::Tick(fTimeDelta);
 
 	CGameInstance* pGameInstance = CGameInstance::Get_Instance();
 
@@ -59,6 +58,7 @@ void CIconUI::Tick(_float fTimeDelta)
 	GetCursorPos(&ptMouse);
 	ScreenToClient(g_hWnd, &ptMouse);
 
+<<<<<<< HEAD
 	auto pInven = pGameInstance->Find_Target(LEVEL_GAMEPLAY, TEXT("Layer_InvenUI"));
 
 	if (PtInRect(&m_rcRect, ptMouse))
@@ -83,6 +83,19 @@ void CIconUI::Tick(_float fTimeDelta)
 	if (pGameInstance->Key_Pressing(VK_LBUTTON) && m_bRectInCheck )
 	{
 		m_pTransformCom->Set_State(CTransform::STATE_POSITION, _float3(ptMouse.x - m_fDifDis.x - g_iWinSizeX * 0.5f, -ptMouse.y - m_fDifDis.y + g_iWinSizeY * 0.5f, 0.f));
+=======
+	_float fMX = ptMouse.x;
+	_float fMY = ptMouse.y;
+
+	auto pInven = pGameInstance->Find_Target(LEVEL_GAMEPLAY, TEXT("Layer_InvenUI"));
+
+	if (PtInRect(&m_rcRect, ptMouse))
+		m_bRectInCheck = true;
+
+	if (pGameInstance->Key_Pressing(VK_LBUTTON) && m_bRectInCheck)
+	{
+		m_pTransformCom->Set_State(CTransform::STATE_POSITION, _float3(fMX - g_iWinSizeX * 0.5f, -fMY + g_iWinSizeY * 0.5f, 0.f));
+>>>>>>> aa192b3238a5dae7f5a2cf8c530fc184cccd860b
 	}
 
 	if (pGameInstance->Key_Up(VK_LBUTTON))
@@ -97,7 +110,7 @@ void CIconUI::Tick(_float fTimeDelta)
 		m_bRectInCheck = false;
 	}
 
-	Safe_Release(pGameInstance);	
+	Safe_Release(pGameInstance);
 }
 
 void CIconUI::Late_Tick(_float fTimeDelta)
@@ -107,7 +120,7 @@ void CIconUI::Late_Tick(_float fTimeDelta)
 	CGameInstance* pGameInstance = CGameInstance::Get_Instance();
 
 	Safe_AddRef(pGameInstance);
-	
+
 	auto pInven = pGameInstance->Find_Target(LEVEL_GAMEPLAY, TEXT("Layer_InvenUI"));
 
 	if (static_cast<CInventoryUI*>(pInven)->Get_OnCheck())
@@ -123,13 +136,13 @@ HRESULT CIconUI::Render()
 {
 	if (FAILED(__super::Render()))
 		return E_FAIL;
-	
+
 	if (FAILED(m_pTransformCom->Bind_OnGraphicDev()))
 		return E_FAIL;
 
 	_float4x4		ViewMatrix;
 	D3DXMatrixIdentity(&ViewMatrix);
-	
+
 	m_pGraphic_Device->SetTransform(D3DTS_VIEW, &ViewMatrix);
 	m_pGraphic_Device->SetTransform(D3DTS_PROJECTION, &m_ProjMatrix);
 
@@ -181,7 +194,7 @@ HRESULT CIconUI::SetUp_Components()
 HRESULT CIconUI::SetUp_RenderState()
 {
 	if (nullptr == m_pGraphic_Device)
-		return E_FAIL;	
+		return E_FAIL;
 
 	m_pGraphic_Device->SetRenderState(D3DRS_ALPHATESTENABLE, TRUE);
 	m_pGraphic_Device->SetRenderState(D3DRS_ALPHAREF, 10);

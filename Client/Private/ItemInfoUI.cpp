@@ -47,6 +47,17 @@ HRESULT CItemInfoUI::Initialize(void* pArg)
 void CItemInfoUI::Tick(_float fTimeDelta)
 {
 	__super::Tick(fTimeDelta);	
+
+	CGameInstance* pGameInstance = CGameInstance::Get_Instance();
+
+	Safe_AddRef(pGameInstance);
+
+	if (m_iCheck == 3)
+		m_iCheck = 0;
+
+	m_eQuick_Item=QUICK_ITEM(m_iCheck);
+
+	Safe_Release(pGameInstance);
 }
 
 void CItemInfoUI::Late_Tick(_float fTimeDelta)
@@ -71,7 +82,7 @@ HRESULT CItemInfoUI::Render()
 	m_pGraphic_Device->SetTransform(D3DTS_VIEW, &ViewMatrix);
 	m_pGraphic_Device->SetTransform(D3DTS_PROJECTION, &m_ProjMatrix);
 
-	if (FAILED(m_pTextureCom->Bind_OnGraphicDev(0)))
+	if (FAILED(m_pTextureCom->Bind_OnGraphicDev(m_eQuick_Item)))
 		return E_FAIL;
 
 	if (FAILED(SetUp_RenderState()))

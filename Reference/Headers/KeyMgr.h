@@ -9,7 +9,7 @@ class CKeyMgr final :public CBase
 	DECLARE_SINGLETON(CKeyMgr)
 private:
 	CKeyMgr();
-	virtual ~CKeyMgr() = default;
+	virtual ~CKeyMgr()=default;
 
 public:
 	bool		Key_Pressing(int _Key);
