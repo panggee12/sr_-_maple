@@ -164,6 +164,7 @@
     <ClInclude Include="..\public\Body_Effect.h" />
     <ClInclude Include="..\Public\Camera_Dynamic.h" />
     <ClInclude Include="..\Public\Client_Defines.h" />
+    <ClInclude Include="..\Public\ConsumItem.h" />
     <ClInclude Include="..\Public\CubeTerrain.h" />
     <ClInclude Include="..\public\Effect.h" />
     <ClInclude Include="..\Public\ExpBarUI.h" />
@@ -187,7 +188,6 @@
     <ClInclude Include="..\Public\PlayerInfoUI.h" />
     <ClInclude Include="..\Public\Player_Attack.h" />
     <ClInclude Include="..\Public\Player_Skill.h" />
-    <ClInclude Include="..\public\Skill.h" />
     <ClInclude Include="..\Public\SkillbookUI.h" />
     <ClInclude Include="..\Public\SkillInfoUI.h" />
     <ClInclude Include="..\Public\Sky.h" />
@@ -205,6 +205,7 @@
     <ClCompile Include="..\Private\BellaMonster.cpp" />
     <ClCompile Include="..\private\Body_Effect.cpp" />
     <ClCompile Include="..\Private\Camera_Dynamic.cpp" />
+    <ClCompile Include="..\Private\ConsumItem.cpp" />
     <ClCompile Include="..\Private\CubeTerrain.cpp" />
     <ClCompile Include="..\private\Effect.cpp" />
     <ClCompile Include="..\Private\ExpBarUI.cpp" />
@@ -228,7 +229,6 @@
     <ClCompile Include="..\Private\PlayerInfoUI.cpp" />
     <ClCompile Include="..\Private\Player_Attack.cpp" />
     <ClCompile Include="..\Private\Player_Skill.cpp" />
-    <ClCompile Include="..\private\Skill.cpp" />
     <ClCompile Include="..\Private\SkillbookUI.cpp" />
     <ClCompile Include="..\Private\SkillInfoUI.cpp" />
     <ClCompile Include="..\Private\Sky.cpp" />

@@ -56,6 +56,7 @@ void CKeyMgr::Free()
 }
 
 
+<<<<<<< HEAD
 =======
 //#include "..\Public\KeyMgr.h"
 //
@@ -122,3 +123,6 @@ void CKeyMgr::Free()
 //
 //
 >>>>>>> e8a7accc92a0666938010f64fe805e1f1445c9cf
+=======
+
+>>>>>>> bf356d80309bcd323a4df46af9d27d0e7845c1fb

@@ -38,7 +38,11 @@ protected:
 	_float m_iTextureCount = 0.f;
 	_float m_iTextureMaxCount = 10.f;
 	_bool m_bChase = false;
+<<<<<<< HEAD
 	CGameObject* pPlayer = nullptr;    
+=======
+	CGameObject* pPlayer = nullptr;
+>>>>>>> bf356d80309bcd323a4df46af9d27d0e7845c1fb
 	_bool m_bMotionCheck = false;
 
 protected:

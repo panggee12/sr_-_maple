@@ -116,12 +116,17 @@
       <UniqueIdentifier>{5152df02-b298-4fbb-bbc0-0b6dab3c89ab}</UniqueIdentifier>
     </Filter>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <Filter Include="02.GameObject\UI\GamePlayUI\IconUI">
       <UniqueIdentifier>{8c9d3df2-575d-4f4d-9a13-7a0d56014575}</UniqueIdentifier>
 =======
     <Filter Include="03.Effect\Body_Effect">
       <UniqueIdentifier>{e5719b5b-f7ae-453b-9465-359ea6b03152}</UniqueIdentifier>
 >>>>>>> e8a7accc92a0666938010f64fe805e1f1445c9cf
+=======
+    <Filter Include="02.GameObject\Item\ConsumItem">
+      <UniqueIdentifier>{b1a3c765-d8c9-436d-b934-e844addab2ff}</UniqueIdentifier>
+>>>>>>> bf356d80309bcd323a4df46af9d27d0e7845c1fb
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -235,6 +240,7 @@
     </ClInclude>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <ClInclude Include="..\Public\ConsumItem.h" />
     <ClInclude Include="..\Public\Item.h" />
 =======
@@ -245,6 +251,13 @@
 =======
     <ClInclude Include="..\public\Skill.h">
       <Filter>02.GameObject\Player\Skill</Filter>
+=======
+    <ClInclude Include="..\Public\ConsumItem.h">
+      <Filter>02.GameObject\Item\ConsumItem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Item.h">
+      <Filter>02.GameObject\Item</Filter>
+>>>>>>> bf356d80309bcd323a4df46af9d27d0e7845c1fb
     </ClInclude>
     <ClInclude Include="..\public\Body_Effect.h">
       <Filter>03.Effect\Body_Effect</Filter>
@@ -336,9 +349,6 @@
     <ClCompile Include="..\private\Litening_Effect.cpp">
       <Filter>03.Effect\Skill_Efect</Filter>
     </ClCompile>
-    <ClCompile Include="..\Private\Level_GamePlay.cpp">
-      <Filter>01.Levels\GamePlay</Filter>
-    </ClCompile>
     <ClCompile Include="..\Private\BellaMonster.cpp">
       <Filter>02.GameObject\Monster\BellaMonster</Filter>
     </ClCompile>
@@ -348,6 +358,7 @@
     <ClCompile Include="..\Private\YetiSkill.cpp">
       <Filter>02.GameObject\Monster\YetiMonster\YetiSkill</Filter>
     </ClCompile>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     <ClCompile Include="..\Private\ConsumItem.cpp" />
@@ -360,6 +371,16 @@
 =======
     <ClCompile Include="..\private\Skill.cpp">
       <Filter>02.GameObject\Player\Skill</Filter>
+=======
+    <ClCompile Include="..\Private\Level_GamePlay.cpp">
+      <Filter>01.Levels\GamePlay</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\ConsumItem.cpp">
+      <Filter>02.GameObject\Item\ConsumItem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\Item.cpp">
+      <Filter>02.GameObject\Item</Filter>
+>>>>>>> bf356d80309bcd323a4df46af9d27d0e7845c1fb
     </ClCompile>
     <ClCompile Include="..\private\Body_Effect.cpp">
       <Filter>03.Effect\Body_Effect</Filter>

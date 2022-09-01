@@ -1,6 +1,7 @@
 #TargetFrameworkVersion=v4.0:PlatformToolSet=v140:EnableManagedIncrementalBuild=false:VCToolArchitecture=Native32Bit:WindowsTargetPlatformVersion=8.1
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 Debug|x64|C:\Users\허준석\Desktop\메이플팀프로젝트\sr_-_maple\|
 =======
 Debug|x64|C:\Users\user\Documents\GitHub\sr_-_maple\|
@@ -8,3 +9,6 @@ Debug|x64|C:\Users\user\Documents\GitHub\sr_-_maple\|
 =======
 Debug|x64|C:\Users\Dev.Bae\Desktop\TeamPo6\sr_-_maple\|
 >>>>>>> e8a7accc92a0666938010f64fe805e1f1445c9cf
+=======
+Debug|x64|C:\Users\rkdtm\OneDrive\바탕 화면\Git\sr_-_maple\|
+>>>>>>> bf356d80309bcd323a4df46af9d27d0e7845c1fb

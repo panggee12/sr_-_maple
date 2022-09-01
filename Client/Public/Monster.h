@@ -44,6 +44,8 @@ protected:
 	CGameObject* pPlayer = nullptr;
 	_bool m_bMotionCheck = false;
 	_int m_iUpDown = 0;
+	_float m_fFallSpeed = 0.f;
+	_float m_fMaxFallSpeed = 3.f;
 
 protected:
 	virtual void CreateItem();

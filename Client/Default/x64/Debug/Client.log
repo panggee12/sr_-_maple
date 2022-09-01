@@ -1,6 +1,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ﻿  LINK : ..\Bin\Client.exe을(를) 찾을 수 없거나 마지막 증분 링크에 의해 빌드되지 않았습니다. 전체 링크를 수행하고 있습니다.
   Client.vcxproj -> C:\Users\허준석\Desktop\메이플팀프로젝트\sr_-_maple\Client\Default\..\Bin\Client.exe
 =======
@@ -90,4 +91,9 @@ c:\users\dev.bae\desktop\teampo6\sr_-_maple\client\private\level_gameplay.cpp(27
 >>>>>>> BHW
   Client.vcxproj -> C:\Users\Dev.Bae\Desktop\TeamPo6\sr_-_maple\Client\Default\..\Bin\Client.exe
 >>>>>>> e8a7accc92a0666938010f64fe805e1f1445c9cf
+=======
+﻿  Player_Attack.cpp
+c:\users\rkdtm\onedrive\바탕 화면\git\sr_-_maple\client\private\player_attack.cpp(132): warning C4244: '인수': 'Engine::_float'에서 'Engine::_uint'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Client.vcxproj -> C:\Users\rkdtm\OneDrive\바탕 화면\Git\sr_-_maple\Client\Default\..\Bin\Client.exe
+>>>>>>> bf356d80309bcd323a4df46af9d27d0e7845c1fb
   Client.vcxproj -> ..\Bin\Client.pdb (Full PDB)

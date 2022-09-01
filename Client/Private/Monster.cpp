@@ -34,12 +34,24 @@ void CMonster::Tick(_float fTimeDelta)
 {
 	__super::Tick(fTimeDelta);
 
+	if (m_pTransformCom->Get_Fall())
+	{
+		m_fFallSpeed += 0.04f;
+		if (m_fFallSpeed >= m_fMaxFallSpeed)
+			m_fFallSpeed = m_fMaxFallSpeed;
+	}
+	else
+		m_fFallSpeed = 0.f;
+
+	m_pTransformCom->Jump(fTimeDelta, 0, m_fFallSpeed);
+
+	m_pTransformCom->Set_Fall(true);
 }
 
 void CMonster::Late_Tick(_float fTimeDelta)
 {
 	__super::Late_Tick(fTimeDelta);
-	
+
 }
 
 HRESULT CMonster::Render()

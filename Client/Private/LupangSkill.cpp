@@ -53,7 +53,7 @@ void CLupangSkill::Tick(_float fTimeDelta)
 
 	Safe_AddRef(pGameInstance);
 
-	if (pGameInstance->Collision_Attacked(LEVEL_GAMEPLAY, TEXT("Layer_Player"), TEXT("Monkey_Skill"), fTimeDelta, 1, _float3(0.15f, 0.3f, 0.15f),_float3(0.3f, 0.3f, 0.3f)))
+	if (pGameInstance->Collision_Attacked(LEVEL_GAMEPLAY, TEXT("Layer_Player"), TEXT("Monkey_Skill"), fTimeDelta, 1, _float3(0.15f, 0.3f, 0.15f), _float3(0.3f, 0.3f, 0.3f)))
 	{
 
 	}

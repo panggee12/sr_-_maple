@@ -102,13 +102,13 @@ HRESULT CYetiMonster::SetUp_Components()
 	CTransform::TRANSFORMDESC      TransformDesc;
 	ZeroMemory(&TransformDesc, sizeof(CTransform::TRANSFORMDESC));
 
-	TransformDesc.fSpeedPerSec = 3.f;
+	TransformDesc.fSpeedPerSec = 1.f;
 	TransformDesc.fRotationPerSec = D3DXToRadian(90.0f);
 
 	if (FAILED(__super::Add_Components(TEXT("Com_Transform"), LEVEL_STATIC, TEXT("Prototype_Component_Transform"), (CComponent**)&m_pTransformCom, &TransformDesc)))
 		return E_FAIL;
 
-	m_pTransformCom->Set_State(CTransform::STATE_POSITION, _float3(-15.0f, 5.f, 1.0f));
+	m_pTransformCom->Set_State(CTransform::STATE_POSITION, _float3(13.0f, 5.f, 13.0f));
 
 	m_pTransformCom->Set_Scaled(_float3(-7.f, 7.f, 7.f));
 
@@ -217,7 +217,7 @@ void CYetiMonster::MonsterMove()
 
 			D3DXVec3Normalize(&vLook, &vLook);
 
-			vMyPosition = vMyPosition + vLook * 0.1f;
+			vMyPosition = vMyPosition + vLook * 0.05f;
 
 			m_pTransformCom->Set_State(CTransform::STATE_POSITION, _float3(vMyPosition.x, fOriginYPos, vMyPosition.z));
 		}
@@ -283,7 +283,7 @@ void CYetiMonster::HitCheck(_float fTimeDelta)
 		}
 		else
 		{
-			if(m_eState != STATE_HIT)
+			if (m_eState != STATE_HIT)
 				m_pTextureCom->m_FrameTexture.FirstFrame = 7;
 
 			m_pTextureCom->m_FrameTexture.OriginFrame = 7;
@@ -344,7 +344,11 @@ void CYetiMonster::HitCheck(_float fTimeDelta)
 void CYetiMonster::CreateItem()
 {
 	int iRand = rand() % 3 + 1;
+<<<<<<< HEAD
 	
+=======
+
+>>>>>>> bf356d80309bcd323a4df46af9d27d0e7845c1fb
 	if (iRand == 1)
 	{
 		CGameInstance* m_pGameInstance = CGameInstance::Get_Instance();
