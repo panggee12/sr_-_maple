@@ -76,7 +76,9 @@ void CLevel_GamePlay::Tick(_float fTimeDelta)
 	}
 //	pGameInstance->Collision_Rect_Cube(LEVEL_GAMEPLAY, TEXT("Layer_Monster"), TEXT("Layer_TestBox"), fTimeDelta);
 
-	pGameInstance->Collision_Attacked(LEVEL_GAMEPLAY, TEXT("Layer_Player"), TEXT("Layer_Monster"), fTimeDelta, 2, _float3(0.15f, 0.3f, 0.15f), _float3(0.45f, 0.45f, 0.45f));
+	pGameInstance->Collision_Attacked(LEVEL_GAMEPLAY, TEXT("Layer_Player"), TEXT("Layer_MonkeyMonster"), fTimeDelta, 2, _float3(0.15f, 0.3f, 0.15f), _float3(0.45f, 0.45f, 0.45f));
+	pGameInstance->Collision_Attacked(LEVEL_GAMEPLAY, TEXT("Layer_Player"), TEXT("Layer_BellaMonster"), fTimeDelta, 2, _float3(0.15f, 0.3f, 0.15f), _float3(0.45f, 0.45f, 0.45f));
+	pGameInstance->Collision_Attacked(LEVEL_GAMEPLAY, TEXT("Layer_Player"), TEXT("Layer_YetiMonster"), fTimeDelta, 2, _float3(0.15f, 0.3f, 0.15f), _float3(0.3f, 0.3f, 0.3f));
 	
 	//pGameInstance->Collision(LEVEL_GAMEPLAY, TEXT("Layer_Player"), TEXT("Layer_CubeTerrain"), fTimeDelta);
 
@@ -122,15 +124,15 @@ HRESULT CLevel_GamePlay::Ready_Layer_Monster(const _tchar * pLayerTag)
 	Safe_AddRef(pGameInstance);
 
 	/* 원숭이 몬스터 */
-	if (FAILED(pGameInstance->Add_GameObject(TEXT("Prototype_GameObject_MonkeyMonster"), LEVEL_GAMEPLAY, pLayerTag, nullptr)))
+	if (FAILED(pGameInstance->Add_GameObject(TEXT("Prototype_GameObject_MonkeyMonster"), LEVEL_GAMEPLAY, TEXT("Layer_MonkeyMonster"), nullptr)))
 		return E_FAIL;
 
 	/* 뱀 몬스터 */
-	if (FAILED(pGameInstance->Add_GameObject(TEXT("Prototype_GameObject_BellaMonster"), LEVEL_GAMEPLAY, pLayerTag, nullptr)))
+	if (FAILED(pGameInstance->Add_GameObject(TEXT("Prototype_GameObject_BellaMonster"), LEVEL_GAMEPLAY, TEXT("Layer_BellaMonster"), nullptr)))
 		return E_FAIL;
 
 	/* 설인 몬스터 */
-	if (FAILED(pGameInstance->Add_GameObject(TEXT("Prototype_GameObject_YetiMonster"), LEVEL_GAMEPLAY, pLayerTag, nullptr)))
+	if (FAILED(pGameInstance->Add_GameObject(TEXT("Prototype_GameObject_YetiMonster"), LEVEL_GAMEPLAY, TEXT("Layer_YetiMonster"), nullptr)))
 		return E_FAIL;
 
 	//auto pPlayer = pGameInstance->Find_Target(LEVEL_GAMEPLAY, TEXT("Layer_Player"));

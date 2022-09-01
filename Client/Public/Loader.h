@@ -36,17 +36,15 @@ public:
 	HRESULT Loading_ForLogoLevel();
 	HRESULT Loading_ForGamePlayLevel();
 
-
 private:
 	LEVEL					m_eNextLevel = LEVEL_END;
 	_bool					m_isFinished = false;
-	//_tchar					m_szLoadingText[MAX_PATH] = TEXT("");
+	_tchar					m_szLoadingText[MAX_PATH] = TEXT("");
 	LPDIRECT3DDEVICE9		m_pGraphic_Device = nullptr;
 
 private:
 	HANDLE					m_hThread = 0;
 	CRITICAL_SECTION		m_CriticalSection;
-
 
 public:
 	static CLoader* Create(LPDIRECT3DDEVICE9 pGraphic_Device, LEVEL eNextLevel);

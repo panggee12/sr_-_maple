@@ -174,16 +174,22 @@ void CBellaMonster::HitCheck(_float fTimeDelta)
 			m_pTextureCom->m_FrameTexture.FrameSpeed = 0.1f;
 
 			if (m_pTextureCom->m_FrameTexture.FirstFrame >= 14.f)
+			{
+				CreateItem();
 				m_bDead = true;
+			}
 		}
 		else
 		{
+			if (m_eState != STATE_HIT)
+				m_pTextureCom->m_FrameTexture.FirstFrame = 8;
+
 			m_pTextureCom->m_FrameTexture.OriginFrame = 8;
 			m_pTextureCom->m_FrameTexture.EndFrame = 10;
 			m_pTextureCom->m_FrameTexture.FrameSpeed = 0.05f;
 			m_eState = STATE_HIT;
 
-			if (m_pTextureCom->m_FrameTexture.FirstFrame == m_pTextureCom->m_FrameTexture.OriginFrame)
+			if (m_pTextureCom->m_FrameTexture.FirstFrame >= m_pTextureCom->m_FrameTexture.EndFrame)
 				m_bHit = false;
 		}
 	}
@@ -208,6 +214,29 @@ void CBellaMonster::HitCheck(_float fTimeDelta)
 				m_pTransformCom->Go_Backward(fTimeDelta * 0.5f);
 			}
 		}
+	}
+}
+
+void CBellaMonster::CreateItem()
+{
+	
+	int iRand = rand() % 3 + 1;
+
+	if (iRand == 1)
+	{
+	
+	CGameInstance* m_pGameInstance = CGameInstance::Get_Instance();
+	Safe_AddRef(m_pGameInstance);
+
+	_float3 vScale = m_pTransformCom->Get_Scale();
+	_float3 vPosition = m_pTransformCom->Get_State(CTransform::STATE_POSITION);
+
+	vPosition.y -= vScale.y * 0.5f;
+
+	if (FAILED(m_pGameInstance->Add_GameObject(TEXT("Prototype_GameObject_ConsumItem"), LEVEL_GAMEPLAY, TEXT("ConsumItem"), &vPosition)))
+		return;
+
+	Safe_Release(m_pGameInstance);
 	}
 }
 
@@ -240,8 +269,4 @@ CGameObject * CBellaMonster::Clone(void * pArg)
 void CBellaMonster::Free()
 {
 	__super::Free();
-	Safe_Release(m_pTransformCom);
-	Safe_Release(m_pVIBufferCom);
-	Safe_Release(m_pRendererCom);
-	Safe_Release(m_pTextureCom);
 }

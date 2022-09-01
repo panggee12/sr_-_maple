@@ -167,8 +167,10 @@
     <ClInclude Include="..\public\Effect.h" />
     <ClInclude Include="..\Public\ExpBarUI.h" />
     <ClInclude Include="..\Public\HpBarUI.h" />
+    <ClInclude Include="..\Public\ConsumItem.h" />
     <ClInclude Include="..\Public\InventoryButtonUI.h" />
     <ClInclude Include="..\Public\InventoryUI.h" />
+    <ClInclude Include="..\Public\Item.h" />
     <ClInclude Include="..\Public\ItemInfoUI.h" />
     <ClInclude Include="..\Public\Level_GamePlay.h" />
     <ClInclude Include="..\Public\Level_Loading.h" />
@@ -204,8 +206,10 @@
     <ClCompile Include="..\private\Effect.cpp" />
     <ClCompile Include="..\Private\ExpBarUI.cpp" />
     <ClCompile Include="..\Private\HpBarUI.cpp" />
+    <ClCompile Include="..\Private\ConsumItem.cpp" />
     <ClCompile Include="..\Private\InventoryButtonUI.cpp" />
     <ClCompile Include="..\Private\InventoryUI.cpp" />
+    <ClCompile Include="..\Private\Item.cpp" />
     <ClCompile Include="..\Private\ItemInfoUI.cpp" />
     <ClCompile Include="..\Private\Level_GamePlay.cpp" />
     <ClCompile Include="..\Private\Level_Loading.cpp" />

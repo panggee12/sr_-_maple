@@ -131,7 +131,7 @@ void CPlayer::Tick(_float fTimeDelta)
 	
 	if (GetKeyState('A') & 0x8000)
 	{
-		if (pGameInstance->Check_Layer(LEVEL_GAMEPLAY, TEXT("Layer_Monster")))
+		if (pGameInstance->Check_Layer(LEVEL_GAMEPLAY, TEXT("Layer_MonkeyMonster")))
 		{
 			m_ePlayer_State = PLAYER_ATTACK;
 
@@ -142,7 +142,7 @@ void CPlayer::Tick(_float fTimeDelta)
 
 	else if (GetKeyState('X') & 0x8000)
 	{
-		if (pGameInstance->Check_Layer(LEVEL_GAMEPLAY, TEXT("Layer_Monster")))
+		if (pGameInstance->Check_Layer(LEVEL_GAMEPLAY, TEXT("Layer_MonkeyMonster")))
 		{
 			Player_Attack(m_ePlayer_State, m_ePlayer_Attack, fTimeDelta);
 

@@ -115,8 +115,14 @@
     <Filter Include="02.GameObject\Monster\YetiMonster\YetiSkill">
       <UniqueIdentifier>{15a0c0ab-1a7f-4a3b-9d46-b46dbb5a2a82}</UniqueIdentifier>
     </Filter>
-    <Filter Include="02.GameObject\Item">
+    <Filter Include="01.Levels\Loading\Item">
       <UniqueIdentifier>{5152df02-b298-4fbb-bbc0-0b6dab3c89ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObject\Item">
+      <UniqueIdentifier>{6370cecc-5980-4a8d-98b1-39d7e5f7bb24}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObject\Item\ConsumItem">
+      <UniqueIdentifier>{7be4902d-6ce9-427b-b83f-59458c7eeae3}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -222,14 +228,20 @@
     <ClInclude Include="..\public\Litening_Effect.h">
       <Filter>03.Effect\Skill_Efect</Filter>
     </ClInclude>
-    <ClInclude Include="..\Public\BellaMonster.h">
-      <Filter>02.GameObject\Monster\BellaMonster</Filter>
-    </ClInclude>
     <ClInclude Include="..\Public\YetiMonster.h">
       <Filter>02.GameObject\Monster\YetiMonster</Filter>
     </ClInclude>
     <ClInclude Include="..\Public\YetiSkill.h">
       <Filter>02.GameObject\Monster\YetiMonster\YetiSkill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Item.h">
+      <Filter>02.GameObject\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\ConsumItem.h">
+      <Filter>02.GameObject\Item\ConsumItem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\BellaMonster.h">
+      <Filter>02.GameObject\Monster\BellaMonster</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -331,6 +343,12 @@
     </ClCompile>
     <ClCompile Include="..\Private\YetiSkill.cpp">
       <Filter>02.GameObject\Monster\YetiMonster\YetiSkill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\Item.cpp">
+      <Filter>02.GameObject\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\ConsumItem.cpp">
+      <Filter>02.GameObject\Item\ConsumItem</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

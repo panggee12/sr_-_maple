@@ -34,8 +34,6 @@ protected: /* For.Components */
 	CTexture*				m_pTextureCom = nullptr;
 	CRenderer*				m_pRendererCom = nullptr;
 	CVIBuffer_Rect*			m_pVIBufferCom = nullptr;
-	
-
 
 protected:
 	STATE m_eState = STATE_IDLE;
@@ -48,6 +46,7 @@ protected:
 	_int m_iUpDown = 0;
 
 protected:
+	virtual void CreateItem();
 	virtual void MonsterMove();
 	virtual HRESULT SetUp_Components();
 	virtual HRESULT SetUp_RenderState();

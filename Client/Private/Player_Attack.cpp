@@ -2,7 +2,6 @@
 #include "..\Public\Player_Attack.h"
 #include "GameInstance.h"
 #include "Player.h"
-#include "Monster.h"
 
 CPlayer_Attack::CPlayer_Attack(LPDIRECT3DDEVICE9 pGraphic_Device)
 	: CGameObject(pGraphic_Device)
@@ -13,7 +12,6 @@ CPlayer_Attack::CPlayer_Attack(const CPlayer_Attack & rhs)
 	: CGameObject(rhs)
 {
 } 
-
 
 HRESULT CPlayer_Attack::Initialize_Prototype()
 {
@@ -28,13 +26,9 @@ HRESULT CPlayer_Attack::Initialize(void* pArg)
 	if (FAILED(__super::Initialize(pArg)))
 		return E_FAIL;
 
-
 	//memcpy(&m_vSkillPosition, pArg, sizeof(_float3));
 
 	//D3DXMatrixOrthoLH(&m_ProjMatrix, g_iWinSizeX, g_iWinSizeY, 0.f, 1.f);
-
-
-
 	
 	m_fSizeX = 1.1f;
 	m_fSizeY = 1.1f;
@@ -73,18 +67,15 @@ void CPlayer_Attack::Tick(_float fTimeDelta)
 	if (m_fAttack_Frame <= 0 || m_fAttack_Frame >= 8)
 	{
 		m_fAttack_Frame = 0;
-
 	}
 
 	if (m_SkillTime > 0.3f)
 	{
 		auto Player_Pos = pGameInstance->Find_Target(LEVEL_GAMEPLAY, TEXT("Layer_Monster"));
 
-
 		_float3 TargetPos = Player_Pos->Get_Transform()->Get_State(CTransform::STATE_POSITION);
 
 		_float3 MyPos = m_pTransformCom->Get_State(CTransform::STATE_POSITION);
-
 
 		_float3 Target = TargetPos - MyPos;
 

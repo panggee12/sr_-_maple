@@ -1,7 +1,6 @@
 #include "stdafx.h"
 #include "..\Public\Monster.h"
 
-
 CMonster::CMonster(LPDIRECT3DDEVICE9 pGraphic_Device)
 	: CGameObject(pGraphic_Device)
 {
@@ -50,6 +49,11 @@ HRESULT CMonster::Render()
 
 }
 
+void CMonster::CreateItem()
+{
+
+}
+
 void CMonster::MonsterMove()
 {
 }
@@ -66,7 +70,7 @@ HRESULT CMonster::SetUp_RenderState()
 		return E_FAIL;
 
 	m_pGraphic_Device->SetRenderState(D3DRS_ALPHATESTENABLE, TRUE);
-	m_pGraphic_Device->SetRenderState(D3DRS_ALPHAREF, 100);
+	m_pGraphic_Device->SetRenderState(D3DRS_ALPHAREF, 120);
 	m_pGraphic_Device->SetRenderState(D3DRS_ALPHAFUNC, D3DCMP_GREATEREQUAL);
 	m_pGraphic_Device->SetRenderState(D3DRS_CULLMODE, D3DCULL_NONE);
 	return S_OK;
@@ -79,12 +83,10 @@ HRESULT CMonster::Release_RenderState()
 	return S_OK;
 }
 
-
 void CMonster::Free()
 {
 	__super::Free();
 
-	Safe_Release(m_pTransformCom);
 	Safe_Release(m_pVIBufferCom);
 	Safe_Release(m_pRendererCom);
 	Safe_Release(m_pTextureCom);

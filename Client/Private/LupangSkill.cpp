@@ -40,6 +40,8 @@ void CLupangSkill::Tick(_float fTimeDelta)
 
 	_float3 vPos = m_pTransformCom->Get_State(CTransform::STATE_POSITION);
 
+	_float fOriginYPos = vPos.y;
+
 	vPos = vPos + m_vMyLook * 0.1f;
 
 	m_fDistance += 0.1f;
@@ -58,7 +60,7 @@ void CLupangSkill::Tick(_float fTimeDelta)
 
 	Safe_Release(pGameInstance);
 
-	m_pTransformCom->Set_State(CTransform::STATE_POSITION, vPos);
+	m_pTransformCom->Set_State(CTransform::STATE_POSITION, _float3(vPos.x, fOriginYPos, vPos.z));
 }
 
 void CLupangSkill::Late_Tick(_float fTimeDelta)
@@ -197,7 +199,6 @@ void CLupangSkill::Free()
 {
 	__super::Free();
 
-	Safe_Release(m_pTransformCom);
 	Safe_Release(m_pVIBufferCom);
 	Safe_Release(m_pRendererCom);
 	Safe_Release(m_pTextureCom);
