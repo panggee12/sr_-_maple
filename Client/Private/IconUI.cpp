@@ -58,40 +58,19 @@ void CIconUI::Tick(_float fTimeDelta)
 	GetCursorPos(&ptMouse);
 	ScreenToClient(g_hWnd, &ptMouse);
 
-	_char         MouseMove = 0;
-	bool         bDown = false;
-	if (PtInRect(&m_rcRect, ptMouse)) //눌렀을때 마우스 위치를 기록해놔야함
+	
+	auto pInven = pGameInstance->Find_Target(LEVEL_GAMEPLAY, TEXT("Layer_InvenUI"));
+	
+	for (auto& pInven : static_cast<CInventoryUI*>(pInven)->Get_InvenInfo())
 	{
-		if ((MouseMove = pGameInstance->Get_DIMKeyState(DIMK_LBUTTON)) && !m_bMoveUi)
+		if (PtInRect(&pInven.rcRect, ptMouse))
 		{
-			m_bMoveUi = true;
-			m_fMousePos.x = ptMouse.x;
-			m_fMousePos.y = ptMouse.y;
-		}
-		else if (m_bMoveUi && !(MouseMove = pGameInstance->Get_DIMKeyState(DIMK_LBUTTON)))
-			m_bMoveUi = false;
-	}
-	if (m_bMoveUi)
-	{
-		m_fDifDis.x = m_fMousePos.x - ptMouse.x;
-		m_fDifDis.y = m_fMousePos.y - ptMouse.y;
-	}
-	//m_pTransformCom->Set_State(CTransform::STATE_POSITION, _float3(m_fX - m_fDifDis.x - m_fSizeX*1.25f, m_fY + m_fDifDis.y - m_fSizeY*0.7f, 0.f));
-	//SetRect(&m_rcRect, m_fX - m_fDifDis.x - m_fSizeX * 0.5f, m_fY + m_fDifDis.y - m_fSizeY * 0.5f, m_fX - m_fDifDis.x + m_fSizeX * 0.5f, m_fY + m_fDifDis.y - m_fSizeY * 0.4f);
-
-	
-	
-	CInventoryUI* pInvenUI = nullptr;
-	
-	for (auto& pInvenRect : pInvenUI->Get_VecRect())
-	{
-		if (PtInRect(&pInvenRect, ptMouse))
-		{
-
+			m_pTransformCom->Set_State(CTransform::STATE_POSITION, _float3(pInven.RectX, pInven.RectY, 0.f));
 		}
 	}
+
 	
-	Safe_Release(pInvenUI);
+
 	Safe_Release(pGameInstance);
 
 	

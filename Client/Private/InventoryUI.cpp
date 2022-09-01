@@ -5,7 +5,6 @@
 CInventoryUI::CInventoryUI(LPDIRECT3DDEVICE9 pGraphic_Device)
 	: CGameObject(pGraphic_Device)
 {
-	ZeroMemory(&m_vecCheckRect, sizeof(RECT));
 }
 
 CInventoryUI::CInventoryUI(const CInventoryUI & rhs)
@@ -39,6 +38,8 @@ HRESULT CInventoryUI::Initialize(void* pArg)
 	
 	m_pTransformCom->Set_Scaled(_float3(m_fSizeX, m_fSizeY, 1.f));
 	ZeroMemory(&m_fDifDis, sizeof(_float2));
+	ZeroMemory(&m_vecInven, sizeof(m_vecInven.size()));
+	ZeroMemory(&m_Inven, sizeof(INVEN));
 	//m_pTransformCom->Set_State(CTransform::STATE_POSITION, _float3(m_fX - g_iWinSizeX * 0.5f, -m_fY + g_iWinSizeY * 0.5f, 0.f));
 
 
@@ -69,7 +70,6 @@ void CInventoryUI::Tick(_float fTimeDelta)
 			m_bMoveUi = true;
 			m_fMousePos.x = ptMouse.x;
 			m_fMousePos.y = ptMouse.y;
-			m_iCheck++;
 		}
 		else if(m_bMoveUi&& !(MouseMove = pGameInstance->Get_DIMKeyState(DIMK_LBUTTON)))
 			m_bMoveUi = false;
@@ -82,8 +82,6 @@ void CInventoryUI::Tick(_float fTimeDelta)
 	m_pTransformCom->Set_State(CTransform::STATE_POSITION, _float3(m_fX - m_fDifDis.x - m_fSizeX*1.25f, m_fY + m_fDifDis.y - m_fSizeY*0.7f, 0.f));
 	SetRect(&m_rcRect, m_fX - m_fDifDis.x - m_fSizeX * 0.5f, m_fY + m_fDifDis.y - m_fSizeY * 0.5f, m_fX - m_fDifDis.x + m_fSizeX * 0.5f, m_fY + m_fDifDis.y - m_fSizeY * 0.4f);
 
-	if (m_iCheck > 1)
-		int a = 10;
 	Safe_Release(pGameInstance);
 
 }
@@ -112,32 +110,30 @@ void CInventoryUI::Late_Tick(_float fTimeDelta)
 			if (nullptr != m_pRendererCom)
 				m_pRendererCom->Add_RenderGroup(CRenderer::RENDER_UI, this);		
 
-			for (_uint i = 1; i <= 8; ++i) //y
+			for (_uint i = 0; i < 8; ++i) //y
 			{
-				for (_uint j = 1; j <= 6; ++j) //x
+				for (_uint j = 0; j < 6; ++j) //x
 				{
 					RECT rcRect;
 
-					SetRect(&rcRect,
+					SetRect(&m_Inven.rcRect,
 						fLeft + 48.f + j * 37.5f,
 						fTop + 130.f + i * 36.f,
-						fLeft + 48.f + j * 75.f,
-						fTop + 130.f + i * 72.f);
+						fLeft + 48.f + j * 37.5f + 37.5f,
+						fTop + 130.f + i * 36.f + 36.f);
 
-					m_vecCheckRect.push_back(rcRect);
-
+					m_Inven.RectX = m_Inven.rcRect.left + (m_Inven.rcRect.right - m_Inven.rcRect.left) * 0.5f;
+					m_Inven.RectY = m_Inven.rcRect.top + (m_Inven.rcRect.bottom - m_Inven.rcRect.top) * 0.5f;
+					m_vecInven.push_back(m_Inven);
+					
 				}
 			}
 		}
 		else
 		{
 			m_bOnCheck = true;
-		}
-
-		
+		}	
 	}
-
-
 
 	Safe_Release(pGameInstance);
 	
