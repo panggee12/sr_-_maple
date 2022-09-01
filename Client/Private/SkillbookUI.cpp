@@ -40,7 +40,7 @@ HRESULT CSkillbookUI::Initialize(void* pArg)
 
 	m_pTransformCom->Set_Scaled(_float3(m_fSizeX, m_fSizeY, 1.f));
 	m_pTransformCom->Set_State(CTransform::STATE_POSITION, _float3(m_fX - g_iWinSizeX * 0.5f, -m_fY + g_iWinSizeY * 0.5f, 0.f));
-	SetRect(&m_rcRect, m_fX - m_fSizeX * 0.5f, m_fY - m_fSizeY * 0.5f, m_fX + m_fSizeX * 0.5f, m_fY - m_fSizeY * 0.4f);
+	//SetRect(&m_rcRect, m_fX - m_fSizeX * 0.5f, m_fY - m_fSizeY * 0.5f, m_fX + m_fSizeX * 0.5f, m_fY - m_fSizeY * 0.4f);
 	return S_OK;
 }
 
@@ -72,8 +72,16 @@ void CSkillbookUI::Tick(_float fTimeDelta)
 
 	m_pTransformCom->Set_State(CTransform::STATE_POSITION, _float3(m_fX - g_iWinSizeX * 0.5f - m_fDifDis.x, -m_fY + g_iWinSizeY * 0.5f + m_fDifDis.y, 0.f));
 
-	SetRect(&m_rcRect, m_fX - m_fSizeX * 0.5f + m_fDifDis.x, m_fY - m_fSizeY * 0.5f, m_fX + m_fSizeX * 0.5f + m_fDifDis.x, m_fY - m_fSizeY * 0.4f);
+	SetRect(&m_rcRect, m_fX - m_fSizeX * 0.5f - m_fDifDis.x, m_fY - m_fSizeY * 0.5f, m_fX + m_fSizeX * 0.5f - m_fDifDis.x, m_fY - m_fSizeY * 0.4f);
 
+	if (pGameInstance->Key_Down(VK_SPACE))
+	{
+		if (PtInRect(&m_rcRect, ptMouse))
+		{
+			ERR_MSG(TEXT("Ãæµ¹"));
+		}
+	}
+	
 
 	_float fMx, fMy;
 

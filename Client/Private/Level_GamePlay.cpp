@@ -28,16 +28,15 @@ HRESULT CLevel_GamePlay::Initialize()
 	if (FAILED(Ready_Layer_Player(TEXT("Layer_Player"))))
 		return E_FAIL;
 
-	for (int i = 0; i < 10; ++i)
+	/*
+	for (int i = 0; i < 1; ++i)
 	{
 		if (FAILED(Ready_Layer_Monster(TEXT("Layer_Monster"))))
 			return E_FAIL;
 	}
-
+	*/
 	if (FAILED(Ready_Layer_UI(TEXT("Layer_UI"))))
 		return E_FAIL;
-
-
 
 	return S_OK;
 }
@@ -120,7 +119,7 @@ void CLevel_GamePlay::Tick(_float fTimeDelta)
 			}
 		}
 	}	
-
+	/*
 	auto Monster1 = pGameInstance->Find_Layer(LEVEL_GAMEPLAY, TEXT("Layer_MonkeyMonster"));      //플레이어 찾아오기
 
 	for (auto& mObj : Monster1->Get_ObjectList())
@@ -201,7 +200,7 @@ void CLevel_GamePlay::Tick(_float fTimeDelta)
 			}
 		}
 	}
-
+	*/
 	//pGameInstance->Collision_Rect_Cube(LEVEL_GAMEPLAY, TEXT("Layer_Monster"), TEXT("Layer_TestBox"), fTimeDelta, _float3(0.15f, 0.3f, 0.15f));
 
 	//pGameInstance->Collision_Attacked(LEVEL_GAMEPLAY, TEXT("Layer_Player"), TEXT("Layer_Monster"), fTimeDelta, 2, _float3(0.15f, 0.3f, 0.15f), _float3(0.45f, 0.45f, 0.45f));
