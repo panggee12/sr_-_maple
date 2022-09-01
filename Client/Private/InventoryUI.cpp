@@ -125,13 +125,6 @@ void CInventoryUI::Late_Tick(_float fTimeDelta)
 						fTop + 130.f + i * 72.f);
 
 					m_vecCheckRect.push_back(rcRect);
-
-					int a = 10;
-
-					if (PtInRect(&rcRect, ptMouse))
-					{
-						ERR_MSG(L"Ãæµ¹À» ");
-					}
 				}
 			}
 		}

@@ -1,20 +1,2 @@
-<<<<<<< HEAD
-﻿  Loader.cpp
-  YetiMonster.cpp
-c:\users\허준석\desktop\메이플팀프로젝트\sr_-_maple\client\private\yetimonster.cpp(237): warning C4244: '=': 'int'에서 'Engine::_float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  LupangSkill.cpp
-  LupangMonster.cpp
-c:\users\허준석\desktop\메이플팀프로젝트\sr_-_maple\client\private\lupangmonster.cpp(237): warning C4244: '=': 'int'에서 'Engine::_float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  코드를 생성하고 있습니다...
-  Client.vcxproj -> C:\Users\허준석\Desktop\메이플팀프로젝트\sr_-_maple\Client\Default\..\Bin\Client.exe
-=======
-﻿  InventoryUI.cpp
-c:\users\user\documents\github\sr_-_maple\client\private\inventoryui.cpp(29): warning C4244: '인수': 'const unsigned int'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\user\documents\github\sr_-_maple\client\private\inventoryui.cpp(57): warning C4244: '인수': 'Engine::_float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\user\documents\github\sr_-_maple\client\private\inventoryui.cpp(70): warning C4244: '=': 'LONG'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\user\documents\github\sr_-_maple\client\private\inventoryui.cpp(71): warning C4244: '=': 'LONG'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\user\documents\github\sr_-_maple\client\private\inventoryui.cpp(83): warning C4244: '인수': 'Engine::_float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\user\documents\github\sr_-_maple\client\private\inventoryui.cpp(125): warning C4244: '인수': 'Engine::_float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  Client.vcxproj -> C:\Users\user\Documents\GitHub\sr_-_maple\Client\Default\..\Bin\Client.exe
->>>>>>> Jeong
+﻿  Client.vcxproj -> C:\Users\user\Documents\GitHub\sr_-_maple\Client\Default\..\Bin\Client.exe
   Client.vcxproj -> ..\Bin\Client.pdb (Full PDB)
