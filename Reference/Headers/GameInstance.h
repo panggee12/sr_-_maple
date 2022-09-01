@@ -7,6 +7,7 @@
 #include "Timer_Manager.h"
 #include "Component_Manager.h"
 #include "CollisionMgr.h"
+#include "KeyMgr.h"
 
 BEGIN(Engine)
 
@@ -50,6 +51,7 @@ public: /* For.Object_Manager */
 	int   Collision_Rect_Cube(_uint iLevelIndex, const _tchar* col1, _float3 fPos, _float fTimeDelta, _float3 fScale);
 	bool  Collision_Attacked(_uint iLevelIndex, const _tchar* col1, const _tchar* col2, _float fTimeDelta, int ioption, _float3 f1Scale, _float3 f2Scale);
 	bool  Check_Layer(_uint iLevelIndex, const _tchar* pLayerTag);
+
 public: /* For.Component_Manager */
 	HRESULT Add_Prototype(_uint iLevelIndex, const _tchar* pPrototypeTag, class CComponent* pPrototype);
 	class CComponent* Clone_Component(_uint iLevelIndex, const _tchar* pPrototypeTag, void* pArg = nullptr);
@@ -65,7 +67,7 @@ private:
 	CTimer_Manager*					m_pTimer_Manager = nullptr;
 	CComponent_Manager*				m_pComponent_Manager = nullptr;
 	CCollisionMgr*					m_pCollision_Manager = nullptr;
-	//CKeyMgr*						m_pKeyComponent_Manager = nullptr;
+	CKeyMgr*						m_pKeyComponent_Manager = nullptr;
 public:
 	virtual void Free() override;
 };

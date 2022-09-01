@@ -39,14 +39,25 @@ HRESULT CItemInfoUI::Initialize(void* pArg)
 		return E_FAIL;
 
 	m_pTransformCom->Set_Scaled(_float3(m_fSizeX, m_fSizeY, 1.f));
-	m_pTransformCom->Set_State(CTransform::STATE_POSITION, _float3(vPos.x + 770.f - g_iWinSizeX * 0.5f , -vPos.y + g_iWinSizeY * 0.5f, 0.f));
+	m_pTransformCom->Set_State(CTransform::STATE_POSITION, _float3(vPos.x + 770.f - g_iWinSizeX * 0.5f, -vPos.y + g_iWinSizeY * 0.5f, 0.f));
 
 	return S_OK;
 }
 
 void CItemInfoUI::Tick(_float fTimeDelta)
 {
-	__super::Tick(fTimeDelta);	
+	__super::Tick(fTimeDelta);
+
+	CGameInstance* pGameInstance = CGameInstance::Get_Instance();
+
+	Safe_AddRef(pGameInstance);
+
+	if (m_iCheck == 3)
+		m_iCheck = 0;
+
+	m_eQuick_Item = QUICK_ITEM(m_iCheck);
+
+	Safe_Release(pGameInstance);
 }
 
 void CItemInfoUI::Late_Tick(_float fTimeDelta)
@@ -61,17 +72,17 @@ HRESULT CItemInfoUI::Render()
 {
 	if (FAILED(__super::Render()))
 		return E_FAIL;
-	
+
 	if (FAILED(m_pTransformCom->Bind_OnGraphicDev()))
 		return E_FAIL;
 
 	_float4x4		ViewMatrix;
 	D3DXMatrixIdentity(&ViewMatrix);
-	
+
 	m_pGraphic_Device->SetTransform(D3DTS_VIEW, &ViewMatrix);
 	m_pGraphic_Device->SetTransform(D3DTS_PROJECTION, &m_ProjMatrix);
 
-	if (FAILED(m_pTextureCom->Bind_OnGraphicDev(0)))
+	if (FAILED(m_pTextureCom->Bind_OnGraphicDev(m_eQuick_Item)))
 		return E_FAIL;
 
 	if (FAILED(SetUp_RenderState()))
@@ -119,7 +130,7 @@ HRESULT CItemInfoUI::SetUp_Components()
 HRESULT CItemInfoUI::SetUp_RenderState()
 {
 	if (nullptr == m_pGraphic_Device)
-		return E_FAIL;	
+		return E_FAIL;
 
 	m_pGraphic_Device->SetRenderState(D3DRS_ALPHATESTENABLE, TRUE);
 	m_pGraphic_Device->SetRenderState(D3DRS_ALPHAREF, 60);

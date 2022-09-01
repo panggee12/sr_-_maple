@@ -11,7 +11,7 @@ CGameInstance::CGameInstance()
 	, m_pTimer_Manager(CTimer_Manager::Get_Instance())
 	, m_pComponent_Manager(CComponent_Manager::Get_Instance())
 	, m_pCollision_Manager(CCollisionMgr::Get_Instance())
-	, m_pKeyComponent_Manager(CComponent_Manager::Get_Instance())
+	, m_pKeyComponent_Manager(CKeyMgr::Get_Instance())
 
 {
 
@@ -312,6 +312,7 @@ void CGameInstance::Release_Engine()
 
 void CGameInstance::Free()
 {
+	Safe_Release(m_pKeyComponent_Manager);
 	Safe_Release(m_pComponent_Manager);
 	Safe_Release(m_pTimer_Manager);
 	Safe_Release(m_pObject_Manager);

@@ -238,7 +238,7 @@ HRESULT CPlayer_Skill::Efect_On(const _tchar * pLayerTag)
 	Safe_AddRef(pGameInstance);
 	//pGameInstance->AddRef();
 
-	_float3 vPosition_S = m_pTransformCom->Get_State(CTransform::STATE_POSITION);
+	_float3 vPos_Efect = m_pTransformCom->Get_State(CTransform::STATE_POSITION);
 
 
 	if (FAILED(pGameInstance->Add_GameObject(TEXT("Prototype_GameObject_Litenig_Effect"), LEVEL_GAMEPLAY, pLayerTag, vPos_Efect)))

@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include "Graphic_Device.h"
 #include "Input_Device.h"
@@ -8,6 +8,7 @@
 #include "Component_Manager.h"
 #include "CollisionMgr.h"
 #include "KeyMgr.h"
+#include "Layer.h"
 
 BEGIN(Engine)
 
@@ -25,7 +26,7 @@ public: /* For.Engine */
 	void Clear(_uint iLevelIndex);
 
 
-public: /* For.Graphic_Device */	
+public: /* For.Graphic_Device */
 	void		Render_Begin(void);
 	void		Render_End(HWND hWnd = 0);
 
@@ -48,14 +49,18 @@ public: /* For.Object_Manager */
 	class CGameObject* Find_Target(_uint iLevelIndex, const _tchar* pLayerTag);
 	class CGameObject* Get_BackObject(_uint iLevelIndex, const _tchar* pLayerTag);
 	bool  Collision(_uint iLevelIndex, const _tchar* col1, const _tchar* col2, _float fTimeDelta, _float3 f1Scale, _float3 f2Scale);
-	int   Collision_Rect_Cube(_uint iLevelIndex, const _tchar* col1, _float3 fPos, _float fTimeDelta, _float3 fScale);
+	int   Collision_Rect_Cube(_uint iLevelIndex, CTransform* p1Trans, _float3 vPos1, _float3 vPos2, _float fTimeDelta, _float3 fScale);
 	bool  Collision_Attacked(_uint iLevelIndex, const _tchar* col1, const _tchar* col2, _float fTimeDelta, int ioption, _float3 f1Scale, _float3 f2Scale);
 	bool  Check_Layer(_uint iLevelIndex, const _tchar* pLayerTag);
-
+	class CLayer* Find_Layer(_uint iLevelIndex, const _tchar* pLayerTag);
 public: /* For.Component_Manager */
 	HRESULT Add_Prototype(_uint iLevelIndex, const _tchar* pPrototypeTag, class CComponent* pPrototype);
 	class CComponent* Clone_Component(_uint iLevelIndex, const _tchar* pPrototypeTag, void* pArg = nullptr);
-	
+public: //Å°¸Å´ÏÀú
+	bool		Key_Pressing(int _Key);
+	bool		Key_Up(int _Key);
+	bool		Key_Down(int _Key);
+
 public:
 	static void Release_Engine();
 
@@ -67,7 +72,7 @@ private:
 	CTimer_Manager*					m_pTimer_Manager = nullptr;
 	CComponent_Manager*				m_pComponent_Manager = nullptr;
 	CCollisionMgr*					m_pCollision_Manager = nullptr;
-	CKeyMgr*						m_pKeyComponent_Manager = nullptr;
+	CKeyMgr*						m_pKey_Manager = nullptr;
 public:
 	virtual void Free() override;
 };

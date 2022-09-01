@@ -1,9 +1,10 @@
 #include "stdafx.h"
 #include "..\Public\Level_GamePlay.h"
-
 #include "GameInstance.h"
 #include "Camera_Dynamic.h"
 #include "Player.h"
+#include "Layer.h"
+#include "ItemInfoUI.h"
 
 
 CLevel_GamePlay::CLevel_GamePlay(LPDIRECT3DDEVICE9 pGraphic_Device)
