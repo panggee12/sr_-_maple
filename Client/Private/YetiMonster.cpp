@@ -108,7 +108,7 @@ HRESULT CYetiMonster::SetUp_Components()
 	if (FAILED(__super::Add_Components(TEXT("Com_Transform"), LEVEL_STATIC, TEXT("Prototype_Component_Transform"), (CComponent**)&m_pTransformCom, &TransformDesc)))
 		return E_FAIL;
 
-	m_pTransformCom->Set_State(CTransform::STATE_POSITION, _float3(-15.0f, 5.f, 1.0f));
+	m_pTransformCom->Set_State(CTransform::STATE_POSITION, _float3(13.0f, 5.f, 13.0f));
 
 	m_pTransformCom->Set_Scaled(_float3(-7.f, 7.f, 7.f));
 

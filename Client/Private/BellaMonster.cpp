@@ -105,7 +105,7 @@ HRESULT CBellaMonster::SetUp_Components()
 	if (FAILED(__super::Add_Components(TEXT("Com_Transform"), LEVEL_STATIC, TEXT("Prototype_Component_Transform"), (CComponent**)&m_pTransformCom, &TransformDesc)))
 		return E_FAIL;
 
-	m_pTransformCom->Set_State(CTransform::STATE_POSITION, _float3(5.0f, 2.5f, 1.0f));
+	m_pTransformCom->Set_State(CTransform::STATE_POSITION, _float3(30.0f, 2.5f, 14.0f));
 
 	m_pTransformCom->Set_Scaled(_float3(-2.f, 2.f, 2.f));
 

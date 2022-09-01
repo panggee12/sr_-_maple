@@ -1,7 +1,6 @@
-﻿  Player.cpp
-c:\users\rkdtm\onedrive\바탕 화면\git\sr_-_maple\client\private\player.cpp(138): warning C4390: ';': 제어된 빈 문이 있습니다. 이 문이 필요합니까?
-c:\users\rkdtm\onedrive\바탕 화면\git\sr_-_maple\client\private\player.cpp(149): warning C4390: ';': 제어된 빈 문이 있습니다. 이 문이 필요합니까?
-c:\users\rkdtm\onedrive\바탕 화면\git\sr_-_maple\client\private\player.cpp(260): warning C4244: '인수': 'Engine::_float'에서 'Engine::_uint'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\rkdtm\onedrive\바탕 화면\git\sr_-_maple\client\private\player.cpp(395): warning C4553: '==': 의미 없는 연산자입니다. '='을(를) 사용하려고 했습니까?
+﻿  Level_GamePlay.cpp
+c:\users\rkdtm\onedrive\바탕 화면\git\sr_-_maple\client\private\level_gameplay.cpp(363): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\rkdtm\onedrive\바탕 화면\git\sr_-_maple\client\private\level_gameplay.cpp(246): warning C4715: 'Client::CLevel_GamePlay::Ready_Layer_TestBox': 모든 제어 경로에서 값을 반환하지는 않습니다.
+c:\users\rkdtm\onedrive\바탕 화면\git\sr_-_maple\client\private\level_gameplay.cpp(369): warning C4715: 'Client::CLevel_GamePlay::Ready_Layer_UI': 모든 제어 경로에서 값을 반환하지는 않습니다.
   Client.vcxproj -> C:\Users\rkdtm\OneDrive\바탕 화면\Git\sr_-_maple\Client\Default\..\Bin\Client.exe
   Client.vcxproj -> ..\Bin\Client.pdb (Full PDB)
