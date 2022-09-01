@@ -25,6 +25,8 @@
 #include "Player_Skill.h"
 #include "Player_Attack.h"
 #include "Effect.h"
+#include "Litening_Effect.h"
+#include "Body_Effect.h"
 
 
 
@@ -163,14 +165,23 @@ HRESULT CLoader::Loading_ForGamePlayLevel()
 		return E_FAIL;
 
 	if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, TEXT("Prototype_Component_Texture_Player_Attack"),
-		CTexture::Create(m_pGraphic_Device, CTexture::TYPE_DEFAULT, TEXT("../Bin/Resources/Textures/Player/Player_Attack/FB_%d.dds"), 16))))
+		CTexture::Create(m_pGraphic_Device, CTexture::TYPE_DEFAULT, TEXT("../Bin/Resources/Textures/Player/Player_Attack/BF_%d.png"), 25))))
 		return E_FAIL;
+
+
+	
 
 	/*For.Prototype_Component_Texture_Efect */
 
-	if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, TEXT("Prototype_Component_Texture_Skill_Fire_Effect"),
+	if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, TEXT("Prototype_Component_Texture_Attack_Fire_Effect"),
 		CTexture::Create(m_pGraphic_Device, CTexture::TYPE_DEFAULT, TEXT("../Bin/Resources/Textures/Player/Player_Attack/Efect_Fire/Explosion%d.png"), 9))))
 		return E_FAIL;
+	/*Prototype_Component_Texture_Body_Fire_Effect*/
+
+	if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, TEXT("Prototype_Component_Texture_Body_Fire_Effect"),
+		CTexture::Create(m_pGraphic_Device, CTexture::TYPE_DEFAULT, TEXT("../Bin/Resources/Textures/Player/Fire_Effect/BF_%d.png"), 25))))
+		return E_FAIL;
+	
 
 	/*For.Prototype_Component_Texture_Sky */
 	if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, TEXT("Prototype_Component_Texture_Sky"),
@@ -282,6 +293,17 @@ HRESULT CLoader::Loading_ForGamePlayLevel()
 	if (FAILED(pGameInstance->Add_Prototype(TEXT("Prototype_GameObject_Fire_Effect"),
 		CEffect::Create(m_pGraphic_Device))))
 		return E_FAIL;
+
+	/*For.Prototype_GameObject_Player_Skill_Efect*/
+	if (FAILED(pGameInstance->Add_Prototype(TEXT("Prototype_GameObject_Litenig_Effect"),
+		CLitening_Effect::Create(m_pGraphic_Device))))
+		return E_FAIL;
+
+	/*For.Prototype_GameObject_Player_Skill_Efect*/
+	if (FAILED(pGameInstance->Add_Prototype(TEXT("Prototype_GameObject_FireBody_Effect"),
+		CBody_Effect::Create(m_pGraphic_Device))))
+		return E_FAIL;
+
 
 
 	/*For.Prototype_GameObject_MonkeyMonster 루팡(원숭이몬스터)*/

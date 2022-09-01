@@ -163,7 +163,7 @@ HRESULT CPlayer_Litening::Fire_Efect_On(const _tchar * pLayerTag, _float fTimeDe
 
 	_float3 vPos_Efect = m_pTransformCom->Get_State(CTransform::STATE_POSITION);
 
-	if (FAILED(pGameInstance->Add_GameObject(TEXT("Prototype_GameObject_Fire_Effect"), LEVEL_GAMEPLAY, pLayerTag, vPos_Efect)))
+	if (FAILED(pGameInstance->Add_GameObject(TEXT("Prototype_GameObject_Litenig_Effect"), LEVEL_GAMEPLAY, pLayerTag, vPos_Efect)))
 		return E_FAIL;
 
 	Safe_Release(pGameInstance);
