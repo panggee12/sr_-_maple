@@ -7,8 +7,13 @@
 CMainApp::CMainApp()
 	: m_pGameInstance(CGameInstance::Get_Instance())
 {
-	//ax + by + c = 0;
+	//git Test1
+	//Git_Test3
+	//git Test2
+	//Git Test4
 
+	//ax + by + c = 0;
+	
 	//ax + by + cz + d = 0;
 	//D3DXPlaneFromPoints()
 	//D3DXPlaneFromPointNormal

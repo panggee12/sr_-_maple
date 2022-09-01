@@ -11,11 +11,19 @@ CGameInstance::CGameInstance()
 	, m_pTimer_Manager(CTimer_Manager::Get_Instance())
 	, m_pComponent_Manager(CComponent_Manager::Get_Instance())
 	, m_pCollision_Manager(CCollisionMgr::Get_Instance())
+<<<<<<< HEAD
+	, m_pKeyComponent_Manager(CKeyMgr::Get_Instance())
+
+{
+
+	Safe_AddRef(m_pKeyComponent_Manager);
+=======
 	, m_pKey_Manager(CKeyMgr::Get_Instance())
 
 {
 
 	Safe_AddRef(m_pKey_Manager);
+>>>>>>> aa192b3238a5dae7f5a2cf8c530fc184cccd860b
 	Safe_AddRef(m_pComponent_Manager);
 	Safe_AddRef(m_pTimer_Manager);
 	Safe_AddRef(m_pObject_Manager);
@@ -66,6 +74,7 @@ void CGameInstance::Tick_Engine(_float fTimeDelta)
 
 	m_pLevel_Manager->Tick(fTimeDelta);
 	m_pObject_Manager->Tick(fTimeDelta);
+
 
 
 	m_pLevel_Manager->Late_Tick(fTimeDelta);
@@ -339,7 +348,11 @@ void CGameInstance::Release_Engine()
 
 void CGameInstance::Free()
 {
+<<<<<<< HEAD
+	Safe_Release(m_pKeyComponent_Manager);
+=======
 	Safe_Release(m_pKey_Manager);
+>>>>>>> aa192b3238a5dae7f5a2cf8c530fc184cccd860b
 	Safe_Release(m_pComponent_Manager);
 	Safe_Release(m_pTimer_Manager);
 	Safe_Release(m_pObject_Manager);

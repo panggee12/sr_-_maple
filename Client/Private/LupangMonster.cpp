@@ -341,11 +341,39 @@ void CLupangMonster::HitCheck(_float fTimeDelta)
 
 void CLupangMonster::CreateItem()
 {
+<<<<<<< .merge_file_9oxkoz
 
+=======
+<<<<<<< HEAD
+=======
+
+>>>>>>> aa192b3238a5dae7f5a2cf8c530fc184cccd860b
+>>>>>>> .merge_file_UzTWhL
 	int iRand = rand() % 3 + 1;
 
 	if (iRand == 1)
 	{
+<<<<<<< .merge_file_9oxkoz
+=======
+<<<<<<< HEAD
+
+	
+	CGameInstance* m_pGameInstance = CGameInstance::Get_Instance();
+	Safe_AddRef(m_pGameInstance);
+
+	_float3 vScale = m_pTransformCom->Get_Scale();
+	_float3 vPosition = m_pTransformCom->Get_State(CTransform::STATE_POSITION);
+
+	vPosition.y -= vScale.y * 0.5f;
+
+	if (FAILED(m_pGameInstance->Add_GameObject(TEXT("Prototype_GameObject_ConsumItem"), LEVEL_GAMEPLAY, TEXT("ConsumItem"), &vPosition)))
+		return;
+
+	Safe_Release(m_pGameInstance);
+
+=======
+>>>>>>> aa192b3238a5dae7f5a2cf8c530fc184cccd860b
+>>>>>>> .merge_file_UzTWhL
 
 		CGameInstance* m_pGameInstance = CGameInstance::Get_Instance();
 		Safe_AddRef(m_pGameInstance);
@@ -359,6 +387,13 @@ void CLupangMonster::CreateItem()
 			return;
 
 		Safe_Release(m_pGameInstance);
+<<<<<<< .merge_file_9oxkoz
+=======
+<<<<<<< HEAD
+
+=======
+>>>>>>> aa192b3238a5dae7f5a2cf8c530fc184cccd860b
+>>>>>>> .merge_file_UzTWhL
 	}
 }
 

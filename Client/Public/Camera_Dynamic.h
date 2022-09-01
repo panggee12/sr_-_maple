@@ -36,8 +36,8 @@ public:
 	virtual void Free() override;
 
 private:
-	_float	m_fCameraZoomY = 10;
-	_float	m_fCameraZoomZ = 10;
+	_float	m_fCameraZoomY = 6;
+	_float	m_fCameraZoomZ = 6;
 };
 
 END
