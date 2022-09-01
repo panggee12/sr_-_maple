@@ -102,13 +102,13 @@ HRESULT CLupangMonster::SetUp_Components()
 	CTransform::TRANSFORMDESC      TransformDesc;
 	ZeroMemory(&TransformDesc, sizeof(CTransform::TRANSFORMDESC));
 
-	TransformDesc.fSpeedPerSec = 3.f;
+	TransformDesc.fSpeedPerSec = 1.f;
 	TransformDesc.fRotationPerSec = D3DXToRadian(90.0f);
 
 	if (FAILED(__super::Add_Components(TEXT("Com_Transform"), LEVEL_STATIC, TEXT("Prototype_Component_Transform"), (CComponent**)&m_pTransformCom, &TransformDesc)))
 		return E_FAIL;
 
-	m_pTransformCom->Set_State(CTransform::STATE_POSITION, _float3(-24.0f, 1.5f, 1.0f));
+	m_pTransformCom->Set_State(CTransform::STATE_POSITION, _float3(4.0f, 1.5f, 13.0f));
 
 	m_pTransformCom->Set_Scaled(_float3(-2.f, 2.f, 2.f));
 
@@ -162,6 +162,8 @@ void CLupangMonster::MonsterMove()
 		_float3 vMyPosition = m_pTransformCom->Get_State(CTransform::STATE_POSITION);
 		_float3 vPlayerPosition = pPlayer->Get_Transform()->Get_State(CTransform::STATE_POSITION);
 
+		_float fOriginYPos = vMyPosition.y;
+
 		_float3 vLook = vPlayerPosition - vMyPosition;
 		_float vLength = D3DXVec3Length(&vLook);
 
@@ -211,13 +213,13 @@ void CLupangMonster::MonsterMove()
 
 			m_pTextureCom->m_FrameTexture.OriginFrame = 0;
 			m_pTextureCom->m_FrameTexture.EndFrame = 3;
-			m_pTextureCom->m_FrameTexture.FrameSpeed = 0.1f;
+			m_pTextureCom->m_FrameTexture.FrameSpeed = 0.05f;
 
 			D3DXVec3Normalize(&vLook, &vLook);
 
 			vMyPosition = vMyPosition + vLook * 0.1f;
 
-			m_pTransformCom->Set_State(CTransform::STATE_POSITION, vMyPosition);
+			m_pTransformCom->Set_State(CTransform::STATE_POSITION, _float3(vMyPosition.x, fOriginYPos, vMyPosition.z));
 		}
 		else
 		{
@@ -273,7 +275,11 @@ void CLupangMonster::HitCheck(_float fTimeDelta)
 			m_pTextureCom->m_FrameTexture.FrameSpeed = 0.05f;
 
 			if (m_pTextureCom->m_FrameTexture.FirstFrame >= 15.f)
+			{
+				CreateItem();
 				m_bDead = true;
+			}
+
 		}
 		else
 		{
@@ -333,6 +339,29 @@ void CLupangMonster::HitCheck(_float fTimeDelta)
 	}
 }
 
+void CLupangMonster::CreateItem()
+{
+
+	int iRand = rand() % 3 + 1;
+
+	if (iRand == 1)
+	{
+
+		CGameInstance* m_pGameInstance = CGameInstance::Get_Instance();
+		Safe_AddRef(m_pGameInstance);
+
+		_float3 vScale = m_pTransformCom->Get_Scale();
+		_float3 vPosition = m_pTransformCom->Get_State(CTransform::STATE_POSITION);
+
+		vPosition.y -= vScale.y * 0.5f;
+
+		if (FAILED(m_pGameInstance->Add_GameObject(TEXT("Prototype_GameObject_ConsumItem"), LEVEL_GAMEPLAY, TEXT("ConsumItem"), &vPosition)))
+			return;
+
+		Safe_Release(m_pGameInstance);
+	}
+}
+
 CLupangMonster * CLupangMonster::Create(LPDIRECT3DDEVICE9 pGraphic_Device)
 {
 	CLupangMonster*	pInstance = new CLupangMonster(pGraphic_Device);
@@ -362,8 +391,4 @@ CGameObject * CLupangMonster::Clone(void * pArg)
 void CLupangMonster::Free()
 {
 	__super::Free();
-	Safe_Release(m_pTransformCom);
-	Safe_Release(m_pVIBufferCom);
-	Safe_Release(m_pRendererCom);
-	Safe_Release(m_pTextureCom);
 }

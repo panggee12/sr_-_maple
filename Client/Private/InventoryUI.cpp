@@ -31,11 +31,11 @@ HRESULT CInventoryUI::Initialize(void* pArg)
 	m_fSizeY = 702.f;
 	m_fX = 500.f;
 	m_fY = 400.f;
-	
+
 
 	if (FAILED(SetUp_Components()))
 		return E_FAIL;
-	
+
 	m_pTransformCom->Set_Scaled(_float3(m_fSizeX, m_fSizeY, 1.f));
 	ZeroMemory(&m_fDifDis, sizeof(_float2));
 	ZeroMemory(&m_vecInven, sizeof(m_vecInven.size()));
@@ -48,13 +48,13 @@ HRESULT CInventoryUI::Initialize(void* pArg)
 
 void CInventoryUI::Tick(_float fTimeDelta)
 {
-	__super::Tick(fTimeDelta);	 
-	
+	__super::Tick(fTimeDelta);
+
 	CGameInstance* pGameInstance = CGameInstance::Get_Instance();
 
 	Safe_AddRef(pGameInstance);
-	
-	if(!m_bMoveUi)
+
+	if (!m_bMoveUi)
 		SetRect(&m_rcRect, m_fX - m_fSizeX * 0.5f, m_fY - m_fSizeY * 0.5f, m_fX + m_fSizeX * 0.5f, m_fY - m_fSizeY * 0.4f);
 
 	POINT		ptMouse;
@@ -71,7 +71,7 @@ void CInventoryUI::Tick(_float fTimeDelta)
 			m_fMousePos.x = ptMouse.x;
 			m_fMousePos.y = ptMouse.y;
 		}
-		else if(m_bMoveUi&& !(MouseMove = pGameInstance->Get_DIMKeyState(DIMK_LBUTTON)))
+		else if (m_bMoveUi && !(MouseMove = pGameInstance->Get_DIMKeyState(DIMK_LBUTTON)))
 			m_bMoveUi = false;
 	}
 	if (m_bMoveUi)
@@ -115,20 +115,20 @@ void CInventoryUI::Late_Tick(_float fTimeDelta)
 	}
 
 	Safe_Release(pGameInstance);
-	
+
 }
 
 HRESULT CInventoryUI::Render()
 {
 	if (FAILED(__super::Render()))
 		return E_FAIL;
-	
+
 	if (FAILED(m_pTransformCom->Bind_OnGraphicDev()))
 		return E_FAIL;
 
 	_float4x4		ViewMatrix;
 	D3DXMatrixIdentity(&ViewMatrix);
-	
+
 	m_pGraphic_Device->SetTransform(D3DTS_VIEW, &ViewMatrix);
 	m_pGraphic_Device->SetTransform(D3DTS_PROJECTION, &m_ProjMatrix);
 
@@ -139,7 +139,7 @@ HRESULT CInventoryUI::Render()
 		return E_FAIL;
 
 	m_pVIBufferCom->Render();
-		
+
 
 	if (FAILED(Release_RenderState()))
 		return E_FAIL;
@@ -209,7 +209,7 @@ HRESULT CInventoryUI::SetUp_Components()
 HRESULT CInventoryUI::SetUp_RenderState()
 {
 	if (nullptr == m_pGraphic_Device)
-		return E_FAIL;	
+		return E_FAIL;
 
 	m_pGraphic_Device->SetRenderState(D3DRS_ALPHATESTENABLE, TRUE);
 	m_pGraphic_Device->SetRenderState(D3DRS_ALPHAREF, 250);

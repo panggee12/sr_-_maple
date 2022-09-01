@@ -42,7 +42,7 @@ private: /* For.Components */
 	CTexture*				m_pTextureCom = nullptr;
 	CRenderer*				m_pRendererCom = nullptr;
 	CVIBuffer_Rect*			m_pVIBufferCom = nullptr;
-	
+
 
 private:
 	_float4x4				m_ProjMatrix;
@@ -56,7 +56,7 @@ private:
 	INVEN					m_Inven;
 	_float					m_fRectX = 0.f;
 	_float					m_fRectY = 0.f;
-	
+
 private:
 	HRESULT SetUp_Components();
 	HRESULT SetUp_RenderState();

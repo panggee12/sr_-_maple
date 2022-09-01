@@ -208,7 +208,7 @@ bool CGameInstance::Collision(_uint iLevelIndex, const _tchar * col1, const _tch
 	return false;
 }
 
-int CGameInstance::Collision_Rect_Cube(_uint iLevelIndex, const _tchar * col1, _float3 fPos, _float fTimeDelta, _float3 fScale)
+int CGameInstance::Collision_Rect_Cube(_uint iLevelIndex, CTransform* p1Trans, _float3 vPos1, _float3 vPos2, _float fTimeDelta, _float3 fScale)
 {
 	if (nullptr == m_pObject_Manager ||
 		nullptr == m_pCollision_Manager)
@@ -216,15 +216,9 @@ int CGameInstance::Collision_Rect_Cube(_uint iLevelIndex, const _tchar * col1, _
 
 	int iReturn = 0;
 
-	auto Col1Target = m_pObject_Manager->Find_Layer(iLevelIndex, col1);
-
-	for (auto& Target1 : Col1Target->Get_ObjectList())
+	if (m_pCollision_Manager->Collision_Rect_Cube(p1Trans,vPos1, vPos2, fTimeDelta, fScale))
 	{
-		if (m_pCollision_Manager->Collision_Rect_Cube(Target1->Get_Transform(), Target1->Get_Transform()->Get_State(CTransform::STATE_POSITION),
-			fPos, fTimeDelta, fScale))
-		{
-			iReturn = 1;
-		}
+		iReturn = 1;
 	}
 
 	return iReturn;
