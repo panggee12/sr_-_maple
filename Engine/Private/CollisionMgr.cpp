@@ -20,7 +20,7 @@ bool CCollisionMgr::CollisionCheck(class CTransform * p1Trans, class CTransform 
 	_float fz2 = f2Scale.z*D3DXVec3Length(&p2Trans->Get_State(CTransform::STATE_LOOK));
 
 	//if( (  x1 <= x4  and   x2 >= x3 ) and ( y1 <= y4 and y2 >= y3 ) and ( z1 <= z4 and z2 >= z3 )
-	
+
 	if (((p1pos.x - fx1 <= p2pos.x + fx2) && (p1pos.x + fx1 >= p2pos.x - fx2)) &&
 		((p1pos.y - fy1 <= p2pos.y + fy2) && (p1pos.y + fy1 >= p2pos.y - fy2)) &&
 		((p1pos.z - fz1 <= p2pos.z + fz2) && (p1pos.z + fz1 >= p2pos.z - fz2)))
@@ -28,85 +28,85 @@ bool CCollisionMgr::CollisionCheck(class CTransform * p1Trans, class CTransform 
 
 		/*p1Trans->Set_Jump(false);
 		p1Trans->Set_Fall(false);*/
-	//	/*p1Trans->Set_State(CTransform::STATE_POSITION, _float3(p1Trans->Get_State(CTransform::STATE_POSITION).x,
-	//	p2Trans->Get_State(CTransform::STATE_POSITION).y + p2Trans->Get_Scale().y, p1Trans->Get_State(CTransform::STATE_POSITION).z));*/
-	//	
+		//	/*p1Trans->Set_State(CTransform::STATE_POSITION, _float3(p1Trans->Get_State(CTransform::STATE_POSITION).x,
+		//	p2Trans->Get_State(CTransform::STATE_POSITION).y + p2Trans->Get_Scale().y, p1Trans->Get_State(CTransform::STATE_POSITION).z));*/
+		//	
 		/*if(fabs(p1Trans->Get_State(CTransform::STATE_POSITION).y-p2Trans->Get_State(CTransform::STATE_POSITION).y)>=0.04)*/
 		//	p1Trans->Set_State(CTransform::STATE_POSITION, p1Trans->Get_Collision_Pos());
 
-	//	/*if (p1pos.y <= p2pos.y + p2Trans->Get_State(CTransform::STATE_POSITION).y)
-	//	{
-	//		if (p1pos.x < p2pos.x)
-	//		{
-	//			if (p1pos.z > p2pos.z)
-	//			{
-	//				p1Trans->Go_Straight(fTimeDelta);
-	//				if(p1pos.x > p2pos.x)
-	//					p1Trans->Go_Left(fTimeDelta);
-	//				return true;
-	//			}
-	//			else
-	//				p1Trans->Go_Left(fTimeDelta);
-	//		}
-	//		else if (p1pos.x > p2pos.x)
-	//		{
-	//			if (p1pos.z < p2pos.z)
-	//			{
-	//				p1Trans->Go_Backward(fTimeDelta);
-	//				if (p1pos.x < p2pos.x)
-	//					p1Trans->Go_Right(fTimeDelta);
-	//				return true;
-	//			}		
-	//			else
-	//				p1Trans->Go_Right(fTimeDelta);
-	//		}
-	//		else if (p1pos.z < p2pos.z)
-	//			p1Trans->Go_Backward(fTimeDelta);
-	//		else if (p1pos.z > p2pos.z)
-	//			p1Trans->Go_Straight(fTimeDelta);
-	//	}*/
-	//	/*else
-	//	{
-	//		if (p1pos.x > p2pos.x)
-	//			p1Trans->Go_Right(fTimeDelta);
-	//		else if (p1pos.x < p2pos.x)
-	//			p1Trans->Go_Left(fTimeDelta);
-	//		else if (p1pos.z > p2pos.z)
-	//			p1Trans->Go_Straight(fTimeDelta);
-	//		else if (p1pos.z < p2pos.z)
-	//			p1Trans->Go_Backward(fTimeDelta);
-	//	}*/
+		//	/*if (p1pos.y <= p2pos.y + p2Trans->Get_State(CTransform::STATE_POSITION).y)
+		//	{
+		//		if (p1pos.x < p2pos.x)
+		//		{
+		//			if (p1pos.z > p2pos.z)
+		//			{
+		//				p1Trans->Go_Straight(fTimeDelta);
+		//				if(p1pos.x > p2pos.x)
+		//					p1Trans->Go_Left(fTimeDelta);
+		//				return true;
+		//			}
+		//			else
+		//				p1Trans->Go_Left(fTimeDelta);
+		//		}
+		//		else if (p1pos.x > p2pos.x)
+		//		{
+		//			if (p1pos.z < p2pos.z)
+		//			{
+		//				p1Trans->Go_Backward(fTimeDelta);
+		//				if (p1pos.x < p2pos.x)
+		//					p1Trans->Go_Right(fTimeDelta);
+		//				return true;
+		//			}		
+		//			else
+		//				p1Trans->Go_Right(fTimeDelta);
+		//		}
+		//		else if (p1pos.z < p2pos.z)
+		//			p1Trans->Go_Backward(fTimeDelta);
+		//		else if (p1pos.z > p2pos.z)
+		//			p1Trans->Go_Straight(fTimeDelta);
+		//	}*/
+		//	/*else
+		//	{
+		//		if (p1pos.x > p2pos.x)
+		//			p1Trans->Go_Right(fTimeDelta);
+		//		else if (p1pos.x < p2pos.x)
+		//			p1Trans->Go_Left(fTimeDelta);
+		//		else if (p1pos.z > p2pos.z)
+		//			p1Trans->Go_Straight(fTimeDelta);
+		//		else if (p1pos.z < p2pos.z)
+		//			p1Trans->Go_Backward(fTimeDelta);
+		//	}*/
 
-	//	/*if (p1pos.x > p2pos.x)
-	//		p1Trans->Go_Right(fTimeDelta);
-	//	if (p1pos.x < p2pos.x)
-	//		p1Trans->Go_Left(fTimeDelta);
-	//	if (p1pos.y > p2pos.y)
-	//	{
-	//		p1Trans->Set_Jump(false);
-	//		p1Trans->Set_Fall(false);
-	//		p1Trans->Set_State(CTransform::STATE_POSITION, _float3(p1Trans->Get_State(CTransform::STATE_POSITION).x, 
-	//			p2Trans->Get_State(CTransform::STATE_POSITION).y + p2Trans->Get_Scale().y, p1Trans->Get_State(CTransform::STATE_POSITION).z));
-	//	}
-	//	if (p1pos.y < p2pos.y)
-	//		p1Trans->Down(fTimeDelta);
-	//	if (p1pos.z > p2pos.z)
-	//		p1Trans->Go_Straight(fTimeDelta);
-	//	if (p1pos.z < p2pos.z)
-	//		p1Trans->Go_Backward(fTimeDelta);*/
+		//	/*if (p1pos.x > p2pos.x)
+		//		p1Trans->Go_Right(fTimeDelta);
+		//	if (p1pos.x < p2pos.x)
+		//		p1Trans->Go_Left(fTimeDelta);
+		//	if (p1pos.y > p2pos.y)
+		//	{
+		//		p1Trans->Set_Jump(false);
+		//		p1Trans->Set_Fall(false);
+		//		p1Trans->Set_State(CTransform::STATE_POSITION, _float3(p1Trans->Get_State(CTransform::STATE_POSITION).x, 
+		//			p2Trans->Get_State(CTransform::STATE_POSITION).y + p2Trans->Get_Scale().y, p1Trans->Get_State(CTransform::STATE_POSITION).z));
+		//	}
+		//	if (p1pos.y < p2pos.y)
+		//		p1Trans->Down(fTimeDelta);
+		//	if (p1pos.z > p2pos.z)
+		//		p1Trans->Go_Straight(fTimeDelta);
+		//	if (p1pos.z < p2pos.z)
+		//		p1Trans->Go_Backward(fTimeDelta);*/
 
-	//	return true;//fGravity
-	//	//ERR_MSG(TEXT("충돌 ㅇㅅㅇ"));
-	//}
-	//else
-	//{
-	//	//p1Trans->Set_Fall(true);
-	//	//p1Trans->Set_Gravity(p1Trans->Get_Gravity() + 0.001f);
-	//	//p1Trans->Down(fTimeDelta);
-	//	//p1Trans->Jump(fTimeDelta, 0.f, 1.f);
-	//	/*p1Trans->Set_State(CTransform::STATE_POSITION, _float3(p1Trans->Get_State(CTransform::STATE_POSITION).x,
-	//		p1Trans->Get_State(CTransform::STATE_POSITION).y + 0.01f, p1Trans->Get_State(CTransform::STATE_POSITION).z));*/
-	//	return false;
+		//	return true;//fGravity
+		//	//ERR_MSG(TEXT("충돌 ㅇㅅㅇ"));
+		//}
+		//else
+		//{
+		//	//p1Trans->Set_Fall(true);
+		//	//p1Trans->Set_Gravity(p1Trans->Get_Gravity() + 0.001f);
+		//	//p1Trans->Down(fTimeDelta);
+		//	//p1Trans->Jump(fTimeDelta, 0.f, 1.f);
+		//	/*p1Trans->Set_State(CTransform::STATE_POSITION, _float3(p1Trans->Get_State(CTransform::STATE_POSITION).x,
+		//		p1Trans->Get_State(CTransform::STATE_POSITION).y + 0.01f, p1Trans->Get_State(CTransform::STATE_POSITION).z));*/
+		//	return false;
 		//_float fDisX = fabs(p1pos.x - p2pos.x);
 		//_float fDisY = fabs(p1pos.y - p2pos.y);//두 객체간 중점 거리
 		//_float fDisZ = fabs(p1pos.z - p2pos.z);
@@ -133,7 +133,7 @@ bool CCollisionMgr::CollisionCheck(class CTransform * p1Trans, class CTransform 
 		//		p1Trans->Go_Backward(fTimeDelta);
 		//}
 		/*if (_uint(p1pos.y*10) % 10 <= 1.05f&&_uint(p1pos.y * 10) % 10>1)
-			p1Trans->Set_Fall(true);*/ //공중에 떠있을때 블럭 옆부분과 계속 충돌상태면 땅으로 떨어지지 않음
+		p1Trans->Set_Fall(true);*/ //공중에 떠있을때 블럭 옆부분과 계속 충돌상태면 땅으로 떨어지지 않음
 		return true;
 	}
 	else
@@ -168,9 +168,9 @@ bool CCollisionMgr::Collision_Rect_Cube(CTransform* p1Trans, _float3 v1Pos, _flo
 	{
 		p1Trans->Set_Jump(false);
 		p1Trans->Set_Fall(false);
-		
+
 		/*p1Trans->Set_State(CTransform::STATE_POSITION, _float3(p1Trans->Get_Collision_Pos().x,
-			_float(_uint(p1Trans->Get_Collision_Pos().y/1)+1.f),p1Trans->Get_Collision_Pos().z ));*/
+		_float(_uint(p1Trans->Get_Collision_Pos().y/1)+1.f),p1Trans->Get_Collision_Pos().z ));*/
 		//p1Trans->Set_State(CTransform::STATE_POSITION, p1Trans->Get_Collision_Pos());
 
 		_float fDisX = fabs(p1pos.x - p2pos.x);
@@ -187,8 +187,8 @@ bool CCollisionMgr::Collision_Rect_Cube(CTransform* p1Trans, _float3 v1Pos, _flo
 		if (fDisY > fDisX&&fDisY > fDisZ)
 		{
 			if (p1pos.y > p2pos.y)
-				p1Trans->Up(fTimeDelta*0.04f);
-			if (p1pos.y < p2pos.y)
+				p1Trans->Up(fTimeDelta);
+			else if (p1pos.y < p2pos.y)
 				p1Trans->Down(fTimeDelta);
 		}
 		if (fDisZ > fDisY&&fDisZ > fDisX)

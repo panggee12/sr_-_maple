@@ -4,6 +4,8 @@
 #include "GameInstance.h"
 #include "Camera_Dynamic.h"
 #include "Player.h"
+#include "Layer.h"
+
 CLevel_GamePlay::CLevel_GamePlay(LPDIRECT3DDEVICE9 pGraphic_Device)
 	: CLevel(pGraphic_Device)
 {
@@ -26,7 +28,7 @@ HRESULT CLevel_GamePlay::Initialize()
 	if (FAILED(Ready_Layer_Player(TEXT("Layer_Player"))))
 		return E_FAIL;
 
-	for (int i = 0; i < 2; ++i)
+	for (int i = 0; i < 3; ++i)
 	{
 		if (FAILED(Ready_Layer_Monster(TEXT("Layer_Monster"))))
 			return E_FAIL;
@@ -52,7 +54,6 @@ void CLevel_GamePlay::Tick(_float fTimeDelta)
 
 	_float3 vPlayerPos = Player->Get_Transform()->Get_State(CTransform::STATE_POSITION);
 
-
 	vPlayerPos.x = round(vPlayerPos.x);
 	vPlayerPos.y = round(vPlayerPos.y);//플레이어 위치 반올림
 	vPlayerPos.z = round(vPlayerPos.z);
@@ -61,18 +62,56 @@ void CLevel_GamePlay::Tick(_float fTimeDelta)
 	{
 		for (int j = -1; j < 2; ++j)
 		{
-			for(int k=-1;k<2;++k)
-			{
-				auto eCubeDesc = m_MapCubeInfo.find(_float3(vPlayerPos.x + i, vPlayerPos.y + j, vPlayerPos.z + k));
+			for (int k = -1; k<2; ++k)
+			{ //맵의 키값은 대소비교를 할 수 있어야함
+				string s ="x" + to_string(vPlayerPos.x + i) + "y" + to_string(vPlayerPos.y + j) + "z" + to_string(vPlayerPos.z + k);
+
+			    auto eCubeDesc = m_MapCubeInfo.find(s);
+				
 				if (m_MapCubeInfo.end() != eCubeDesc)
 				{
-					pGameInstance->Collision_Rect_Cube(LEVEL_GAMEPLAY, TEXT("Layer_Player"), eCubeDesc->second.vPos,
-						fTimeDelta, _float3(0.15f, 0.3f, 0.15f));
+					if (pGameInstance->Collision_Rect_Cube(LEVEL_GAMEPLAY, Player->Get_Transform(), eCubeDesc->second.vPos,
+						fTimeDelta, _float3(0.15f, 0.3f, 0.15f)) != 1 && !Player->Get_Transform()->Get_Fall())
+					{
+						Player->Get_Transform()->Set_Fall(true);
+					}
 				}
-					//Player->Get_Transform()->Set_Fall(true);
+				/*else
+					Player->Get_Transform()->Down(fTimeDelta);*/
 			}
 		}
 	}
+
+	auto Monster = pGameInstance->Find_Layer(LEVEL_GAMEPLAY, TEXT("Layer_Monster"));
+
+	for (int i = -1; i < 2; ++i) //주변 3칸까지의 충돌 범위
+	{
+		for (int j = -1; j < 2; ++j)
+		{
+			for (int k = -1; k<2; ++k)
+			{ //맵의 키값은 대소비교를 할 수 있어야함
+				for (auto& mon : Monster->Get_ObjectList())
+				{
+					_float3 vMonsterPos = Player->Get_Transform()->Get_State(CTransform::STATE_POSITION);
+
+					vMonsterPos.x = round(vMonsterPos.x);
+					vMonsterPos.y = round(vMonsterPos.y);//플레이어 위치 반올림
+					vMonsterPos.z = round(vMonsterPos.z);
+
+					string s = "x" + to_string(vMonsterPos.x + i) + "y" + to_string(vMonsterPos.y + j) + "z" + to_string(vMonsterPos.z + k);
+
+					auto eCubeDesc = m_MapCubeInfo.find(s);
+
+					if (m_MapCubeInfo.end() != eCubeDesc)
+					{
+						pGameInstance->Collision_Rect_Cube(LEVEL_GAMEPLAY, mon->Get_Transform(), eCubeDesc->second.vPos,
+							fTimeDelta, _float3(0.15f, 0.3f, 0.15f));
+					}
+				}
+			}
+		}
+	}
+
 //	pGameInstance->Collision_Rect_Cube(LEVEL_GAMEPLAY, TEXT("Layer_Monster"), TEXT("Layer_TestBox"), fTimeDelta);
 
 	pGameInstance->Collision_Attacked(LEVEL_GAMEPLAY, TEXT("Layer_Player"), TEXT("Layer_Monster"), fTimeDelta, 0, _float3(0.15f, 0.3f, 0.15f), _float3(0.45f, 0.45f, 0.45f));
@@ -285,6 +324,7 @@ void CLevel_GamePlay::LoadMapData()
 
 	DWORD		dwByte = 0;
 	CTestBox::CUBEDESC		tInfo{};
+	_tchar tPos = {};
 
 	//wchar_t* FileName = CImGui_Manager::Get_Instance()->GetFileNames();
 
@@ -299,10 +339,13 @@ void CLevel_GamePlay::LoadMapData()
 
 		tInfo.vPos.y += 0.5f;
 
-		m_MapCubeInfo.emplace(tInfo.vPos, tInfo);
+		string s = "x" + to_string(tInfo.vPos.x) + "y" + to_string(tInfo.vPos.y) + "z" + to_string(tInfo.vPos.z);
+
+		m_MapCubeInfo.emplace(s, tInfo);
+		
 		//m_CubeInfoList.push_back(CTestBox::CUBEDESC(tInfo));
 	}
-
+	
 	// 3. 파일 소멸
 	CloseHandle(hFile);
 

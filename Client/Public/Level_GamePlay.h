@@ -3,7 +3,7 @@
 #include "Client_Defines.h"
 #include "Level.h"
 #include "TestBox.h"
-
+#include <string>
 BEGIN(Client)
 
 class CLevel_GamePlay final : public CLevel
@@ -27,9 +27,6 @@ public:
 	HRESULT Ready_Layer_UI(const _tchar* pLayerTag);
 
 	void LoadMapData(); // 맵 불러오기
-
-private:
-	class CPlayer* pPlayer = nullptr;
 	
 private://프레임
 	_uint					m_iNumRender = 0;
@@ -38,7 +35,7 @@ private://프레임
 
 private:
 	list<_float3> m_CubeInfoList;
-	map<_float3, CTestBox::CUBEDESC> m_MapCubeInfo;
+	map<string, CTestBox::CUBEDESC> m_MapCubeInfo;
 public:
 	static CLevel_GamePlay* Create(LPDIRECT3DDEVICE9 pGraphic_Device);
 	virtual void Free() override;

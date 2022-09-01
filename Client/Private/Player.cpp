@@ -140,7 +140,7 @@ void CPlayer::Tick(_float fTimeDelta)
 		}
 	}
 
-	else if (GetKeyState('X') & 0x8000)
+	else if (pGameInstance->Key_Down('X'))
 	{
 		if (pGameInstance->Check_Layer(LEVEL_GAMEPLAY, TEXT("Layer_Monster")))
 		{
