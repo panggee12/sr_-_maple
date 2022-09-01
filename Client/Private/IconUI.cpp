@@ -53,40 +53,53 @@ void CIconUI::Tick(_float fTimeDelta)
 
 	Safe_AddRef(pGameInstance);
 
-	if (!m_bMoveUi)
-		SetRect(&m_rcRect, m_fX - m_fSizeX * 0.5f, m_fY - m_fSizeY * 0.5f, m_fX + m_fSizeX * 0.5f, m_fY + m_fSizeY * 0.5f);
+	SetRect(&m_rcRect, m_fX - m_fSizeX * 0.5f, m_fY - m_fSizeY * 0.5f, m_fX + m_fSizeX * 0.5f, m_fY + m_fSizeY * 0.5f);
 
 	POINT		ptMouse;
 	GetCursorPos(&ptMouse);
 	ScreenToClient(g_hWnd, &ptMouse);
 
-	m_fDifDis.x = m_fMousePos.x - ptMouse.x;
-	m_fDifDis.y = m_fMousePos.y - ptMouse.y;
+	_float fMX = ptMouse.x;
+	_float fMY = ptMouse.y;
 	
 	auto pInven = pGameInstance->Find_Target(LEVEL_GAMEPLAY, TEXT("Layer_InvenUI"));
-	
-	for (auto& pInven : static_cast<CInventoryUI*>(pInven)->Get_InvenInfo())
+
+	if (pGameInstance->Key_Pressing(VK_LBUTTON))
 	{
-		if (PtInRect(&pInven.rcRect, ptMouse))
+		m_pTransformCom->Set_State(CTransform::STATE_POSITION, _float3(fMX - g_iWinSizeX * 0.5f, -fMY + g_iWinSizeY * 0.5f, 0.f));	
+	}
+
+	if (pGameInstance->Key_Up(VK_LBUTTON))
+	{
+		for (auto& pInven : static_cast<CInventoryUI*>(pInven)->Get_InvenInfo())
 		{
-			m_pTransformCom->Set_State(CTransform::STATE_POSITION, _float3(pInven.RectX - g_iWinSizeX * 0.5f, -pInven.RectY + g_iWinSizeY * 0.5f, 0.f));
-			int a = 10;
+			if (PtInRect(&pInven.rcRect, ptMouse))
+			{
+				m_pTransformCom->Set_State(CTransform::STATE_POSITION, _float3(pInven.RectX - g_iWinSizeX * 0.5f, -pInven.RectY + g_iWinSizeY * 0.5f, 0.f));
+			}
 		}
 	}
 
-	
-
-	Safe_Release(pGameInstance);
-
-	
+	Safe_Release(pGameInstance);	
 }
 
 void CIconUI::Late_Tick(_float fTimeDelta)
 {
 	__super::Late_Tick(fTimeDelta);
 
-	if (nullptr != m_pRendererCom)
-		m_pRendererCom->Add_RenderGroup(CRenderer::RENDER_UI, this);
+	CGameInstance* pGameInstance = CGameInstance::Get_Instance();
+
+	Safe_AddRef(pGameInstance);
+	
+	auto pInven = pGameInstance->Find_Target(LEVEL_GAMEPLAY, TEXT("Layer_InvenUI"));
+
+	if (static_cast<CInventoryUI*>(pInven)->Get_OnCheck())
+	{
+		if (nullptr != m_pRendererCom)
+			m_pRendererCom->Add_RenderGroup(CRenderer::RENDER_UI, this);
+	}
+
+	Safe_Release(pGameInstance);
 }
 
 HRESULT CIconUI::Render()
@@ -154,7 +167,7 @@ HRESULT CIconUI::SetUp_RenderState()
 		return E_FAIL;	
 
 	m_pGraphic_Device->SetRenderState(D3DRS_ALPHATESTENABLE, TRUE);
-	m_pGraphic_Device->SetRenderState(D3DRS_ALPHAREF, 15);
+	m_pGraphic_Device->SetRenderState(D3DRS_ALPHAREF, 10);
 	m_pGraphic_Device->SetRenderState(D3DRS_ALPHAFUNC, D3DCMP_GREATEREQUAL);
 	return S_OK;
 }

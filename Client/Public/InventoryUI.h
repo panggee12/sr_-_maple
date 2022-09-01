@@ -33,8 +33,10 @@ public:
 	virtual void Tick(_float fTimeDelta)override;
 	virtual void Late_Tick(_float fTimeDelta)override;
 	virtual HRESULT Render() override;
+	void Show_Inven();
 
 	vector<INVEN> Get_InvenInfo() { return m_vecInven; }
+	_bool Get_OnCheck() { return m_bOnCheck; }
 
 private: /* For.Components */
 	CTexture*				m_pTextureCom = nullptr;

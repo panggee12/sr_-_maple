@@ -98,41 +98,20 @@ void CInventoryUI::Late_Tick(_float fTimeDelta)
 
 	Safe_AddRef(pGameInstance);
 
-	_float fLeft = m_fX - m_fSizeX * 0.5f;
-	_float fTop = m_fY - m_fSizeY * 0.5f;
-	_float fRight = m_fX + m_fSizeX * 0.5f;
-	_float fBottom = m_fY + m_fSizeY * 0.5f;
+	_ushort shCount = 0;
 
-	if (GetKeyState('I') & 0x0001)
+	if (m_bOnCheck == false && pGameInstance->Key_Down('I'))
 	{
-		if (m_bOnCheck == true)
-		{
-			if (nullptr != m_pRendererCom)
-				m_pRendererCom->Add_RenderGroup(CRenderer::RENDER_UI, this);		
+		m_bOnCheck = true;
+	}
+	else if (m_bOnCheck == true && pGameInstance->Key_Down('I'))
+	{
+		m_bOnCheck = false;
+	}
 
-			for (_uint i = 0; i < 8; ++i) //y
-			{
-				for (_uint j = 0; j < 6; ++j) //x
-				{
-					RECT rcRect;
-
-					SetRect(&m_Inven.rcRect,
-						fLeft + 85.f + j * 68.f,
-						fTop + 164.f + i * 67.f,
-						fLeft + 85.f + j * 68.f + 68.f,
-						fTop + 164.f + i * 67.f + 67.f);
-
-					m_Inven.RectX = m_Inven.rcRect.left + (m_Inven.rcRect.right - m_Inven.rcRect.left) * 0.5f;
-					m_Inven.RectY = m_Inven.rcRect.top + (m_Inven.rcRect.bottom - m_Inven.rcRect.top) * 0.5f;
-					
-					m_vecInven.push_back(m_Inven);
-				}
-			}
-		}
-		else
-		{
-			m_bOnCheck = true;
-		}	
+	if (m_bOnCheck)
+	{
+		Show_Inven();
 	}
 
 	Safe_Release(pGameInstance);
@@ -168,6 +147,34 @@ HRESULT CInventoryUI::Render()
 
 
 	return S_OK;
+}
+
+void CInventoryUI::Show_Inven()
+{
+	_float fLeft = m_fX - m_fSizeX * 0.5f;
+	_float fTop = m_fY - m_fSizeY * 0.5f;
+
+	if (nullptr != m_pRendererCom)
+		m_pRendererCom->Add_RenderGroup(CRenderer::RENDER_UI, this);
+
+	for (_uint i = 0; i < 8; ++i) //y
+	{
+		for (_uint j = 0; j < 6; ++j) //x
+		{
+			RECT rcRect;
+
+			SetRect(&m_Inven.rcRect,
+				fLeft + 85.f + j * 68.f,
+				fTop + 164.f + i * 67.f,
+				fLeft + 85.f + j * 68.f + 68.f,
+				fTop + 164.f + i * 67.f + 67.f);
+
+			m_Inven.RectX = m_Inven.rcRect.left + (m_Inven.rcRect.right - m_Inven.rcRect.left) * 0.5f;
+			m_Inven.RectY = m_Inven.rcRect.top + (m_Inven.rcRect.bottom - m_Inven.rcRect.top) * 0.5f;
+
+			m_vecInven.push_back(m_Inven);
+		}
+	}
 }
 
 HRESULT CInventoryUI::SetUp_Components()
