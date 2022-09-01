@@ -47,7 +47,7 @@ private:
 	HRESULT Release_RenderState();
 	void Player_Idle(PLAYER_DIR _ePlayer_Idle_State, _float fTimeDelta);
 	void Player_Move(PLAYER_DIR _ePlayer_Move_State, _float fTimeDelta);
-	void Player_Attack(PLAYER_STATE _PlayerState, PLAYER_DIR _PlayerAttack, float fTimeDelta);
+	void Player_Attack(PLAYER_DIR _PlayerAttack, float fTimeDelta);
 	HRESULT Ready_Layer_Player_Skill(const _tchar * pLayerTag, _float fTimeDelta);
 	HRESULT Ready_Layer_Player_Attack(const _tchar * pLayerTag, _float fTimeDelta);
 

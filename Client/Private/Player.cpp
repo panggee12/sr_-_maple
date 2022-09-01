@@ -141,11 +141,9 @@ void CPlayer::Tick(_float fTimeDelta)
 	}
 
 
-	else if (Key_Pressing('Q'))
+	else if (Key_Pressing('Q')&& m_bPlayer_Attack==true)
 	{
-		m_bPlayer_Idle = false;
-
-		//m_ePlayer_Idle_State = IDLE_END;
+		Player_Attack(m_ePlayer_Dir, fTimeDelta);
 
 		if (pGameInstance->Check_Layer(LEVEL_GAMEPLAY, TEXT("Layer_Monster")))
 		{
@@ -154,21 +152,16 @@ void CPlayer::Tick(_float fTimeDelta)
 			if (FAILED(Ready_Layer_Player_Skill(TEXT("Layer_Playe_Skill"), fTimeDelta)));
 			return;
 		}
-		//m_bKeyInput = true;
 
 	}
 
-	else if (Key_Pressing('X') && m_bKeyInput == true)
+	else if (Key_Pressing('X') && m_bPlayer_Attack == true)
 	{
-		m_bPlayer_Idle = false;
+		Player_Attack(m_ePlayer_Dir, fTimeDelta);
 
-		//m_bKeyInput = true;
-
-		//m_ePlayer_Idle_State = IDLE_END;
 
 		if (pGameInstance->Check_Layer(LEVEL_GAMEPLAY, TEXT("Layer_Monster")))
 		{
-			//Player_Attack(m_ePlayer_State, m_ePlayer_Dir, fTimeDelta);
 
 			if (FAILED(Ready_Layer_Player_Attack(TEXT("Layer_Playe_Attack"), fTimeDelta)));
 			return;
@@ -178,7 +171,6 @@ void CPlayer::Tick(_float fTimeDelta)
 
 	else if (Key_Pressing('C') && !m_pTransformCom->Get_Fall() && m_bKeyInput == true)
 	{
-		//m_bKeyInput = true;
 
 		m_pTransformCom->Set_Jump(true);
 		m_pTransformCom->Set_Fall(true);
@@ -187,7 +179,7 @@ void CPlayer::Tick(_float fTimeDelta)
 	{
 		m_ePlayer_State = CPlayer::PLAYER_IDLE;
 		Player_Idle(m_ePlayer_Dir, fTimeDelta);
-
+		m_bPlayer_Attack = true;
 	}
 
 
@@ -411,6 +403,8 @@ void CPlayer::Player_Idle(PLAYER_DIR _ePlayer_Dir_State, _float fTimeDelta)
 	{
 		m_ePlayer_State = PLAYER_IDLE;
 		m_ePlayer_brfore = PLAYER_IDLE;
+		m_bPlayer_Attack = true;
+
 	}
 
 	
@@ -479,11 +473,74 @@ void CPlayer::Player_Move(PLAYER_DIR _ePlayer_Move_State, _float fTimeDelta)
 		{
 			m_ePlayer_State = PLAYER_MOVE_STATE;
 			m_ePlayer_brfore = PLAYER_MOVE_STATE;
+			m_bPlayer_Attack = false;
+
 		}
 }
 
-void CPlayer::Player_Attack(PLAYER_STATE _PlayerState, PLAYER_DIR _PlayerAttack, float fTimeDelta)
+void CPlayer::Player_Attack(PLAYER_DIR _PlayerAttack, float fTimeDelta)
 {
+	if (_PlayerAttack == CPlayer::RIGHT)
+	{
+		if (m_uFrameNum <= 40 || m_uFrameNum >= 47)
+		{
+			m_uFrameNum = 40;
+		}
+	}
+	else if (_PlayerAttack == CPlayer::RU)
+	{
+		if (m_uFrameNum <= 192 || m_uFrameNum >= 199)
+		{
+			m_uFrameNum = 192;
+		}
+	}
+	else if (_PlayerAttack == CPlayer::UP)
+	{
+		if (m_uFrameNum <= 48 || m_uFrameNum >= 55)
+		{
+			m_uFrameNum = 48;
+		}
+	}
+	else if (_PlayerAttack == CPlayer::LU)
+	{
+		if (m_uFrameNum <= 160 || m_uFrameNum >= 167)
+		{
+			m_uFrameNum = 160;
+		}
+	}
+	else if (_PlayerAttack == CPlayer::LEFT)
+	{
+		if (m_uFrameNum <= 168 || m_uFrameNum >= 175)
+		{
+			m_uFrameNum = 168;
+		}
+	}
+	else if (_PlayerAttack == CPlayer::LD)
+	{
+		if (m_uFrameNum <= 176 || m_uFrameNum >= 183)
+		{
+			m_uFrameNum = 176;
+		}
+	}
+	else if (_PlayerAttack == CPlayer::DOWN)
+	{
+		if (m_uFrameNum <= 184 || m_uFrameNum >= 191)
+		{
+			m_uFrameNum = 184;
+		}
+	}
+	else if (_PlayerAttack == CPlayer::RD)
+	{
+		if (m_uFrameNum <= 192 || m_uFrameNum >= 199)
+		{
+			m_uFrameNum = 192;
+		}
+	}
+	else
+	{
+				m_bPlayer_Attack = false;
+
+	}
 }
 
 

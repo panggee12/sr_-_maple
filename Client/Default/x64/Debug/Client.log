@@ -1,6 +1,8 @@
-﻿  Player.cpp
-c:\users\dev.bae\desktop\sr_-_maple\client\private\player.cpp(154): warning C4390: ';': 제어된 빈 문이 있습니다. 이 문이 필요합니까?
-c:\users\dev.bae\desktop\sr_-_maple\client\private\player.cpp(173): warning C4390: ';': 제어된 빈 문이 있습니다. 이 문이 필요합니까?
-c:\users\dev.bae\desktop\sr_-_maple\client\private\player.cpp(216): warning C4244: '인수': 'Engine::_float'에서 'Engine::_uint'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+﻿  Loader.cpp
+  Player.cpp
+c:\users\dev.bae\desktop\sr_-_maple\client\private\player.cpp(152): warning C4390: ';': 제어된 빈 문이 있습니다. 이 문이 필요합니까?
+c:\users\dev.bae\desktop\sr_-_maple\client\private\player.cpp(166): warning C4390: ';': 제어된 빈 문이 있습니다. 이 문이 필요합니까?
+c:\users\dev.bae\desktop\sr_-_maple\client\private\player.cpp(208): warning C4244: '인수': 'Engine::_float'에서 'Engine::_uint'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  코드를 생성하고 있습니다...
   Client.vcxproj -> C:\Users\Dev.Bae\Desktop\sr_-_maple\Client\Default\..\Bin\Client.exe
   Client.vcxproj -> ..\Bin\Client.pdb (Full PDB)
