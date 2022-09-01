@@ -1,7 +1,6 @@
 #include "stdafx.h"
 #include "PlayerInfoUI.h"
 #include "GameInstance.h"
-#include "Loader.h"
 
 CPlayerInfoUI::CPlayerInfoUI(LPDIRECT3DDEVICE9 pGraphic_Device)
 	: CGameObject(pGraphic_Device)
@@ -30,41 +29,58 @@ HRESULT CPlayerInfoUI::Initialize(void* pArg)
 
 	m_fSizeX = 500.f;
 	m_fSizeY = 600.f;
-	m_fX = 500.f;
+	m_fX = 700.f;
 	m_fY = 400.f;
 
 	if (FAILED(SetUp_Components()))
 		return E_FAIL;
 	
 	m_pTransformCom->Set_Scaled(_float3(m_fSizeX, m_fSizeY, 1.f));
-	//m_pTransformCom->Set_State(CTransform::STATE_POSITION, _float3(m_fX - g_iWinSizeX * 0.5f, -m_fY + g_iWinSizeY * 0.5f, 0.f));
+	ZeroMemory(&m_fDifDis, sizeof(_float2));
 
 	return S_OK;
 }
 
 void CPlayerInfoUI::Tick(_float fTimeDelta)
 {
-	__super::Tick(fTimeDelta);	
-	//불변수 하나로 눌렀을때 안눌렀을때 판별
-	//눌렀을때 
-	RECT		rcRect;
-	SetRect(&rcRect, m_fX - m_fSizeX * 0.5f, m_fY - m_fSizeY * 0.5f, m_fX + m_fSizeX * 0.5f, m_fY - m_fSizeY * 0.4f);
-	//300 //100 700 160
+	__super::Tick(fTimeDelta);
+
+	CGameInstance* pGameInstance = CGameInstance::Get_Instance();
+
+	Safe_AddRef(pGameInstance);
+
+	if (!m_bMoveUi)
+		SetRect(&m_rcRect, m_fX - m_fSizeX * 0.5f, m_fY - m_fSizeY * 0.5f, m_fX + m_fSizeX * 0.5f, m_fY - m_fSizeY * 0.4f);
+
 	POINT		ptMouse;
 	GetCursorPos(&ptMouse);
 	ScreenToClient(g_hWnd, &ptMouse);
 
-	_float fMx, fMy;
-
-	
-	if (PtInRect(&rcRect, ptMouse))
+	_char         MouseMove = 0;
+	bool         bDown = false;
+	if (PtInRect(&m_rcRect, ptMouse)) //눌렀을때 마우스 위치를 기록해놔야함
 	{
-		if (GetKeyState(VK_LBUTTON) & 0x8000)
+		if ((MouseMove = pGameInstance->Get_DIMKeyState(DIMK_LBUTTON)) && !m_bMoveUi)
 		{
-			m_pTransformCom->Set_State(CTransform::STATE_POSITION, _float3(ptMouse.x, ptMouse.y * -1.f, 0.f));
+			m_bMoveUi = true;
+			m_fMousePos.x = ptMouse.x;
+			m_fMousePos.y = ptMouse.y;
+			m_iCheck++;
 		}
-		
+		else if (m_bMoveUi && !(MouseMove = pGameInstance->Get_DIMKeyState(DIMK_LBUTTON)))
+			m_bMoveUi = false;
 	}
+	if (m_bMoveUi)
+	{
+		m_fDifDis.x = m_fMousePos.x - ptMouse.x;
+		m_fDifDis.y = m_fMousePos.y - ptMouse.y;
+	}
+	m_pTransformCom->Set_State(CTransform::STATE_POSITION, _float3(m_fX - m_fDifDis.x - m_fSizeX*1.25f, m_fY + m_fDifDis.y - m_fSizeY*0.7f, 0.f));
+	SetRect(&m_rcRect, m_fX - m_fDifDis.x - m_fSizeX * 0.5f, m_fY + m_fDifDis.y - m_fSizeY * 0.5f, m_fX - m_fDifDis.x + m_fSizeX * 0.5f, m_fY + m_fDifDis.y - m_fSizeY * 0.4f);
+
+	if (m_iCheck > 1)
+		int a = 10;
+	Safe_Release(pGameInstance);
 
 }
 
