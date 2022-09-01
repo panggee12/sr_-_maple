@@ -42,6 +42,11 @@ void CLupangSkill::Tick(_float fTimeDelta)
 
 	vPos = vPos + m_vMyLook * 0.1f;
 
+	m_fDistance += 0.1f;
+
+	if (m_fDistance >= 8.f)
+		m_bDead = true;
+
 	CGameInstance* pGameInstance = CGameInstance::Get_Instance();
 
 	Safe_AddRef(pGameInstance);

@@ -46,6 +46,7 @@ private:
 	_bool m_bMotionCheck = false;
 	_float3 m_vPosition;
 	_float3 m_vMyLook;
+	_float	m_fDistance = 0.f;
 
 public:
 	virtual HRESULT SetUp_Components();
