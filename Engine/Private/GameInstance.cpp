@@ -1,5 +1,5 @@
 #include "..\Public\GameInstance.h"
-#include "Layer.h"
+
 
 IMPLEMENT_SINGLETON(CGameInstance)
 
@@ -208,15 +208,15 @@ bool CGameInstance::Collision(_uint iLevelIndex, const _tchar * col1, const _tch
 	return false;
 }
 
-int CGameInstance::Collision_Rect_Cube(_uint iLevelIndex, class CTransform* pTransform, _float3 fPos, _float fTimeDelta, _float3 fScale)
+int CGameInstance::Collision_Rect_Cube(_uint iLevelIndex, CTransform* p1Trans, _float3 vPos1, _float3 vPos2, _float fTimeDelta, _float3 fScale)
 {
 	if (nullptr == m_pObject_Manager ||
 		nullptr == m_pCollision_Manager)
 		return false;
 
 	int iReturn = 0;
-	
-	if (m_pCollision_Manager->Collision_Rect_Cube(pTransform, pTransform->Get_State(CTransform::STATE_POSITION), fPos, fTimeDelta, fScale))
+
+	if (m_pCollision_Manager->Collision_Rect_Cube(p1Trans,vPos1, vPos2, fTimeDelta, fScale))
 	{
 		iReturn = 1;
 	}

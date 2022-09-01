@@ -236,6 +236,8 @@ void CPlayer::Tick(_float fTimeDelta)
 		m_pTransformCom->Save_Collision_Pos(fTimeDelta);
 	}*/
 
+	m_pTransformCom->Set_Fall(true);
+
 	Safe_Release(pGameInstance);
 }
 

@@ -9,6 +9,12 @@ BEGIN(Client)
 class CLevel_GamePlay final : public CLevel
 {
 private:
+	typedef struct tagQuickInfo
+	{
+		RECT  rc;
+		_uint iIndex;
+	}QUICKINFO;
+private:
 	CLevel_GamePlay(LPDIRECT3DDEVICE9 pGraphic_Device);
 	virtual ~CLevel_GamePlay() = default;
 
@@ -32,10 +38,11 @@ private://«¡∑π¿”
 	_uint					m_iNumRender = 0;
 	_tchar					m_szFPS[MAX_PATH] = TEXT("");
 	_float					m_fTimeAcc = 0.f;
-
+	//vector<RECT>			m_vecQuickrc;
+	QUICKINFO				m_eQuickInfo[8];
 private:
-	list<_float3> m_CubeInfoList;
-	map<string, CTestBox::CUBEDESC> m_MapCubeInfo;
+	list<CTestBox::CUBEDESC> m_CubeInfoList;
+	_float					m_fLayerPos[200][20][200];
 public:
 	static CLevel_GamePlay* Create(LPDIRECT3DDEVICE9 pGraphic_Device);
 	virtual void Free() override;

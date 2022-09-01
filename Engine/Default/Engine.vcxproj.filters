@@ -102,9 +102,6 @@
     <ClCompile Include="..\private\Object_Manager.cpp">
       <Filter>01.Utility\02.GameObjects\Manager</Filter>
     </ClCompile>
-    <ClCompile Include="..\private\Layer.cpp">
-      <Filter>01.Utility\02.GameObjects\Layer</Filter>
-    </ClCompile>
     <ClCompile Include="..\Private\Timer.cpp">
       <Filter>01.Utility\98.Timers</Filter>
     </ClCompile>
@@ -156,6 +153,9 @@
     <ClCompile Include="..\Private\CollisionMgr.cpp">
       <Filter>01.Utility\04.Collision</Filter>
     </ClCompile>
+    <ClCompile Include="..\Private\Layer.cpp">
+      <Filter>01.Utility\02.GameObjects\Layer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Public\Base.h">
@@ -190,9 +190,6 @@
     </ClInclude>
     <ClInclude Include="..\public\Object_Manager.h">
       <Filter>01.Utility\02.GameObjects\Manager</Filter>
-    </ClInclude>
-    <ClInclude Include="..\public\Layer.h">
-      <Filter>01.Utility\02.GameObjects\Layer</Filter>
     </ClInclude>
     <ClInclude Include="..\Public\Timer.h">
       <Filter>01.Utility\98.Timers</Filter>
@@ -244,6 +241,9 @@
     </ClInclude>
     <ClInclude Include="..\Public\CollisionMgr.h">
       <Filter>01.Utility\04.Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Layer.h">
+      <Filter>01.Utility\02.GameObjects\Layer</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

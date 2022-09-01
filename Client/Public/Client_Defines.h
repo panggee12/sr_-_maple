@@ -12,6 +12,8 @@ namespace Client
 					 Equip_Glove, Equip_Shoes, Equip_Ring, Equip_Weapon, Equip_End };
 
 	enum CONSUMABLE_ITEM { Consume_Hp, Consume_Mp, Consume_Money_0, Consume_Money_1, Consume_End };
+
+	enum QUICK_ITEM {Quick_Normal, Quick_HP, Quick_MP, Quick_End};
 }
 
 #include <process.h>

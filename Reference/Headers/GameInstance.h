@@ -8,6 +8,7 @@
 #include "Component_Manager.h"
 #include "CollisionMgr.h"
 #include "KeyMgr.h"
+#include "Layer.h"
 
 BEGIN(Engine)
 
@@ -48,7 +49,7 @@ public: /* For.Object_Manager */
 	class CGameObject* Find_Target(_uint iLevelIndex, const _tchar* pLayerTag);
 	class CGameObject* Get_BackObject(_uint iLevelIndex, const _tchar* pLayerTag);
 	bool  Collision(_uint iLevelIndex, const _tchar* col1, const _tchar* col2, _float fTimeDelta, _float3 f1Scale, _float3 f2Scale);
-	int   Collision_Rect_Cube(_uint iLevelIndex, class CTransform* pTransform, _float3 fPos, _float fTimeDelta, _float3 fScale);
+	int   Collision_Rect_Cube(_uint iLevelIndex, CTransform* p1Trans, _float3 vPos1, _float3 vPos2, _float fTimeDelta, _float3 fScale);
 	bool  Collision_Attacked(_uint iLevelIndex, const _tchar* col1, const _tchar* col2, _float fTimeDelta, int ioption, _float3 f1Scale, _float3 f2Scale);
 	bool  Check_Layer(_uint iLevelIndex, const _tchar* pLayerTag);
 	class CLayer* Find_Layer(_uint iLevelIndex, const _tchar* pLayerTag);
