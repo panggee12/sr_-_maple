@@ -40,7 +40,7 @@ HRESULT CInventoryUI::Initialize(void* pArg)
 	ZeroMemory(&m_fDifDis, sizeof(_float2));
 	ZeroMemory(&m_vecInven, sizeof(m_vecInven.size()));
 	ZeroMemory(&m_Inven, sizeof(INVEN));
-	//m_pTransformCom->Set_State(CTransform::STATE_POSITION, _float3(m_fX - g_iWinSizeX * 0.5f, -m_fY + g_iWinSizeY * 0.5f, 0.f));
+	m_pTransformCom->Set_State(CTransform::STATE_POSITION, _float3(m_fX - g_iWinSizeX * 0.5f, -m_fY + g_iWinSizeY * 0.5f, 0.f));
 
 
 	return S_OK;
@@ -98,10 +98,10 @@ void CInventoryUI::Late_Tick(_float fTimeDelta)
 
 	Safe_AddRef(pGameInstance);
 
-	_float fLeft = m_fX - m_fDifDis.x - m_fSizeX * 0.5f;
-	_float fTop = m_fY - m_fDifDis.y - m_fSizeY * 0.5f;
-	_float fRight = m_fX + m_fDifDis.x + m_fSizeX * 0.5f;
-	_float fBottom = m_fY + m_fDifDis.y + m_fSizeY * 0.5f;
+	_float fLeft = m_fX - m_fSizeX * 0.5f;
+	_float fTop = m_fY - m_fSizeY * 0.5f;
+	_float fRight = m_fX + m_fSizeX * 0.5f;
+	_float fBottom = m_fY + m_fSizeY * 0.5f;
 
 	if (GetKeyState('I') & 0x0001)
 	{
@@ -117,15 +117,15 @@ void CInventoryUI::Late_Tick(_float fTimeDelta)
 					RECT rcRect;
 
 					SetRect(&m_Inven.rcRect,
-						fLeft + 48.f + j * 37.5f,
-						fTop + 130.f + i * 36.f,
-						fLeft + 48.f + j * 37.5f + 37.5f,
-						fTop + 130.f + i * 36.f + 36.f);
+						fLeft + 85.f + j * 68.f,
+						fTop + 164.f + i * 67.f,
+						fLeft + 85.f + j * 68.f + 68.f,
+						fTop + 164.f + i * 67.f + 67.f);
 
 					m_Inven.RectX = m_Inven.rcRect.left + (m_Inven.rcRect.right - m_Inven.rcRect.left) * 0.5f;
 					m_Inven.RectY = m_Inven.rcRect.top + (m_Inven.rcRect.bottom - m_Inven.rcRect.top) * 0.5f;
-					m_vecInven.push_back(m_Inven);
 					
+					m_vecInven.push_back(m_Inven);
 				}
 			}
 		}

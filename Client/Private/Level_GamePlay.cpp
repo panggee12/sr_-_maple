@@ -32,8 +32,6 @@ HRESULT CLevel_GamePlay::Initialize()
 		return E_FAIL;
 	//}
 	
-	if (FAILED(Ready_Layer_InvenUI(TEXT("Layer_InvenUI"))))
-		return E_FAIL;
 	if (FAILED(Ready_Layer_IconUI(TEXT("Layer_IconUI"))))
 		return E_FAIL;
 	if (FAILED(Ready_Layer_PlayerInfoUI(TEXT("Layer_PlayerInfoUI"))))
@@ -47,6 +45,8 @@ HRESULT CLevel_GamePlay::Initialize()
 	if (FAILED(Ready_Layer_HpBarUI(TEXT("Layer_HpBarUI"))))
 		return E_FAIL;
 	if (FAILED(Ready_Layer_ExpBarUI(TEXT("Layer_ExpBarUI"))))
+		return E_FAIL;
+	if (FAILED(Ready_Layer_InvenUI(TEXT("Layer_InvenUI"))))
 		return E_FAIL;
 
 	return S_OK;
