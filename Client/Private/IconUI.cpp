@@ -64,7 +64,10 @@ void CIconUI::Tick(_float fTimeDelta)
 	
 	auto pInven = pGameInstance->Find_Target(LEVEL_GAMEPLAY, TEXT("Layer_InvenUI"));
 
-	if (pGameInstance->Key_Pressing(VK_LBUTTON))
+	if (PtInRect(&m_rcRect, ptMouse))
+		m_bRectInCheck = true;
+	
+	if (pGameInstance->Key_Pressing(VK_LBUTTON) && m_bRectInCheck)
 	{
 		m_pTransformCom->Set_State(CTransform::STATE_POSITION, _float3(fMX - g_iWinSizeX * 0.5f, -fMY + g_iWinSizeY * 0.5f, 0.f));	
 	}
@@ -78,6 +81,7 @@ void CIconUI::Tick(_float fTimeDelta)
 				m_pTransformCom->Set_State(CTransform::STATE_POSITION, _float3(pInven.RectX - g_iWinSizeX * 0.5f, -pInven.RectY + g_iWinSizeY * 0.5f, 0.f));
 			}
 		}
+		m_bRectInCheck = false;
 	}
 
 	Safe_Release(pGameInstance);	
