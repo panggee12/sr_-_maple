@@ -40,6 +40,7 @@ private:
 	_float2					m_fDifDis;
 	RECT					m_rcRect;
 	int						m_iCheck=0;//µð¹ö±ë¿ë
+
 private:
 	HRESULT SetUp_Components();
 	HRESULT SetUp_RenderState();
