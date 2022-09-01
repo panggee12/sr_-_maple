@@ -1,3 +1,75 @@
-﻿  Player_Attack.cpp
+﻿  Client.cpp
+  Skill.cpp
+  Loader.cpp
+  Litening_Effect.cpp
+c:\users\dev.bae\desktop\teampo6\sr_-_maple\client\private\litening_effect.cpp(92): warning C4244: '인수': 'Engine::_float'에서 'Engine::_uint'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Level_Logo.cpp
+  Effect.cpp
+c:\users\dev.bae\desktop\teampo6\sr_-_maple\client\private\effect.cpp(87): warning C4244: '인수': 'Engine::_float'에서 'Engine::_uint'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Body_Effect.cpp
+c:\users\dev.bae\desktop\teampo6\sr_-_maple\client\private\body_effect.cpp(92): warning C4244: '인수': 'Engine::_float'에서 'Engine::_uint'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  BackGround.cpp
+  YetiSkill.cpp
+  YetiMonster.cpp
+c:\users\dev.bae\desktop\teampo6\sr_-_maple\client\private\yetimonster.cpp(237): warning C4244: '=': 'int'에서 'Engine::_float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  TestBox.cpp
+  Terrain.cpp
+  Sky.cpp
+  SkillbookUI.cpp
+c:\users\dev.bae\desktop\teampo6\sr_-_maple\client\private\skillbookui.cpp(29): warning C4244: '인수': 'const unsigned int'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\dev.bae\desktop\teampo6\sr_-_maple\client\private\skillbookui.cpp(65): warning C4244: '인수': 'Engine::_float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\dev.bae\desktop\teampo6\sr_-_maple\client\private\skillbookui.cpp(75): warning C4244: '인수': 'LONG'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  SkillInfoUI.cpp
+c:\users\dev.bae\desktop\teampo6\sr_-_maple\client\private\skillinfoui.cpp(33): warning C4244: '인수': 'const unsigned int'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Player_Skill.cpp
+  Player_Attack.cpp
+  PlayerInfoUI.cpp
+c:\users\dev.bae\desktop\teampo6\sr_-_maple\client\private\playerinfoui.cpp(29): warning C4244: '인수': 'const unsigned int'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\dev.bae\desktop\teampo6\sr_-_maple\client\private\playerinfoui.cpp(51): warning C4244: '인수': 'Engine::_float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\dev.bae\desktop\teampo6\sr_-_maple\client\private\playerinfoui.cpp(64): warning C4244: '인수': 'LONG'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\dev.bae\desktop\teampo6\sr_-_maple\client\private\playerinfoui.cpp(57): warning C4101: 'fMy' :참조되지 않은 지역 변수입니다.
+c:\users\dev.bae\desktop\teampo6\sr_-_maple\client\private\playerinfoui.cpp(57): warning C4101: 'fMx' :참조되지 않은 지역 변수입니다.
+  Player.cpp
+c:\users\dev.bae\desktop\teampo6\sr_-_maple\client\private\player.cpp(144): warning C4390: ';': 제어된 빈 문이 있습니다. 이 문이 필요합니까?
+c:\users\dev.bae\desktop\teampo6\sr_-_maple\client\private\player.cpp(162): warning C4390: ';': 제어된 빈 문이 있습니다. 이 문이 필요합니까?
+c:\users\dev.bae\desktop\teampo6\sr_-_maple\client\private\player.cpp(166): warning C4390: ';': 제어된 빈 문이 있습니다. 이 문이 필요합니까?
+c:\users\dev.bae\desktop\teampo6\sr_-_maple\client\private\player.cpp(207): warning C4244: '인수': 'Engine::_float'에서 'Engine::_uint'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Monster.cpp
+  코드를 생성하고 있습니다...
+c:\users\dev.bae\desktop\teampo6\sr_-_maple\client\private\monster.cpp(51): warning C4715: 'Client::CMonster::Render': 모든 제어 경로에서 값을 반환하지는 않습니다.
+c:\users\dev.bae\desktop\teampo6\sr_-_maple\client\private\skill.cpp(48): warning C4715: 'Client::CSkill::Render': 모든 제어 경로에서 값을 반환하지는 않습니다.
+  컴파일하고 있습니다...
+  MainApp.cpp
+  LupangSkill.cpp
+  LupangMonster.cpp
+c:\users\dev.bae\desktop\teampo6\sr_-_maple\client\private\lupangmonster.cpp(237): warning C4244: '=': 'int'에서 'Engine::_float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  LogoUI.cpp
+c:\users\dev.bae\desktop\teampo6\sr_-_maple\client\private\logoui.cpp(29): warning C4244: '인수': 'const unsigned int'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Level_Loading.cpp
+  Level_GamePlay.cpp
+  ItemInfoUI.cpp
+c:\users\dev.bae\desktop\teampo6\sr_-_maple\client\private\iteminfoui.cpp(33): warning C4244: '인수': 'const unsigned int'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  InventoryUI.cpp
+c:\users\dev.bae\desktop\teampo6\sr_-_maple\client\private\inventoryui.cpp(29): warning C4244: '인수': 'const unsigned int'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\dev.bae\desktop\teampo6\sr_-_maple\client\private\inventoryui.cpp(57): warning C4244: '인수': 'Engine::_float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\dev.bae\desktop\teampo6\sr_-_maple\client\private\inventoryui.cpp(95): warning C4244: '=': 'LONG'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\dev.bae\desktop\teampo6\sr_-_maple\client\private\inventoryui.cpp(96): warning C4244: '=': 'LONG'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\dev.bae\desktop\teampo6\sr_-_maple\client\private\inventoryui.cpp(108): warning C4244: '인수': 'Engine::_float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\dev.bae\desktop\teampo6\sr_-_maple\client\private\inventoryui.cpp(63): warning C4101: 'fMy' :참조되지 않은 지역 변수입니다.
+c:\users\dev.bae\desktop\teampo6\sr_-_maple\client\private\inventoryui.cpp(63): warning C4101: 'fMx' :참조되지 않은 지역 변수입니다.
+  InventoryButtonUI.cpp
+c:\users\dev.bae\desktop\teampo6\sr_-_maple\client\private\inventorybuttonui.cpp(29): warning C4244: '인수': 'const unsigned int'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  HpBarUI.cpp
+c:\users\dev.bae\desktop\teampo6\sr_-_maple\client\private\hpbarui.cpp(29): warning C4244: '인수': 'const unsigned int'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  ExpBarUI.cpp
+c:\users\dev.bae\desktop\teampo6\sr_-_maple\client\private\expbarui.cpp(29): warning C4244: '인수': 'const unsigned int'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  CubeTerrain.cpp
+  Camera_Dynamic.cpp
+  BellaMonster.cpp
+c:\users\dev.bae\desktop\teampo6\sr_-_maple\client\private\bellamonster.cpp(138): warning C4244: '=': 'int'에서 'Engine::_float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  코드를 생성하고 있습니다...
+c:\users\dev.bae\desktop\teampo6\sr_-_maple\client\private\level_gameplay.cpp(157): warning C4715: 'Client::CLevel_GamePlay::Ready_Layer_TestBox': 모든 제어 경로에서 값을 반환하지는 않습니다.
+c:\users\dev.bae\desktop\teampo6\sr_-_maple\client\private\level_gameplay.cpp(273): warning C4715: 'Client::CLevel_GamePlay::Ready_Layer_UI': 모든 제어 경로에서 값을 반환하지는 않습니다.
+  LINK : ..\Bin\Client.exe을(를) 찾을 수 없거나 마지막 증분 링크에 의해 빌드되지 않았습니다. 전체 링크를 수행하고 있습니다.
   Client.vcxproj -> C:\Users\Dev.Bae\Desktop\TeamPo6\sr_-_maple\Client\Default\..\Bin\Client.exe
   Client.vcxproj -> ..\Bin\Client.pdb (Full PDB)
