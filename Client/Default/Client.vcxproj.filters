@@ -231,6 +231,9 @@
     <ClInclude Include="..\Public\YetiSkill.h">
       <Filter>02.GameObject\Monster\YetiMonster\YetiSkill</Filter>
     </ClInclude>
+    <ClInclude Include="..\public\Skill.h">
+      <Filter>02.GameObject\Player\Skill</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Private\MainApp.cpp">
@@ -320,6 +323,9 @@
     <ClCompile Include="..\private\Litening_Effect.cpp">
       <Filter>03.Effect\Skill_Efect</Filter>
     </ClCompile>
+    <ClCompile Include="..\Private\Level_GamePlay.cpp">
+      <Filter>01.Levels\GamePlay</Filter>
+    </ClCompile>
     <ClCompile Include="..\Private\BellaMonster.cpp">
       <Filter>02.GameObject\Monster\BellaMonster</Filter>
     </ClCompile>
@@ -329,8 +335,8 @@
     <ClCompile Include="..\Private\YetiSkill.cpp">
       <Filter>02.GameObject\Monster\YetiMonster\YetiSkill</Filter>
     </ClCompile>
-    <ClCompile Include="..\Private\Level_GamePlay.cpp">
-      <Filter>01.Levels\GamePlay</Filter>
+    <ClCompile Include="..\private\Skill.cpp">
+      <Filter>02.GameObject\Player\Skill</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
