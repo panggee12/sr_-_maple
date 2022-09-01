@@ -40,7 +40,11 @@ private:
 	_float2					m_fDifDis;
 	RECT					m_rcRect;
 	int						m_iCheck = 0;//µð¹ö±ë¿ë
+<<<<<<< .merge_file_pq1w7W
 
+=======
+	_bool					m_bFirst = false;
+>>>>>>> .merge_file_O91RLN
 
 private:
 	HRESULT SetUp_Components();

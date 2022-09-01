@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include "Graphic_Device.h"
 #include "Input_Device.h"
@@ -56,7 +56,11 @@ public: /* For.Object_Manager */
 public: /* For.Component_Manager */
 	HRESULT Add_Prototype(_uint iLevelIndex, const _tchar* pPrototypeTag, class CComponent* pPrototype);
 	class CComponent* Clone_Component(_uint iLevelIndex, const _tchar* pPrototypeTag, void* pArg = nullptr);
+<<<<<<< HEAD
+public: //Å°¸Å´ÏÀú
+=======
 public: //Ű�Ŵ���
+>>>>>>> aa192b3238a5dae7f5a2cf8c530fc184cccd860b
 	bool		Key_Pressing(int _Key);
 	bool		Key_Up(int _Key);
 	bool		Key_Down(int _Key);

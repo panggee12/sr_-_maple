@@ -15,8 +15,16 @@ BEGIN(Client)
 
 class CPlayer final : public CGameObject
 {
+<<<<<<< .merge_file_scie4p
 	enum PLAYER_STATE {PLAYER_IDLE,UP_STATE,DOWN_STATE,LEFT_STATE,RIGHT_STATE,RT_STATE, LT_STATE, LD_STATE, RD_STATE, PLAYER_ATTACK,PLAYER_SKILL,PLAYER_END};
 	enum PLAYER_ATTACK_ {UP_ATTACK,DOWN_ATTACK,LEFT_ATTACK,RIGHT_ATTACK,ATTACK_END};
+=======
+	//enum PLAYER_STATE {PLAYER_IDLE,UP_STATE,DOWN_STATE,LEFT_STATE,RIGHT_STATE,RT_STATE, LT_STATE, LD_STATE, RD_STATE, PLAYER_ATTACK,PLAYER_SKILL,PLAYER_END};
+	enum PLAYER_STATE { PLAYER_IDLE, PLAYER_MOVE_STATE, PLAYER_ATTACK, PLAYER_SKILL, PLAYER_END };
+	enum PLAYER_DIR { UP, DOWN, LEFT, RIGHT, RU, LU, RD, LD, STOP, END_ };
+
+	//enum PLAYER_ATTACK_ {UP_ATTACK,DOWN_ATTACK,LEFT_ATTACK,RIGHT_ATTACK,ATTACK_END};
+>>>>>>> .merge_file_AP7xSj
 
 private:
 	CPlayer(LPDIRECT3DDEVICE9 pGraphic_Device);
@@ -46,7 +54,20 @@ private:
 	void Player_Attack(PLAYER_STATE _PlayerState,PLAYER_ATTACK_ _PlayerAttack, float fTimeDelta);
 	HRESULT Ready_Layer_Player_Skill(const _tchar * pLayerTag, _float fTimeDelta);
 	HRESULT Ready_Layer_Player_Attack(const _tchar * pLayerTag, _float fTimeDelta);
+<<<<<<< HEAD
 
+<<<<<<< .merge_file_scie4p
+=======
+public:
+	_bool Key_Up(int _Key);
+	_bool Key_Down(int _Key);
+	_bool Key_Pressing(int _Key);
+public:
+	HRESULT Fire_Body_On(const _tchar* pEffet_LayerTag, _float fTimeDelta);
+=======
+>>>>>>> aa192b3238a5dae7f5a2cf8c530fc184cccd860b
+
+>>>>>>> .merge_file_AP7xSj
 
 public:
 	static CPlayer* Create(LPDIRECT3DDEVICE9 pGraphic_Device);
@@ -73,6 +94,8 @@ private:
 	_bool	m_bPlayer_Attack = false;
 	_bool   m_bSkill = false;
 	_bool	m_KeyInput = false;
+
+
 
 
 };
