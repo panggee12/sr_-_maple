@@ -28,7 +28,7 @@ HRESULT CLevel_GamePlay::Initialize()
 	if (FAILED(Ready_Layer_Player(TEXT("Layer_Player"))))
 		return E_FAIL;
 
-	for (int i = 0; i < 3; ++i)
+	for (int i = 0; i < 10; ++i)
 	{
 		if (FAILED(Ready_Layer_Monster(TEXT("Layer_Monster"))))
 			return E_FAIL;
@@ -121,9 +121,9 @@ void CLevel_GamePlay::Tick(_float fTimeDelta)
 		}
 	}	
 
-	auto Monster = pGameInstance->Find_Layer(LEVEL_GAMEPLAY, TEXT("Layer_Monster"));      //플레이어 찾아오기
+	auto Monster1 = pGameInstance->Find_Layer(LEVEL_GAMEPLAY, TEXT("Layer_MonkeyMonster"));      //플레이어 찾아오기
 
-	for (auto& mObj : Monster->Get_ObjectList())
+	for (auto& mObj : Monster1->Get_ObjectList())
 	{
 		_float3 vMonsterPos = mObj->Get_Transform()->Get_State(CTransform::STATE_POSITION); //플레이어 위치
 
@@ -138,24 +138,64 @@ void CLevel_GamePlay::Tick(_float fTimeDelta)
 			{
 				for (int k = -1; k < 2; ++k) //y
 				{
-					/*if (_uint(vPlayerPos.x + i)<0)
-					{
-					if (_uint(vPlayerPos.y) + k < 0)
-					{
-					if (_uint(vPlayerPos.z + j)<0)
-					{
-					continue;
-					}
-					continue;
-					}
-					continue;
-					}*/
-
-
 					if (m_fLayerPos[_uint(vMpos.x + i)][_uint(vMpos.y) + k][_uint(vMpos.z + j)] == 1)
 					{
-						pGameInstance->Collision_Rect_Cube(LEVEL_GAMEPLAY, Player->Get_Transform(), vMonsterPos,
-							_float3(vMpos.x + i, vMpos.y + k, vMpos.z + j), fTimeDelta, _float3(0.2f, 0.3f, 0.2f));
+						pGameInstance->Collision_Rect_Cube(LEVEL_GAMEPLAY, mObj->Get_Transform(), vMonsterPos,
+							_float3(vMpos.x + i, vMpos.y + k, vMpos.z + j), fTimeDelta, _float3(0.5f, 0.5f, 0.5f));
+					}
+				}
+			}
+		}
+	}
+
+	auto Monster2 = pGameInstance->Find_Layer(LEVEL_GAMEPLAY, TEXT("Layer_BellaMonster"));      //플레이어 찾아오기
+
+	for (auto& mObj : Monster2->Get_ObjectList())
+	{
+		_float3 vMonsterPos = mObj->Get_Transform()->Get_State(CTransform::STATE_POSITION); //플레이어 위치
+
+		_float3 vMpos;
+		vMpos.x = round(vMonsterPos.x);
+		vMpos.y = round(vMonsterPos.y);
+		vMpos.z = round(vMonsterPos.z);
+
+		for (int i = -1; i < 2; ++i) //x
+		{
+			for (int j = -1; j < 2; ++j) //z
+			{
+				for (int k = -1; k < 2; ++k) //y
+				{
+					if (m_fLayerPos[_uint(vMpos.x + i)][_uint(vMpos.y) + k][_uint(vMpos.z + j)] == 1)
+					{
+						pGameInstance->Collision_Rect_Cube(LEVEL_GAMEPLAY, mObj->Get_Transform(), vMonsterPos,
+							_float3(vMpos.x + i, vMpos.y + k, vMpos.z + j), fTimeDelta, _float3(0.5f, 0.5f, 0.5f));
+					}
+				}
+			}
+		}
+	}
+
+	auto Monster3 = pGameInstance->Find_Layer(LEVEL_GAMEPLAY, TEXT("Layer_YetiMonster"));      //플레이어 찾아오기
+
+	for (auto& mObj : Monster3->Get_ObjectList())
+	{
+		_float3 vMonsterPos = mObj->Get_Transform()->Get_State(CTransform::STATE_POSITION); //플레이어 위치
+
+		_float3 vMpos;
+		vMpos.x = round(vMonsterPos.x);
+		vMpos.y = round(vMonsterPos.y);
+		vMpos.z = round(vMonsterPos.z);
+
+		for (int i = -1; i < 2; ++i) //x
+		{
+			for (int j = -1; j < 2; ++j) //z
+			{
+				for (int k = -1; k < 2; ++k) //y
+				{
+					if (m_fLayerPos[_uint(vMpos.x + i)][_uint(vMpos.y) + k][_uint(vMpos.z + j)] == 1)
+					{
+						pGameInstance->Collision_Rect_Cube(LEVEL_GAMEPLAY, mObj->Get_Transform(), vMonsterPos,
+							_float3(vMpos.x + i, vMpos.y + k, vMpos.z + j), fTimeDelta, _float3(0.5f, 0.5f, 0.5f));
 					}
 				}
 			}
@@ -212,15 +252,15 @@ HRESULT CLevel_GamePlay::Ready_Layer_Monster(const _tchar * pLayerTag)
 	Safe_AddRef(pGameInstance);
 
 	/* 원숭이 몬스터 */
-	if (FAILED(pGameInstance->Add_GameObject(TEXT("Prototype_GameObject_MonkeyMonster"), LEVEL_GAMEPLAY, pLayerTag, nullptr)))
+	if (FAILED(pGameInstance->Add_GameObject(TEXT("Prototype_GameObject_MonkeyMonster"), LEVEL_GAMEPLAY, TEXT("Layer_MonkeyMonster"), nullptr)))
 		return E_FAIL;
 
 	/* 뱀 몬스터 */
-	if (FAILED(pGameInstance->Add_GameObject(TEXT("Prototype_GameObject_BellaMonster"), LEVEL_GAMEPLAY, pLayerTag, nullptr)))
+	if (FAILED(pGameInstance->Add_GameObject(TEXT("Prototype_GameObject_BellaMonster"), LEVEL_GAMEPLAY, TEXT("Layer_BellaMonster"), nullptr)))
 		return E_FAIL;
 
 	/* 설인 몬스터 */
-	if (FAILED(pGameInstance->Add_GameObject(TEXT("Prototype_GameObject_YetiMonster"), LEVEL_GAMEPLAY, pLayerTag, nullptr)))
+	if (FAILED(pGameInstance->Add_GameObject(TEXT("Prototype_GameObject_YetiMonster"), LEVEL_GAMEPLAY, TEXT("Layer_YetiMonster"), nullptr)))
 		return E_FAIL;
 
 	auto pPlayer = pGameInstance->Find_Target(LEVEL_GAMEPLAY, TEXT("Layer_Player"));

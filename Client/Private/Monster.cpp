@@ -1,7 +1,6 @@
 #include "stdafx.h"
 #include "..\Public\Monster.h"
 
-
 CMonster::CMonster(LPDIRECT3DDEVICE9 pGraphic_Device)
 	: CGameObject(pGraphic_Device)
 {
@@ -35,18 +34,35 @@ void CMonster::Tick(_float fTimeDelta)
 {
 	__super::Tick(fTimeDelta);
 
+	if (m_pTransformCom->Get_Fall())
+	{
+		m_fFallSpeed += 0.04f;
+		if (m_fFallSpeed >= m_fMaxFallSpeed)
+			m_fFallSpeed = m_fMaxFallSpeed;
+	}
+	else
+		m_fFallSpeed = 0.f;
+
+	m_pTransformCom->Jump(fTimeDelta, 0, m_fFallSpeed);
+
+	m_pTransformCom->Set_Fall(true);
 }
 
 void CMonster::Late_Tick(_float fTimeDelta)
 {
 	__super::Late_Tick(fTimeDelta);
-	
+
 }
 
 HRESULT CMonster::Render()
 {
 	if (FAILED(__super::Render()))
 		return E_FAIL;
+
+}
+
+void CMonster::CreateItem()
+{
 
 }
 
@@ -66,7 +82,7 @@ HRESULT CMonster::SetUp_RenderState()
 		return E_FAIL;
 
 	m_pGraphic_Device->SetRenderState(D3DRS_ALPHATESTENABLE, TRUE);
-	m_pGraphic_Device->SetRenderState(D3DRS_ALPHAREF, 100);
+	m_pGraphic_Device->SetRenderState(D3DRS_ALPHAREF, 120);
 	m_pGraphic_Device->SetRenderState(D3DRS_ALPHAFUNC, D3DCMP_GREATEREQUAL);
 	m_pGraphic_Device->SetRenderState(D3DRS_CULLMODE, D3DCULL_NONE);
 	return S_OK;
@@ -79,12 +95,10 @@ HRESULT CMonster::Release_RenderState()
 	return S_OK;
 }
 
-
 void CMonster::Free()
 {
 	__super::Free();
 
-	Safe_Release(m_pTransformCom);
 	Safe_Release(m_pVIBufferCom);
 	Safe_Release(m_pRendererCom);
 	Safe_Release(m_pTextureCom);
