@@ -102,13 +102,13 @@ HRESULT CYetiMonster::SetUp_Components()
 	CTransform::TRANSFORMDESC      TransformDesc;
 	ZeroMemory(&TransformDesc, sizeof(CTransform::TRANSFORMDESC));
 
-	TransformDesc.fSpeedPerSec = 1.f;
+	TransformDesc.fSpeedPerSec = 3.f;
 	TransformDesc.fRotationPerSec = D3DXToRadian(90.0f);
 
 	if (FAILED(__super::Add_Components(TEXT("Com_Transform"), LEVEL_STATIC, TEXT("Prototype_Component_Transform"), (CComponent**)&m_pTransformCom, &TransformDesc)))
 		return E_FAIL;
 
-	m_pTransformCom->Set_State(CTransform::STATE_POSITION, _float3(13.0f, 5.f, 13.0f));
+	m_pTransformCom->Set_State(CTransform::STATE_POSITION, _float3(-15.0f, 5.f, 1.0f));
 
 	m_pTransformCom->Set_Scaled(_float3(-7.f, 7.f, 7.f));
 
@@ -162,8 +162,6 @@ void CYetiMonster::MonsterMove()
 		_float3 vMyPosition = m_pTransformCom->Get_State(CTransform::STATE_POSITION);
 		_float3 vPlayerPosition = pPlayer->Get_Transform()->Get_State(CTransform::STATE_POSITION);
 
-		_float fOriginYPos = vMyPosition.y;
-
 		_float3 vLook = vPlayerPosition - vMyPosition;
 		_float vLength = D3DXVec3Length(&vLook);
 
@@ -186,7 +184,7 @@ void CYetiMonster::MonsterMove()
 				}
 			}
 
-			m_pTextureCom->m_FrameTexture.FrameSpeed = 0.1f;
+			m_pTextureCom->m_FrameTexture.FrameSpeed = 0.05f;
 			m_pTextureCom->m_FrameTexture.FirstFrame = 10;
 			m_pTextureCom->m_FrameTexture.OriginFrame = 10;
 			m_pTextureCom->m_FrameTexture.EndFrame = 19;
@@ -217,9 +215,9 @@ void CYetiMonster::MonsterMove()
 
 			D3DXVec3Normalize(&vLook, &vLook);
 
-			vMyPosition = vMyPosition + vLook * 0.05f;
+			vMyPosition = vMyPosition + vLook * 0.1f;
 
-			m_pTransformCom->Set_State(CTransform::STATE_POSITION, _float3(vMyPosition.x, fOriginYPos, vMyPosition.z));
+			m_pTransformCom->Set_State(CTransform::STATE_POSITION, vMyPosition);
 		}
 		else
 		{
@@ -273,22 +271,19 @@ void CYetiMonster::HitCheck(_float fTimeDelta)
 		{
 			m_pTextureCom->m_FrameTexture.OriginFrame = 19;
 			m_pTextureCom->m_FrameTexture.EndFrame = 25;
-			m_pTextureCom->m_FrameTexture.FrameSpeed = 0.1f;
+			m_pTextureCom->m_FrameTexture.FrameSpeed = 0.05f;
 
 			if (m_pTextureCom->m_FrameTexture.FirstFrame >= 25.f)
-			{
-				CreateItem();
 				m_bDead = true;
-			}
 		}
 		else
 		{
-			if (m_eState != STATE_HIT)
+			if(m_eState != STATE_HIT)
 				m_pTextureCom->m_FrameTexture.FirstFrame = 7;
 
 			m_pTextureCom->m_FrameTexture.OriginFrame = 7;
 			m_pTextureCom->m_FrameTexture.EndFrame = 9;
-			m_pTextureCom->m_FrameTexture.FrameSpeed = 0.05f;
+			m_pTextureCom->m_FrameTexture.FrameSpeed = 0.02f;
 			m_eState = STATE_HIT;
 
 			if (m_pTextureCom->m_FrameTexture.FirstFrame >= m_pTextureCom->m_FrameTexture.EndFrame)
@@ -341,31 +336,6 @@ void CYetiMonster::HitCheck(_float fTimeDelta)
 	}
 }
 
-void CYetiMonster::CreateItem()
-{
-	int iRand = rand() % 3 + 1;
-<<<<<<< HEAD
-	
-=======
-
->>>>>>> bf356d80309bcd323a4df46af9d27d0e7845c1fb
-	if (iRand == 1)
-	{
-		CGameInstance* m_pGameInstance = CGameInstance::Get_Instance();
-		Safe_AddRef(m_pGameInstance);
-
-		_float3 vScale = m_pTransformCom->Get_Scale();
-		_float3 vPosition = m_pTransformCom->Get_State(CTransform::STATE_POSITION);
-
-		vPosition.y -= vScale.y * 0.5f;
-
-		if (FAILED(m_pGameInstance->Add_GameObject(TEXT("Prototype_GameObject_ConsumItem"), LEVEL_GAMEPLAY, TEXT("ConsumItem"), &vPosition)))
-			return;
-
-		Safe_Release(m_pGameInstance);
-	}
-}
-
 CYetiMonster * CYetiMonster::Create(LPDIRECT3DDEVICE9 pGraphic_Device)
 {
 	CYetiMonster*	pInstance = new CYetiMonster(pGraphic_Device);
@@ -395,5 +365,8 @@ CGameObject * CYetiMonster::Clone(void * pArg)
 void CYetiMonster::Free()
 {
 	__super::Free();
-
+	Safe_Release(m_pTransformCom);
+	Safe_Release(m_pVIBufferCom);
+	Safe_Release(m_pRendererCom);
+	Safe_Release(m_pTextureCom);
 }

@@ -1,15 +1,8 @@
 #include "stdafx.h"
 #include "..\Public\Player_Attack.h"
 #include "GameInstance.h"
-<<<<<<< HEAD
-<<<<<<< HEAD
-#include "Player.h"
-=======
->>>>>>> e8a7accc92a0666938010f64fe805e1f1445c9cf
-=======
 #include "Player.h"
 #include "Monster.h"
->>>>>>> bf356d80309bcd323a4df46af9d27d0e7845c1fb
 
 CPlayer_Attack::CPlayer_Attack(LPDIRECT3DDEVICE9 pGraphic_Device)
 	: CGameObject(pGraphic_Device)
@@ -19,16 +12,8 @@ CPlayer_Attack::CPlayer_Attack(LPDIRECT3DDEVICE9 pGraphic_Device)
 CPlayer_Attack::CPlayer_Attack(const CPlayer_Attack & rhs)
 	: CGameObject(rhs)
 {
-<<<<<<< HEAD
-<<<<<<< HEAD
-} 
-=======
-}
->>>>>>> e8a7accc92a0666938010f64fe805e1f1445c9cf
-=======
 } 
 
->>>>>>> bf356d80309bcd323a4df46af9d27d0e7845c1fb
 
 HRESULT CPlayer_Attack::Initialize_Prototype()
 {
@@ -43,12 +28,6 @@ HRESULT CPlayer_Attack::Initialize(void* pArg)
 	if (FAILED(__super::Initialize(pArg)))
 		return E_FAIL;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-	//memcpy(&m_vSkillPosition, pArg, sizeof(_float3));
-
-	//D3DXMatrixOrthoLH(&m_ProjMatrix, g_iWinSizeX, g_iWinSizeY, 0.f, 1.f);
-=======
 
 	//memcpy(&m_vSkillPosition, pArg, sizeof(_float3));
 
@@ -56,18 +35,11 @@ HRESULT CPlayer_Attack::Initialize(void* pArg)
 
 
 
->>>>>>> bf356d80309bcd323a4df46af9d27d0e7845c1fb
 	
 	m_fSizeX = 1.1f;
 	m_fSizeY = 1.1f;
 	m_fX = 1.f;
 	m_fY = -4.f;
-<<<<<<< HEAD
-=======
-	memcpy(&m_vPosition, pArg, sizeof(_float3));
->>>>>>> e8a7accc92a0666938010f64fe805e1f1445c9cf
-=======
->>>>>>> bf356d80309bcd323a4df46af9d27d0e7845c1fb
 
 	if (FAILED(SetUp_Components()))
 		return E_FAIL;
@@ -86,13 +58,9 @@ void CPlayer_Attack::Tick(_float fTimeDelta)
 	CGameInstance*			pGameInstance = CGameInstance::Get_Instance();
 	Safe_AddRef(pGameInstance);
 
-	if (!pGameInstance->Check_Layer(LEVEL_GAMEPLAY, TEXT("Layer_MonkeyMonster")))
+	if (!pGameInstance->Check_Layer(LEVEL_GAMEPLAY, TEXT("Layer_Monster")))
 	{
 		m_bDead = true;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> bf356d80309bcd323a4df46af9d27d0e7845c1fb
 		Safe_Release(pGameInstance);
 		return;
 	}
@@ -105,16 +73,18 @@ void CPlayer_Attack::Tick(_float fTimeDelta)
 	if (m_fAttack_Frame <= 0 || m_fAttack_Frame >= 8)
 	{
 		m_fAttack_Frame = 0;
-<<<<<<< HEAD
+
 	}
 
 	if (m_SkillTime > 0.3f)
 	{
 		auto Player_Pos = pGameInstance->Find_Target(LEVEL_GAMEPLAY, TEXT("Layer_Monster"));
 
+
 		_float3 TargetPos = Player_Pos->Get_Transform()->Get_State(CTransform::STATE_POSITION);
 
 		_float3 MyPos = m_pTransformCom->Get_State(CTransform::STATE_POSITION);
+
 
 		_float3 Target = TargetPos - MyPos;
 
@@ -124,51 +94,6 @@ void CPlayer_Attack::Tick(_float fTimeDelta)
 		m_pTransformCom->Set_State(CTransform::STATE_POSITION, MyPos);
 
 		if (pGameInstance->Collision_Attacked(LEVEL_GAMEPLAY, TEXT("Layer_Playe_Attack"), TEXT("Layer_Monster"), fTimeDelta, 1 ,_float3(0.15f, 0.3f, 0.15f), _float3(0.3f, 0.3f, 0.3f)))
-		{
-			Fire_Efect_On(TEXT("Layer_Attack"), fTimeDelta);
-			m_bDead = true;
-			Safe_Release(pGameInstance);
-			return;
-		}
-		
-	}
-
- if (m_SkillTime >= 2.5f)
-	{
-		m_SkillTime = 0.f;
-
-	}
-
-	m_pTransformCom->Set_Scaled(_float3(m_fSizeX, m_fSizeY, 1.f));
-=======
-
-	}
-
->>>>>>> e8a7accc92a0666938010f64fe805e1f1445c9cf
-	Safe_Release(pGameInstance);
-=======
-
-	}
-
-	if (m_SkillTime > 0.3f)
-	{
-		auto Player_Pos = pGameInstance->Find_Target(LEVEL_GAMEPLAY, TEXT("Layer_MonkeyMonster"));
->>>>>>> bf356d80309bcd323a4df46af9d27d0e7845c1fb
-
-
-		_float3 TargetPos = Player_Pos->Get_Transform()->Get_State(CTransform::STATE_POSITION);
-
-		_float3 MyPos = m_pTransformCom->Get_State(CTransform::STATE_POSITION);
-
-
-		_float3 Target = TargetPos - MyPos;
-
-		MyPos += *D3DXVec3Normalize(&Target, &Target) * fTimeDelta*10.5;
-
-		m_pTransformCom->Set_Scaled(_float3(m_fSizeX, m_fSizeY, 1.f));
-		m_pTransformCom->Set_State(CTransform::STATE_POSITION, MyPos);
-
-		if (pGameInstance->Collision_Attacked(LEVEL_GAMEPLAY, TEXT("Layer_Playe_Attack"), TEXT("Layer_MonkeyMonster"), fTimeDelta, 1 ,_float3(0.15f, 0.3f, 0.15f), _float3(0.3f, 0.3f, 0.3f)))
 		{
 			Fire_Efect_On(TEXT("Layer_Attack"), fTimeDelta);
 			m_bDead = true;
@@ -255,18 +180,11 @@ HRESULT CPlayer_Attack::SetUp_RenderState()
 		return E_FAIL;
 
 	m_pGraphic_Device->SetRenderState(D3DRS_ALPHATESTENABLE, TRUE);
-<<<<<<< HEAD
-	m_pGraphic_Device->SetRenderState(D3DRS_ALPHAREF, 0);
-	m_pGraphic_Device->SetRenderState(D3DRS_ALPHAFUNC, D3DCMP_GREATER);
-
-	m_pGraphic_Device->SetRenderState(D3DRS_CULLMODE, D3DCULL_NONE);
-=======
 	//m_pGraphic_Device->SetRenderState(D3DRS_ALPHAREF, 250);
 	//m_pGraphic_Device->SetRenderState(D3DRS_ALPHAFUNC, D3DCMP_GREATEREQUAL);
 
 	//m_pGraphic_Device->SetRenderState(D3DRS_FILLMODE, D3DFILL_WIREFRAME);
 
->>>>>>> bf356d80309bcd323a4df46af9d27d0e7845c1fb
 	return S_OK;
 }
 

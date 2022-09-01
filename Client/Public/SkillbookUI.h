@@ -35,12 +35,7 @@ private:
 	_float4x4				m_ProjMatrix;
 	_float					m_fX, m_fY, m_fSizeX, m_fSizeY;
 	_bool					m_bOnCheck = false;
-	_bool					m_bMoveUi = false;
-	_float2					m_fMousePos;
-	_float2					m_fDifDis;
-	RECT					m_rcRect;
-	int						m_iCheck = 0;//µð¹ö±ë¿ë
-
+	
 
 private:
 	HRESULT SetUp_Components();

@@ -25,11 +25,7 @@ protected:
 	virtual HRESULT Release_RenderState();
 	virtual void MonsterMove();
 	virtual void HitCheck(_float fTimeDelta);
-	virtual void CreateItem();
-<<<<<<< HEAD
 
-=======
->>>>>>> bf356d80309bcd323a4df46af9d27d0e7845c1fb
 public:
 	static CBellaMonster* Create(LPDIRECT3DDEVICE9 pGraphic_Device);
 	virtual CGameObject* Clone(void* pArg = nullptr);

@@ -14,7 +14,6 @@
 #include "CubeTerrain.h"
 #include "LupangSkill.h"
 #include "YetiSkill.h"
-#include "ConsumItem.h"
 #include "LogoUI.h"
 #include "InventoryUI.h"
 #include "PlayerInfoUI.h"
@@ -26,14 +25,7 @@
 #include "Player_Skill.h"
 #include "Player_Attack.h"
 #include "Effect.h"
-<<<<<<< HEAD
 #include "IconUI.h"
-=======
-#include "Litening_Effect.h"
-#include "Body_Effect.h"
-
-
->>>>>>> e8a7accc92a0666938010f64fe805e1f1445c9cf
 
 CLoader::CLoader(LPDIRECT3DDEVICE9 pGraphic_Device)
 	: m_pGraphic_Device(pGraphic_Device)
@@ -84,27 +76,27 @@ HRESULT CLoader::Loading_ForLogoLevel()
 	Safe_AddRef(pGameInstance);
 
 	/* 텍스쳐 로딩 중. */
-	lstrcpy(m_szLoadingText, TEXT("텍스쳐 로딩 중."));
+	//lstrcpy(m_szLoadingText, TEXT("텍스쳐 로딩 중."));
 	if (FAILED(pGameInstance->Add_Prototype(LEVEL_LOGO, TEXT("Prototype_Component_Texture_LogoUI"),
 		CTexture::Create(m_pGraphic_Device, CTexture::TYPE_DEFAULT, TEXT("../Bin/Resources/Textures/Logo/LogoBack_%d.png"), 1))))
 		return E_FAIL;
 	
 	/* 모델 로딩 중. */
-	lstrcpy(m_szLoadingText, TEXT("모델 로딩 중."));
+	//lstrcpy(m_szLoadingText, TEXT("모델 로딩 중."));
 	
 
 	/* 셰이더 로딩 중. */
-	lstrcpy(m_szLoadingText, TEXT("셰이더 로딩 중."));
+	//lstrcpy(m_szLoadingText, TEXT("셰이더 로딩 중."));
 	
 
 	/* 객체 원형 생성 중. */
-	lstrcpy(m_szLoadingText, TEXT("객체 생성 중."));
+	//lstrcpy(m_szLoadingText, TEXT("객체 생성 중."));
 	if (FAILED(pGameInstance->Add_Prototype(TEXT("Prototype_GameObject_LogoUI"),
 		CLogoUI::Create(m_pGraphic_Device))))
 		return E_FAIL;
 	
 
-	lstrcpy(m_szLoadingText, TEXT("로딩이 완료되었습니다."));
+	//lstrcpy(m_szLoadingText, TEXT("로딩이 완료되었습니다."));
 
 	m_isFinished = true;
 
@@ -146,11 +138,7 @@ HRESULT CLoader::Loading_ForGamePlayLevel()
 		return E_FAIL;
 
 	if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, TEXT("Prototype_Component_Texture_ItemInfoUI"),
-<<<<<<< HEAD
 		CTexture::Create(m_pGraphic_Device, CTexture::TYPE_DEFAULT, TEXT("../Bin/Resources/Textures/UI/PlayerInfo%d.png"), 1))))
-=======
-		CTexture::Create(m_pGraphic_Device, CTexture::TYPE_DEFAULT, TEXT("../Bin/Resources/Textures/Icon/Item/Quick/Quick_Item_%d.png"), 3))))
->>>>>>> bf356d80309bcd323a4df46af9d27d0e7845c1fb
 		return E_FAIL;
 
 	if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, TEXT("Prototype_Component_Texture_PlayerInfoUI"),
@@ -168,15 +156,7 @@ HRESULT CLoader::Loading_ForGamePlayLevel()
 		return E_FAIL;*/
 
 	if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, TEXT("Prototype_Component_Texture_Player"),
-<<<<<<< HEAD
-<<<<<<< HEAD
-		CTexture::Create(m_pGraphic_Device, CTexture::TYPE_DEFAULT, TEXT("../Bin/Resources/Textures/Player/C_%d.png"), 152))))
-=======
-		CTexture::Create(m_pGraphic_Device, CTexture::TYPE_DEFAULT, TEXT("../Bin/Resources/Textures/Player/C_%d.png"),200))))
->>>>>>> e8a7accc92a0666938010f64fe805e1f1445c9cf
-=======
-		CTexture::Create(m_pGraphic_Device, CTexture::TYPE_DEFAULT, TEXT("../Bin/Resources/Textures/Player/C_%d.png"), 152))))
->>>>>>> bf356d80309bcd323a4df46af9d27d0e7845c1fb
+		CTexture::Create(m_pGraphic_Device, CTexture::TYPE_DEFAULT, TEXT("../Bin/Resources/Textures/Player/C_%d.png"), 88))))
 		return E_FAIL;
 
 	if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, TEXT("Prototype_Component_Texture_Player_Skill_Litening"),
@@ -184,23 +164,14 @@ HRESULT CLoader::Loading_ForGamePlayLevel()
 		return E_FAIL;
 
 	if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, TEXT("Prototype_Component_Texture_Player_Attack"),
-		CTexture::Create(m_pGraphic_Device, CTexture::TYPE_DEFAULT, TEXT("../Bin/Resources/Textures/Player/Player_Attack/BF_%d.png"), 25))))
+		CTexture::Create(m_pGraphic_Device, CTexture::TYPE_DEFAULT, TEXT("../Bin/Resources/Textures/Player/Player_Attack/FB_%d.dds"), 16))))
 		return E_FAIL;
-
-
-	
 
 	/*For.Prototype_Component_Texture_Efect */
 
-	if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, TEXT("Prototype_Component_Texture_Attack_Fire_Effect"),
+	if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, TEXT("Prototype_Component_Texture_Skill_Fire_Effect"),
 		CTexture::Create(m_pGraphic_Device, CTexture::TYPE_DEFAULT, TEXT("../Bin/Resources/Textures/Player/Player_Attack/Efect_Fire/Explosion%d.png"), 9))))
 		return E_FAIL;
-	/*Prototype_Component_Texture_Body_Fire_Effect*/
-
-	if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, TEXT("Prototype_Component_Texture_Body_Fire_Effect"),
-		CTexture::Create(m_pGraphic_Device, CTexture::TYPE_DEFAULT, TEXT("../Bin/Resources/Textures/Player/Fire_Effect/BF_%d.png"), 25))))
-		return E_FAIL;
-	
 
 	/*For.Prototype_Component_Texture_Sky */
 	if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, TEXT("Prototype_Component_Texture_Sky"),
@@ -232,13 +203,8 @@ HRESULT CLoader::Loading_ForGamePlayLevel()
 		CTexture::Create(m_pGraphic_Device, CTexture::TYPE_DEFAULT, TEXT("../Bin/Resources/Textures/Monster/Yeti/Skill/YetiSkill%d.png"), 4))))
 		return E_FAIL;
 
-	/* 소비아이템 */
-	if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, TEXT("Prototype_Component_Texture_ConsumItem"),
-		CTexture::Create(m_pGraphic_Device, CTexture::TYPE_DEFAULT, TEXT("../Bin/Resources/Textures/Item/ConsumItem/Item%d.png"), 6))))
-		return E_FAIL;
-
 	/* 모델 로딩 중. */
-	lstrcpy(m_szLoadingText, TEXT("모델 로딩 중."));
+	//lstrcpy(m_szLoadingText, TEXT("모델 로딩 중."));
 
 	/*For.Prototype_Component_VIBuffer_CubeTerrain*/
 	if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, TEXT("Prototype_Component_VIBuffer_CubeTerrain"),
@@ -252,11 +218,11 @@ HRESULT CLoader::Loading_ForGamePlayLevel()
 	
 
 	/* 셰이더 로딩 중. */
-	lstrcpy(m_szLoadingText, TEXT("셰이더 로딩 중."));
+	//lstrcpy(m_szLoadingText, TEXT("셰이더 로딩 중."));
 	
 
 	/* 객체 생성 중. */
-	lstrcpy(m_szLoadingText, TEXT("객체 생성 중."));
+	//lstrcpy(m_szLoadingText, TEXT("객체 생성 중."));
 
 	/*For.Prototype_GameObject_UI */
 	if (FAILED(pGameInstance->Add_Prototype(TEXT("Prototype_GameObject_InventoryUI"),
@@ -301,10 +267,10 @@ HRESULT CLoader::Loading_ForGamePlayLevel()
 		CPlayer::Create(m_pGraphic_Device))))
 		return E_FAIL;
 
-	/*For.Prototype_GameObject_Efect*/
-	if (FAILED(pGameInstance->Add_Prototype(TEXT("Prototype_GameObject_Effect"),
-		CEffect::Create(m_pGraphic_Device))))
-		return E_FAIL;
+	///*For.Prototype_GameObject_Efect*/
+	//if (FAILED(pGameInstance->Add_Prototype(TEXT("Prototype_GameObject_Effect"),
+	//	CEffect::Create(m_pGraphic_Device))))
+	//	return E_FAIL;
 
 	/*For.Prototype_GameObject_Player_Skill*/
 	if (FAILED(pGameInstance->Add_Prototype(TEXT("Prototype_GameObject_Player_Skill"),
@@ -322,17 +288,6 @@ HRESULT CLoader::Loading_ForGamePlayLevel()
 		CEffect::Create(m_pGraphic_Device))))
 		return E_FAIL;
 
-	/*For.Prototype_GameObject_Player_Skill_Efect*/
-	if (FAILED(pGameInstance->Add_Prototype(TEXT("Prototype_GameObject_Litenig_Effect"),
-		CLitening_Effect::Create(m_pGraphic_Device))))
-		return E_FAIL;
-
-	/*For.Prototype_GameObject_Player_Skill_Efect*/
-	if (FAILED(pGameInstance->Add_Prototype(TEXT("Prototype_GameObject_FireBody_Effect"),
-		CBody_Effect::Create(m_pGraphic_Device))))
-		return E_FAIL;
-
-
 
 	/*For.Prototype_GameObject_MonkeyMonster 루팡(원숭이몬스터)*/
 	if (FAILED(pGameInstance->Add_Prototype(TEXT("Prototype_GameObject_MonkeyMonster"),
@@ -344,10 +299,12 @@ HRESULT CLoader::Loading_ForGamePlayLevel()
 		CBellaMonster::Create(m_pGraphic_Device))))
 		return E_FAIL;
 
+
 	/*For.Prototype_GameObject_YetiMonster 예티(설인몬스터)*/
 	if (FAILED(pGameInstance->Add_Prototype(TEXT("Prototype_GameObject_YetiMonster"),
 		CYetiMonster::Create(m_pGraphic_Device))))
 		return E_FAIL;
+
 
 	/*For.Prototype_GameObject_MonkeySkill*/
 	if (FAILED(pGameInstance->Add_Prototype(TEXT("Prototype_GameObject_MonkeySkill"),
@@ -357,11 +314,6 @@ HRESULT CLoader::Loading_ForGamePlayLevel()
 	/*For.Prototype_GameObject_YetiSkill 예티스킬*/
 	if (FAILED(pGameInstance->Add_Prototype(TEXT("Prototype_GameObject_YetiSkill"),
 		CYetiSkill::Create(m_pGraphic_Device))))
-		return E_FAIL;
-
-	/*For.Prototype_GameObject_ConsumItem 소비아이템*/
-	if (FAILED(pGameInstance->Add_Prototype(TEXT("Prototype_GameObject_ConsumItem"),
-		CConsumItem::Create(m_pGraphic_Device))))
 		return E_FAIL;
 
 	if (FAILED(pGameInstance->Add_Prototype(TEXT("Prototype_GameObject_TestBox"),
@@ -384,7 +336,7 @@ HRESULT CLoader::Loading_ForGamePlayLevel()
 		return E_FAIL;
 	
 
-	lstrcpy(m_szLoadingText, TEXT("로딩이 완료되었습니다."));
+	//lstrcpy(m_szLoadingText, TEXT("로딩이 완료되었습니다."));
 
 	Safe_Release(pGameInstance);
 
