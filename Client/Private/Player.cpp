@@ -155,9 +155,7 @@ void CPlayer::Tick(_float fTimeDelta)
 
 	}
 
-
 	else if (Key_Pressing('X') && m_bPlayer_Attack == true)
-
 	{
 		Player_Attack(m_ePlayer_Dir, fTimeDelta);
 
@@ -181,12 +179,10 @@ void CPlayer::Tick(_float fTimeDelta)
 	{
 		m_ePlayer_State = CPlayer::PLAYER_IDLE;
 		Player_Idle(m_ePlayer_Dir, fTimeDelta);
-		m_bPlayer_Attack = true; 
+		m_bPlayer_Attack = true;
 	}
 
 
-
-	m_pTransformCom->Set_Fall(true);
 
 	Safe_Release(pGameInstance);
 }

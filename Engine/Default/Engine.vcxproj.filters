@@ -79,7 +79,7 @@
     <Filter Include="01.Utility\03.Components\Transform\VIBuffer\CubeTerrain">
       <UniqueIdentifier>{c11dea58-34b1-4da9-92c6-ec118319cbf7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="01.Utility\05.keyManager">
+    <Filter Include="01.Utility\03.Components\keyManager">
       <UniqueIdentifier>{f07852c9-313d-4143-a3bd-0712df40bb65}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -101,6 +101,9 @@
     </ClCompile>
     <ClCompile Include="..\private\Object_Manager.cpp">
       <Filter>01.Utility\02.GameObjects\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\Layer.cpp">
+      <Filter>01.Utility\02.GameObjects\Layer</Filter>
     </ClCompile>
     <ClCompile Include="..\Private\Timer.cpp">
       <Filter>01.Utility\98.Timers</Filter>
@@ -148,13 +151,10 @@
       <Filter>01.Utility\03.Components\Transform\VIBuffer</Filter>
     </ClCompile>
     <ClCompile Include="..\Private\KeyMgr.cpp">
-      <Filter>01.Utility\05.keyManager</Filter>
+      <Filter>01.Utility\03.Components\keyManager</Filter>
     </ClCompile>
     <ClCompile Include="..\Private\CollisionMgr.cpp">
       <Filter>01.Utility\04.Collision</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Private\Layer.cpp">
-      <Filter>01.Utility\02.GameObjects\Layer</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -190,6 +190,9 @@
     </ClInclude>
     <ClInclude Include="..\public\Object_Manager.h">
       <Filter>01.Utility\02.GameObjects\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\Layer.h">
+      <Filter>01.Utility\02.GameObjects\Layer</Filter>
     </ClInclude>
     <ClInclude Include="..\Public\Timer.h">
       <Filter>01.Utility\98.Timers</Filter>
@@ -237,13 +240,10 @@
       <Filter>01.Utility\03.Components\Transform\VIBuffer\CubeTerrain</Filter>
     </ClInclude>
     <ClInclude Include="..\Public\KeyMgr.h">
-      <Filter>01.Utility\05.keyManager</Filter>
+      <Filter>01.Utility\03.Components\keyManager</Filter>
     </ClInclude>
     <ClInclude Include="..\Public\CollisionMgr.h">
       <Filter>01.Utility\04.Collision</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Public\Layer.h">
-      <Filter>01.Utility\02.GameObjects\Layer</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
