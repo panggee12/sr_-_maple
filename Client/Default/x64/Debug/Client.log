@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(936,5): warning MSB8027: Two or more files with the name of ConsumItem.cpp will produce outputs to the same location. This can lead to an incorrect build result.  The files involved are ..\Private\ConsumItem.cpp, ..\Private\ConsumItem.cpp.
   SkillbookUI.cpp
 c:\users\dev.bae\desktop\teampo6\sr_-_maple\client\private\skillbookui.cpp(29): warning C4244: '인수': 'const unsigned int'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
@@ -114,3 +115,16 @@ c:\users\dev.bae\desktop\teampo6\sr_-_maple\client\private\bellamonster.cpp(244)
 c:\users\dev.bae\desktop\teampo6\sr_-_maple\client\private\bellamonster.cpp(245): error C2374: 'vPosition': 재정의. 여러 번 초기화했습니다.
   c:\users\dev.bae\desktop\teampo6\sr_-_maple\client\private\bellamonster.cpp(232): note: 'vPosition' 선언을 참조하십시오.
   코드를 생성하고 있습니다...
+=======
+﻿  Loader.cpp
+  코드를 생성하고 있습니다...
+  컴파일하고 있습니다...
+  IconUI.cpp
+c:\users\허준석\desktop\깃고장내지마세요\sr_-_maple\client\private\iconui.cpp(29): warning C4244: '인수': 'const unsigned int'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\허준석\desktop\깃고장내지마세요\sr_-_maple\client\private\iconui.cpp(55): warning C4244: '인수': 'Engine::_float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\허준석\desktop\깃고장내지마세요\sr_-_maple\client\private\iconui.cpp(61): warning C4244: '초기화 중': 'LONG'에서 'Engine::_float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\허준석\desktop\깃고장내지마세요\sr_-_maple\client\private\iconui.cpp(62): warning C4244: '초기화 중': 'LONG'에서 'Engine::_float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  코드를 생성하고 있습니다...
+  Client.vcxproj -> C:\Users\허준석\Desktop\깃고장내지마세요\sr_-_maple\Client\Default\..\Bin\Client.exe
+  Client.vcxproj -> ..\Bin\Client.pdb (Full PDB)
+>>>>>>> aa192b3238a5dae7f5a2cf8c530fc184cccd860b

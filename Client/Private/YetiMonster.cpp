@@ -344,6 +344,10 @@ void CYetiMonster::HitCheck(_float fTimeDelta)
 void CYetiMonster::CreateItem()
 {
 	int iRand = rand() % 3 + 1;
+<<<<<<< HEAD
+=======
+
+>>>>>>> aa192b3238a5dae7f5a2cf8c530fc184cccd860b
 	if (iRand == 1)
 	{
 		CGameInstance* m_pGameInstance = CGameInstance::Get_Instance();

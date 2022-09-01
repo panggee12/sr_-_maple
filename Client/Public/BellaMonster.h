@@ -26,7 +26,10 @@ protected:
 	virtual void MonsterMove();
 	virtual void HitCheck(_float fTimeDelta);
 	virtual void CreateItem();
+<<<<<<< HEAD
 
+=======
+>>>>>>> aa192b3238a5dae7f5a2cf8c530fc184cccd860b
 public:
 	static CBellaMonster* Create(LPDIRECT3DDEVICE9 pGraphic_Device);
 	virtual CGameObject* Clone(void* pArg = nullptr);

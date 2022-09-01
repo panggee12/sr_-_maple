@@ -49,6 +49,7 @@ private:
 	void Player_Attack(PLAYER_DIR _PlayerAttack, float fTimeDelta);
 	HRESULT Ready_Layer_Player_Skill(const _tchar * pLayerTag, _float fTimeDelta);
 	HRESULT Ready_Layer_Player_Attack(const _tchar * pLayerTag, _float fTimeDelta);
+<<<<<<< HEAD
 
 public:
 	_bool Key_Up(int _Key);
@@ -56,6 +57,8 @@ public:
 	_bool Key_Pressing(int _Key);
 public:
 	HRESULT Fire_Body_On(const _tchar* pEffet_LayerTag, _float fTimeDelta);
+=======
+>>>>>>> aa192b3238a5dae7f5a2cf8c530fc184cccd860b
 
 
 public:

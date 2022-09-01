@@ -174,22 +174,16 @@ void CBellaMonster::HitCheck(_float fTimeDelta)
 			m_pTextureCom->m_FrameTexture.FrameSpeed = 0.1f;
 
 			if (m_pTextureCom->m_FrameTexture.FirstFrame >= 14.f)
-			{
-				CreateItem();
 				m_bDead = true;
-			}
 		}
 		else
 		{
-			if (m_eState != STATE_HIT)
-				m_pTextureCom->m_FrameTexture.FirstFrame = 8;
-
 			m_pTextureCom->m_FrameTexture.OriginFrame = 8;
 			m_pTextureCom->m_FrameTexture.EndFrame = 10;
 			m_pTextureCom->m_FrameTexture.FrameSpeed = 0.05f;
 			m_eState = STATE_HIT;
 
-			if (m_pTextureCom->m_FrameTexture.FirstFrame >= m_pTextureCom->m_FrameTexture.EndFrame)
+			if (m_pTextureCom->m_FrameTexture.FirstFrame == m_pTextureCom->m_FrameTexture.OriginFrame)
 				m_bHit = false;
 		}
 	}
@@ -219,10 +213,15 @@ void CBellaMonster::HitCheck(_float fTimeDelta)
 
 void CBellaMonster::CreateItem()
 {
+<<<<<<< HEAD
+=======
+
+>>>>>>> aa192b3238a5dae7f5a2cf8c530fc184cccd860b
 	int iRand = rand() % 3 + 1;
 
 	if (iRand == 1)
 	{
+<<<<<<< HEAD
 
 	
 	CGameInstance* m_pGameInstance = CGameInstance::Get_Instance();
@@ -237,6 +236,8 @@ void CBellaMonster::CreateItem()
 		return;
 
 	Safe_Release(m_pGameInstance);
+=======
+>>>>>>> aa192b3238a5dae7f5a2cf8c530fc184cccd860b
 
 		CGameInstance* m_pGameInstance = CGameInstance::Get_Instance();
 		Safe_AddRef(m_pGameInstance);
@@ -282,4 +283,8 @@ CGameObject * CBellaMonster::Clone(void * pArg)
 void CBellaMonster::Free()
 {
 	__super::Free();
+	Safe_Release(m_pTransformCom);
+	Safe_Release(m_pVIBufferCom);
+	Safe_Release(m_pRendererCom);
+	Safe_Release(m_pTextureCom);
 }

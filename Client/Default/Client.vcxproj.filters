@@ -121,6 +121,9 @@
     <Filter Include="02.GameObject\Item\ConsumItem">
       <UniqueIdentifier>{b1a3c765-d8c9-436d-b934-e844addab2ff}</UniqueIdentifier>
     </Filter>
+    <Filter Include="02.GameObject\UI\GamePlayUI\IconUI">
+      <UniqueIdentifier>{d05d31ef-e8ff-49b5-9936-420392804b2b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -240,6 +243,12 @@
     <ClInclude Include="..\Public\Item.h">
       <Filter>02.GameObject\Item</Filter>
     </ClInclude>
+<<<<<<< HEAD
+=======
+    <ClInclude Include="..\Public\IconUI.h">
+      <Filter>02.GameObject\UI\GamePlayUI\IconUI</Filter>
+    </ClInclude>
+>>>>>>> aa192b3238a5dae7f5a2cf8c530fc184cccd860b
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Private\MainApp.cpp">
@@ -347,6 +356,12 @@
     <ClCompile Include="..\Private\Item.cpp">
       <Filter>02.GameObject\Item</Filter>
     </ClCompile>
+<<<<<<< HEAD
+=======
+    <ClCompile Include="..\Private\IconUI.cpp">
+      <Filter>02.GameObject\UI\GamePlayUI\IconUI</Filter>
+    </ClCompile>
+>>>>>>> aa192b3238a5dae7f5a2cf8c530fc184cccd860b
   </ItemGroup>
   <ItemGroup>
     <Image Include="Client.ico">

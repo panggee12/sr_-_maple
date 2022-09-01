@@ -64,16 +64,18 @@ void CSkillbookUI::Tick(_float fTimeDelta)
 	GetCursorPos(&ptMouse);
 	ScreenToClient(g_hWnd, &ptMouse);
 
-	if (m_bMoveUi)
-	{									//100						99
-		m_fDifDis.x = m_fMousePos.x - ptMouse.x;
-		m_fDifDis.y = m_fMousePos.y - ptMouse.y;
-	}
 
 	m_pTransformCom->Set_State(CTransform::STATE_POSITION, _float3(m_fX - g_iWinSizeX * 0.5f - m_fDifDis.x, -m_fY + g_iWinSizeY * 0.5f + m_fDifDis.y, 0.f));
+	SetRect(&m_rcRect, m_fX - m_fSizeX * 0.5f - m_fDifDis.x, m_fY - m_fDifDis.y - m_fSizeY * 0.5f, m_fX + m_fSizeX * 0.5f - m_fDifDis.x, m_fY - m_fSizeY * 0.4f - m_fDifDis.y);
 
-	SetRect(&m_rcRect, m_fX - m_fSizeX * 0.5f + m_fDifDis.x, m_fY - m_fSizeY * 0.5f, m_fX + m_fSizeX * 0.5f + m_fDifDis.x, m_fY - m_fSizeY * 0.4f);
 
+	if (pGameInstance->Key_Down(VK_SPACE))
+	{
+		if (PtInRect(&m_rcRect, ptMouse))
+		{
+			ERR_MSG(TEXT("Ãæµ¹"));
+		}
+	}
 
 	_float fMx, fMy;
 
@@ -84,13 +86,25 @@ void CSkillbookUI::Tick(_float fTimeDelta)
 		if (PtInRect(&m_rcRect, ptMouse))
 		{
 			m_bMoveUi = true;
-			m_fMousePos.x = ptMouse.x;
-			m_fMousePos.y = ptMouse.y;
+			if (!m_bFirst)
+			{
+				m_fMousePos.x = ptMouse.x;
+				m_fMousePos.y = ptMouse.y;
+				m_bFirst = true;
+			}
 			m_iCheck++;
 		}
 	}
 	else if (pGameInstance->Key_Up(VK_LBUTTON) && m_bMoveUi)
+	{
 		m_bMoveUi = false;
+	}
+
+	if (m_bMoveUi)
+	{									//100						99
+		m_fDifDis.x = m_fMousePos.x - ptMouse.x;
+		m_fDifDis.y = m_fMousePos.y - ptMouse.y;
+	}
 
 
 	if (m_iCheck > 1)

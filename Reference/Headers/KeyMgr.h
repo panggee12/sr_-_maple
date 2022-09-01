@@ -4,7 +4,7 @@
 
 BEGIN(Engine)
 
-class CKeyMgr final : public CBase
+class CKeyMgr final :public CBase
 {
 	DECLARE_SINGLETON(CKeyMgr)
 private:
@@ -17,9 +17,9 @@ public:
 	bool		Key_Down(int _Key);		// ´­·¶À» ¶§
 
 private:
-	bool						m_bKeyState[VK_MAX];
+	bool			m_bKeyState[VK_MAX];
 
-public:
+private:
 	virtual void Free() override;
 };
 

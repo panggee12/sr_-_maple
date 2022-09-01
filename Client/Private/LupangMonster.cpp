@@ -341,10 +341,15 @@ void CLupangMonster::HitCheck(_float fTimeDelta)
 
 void CLupangMonster::CreateItem()
 {
+<<<<<<< HEAD
+=======
+
+>>>>>>> aa192b3238a5dae7f5a2cf8c530fc184cccd860b
 	int iRand = rand() % 3 + 1;
 
 	if (iRand == 1)
 	{
+<<<<<<< HEAD
 
 	
 	CGameInstance* m_pGameInstance = CGameInstance::Get_Instance();
@@ -360,6 +365,8 @@ void CLupangMonster::CreateItem()
 
 	Safe_Release(m_pGameInstance);
 
+=======
+>>>>>>> aa192b3238a5dae7f5a2cf8c530fc184cccd860b
 
 		CGameInstance* m_pGameInstance = CGameInstance::Get_Instance();
 		Safe_AddRef(m_pGameInstance);
@@ -373,7 +380,10 @@ void CLupangMonster::CreateItem()
 			return;
 
 		Safe_Release(m_pGameInstance);
+<<<<<<< HEAD
 
+=======
+>>>>>>> aa192b3238a5dae7f5a2cf8c530fc184cccd860b
 	}
 }
 

@@ -46,7 +46,11 @@ HRESULT CItemInfoUI::Initialize(void* pArg)
 
 void CItemInfoUI::Tick(_float fTimeDelta)
 {
+<<<<<<< HEAD
 	__super::Tick(fTimeDelta);
+=======
+	__super::Tick(fTimeDelta);	
+>>>>>>> aa192b3238a5dae7f5a2cf8c530fc184cccd860b
 
 	CGameInstance* pGameInstance = CGameInstance::Get_Instance();
 
@@ -55,7 +59,11 @@ void CItemInfoUI::Tick(_float fTimeDelta)
 	if (m_iCheck == 3)
 		m_iCheck = 0;
 
+<<<<<<< HEAD
 	m_eQuick_Item = QUICK_ITEM(m_iCheck);
+=======
+	m_eQuick_Item=QUICK_ITEM(m_iCheck);
+>>>>>>> aa192b3238a5dae7f5a2cf8c530fc184cccd860b
 
 	Safe_Release(pGameInstance);
 }

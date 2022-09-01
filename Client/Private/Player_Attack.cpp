@@ -3,7 +3,10 @@
 #include "GameInstance.h"
 #include "Player.h"
 #include "Monster.h"
+<<<<<<< HEAD
 
+=======
+>>>>>>> aa192b3238a5dae7f5a2cf8c530fc184cccd860b
 
 CPlayer_Attack::CPlayer_Attack(LPDIRECT3DDEVICE9 pGraphic_Device)
 	: CGameObject(pGraphic_Device)
@@ -13,8 +16,13 @@ CPlayer_Attack::CPlayer_Attack(LPDIRECT3DDEVICE9 pGraphic_Device)
 CPlayer_Attack::CPlayer_Attack(const CPlayer_Attack & rhs)
 	: CGameObject(rhs)
 {
+<<<<<<< HEAD
 
 }
+=======
+} 
+
+>>>>>>> aa192b3238a5dae7f5a2cf8c530fc184cccd860b
 
 HRESULT CPlayer_Attack::Initialize_Prototype()
 {
@@ -29,13 +37,27 @@ HRESULT CPlayer_Attack::Initialize(void* pArg)
 	if (FAILED(__super::Initialize(pArg)))
 		return E_FAIL;
 
+<<<<<<< HEAD
+=======
+
+	//memcpy(&m_vSkillPosition, pArg, sizeof(_float3));
+
+	//D3DXMatrixOrthoLH(&m_ProjMatrix, g_iWinSizeX, g_iWinSizeY, 0.f, 1.f);
+
+
+
+	
+>>>>>>> aa192b3238a5dae7f5a2cf8c530fc184cccd860b
 	m_fSizeX = 1.1f;
 	m_fSizeY = 1.1f;
 	m_fX = 1.f;
 	m_fY = -4.f;
+<<<<<<< HEAD
 
 	memcpy(&m_vPosition, pArg, sizeof(_float3));
 
+=======
+>>>>>>> aa192b3238a5dae7f5a2cf8c530fc184cccd860b
 
 	if (FAILED(SetUp_Components()))
 		return E_FAIL;
@@ -57,7 +79,10 @@ void CPlayer_Attack::Tick(_float fTimeDelta)
 	if (!pGameInstance->Check_Layer(LEVEL_GAMEPLAY, TEXT("Layer_MonkeyMonster")))
 	{
 		m_bDead = true;
+<<<<<<< HEAD
 
+=======
+>>>>>>> aa192b3238a5dae7f5a2cf8c530fc184cccd860b
 		Safe_Release(pGameInstance);
 		return;
 	}
@@ -71,6 +96,7 @@ void CPlayer_Attack::Tick(_float fTimeDelta)
 	if (m_fAttack_Frame <= 0 || m_fAttack_Frame >= 8)
 	{
 		m_fAttack_Frame = 0;
+<<<<<<< HEAD
 
 	}
 
@@ -108,6 +134,8 @@ void CPlayer_Attack::Tick(_float fTimeDelta)
 	m_pTransformCom->Set_Scaled(_float3(m_fSizeX, m_fSizeY, 1.f));
 
 
+=======
+>>>>>>> aa192b3238a5dae7f5a2cf8c530fc184cccd860b
 
 
 	//Safe_Release(pGameInstance);
@@ -119,7 +147,10 @@ void CPlayer_Attack::Tick(_float fTimeDelta)
 	if (m_SkillTime > 0.3f)
 	{
 		auto Player_Pos = pGameInstance->Find_Target(LEVEL_GAMEPLAY, TEXT("Layer_MonkeyMonster"));
+<<<<<<< HEAD
 
+=======
+>>>>>>> aa192b3238a5dae7f5a2cf8c530fc184cccd860b
 
 
 		_float3 TargetPos = Player_Pos->Get_Transform()->Get_State(CTransform::STATE_POSITION);
@@ -223,12 +254,15 @@ HRESULT CPlayer_Attack::SetUp_RenderState()
 		return E_FAIL;
 
 	m_pGraphic_Device->SetRenderState(D3DRS_ALPHATESTENABLE, TRUE);
+<<<<<<< HEAD
 
 	/*m_pGraphic_Device->SetRenderState(D3DRS_ALPHAREF, 0);
 	m_pGraphic_Device->SetRenderState(D3DRS_ALPHAFUNC, D3DCMP_GREATER);
 
 	m_pGraphic_Device->SetRenderState(D3DRS_CULLMODE, D3DCULL_NONE);*/
 
+=======
+>>>>>>> aa192b3238a5dae7f5a2cf8c530fc184cccd860b
 	//m_pGraphic_Device->SetRenderState(D3DRS_ALPHAREF, 250);
 	//m_pGraphic_Device->SetRenderState(D3DRS_ALPHAFUNC, D3DCMP_GREATEREQUAL);
 

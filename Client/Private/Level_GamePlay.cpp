@@ -5,8 +5,11 @@
 #include "Player.h"
 #include "Layer.h"
 #include "ItemInfoUI.h"
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> aa192b3238a5dae7f5a2cf8c530fc184cccd860b
 CLevel_GamePlay::CLevel_GamePlay(LPDIRECT3DDEVICE9 pGraphic_Device)
 	: CLevel(pGraphic_Device)
 {
@@ -29,18 +32,40 @@ HRESULT CLevel_GamePlay::Initialize()
 	if (FAILED(Ready_Layer_Player(TEXT("Layer_Player"))))
 		return E_FAIL;
 
+<<<<<<< HEAD
 
 	for (int i = 0; i < 10; ++i)
+=======
+	/*
+	for (int i = 0; i < 1; ++i)
+>>>>>>> aa192b3238a5dae7f5a2cf8c530fc184cccd860b
 	{
 		if (FAILED(Ready_Layer_Monster(TEXT("Layer_Monster"))))
 			return E_FAIL;
 	}
+<<<<<<< HEAD
 
 
 	if (FAILED(Ready_Layer_UI(TEXT("Layer_UI"))))
+=======
+	*/
+	if (FAILED(Ready_Layer_IconUI(TEXT("Layer_IconUI"))))
 		return E_FAIL;
-
-
+	if (FAILED(Ready_Layer_PlayerInfoUI(TEXT("Layer_PlayerInfoUI"))))
+		return E_FAIL;
+	if (FAILED(Ready_Layer_SkillInfoUI(TEXT("Layer_SkillInfoUI"))))
+		return E_FAIL;
+	if (FAILED(Ready_Layer_ItemInfoUI(TEXT("Layer_ITemInfoUI"))))
+		return E_FAIL;
+	if (FAILED(Ready_Layer_SkillBookUI(TEXT("Layer_SkillBookUI"))))
+		return E_FAIL;
+	if (FAILED(Ready_Layer_HpBarUI(TEXT("Layer_HpBarUI"))))
+		return E_FAIL;
+	if (FAILED(Ready_Layer_ExpBarUI(TEXT("Layer_ExpBarUI"))))
+		return E_FAIL;
+	if (FAILED(Ready_Layer_InvenUI(TEXT("Layer_InvenUI"))))
+>>>>>>> aa192b3238a5dae7f5a2cf8c530fc184cccd860b
+		return E_FAIL;
 
 	return S_OK;
 }
@@ -53,6 +78,7 @@ void CLevel_GamePlay::Tick(_float fTimeDelta)
 
 	Safe_AddRef(pGameInstance);
 
+<<<<<<< HEAD
 
 	auto Player = pGameInstance->Find_Target(LEVEL_GAMEPLAY, TEXT("Layer_Player"));
 
@@ -60,9 +86,15 @@ void CLevel_GamePlay::Tick(_float fTimeDelta)
 	GetCursorPos(&pt);					//마우스 받아오기
 	ScreenToClient(g_hWnd, &pt);
 
+=======
+	POINT pt = {};
+	GetCursorPos(&pt);					//마우스 받아오기
+	ScreenToClient(g_hWnd, &pt);
+>>>>>>> aa192b3238a5dae7f5a2cf8c530fc184cccd860b
 
-	_float3 vPlayerPos = Player->Get_Transform()->Get_State(CTransform::STATE_POSITION);
+	auto Quick = pGameInstance->Find_Layer(LEVEL_GAMEPLAY, TEXT("Layer_UI"));  //퀵슬록 기능위한 유아이 레이어 받기
 
+<<<<<<< HEAD
 
 
 	vPlayerPos.x = round(vPlayerPos.x);
@@ -82,6 +114,8 @@ void CLevel_GamePlay::Tick(_float fTimeDelta)
 					pGameInstance->Collision_Rect_Cube(LEVEL_GAMEPLAY, TEXT("Layer_Player"), eCubeDesc->second.vPos,
 						fTimeDelta, _float3(0.15f, 0.3f, 0.15f));
 
+=======
+>>>>>>> aa192b3238a5dae7f5a2cf8c530fc184cccd860b
 	if (pt.y > 550)			//퀵슬롯 기능 구간
 	{
 		_uint iIndex = 0;
@@ -143,9 +177,9 @@ void CLevel_GamePlay::Tick(_float fTimeDelta)
 					pGameInstance->Collision_Rect_Cube(LEVEL_GAMEPLAY, Player->Get_Transform(), vPlayerPos,
 						_float3(vPpos.x + i, vPpos.y + k, vPpos.z + j), fTimeDelta, _float3(0.2f, 0.3f, 0.2f));
 				}
-					//Player->Get_Transform()->Set_Fall(true);
 			}
 		}
+<<<<<<< HEAD
 	}
 //	pGameInstance->Collision_Rect_Cube(LEVEL_GAMEPLAY, TEXT("Layer_Monster"), TEXT("Layer_TestBox"), fTimeDelta);
 
@@ -154,6 +188,10 @@ void CLevel_GamePlay::Tick(_float fTimeDelta)
 	pGameInstance->Collision_Attacked(LEVEL_GAMEPLAY, TEXT("Layer_Player"), TEXT("Layer_BellaMonster"), fTimeDelta, 2, _float3(0.15f, 0.3f, 0.15f), _float3(0.45f, 0.45f, 0.45f));
 	pGameInstance->Collision_Attacked(LEVEL_GAMEPLAY, TEXT("Layer_Player"), TEXT("Layer_YetiMonster"), fTimeDelta, 2, _float3(0.15f, 0.3f, 0.15f), _float3(0.3f, 0.3f, 0.3f));
 
+=======
+	}	
+	/*
+>>>>>>> aa192b3238a5dae7f5a2cf8c530fc184cccd860b
 	auto Monster1 = pGameInstance->Find_Layer(LEVEL_GAMEPLAY, TEXT("Layer_MonkeyMonster"));      //플레이어 찾아오기
 
 	for (auto& mObj : Monster1->Get_ObjectList())
@@ -234,10 +272,19 @@ void CLevel_GamePlay::Tick(_float fTimeDelta)
 			}
 		}
 	}
+<<<<<<< HEAD
 
+=======
+	*/
+	//pGameInstance->Collision_Rect_Cube(LEVEL_GAMEPLAY, TEXT("Layer_Monster"), TEXT("Layer_TestBox"), fTimeDelta, _float3(0.15f, 0.3f, 0.15f));
+
+	//pGameInstance->Collision_Attacked(LEVEL_GAMEPLAY, TEXT("Layer_Player"), TEXT("Layer_Monster"), fTimeDelta, 2, _float3(0.15f, 0.3f, 0.15f), _float3(0.45f, 0.45f, 0.45f));
+>>>>>>> aa192b3238a5dae7f5a2cf8c530fc184cccd860b
 	
 	//pGameInstance->Collision(LEVEL_GAMEPLAY, TEXT("Layer_Player"), TEXT("Layer_CubeTerrain"), fTimeDelta);
 
+
+											//프레임 띄우는 구간
 	++m_iNumRender;
 
 	if (m_fTimeAcc > 1.0f)
@@ -303,12 +350,11 @@ HRESULT CLevel_GamePlay::Ready_Layer_TestBox(const _tchar * pLayerTag)
 {
 	CGameInstance*			pGameInstance = CGameInstance::Get_Instance();
 	Safe_AddRef(pGameInstance);
-	for (auto& mapCube : m_MapCubeInfo)
+
+	for (auto& mapCube : m_CubeInfoList)
 	{
-		if (FAILED(pGameInstance->Add_GameObject(TEXT("Prototype_GameObject_TestBox"), LEVEL_GAMEPLAY, pLayerTag, &mapCube.second)))
+		if (FAILED(pGameInstance->Add_GameObject(TEXT("Prototype_GameObject_TestBox"), LEVEL_GAMEPLAY, pLayerTag, &mapCube)))
 			return E_FAIL;
-
-
 	}
 
 	Safe_Release(pGameInstance);
@@ -368,28 +414,48 @@ HRESULT CLevel_GamePlay::Ready_Layer_Camera(const _tchar * pLayerTag)
 	return S_OK;
 }
 
-HRESULT CLevel_GamePlay::Ready_Layer_UI(const _tchar * pLayerTag)
+HRESULT CLevel_GamePlay::Ready_Layer_InvenUI(const _tchar * pLayerTag)
 {
 	CGameInstance*			pGameInstance = CGameInstance::Get_Instance();
 	Safe_AddRef(pGameInstance);
 
 	if (FAILED(pGameInstance->Add_GameObject(TEXT("Prototype_GameObject_InventoryUI"), LEVEL_GAMEPLAY, pLayerTag)))
 		return E_FAIL;
+	Safe_Release(pGameInstance);
+
+	return S_OK;
+}
+
+HRESULT CLevel_GamePlay::Ready_Layer_IconUI(const _tchar * pLayerTag)
+{
+	CGameInstance*			pGameInstance = CGameInstance::Get_Instance();
+	Safe_AddRef(pGameInstance);
 
 	if (FAILED(pGameInstance->Add_GameObject(TEXT("Prototype_GameObject_IconUI"), LEVEL_GAMEPLAY, pLayerTag)))
 		return E_FAIL;
 
+	Safe_Release(pGameInstance);
+
+	return S_OK;
+}
+
+HRESULT CLevel_GamePlay::Ready_Layer_PlayerInfoUI(const _tchar * pLayerTag)
+{
+	CGameInstance*			pGameInstance = CGameInstance::Get_Instance();
+	Safe_AddRef(pGameInstance);
+
 	if (FAILED(pGameInstance->Add_GameObject(TEXT("Prototype_GameObject_PlayerInfoUI"), LEVEL_GAMEPLAY, pLayerTag)))
 		return E_FAIL;
 
-	if (FAILED(pGameInstance->Add_GameObject(TEXT("Prototype_GameObject_SkillbookUI"), LEVEL_GAMEPLAY, pLayerTag)))
-		return E_FAIL;
+	Safe_Release(pGameInstance);
 
-	if (FAILED(pGameInstance->Add_GameObject(TEXT("Prototype_GameObject_ExpBarUI"), LEVEL_GAMEPLAY, pLayerTag)))
-		return E_FAIL;
+	return S_OK;
+}
 
-	if (FAILED(pGameInstance->Add_GameObject(TEXT("Prototype_GameObject_HpbarUI"), LEVEL_GAMEPLAY, pLayerTag)))
-		return E_FAIL;
+HRESULT CLevel_GamePlay::Ready_Layer_SkillInfoUI(const _tchar * pLayerTag)
+{
+	CGameInstance*			pGameInstance = CGameInstance::Get_Instance();
+	Safe_AddRef(pGameInstance);
 
 	for (_uint i = 0; i < 8; ++i)
 	{
@@ -409,6 +475,17 @@ HRESULT CLevel_GamePlay::Ready_Layer_UI(const _tchar * pLayerTag)
 		if (FAILED(pGameInstance->Add_GameObject(TEXT("Prototype_GameObject_SkillInfoUI"), LEVEL_GAMEPLAY, pLayerTag, &vPos)))
 			return E_FAIL;
 	}
+
+	Safe_Release(pGameInstance);
+
+	return S_OK;
+}
+
+HRESULT CLevel_GamePlay::Ready_Layer_ItemInfoUI(const _tchar * pLayerTag)
+{
+	CGameInstance*			pGameInstance = CGameInstance::Get_Instance();
+	Safe_AddRef(pGameInstance);
+
 	for (_uint i = 0; i < 8; ++i)
 	{
 		_float3 vPos = {};
@@ -428,7 +505,49 @@ HRESULT CLevel_GamePlay::Ready_Layer_UI(const _tchar * pLayerTag)
 		if (FAILED(pGameInstance->Add_GameObject(TEXT("Prototype_GameObject_ItemInfoUI"), LEVEL_GAMEPLAY, pLayerTag, &vPos)))
 			return E_FAIL;
 	}
+
 	Safe_Release(pGameInstance);
+
+	return S_OK;
+}
+
+HRESULT CLevel_GamePlay::Ready_Layer_SkillBookUI(const _tchar * pLayerTag)
+{
+	CGameInstance*			pGameInstance = CGameInstance::Get_Instance();
+	Safe_AddRef(pGameInstance);
+
+	if (FAILED(pGameInstance->Add_GameObject(TEXT("Prototype_GameObject_SkillbookUI"), LEVEL_GAMEPLAY, pLayerTag)))
+		return E_FAIL;
+
+	Safe_Release(pGameInstance);
+
+	return S_OK;
+}
+
+HRESULT CLevel_GamePlay::Ready_Layer_HpBarUI(const _tchar * pLayerTag)
+{
+	CGameInstance*			pGameInstance = CGameInstance::Get_Instance();
+	Safe_AddRef(pGameInstance);
+
+	if (FAILED(pGameInstance->Add_GameObject(TEXT("Prototype_GameObject_HpbarUI"), LEVEL_GAMEPLAY, pLayerTag)))
+		return E_FAIL;
+
+	Safe_Release(pGameInstance);
+
+	return S_OK;
+}
+
+HRESULT CLevel_GamePlay::Ready_Layer_ExpBarUI(const _tchar * pLayerTag)
+{
+	CGameInstance*			pGameInstance = CGameInstance::Get_Instance();
+	Safe_AddRef(pGameInstance);
+
+	if (FAILED(pGameInstance->Add_GameObject(TEXT("Prototype_GameObject_ExpBarUI"), LEVEL_GAMEPLAY, pLayerTag)))
+		return E_FAIL;
+
+	Safe_Release(pGameInstance);
+
+	return S_OK;
 }
 
 void CLevel_GamePlay::LoadMapData()
@@ -454,6 +573,7 @@ void CLevel_GamePlay::LoadMapData()
 
 	DWORD		dwByte = 0;
 	CTestBox::CUBEDESC		tInfo{};
+	_tchar tPos = {};
 
 	//wchar_t* FileName = CImGui_Manager::Get_Instance()->GetFileNames();
 
@@ -466,12 +586,17 @@ void CLevel_GamePlay::LoadMapData()
 		if (0 == dwByte)	// 더이상 읽을 데이터가 없을 경우
 			break;
 
+		//-28 0 -12 x, y, z가 각각 모든 블럭중 최소값을 가짐 모든 블럭 불러올때 +28, +12 해주자
+
+		tInfo.vPos.x += 28.f;
 		tInfo.vPos.y += 0.5f;
+		tInfo.vPos.z += 12.f;
 
-		m_MapCubeInfo.emplace(tInfo.vPos, tInfo);
-		//m_CubeInfoList.push_back(CTestBox::CUBEDESC(tInfo));
+		m_fLayerPos[_uint(tInfo.vPos.x)][_uint(tInfo.vPos.y)][_uint(tInfo.vPos.z)] = 1;
+		
+		m_CubeInfoList.push_back(tInfo);
 	}
-
+	
 	// 3. 파일 소멸
 	CloseHandle(hFile);
 
