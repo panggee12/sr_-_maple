@@ -40,6 +40,7 @@ private:
 	_float2					m_fMousePos;
 	_float2					m_fDifDis;
 	RECT					m_rcRect;
+	_bool					m_bRectInCheck = false;
 
 private:
 	HRESULT SetUp_Components();

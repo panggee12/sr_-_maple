@@ -53,6 +53,7 @@ bool CKeyMgr::Key_Down(int _Key)
 
 void CKeyMgr::Free()
 {
+<<<<<<< HEAD
 }
 
 
@@ -126,3 +127,6 @@ void CKeyMgr::Free()
 =======
 
 >>>>>>> bf356d80309bcd323a4df46af9d27d0e7845c1fb
+=======
+}
+>>>>>>> Jeongseok
