@@ -235,7 +235,6 @@ HRESULT CLevel_GamePlay::Ready_Layer_UI(const _tchar * pLayerTag)
 	for (_uint i = 0; i < 8; ++i)
 	{
 		_float3 vPos = {};
-
 		if (i < 4)
 		{
 			vPos.x = 70.f * i;
@@ -251,7 +250,6 @@ HRESULT CLevel_GamePlay::Ready_Layer_UI(const _tchar * pLayerTag)
 		if (FAILED(pGameInstance->Add_GameObject(TEXT("Prototype_GameObject_SkillInfoUI"), LEVEL_GAMEPLAY, pLayerTag, &vPos)))
 			return E_FAIL;
 	}
-
 	for (_uint i = 0; i < 8; ++i)
 	{
 		_float3 vPos = {};

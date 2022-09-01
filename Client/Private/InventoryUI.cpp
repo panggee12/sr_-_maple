@@ -1,11 +1,11 @@
 #include "stdafx.h"
 #include "..\Public\InventoryUI.h"
 #include "GameInstance.h"
-#include "Loader.h"
 
 CInventoryUI::CInventoryUI(LPDIRECT3DDEVICE9 pGraphic_Device)
 	: CGameObject(pGraphic_Device)
 {
+	ZeroMemory(&m_vecCheckRect, sizeof(RECT));
 }
 
 CInventoryUI::CInventoryUI(const CInventoryUI & rhs)
@@ -28,10 +28,11 @@ HRESULT CInventoryUI::Initialize(void* pArg)
 
 	D3DXMatrixOrthoLH(&m_ProjMatrix, g_iWinSizeX, g_iWinSizeY, 0.f, 1.f);
 
-	m_fSizeX = 400.f;
-	m_fSizeY = 600.f;
+	m_fSizeX = 468.f;
+	m_fSizeY = 702.f;
 	m_fX = 500.f;
 	m_fY = 400.f;
+	
 
 	if (FAILED(SetUp_Components()))
 		return E_FAIL;
@@ -40,51 +41,25 @@ HRESULT CInventoryUI::Initialize(void* pArg)
 	ZeroMemory(&m_fDifDis, sizeof(_float2));
 	//m_pTransformCom->Set_State(CTransform::STATE_POSITION, _float3(m_fX - g_iWinSizeX * 0.5f, -m_fY + g_iWinSizeY * 0.5f, 0.f));
 
+
 	return S_OK;
 }
 
 void CInventoryUI::Tick(_float fTimeDelta)
 {
-	__super::Tick(fTimeDelta);	
-	//불변수 하나로 눌렀을때 안눌렀을때 판별
-	//눌렀을때 
-
+	__super::Tick(fTimeDelta);	 
+	
 	CGameInstance* pGameInstance = CGameInstance::Get_Instance();
 
 	Safe_AddRef(pGameInstance);
 	
 	if(!m_bMoveUi)
 		SetRect(&m_rcRect, m_fX - m_fSizeX * 0.5f, m_fY - m_fSizeY * 0.5f, m_fX + m_fSizeX * 0.5f, m_fY - m_fSizeY * 0.4f);
-	//300 //100 700 160
+
 	POINT		ptMouse;
 	GetCursorPos(&ptMouse);
 	ScreenToClient(g_hWnd, &ptMouse);
 
-	_float fMx, fMy;
-
-	
-	//if (PtInRect(&m_rcRect, ptMouse)) //눌렀을때 마우스 위치를 기록해놔야함
-	//{
-	//	if ((GetKeyState(VK_LBUTTON)) && !m_bMoveUi)
-	//	{
-	//		m_bMoveUi = true;
-	//		m_fMousePos.x = ptMouse.x;
-	//		m_fMousePos.y = ptMouse.y;
-	//		m_iCheck++;
-	//	}		
-	//}
-	//if (m_bMoveUi)
-	//{
-	//	if (!(GetKeyState(VK_LBUTTON)))		
-	//		m_bMoveUi = false;		
-	//	else
-	//	{
-	//		m_fDifDis.x = m_fMousePos.x - ptMouse.x;
-	//		m_fDifDis.y = m_fMousePos.y - ptMouse.y;		
-	//	}
-	//}
-	//m_pTransformCom->Set_State(CTransform::STATE_POSITION, _float3(m_fX - m_fDifDis.x - m_fSizeX*1.25f, m_fY + m_fDifDis.y - m_fSizeY*0.7f, 0.f));
-	//SetRect(&m_rcRect, m_fX - m_fDifDis.x - m_fSizeX * 0.5f, m_fY + m_fDifDis.y - m_fSizeY * 0.5f, m_fX - m_fDifDis.x + m_fSizeX * 0.5f, m_fY + m_fDifDis.y - m_fSizeY * 0.4f);
 	_char         MouseMove = 0;
 	bool         bDown = false;
 	if (PtInRect(&m_rcRect, ptMouse)) //눌렀을때 마우스 위치를 기록해놔야함
@@ -117,18 +92,53 @@ void CInventoryUI::Late_Tick(_float fTimeDelta)
 {
 	__super::Late_Tick(fTimeDelta);
 
+	POINT		ptMouse;
+	GetCursorPos(&ptMouse);
+	ScreenToClient(g_hWnd, &ptMouse);
+
+	CGameInstance* pGameInstance = CGameInstance::Get_Instance();
+
+	Safe_AddRef(pGameInstance);
+
+	_float fLeft = m_fX - m_fDifDis.x - m_fSizeX * 0.5f;
+	_float fTop = m_fY - m_fDifDis.y - m_fSizeY * 0.5f;
+	_float fRight = m_fX + m_fDifDis.x + m_fSizeX * 0.5f;
+	_float fBottom = m_fY + m_fDifDis.y + m_fSizeY * 0.5f;
+
 	if (GetKeyState('I') & 0x0001)
 	{
 		if (m_bOnCheck == true)
 		{
 			if (nullptr != m_pRendererCom)
-				m_pRendererCom->Add_RenderGroup(CRenderer::RENDER_UI, this);
+				m_pRendererCom->Add_RenderGroup(CRenderer::RENDER_UI, this);		
+
+			for (_uint i = 1; i <= 8; ++i) //y
+			{
+				for (_uint j = 1; j <= 6; ++j) //x
+				{
+					RECT rcRect;
+
+					SetRect(&rcRect,
+						fLeft + 48.f + j * 37.5f,
+						fTop + 130.f + i * 36.f,
+						fLeft + 48.f + j * 75.f,
+						fTop + 130.f + i * 72.f);
+
+					m_vecCheckRect.push_back(rcRect);
+				}
+			}
 		}
 		else
 		{
 			m_bOnCheck = true;
 		}
+
+		
 	}
+
+
+
+	Safe_Release(pGameInstance);
 	
 }
 
