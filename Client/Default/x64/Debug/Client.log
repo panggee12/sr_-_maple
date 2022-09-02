@@ -1,32 +1,10 @@
-<<<<<<< HEAD
-﻿Skill_Meteo.obj : error LNK2019: "protected: __cdecl Client::CSkill::CSkill(struct IDirect3DDevice9 *)" (??0CSkill@Client@@IEAA@PEAUIDirect3DDevice9@@@Z) 외부 기호(참조 위치: "private: __cdecl Client::CMeteo_Skill::CMeteo_Skill(struct IDirect3DDevice9 *)" (??0CMeteo_Skill@Client@@AEAA@PEAUIDirect3DDevice9@@@Z) 함수)에서 확인하지 못했습니다.
-Player_Skill.obj : error LNK2001: "protected: __cdecl Client::CSkill::CSkill(struct IDirect3DDevice9 *)" (??0CSkill@Client@@IEAA@PEAUIDirect3DDevice9@@@Z) 외부 기호를 확인할 수 없습니다.
-Skill_Meteo.obj : error LNK2019: "protected: __cdecl Client::CSkill::CSkill(class Client::CSkill const &)" (??0CSkill@Client@@IEAA@AEBV01@@Z) 외부 기호(참조 위치: "private: __cdecl Client::CMeteo_Skill::CMeteo_Skill(class Client::CMeteo_Skill const &)" (??0CMeteo_Skill@Client@@AEAA@AEBV01@@Z) 함수)에서 확인하지 못했습니다.
-Player_Skill.obj : error LNK2001: "protected: __cdecl Client::CSkill::CSkill(class Client::CSkill const &)" (??0CSkill@Client@@IEAA@AEBV01@@Z) 외부 기호를 확인할 수 없습니다.
-Skill_Meteo.obj : error LNK2019: "public: virtual long __cdecl Client::CSkill::Initialize_Prototype(void)" (?Initialize_Prototype@CSkill@Client@@UEAAJXZ) 외부 기호(참조 위치: "public: virtual long __cdecl Client::CMeteo_Skill::Initialize_Prototype(void)" (?Initialize_Prototype@CMeteo_Skill@Client@@UEAAJXZ) 함수)에서 확인하지 못했습니다.
-Player_Skill.obj : error LNK2001: "public: virtual long __cdecl Client::CSkill::Initialize_Prototype(void)" (?Initialize_Prototype@CSkill@Client@@UEAAJXZ) 외부 기호를 확인할 수 없습니다.
-Skill_Meteo.obj : error LNK2019: "public: virtual long __cdecl Client::CSkill::Initialize(void *)" (?Initialize@CSkill@Client@@UEAAJPEAX@Z) 외부 기호(참조 위치: "public: virtual long __cdecl Client::CMeteo_Skill::Initialize(void *)" (?Initialize@CMeteo_Skill@Client@@UEAAJPEAX@Z) 함수)에서 확인하지 못했습니다.
-Player_Skill.obj : error LNK2001: "public: virtual long __cdecl Client::CSkill::Initialize(void *)" (?Initialize@CSkill@Client@@UEAAJPEAX@Z) 외부 기호를 확인할 수 없습니다.
-Skill_Meteo.obj : error LNK2019: "public: virtual void __cdecl Client::CSkill::Tick(float)" (?Tick@CSkill@Client@@UEAAXM@Z) 외부 기호(참조 위치: "public: virtual void __cdecl Client::CMeteo_Skill::Tick(float)" (?Tick@CMeteo_Skill@Client@@UEAAXM@Z) 함수)에서 확인하지 못했습니다.
-Player_Skill.obj : error LNK2001: "public: virtual void __cdecl Client::CSkill::Tick(float)" (?Tick@CSkill@Client@@UEAAXM@Z) 외부 기호를 확인할 수 없습니다.
-Skill_Meteo.obj : error LNK2019: "public: virtual void __cdecl Client::CSkill::Late_Tick(float)" (?Late_Tick@CSkill@Client@@UEAAXM@Z) 외부 기호(참조 위치: "public: virtual void __cdecl Client::CMeteo_Skill::Late_Tick(float)" (?Late_Tick@CMeteo_Skill@Client@@UEAAXM@Z) 함수)에서 확인하지 못했습니다.
-Player_Skill.obj : error LNK2001: "public: virtual void __cdecl Client::CSkill::Late_Tick(float)" (?Late_Tick@CSkill@Client@@UEAAXM@Z) 외부 기호를 확인할 수 없습니다.
-Skill_Meteo.obj : error LNK2019: "public: virtual long __cdecl Client::CSkill::Render(void)" (?Render@CSkill@Client@@UEAAJXZ) 외부 기호(참조 위치: "public: virtual long __cdecl Client::CMeteo_Skill::Render(void)" (?Render@CMeteo_Skill@Client@@UEAAJXZ) 함수)에서 확인하지 못했습니다.
-Player_Skill.obj : error LNK2001: "public: virtual long __cdecl Client::CSkill::Render(void)" (?Render@CSkill@Client@@UEAAJXZ) 외부 기호를 확인할 수 없습니다.
-Skill_Meteo.obj : error LNK2001: "protected: virtual void __cdecl Client::CSkill::MonsterMove(void)" (?MonsterMove@CSkill@Client@@MEAAXXZ) 외부 기호를 확인할 수 없습니다.
-Player_Skill.obj : error LNK2001: "protected: virtual void __cdecl Client::CSkill::MonsterMove(void)" (?MonsterMove@CSkill@Client@@MEAAXXZ) 외부 기호를 확인할 수 없습니다.
-Skill_Meteo.obj : error LNK2019: "public: virtual void __cdecl Client::CSkill::Free(void)" (?Free@CSkill@Client@@UEAAXXZ) 외부 기호(참조 위치: "public: virtual void __cdecl Client::CMeteo_Skill::Free(void)" (?Free@CMeteo_Skill@Client@@UEAAXXZ) 함수)에서 확인하지 못했습니다.
-Player_Skill.obj : error LNK2001: "public: virtual void __cdecl Client::CSkill::Free(void)" (?Free@CSkill@Client@@UEAAXXZ) 외부 기호를 확인할 수 없습니다.
-..\Bin\Client.exe : fatal error LNK1120: 9개의 확인할 수 없는 외부 참조입니다.
-=======
 ﻿  Player.cpp
-c:\users\dev.bae\desktop\teampo6\sr_-_maple\client\private\player.cpp(47): warning C4244: '+=': 'double'에서 'Engine::_float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\dev.bae\desktop\teampo6\sr_-_maple\client\private\player.cpp(150): warning C4390: ';': 제어된 빈 문이 있습니다. 이 문이 필요합니까?
-c:\users\dev.bae\desktop\teampo6\sr_-_maple\client\private\player.cpp(168): warning C4390: ';': 제어된 빈 문이 있습니다. 이 문이 필요합니까?
-c:\users\dev.bae\desktop\teampo6\sr_-_maple\client\private\player.cpp(186): warning C4390: ';': 제어된 빈 문이 있습니다. 이 문이 필요합니까?
-c:\users\dev.bae\desktop\teampo6\sr_-_maple\client\private\player.cpp(232): warning C4244: '인수': 'Engine::_float'에서 'Engine::_uint'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\dev.bae\desktop\teampo6\sr_-_maple\client\private\player.cpp(583): warning C4305: '+=': 'double'에서 'Engine::_float'(으)로 잘립니다.
-c:\users\dev.bae\desktop\teampo6\sr_-_maple\client\private\player.cpp(592): warning C4553: '==': 의미 없는 연산자입니다. '='을(를) 사용하려고 했습니까?
-  Client.vcxproj -> C:\Users\Dev.Bae\Desktop\TeamPo6\sr_-_maple\Client\Default\..\Bin\Client.exe
-  Client.vcxproj -> ..\Bin\Client.pdb (Full PDB)
->>>>>>> BaeH
+c:\users\dev.bae\desktop\teampo6\sr_-_maple\client\private\player.cpp(16): error C2059: 구문 오류: '{'
+c:\users\dev.bae\desktop\teampo6\sr_-_maple\client\private\player.cpp(16): error C2143: 구문 오류: ';'이(가) '{' 앞에 없습니다.
+c:\users\dev.bae\desktop\teampo6\sr_-_maple\client\private\player.cpp(16): error C2447: '{': 함수 헤더가 없습니다. 이전 스타일의 형식 목록입니까?
+c:\users\dev.bae\desktop\teampo6\sr_-_maple\client\private\player.cpp(24): error C2601: 'Client::CPlayer::Initialize': 지역 함수 정의가 잘못되었습니다.
+c:\users\dev.bae\desktop\teampo6\sr_-_maple\client\private\player.cpp(36): error C2601: 'Client::CPlayer::Tick': 지역 함수 정의가 잘못되었습니다.
+c:\users\dev.bae\desktop\teampo6\sr_-_maple\client\private\player.cpp(36): fatal error C1903: 이전 오류를 복구할 수 없습니다. 컴파일이 중지됩니다.
+  'C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\CL.exe'에서 내부 컴파일러 오류
+      자세한 내용을 보려면 Visual C++ [도움말] 메뉴에서
+   [기술 지원] 명령을 선택하거나 기술 지원 도움말 파일을 참조하십시오.

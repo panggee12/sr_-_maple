@@ -15,42 +15,7 @@ BEGIN(Client)
 
 class CPlayer final : public CGameObject
 {
-<<<<<<< HEAD
-//	enum PLAYER_STATE { PLAYER_IDLE, PLAYER_MOVE_STATE, PLAYER_ATTACK, PLAYER_SKILL, PLAYER_END };
-//	enum PLAYER_DIR { UP, DOWN, LEFT, RIGHT, RU, LU, RD, LD, STOP, END_ };
-//
-//private:
-//	CPlayer(LPDIRECT3DDEVICE9 pGraphic_Device);
-//	CPlayer(const CPlayer& rhs);
-//	virtual ~CPlayer() = default;
-//
-//public:
-//	virtual HRESULT Initialize_Prototype() override;
-//	virtual HRESULT Initialize(void* pArg)override;
-//	virtual void Tick(_float fTimeDelta)override;
-//	virtual void Late_Tick(_float fTimeDelta)override;
-//	virtual HRESULT Render() override;
-//public:
-//	CTransform* Get_TransformCom() { return m_pTransformCom; }
-//
-//private: /* For.Components */
-//	CTexture*				m_pTextureCom = nullptr;
-//	CRenderer*				m_pRendererCom = nullptr;
-//	CVIBuffer_Rect*		m_pVIBufferCom = nullptr;
-//
-//private:
-//	HRESULT SetUp_Components();
-//	HRESULT SetUp_RenderState();
-//	HRESULT Release_RenderState();
-//	void Player_Idel(PLAYER_STATE _PlayerState,_float fTimeDelta);
-//	void Player_Move(PLAYER_STATE _PlayerState ,_float fTimeDelta);
-//	void Player_Attack(PLAYER_STATE _PlayerState,PLAYER_ATTACK_ _PlayerAttack, float fTimeDelta);
-//	HRESULT Ready_Layer_Player_Skill(const _tchar * pLayerTag, _float fTimeDelta);
-//	HRESULT Ready_Layer_Player_Attack(const _tchar * pLayerTag, _float fTimeDelta);
-//	HRESULT Ready_Layer_Player_Meteor(const _tchar * pLayerTag, _float fTimeDelta);
-=======
 
->>>>>>> BaeH
 	enum PLAYER_STATE { PLAYER_IDLE, PLAYER_MOVE, PLAYER_ATTACK, PLAYER_SKILL, PLAYER_END };
 	enum PLAYER_DIR { UP, DOWN, LEFT, RIGHT, RU, LU, RD, LD, STOP, END_ };
 
@@ -129,11 +94,6 @@ private:
 	_float m_PlyerTime = 0.f;
 
 	_float m_fAttackTime = 0.f;
-<<<<<<< HEAD
-=======
-
-
->>>>>>> BaeH
 	//Player_State
 	PLAYER_STATE   m_ePlayer_State = PLAYER_IDLE;
 	//¿Ã¿¸
