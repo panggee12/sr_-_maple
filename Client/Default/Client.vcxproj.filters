@@ -118,10 +118,7 @@
     <Filter Include="02.GameObject\Item">
       <UniqueIdentifier>{5152df02-b298-4fbb-bbc0-0b6dab3c89ab}</UniqueIdentifier>
     </Filter>
-<<<<<<< HEAD
     <Filter Include="02.GameObject\Item\ConsumItem">
-      <UniqueIdentifier>{b1a3c765-d8c9-436d-b934-e844addab2ff}</UniqueIdentifier>
-=======
     <Filter Include="03.Effect\Body_Effect">
       <UniqueIdentifier>{e5719b5b-f7ae-453b-9465-359ea6b03152}</UniqueIdentifier>
     </Filter>
@@ -139,7 +136,6 @@
     </Filter>
     <Filter Include="03.Effect\Meteo_Effect\Meteo_Up_Effect">
       <UniqueIdentifier>{894cc7da-4e72-4549-ac60-e6e8eade2c74}</UniqueIdentifier>
->>>>>>> BaeH
     </Filter>
   </ItemGroup>
   <ItemGroup>
