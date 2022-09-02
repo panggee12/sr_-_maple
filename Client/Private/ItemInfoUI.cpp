@@ -2,6 +2,7 @@
 #include "ItemInfoUI.h"
 #include "GameInstance.h"
 #include "Loader.h"
+#include "Player.h"
 
 CItemInfoUI::CItemInfoUI(LPDIRECT3DDEVICE9 pGraphic_Device)
 	: CGameObject(pGraphic_Device)
@@ -96,6 +97,27 @@ HRESULT CItemInfoUI::Render()
 
 
 	return S_OK;
+}
+
+void CItemInfoUI::Use_Item()//플레이어 퀵슬롯 버튼 클린한것 판단 후 들어오는 함수 실질적 아이템 사용 함수
+{		//여기서 물약먹으면 인벤토리 물약 감소, 인벤토리 물약 갯수와 연동되어야하고 플레이어 hp나 mp등 플레이어 능력치와도 연동이 되어야함
+	CGameInstance* pGameInstance = CGameInstance::Get_Instance();
+
+	auto Player = dynamic_cast<CPlayer*>(pGameInstance->Find_Target(LEVEL_GAMEPLAY, TEXT("Layer_Player")));
+
+	switch (m_eQuick_Item)
+	{
+	case Client::Quick_Normal:
+		break;
+	case Client::Quick_HP:
+		Player->Set_Hp(-1);
+		break;
+	case Client::Quick_MP:
+		//Player->S
+		break;
+	default:
+		break;
+	}
 }
 
 HRESULT CItemInfoUI::SetUp_Components()

@@ -34,8 +34,19 @@ private: /* For.Components */
 private:
 	_float4x4				m_ProjMatrix;
 	_float					m_fX, m_fY, m_fSizeX, m_fSizeY;
+<<<<<<< HEAD:Client/Public/Meteo_Effect.h
 	_float					m_EffectFrame = 0.f;
 	_float					m_Skill_Time_L = 0.f;
+=======
+	_uint					m_iIconNum = 0;
+	_bool					m_bOnCheck = false;
+	_bool					m_bMoveUi = false;
+	_float2					m_fMousePos;
+	_float2					m_fDifDis;
+	RECT					m_rcRect;
+	_bool					m_bRectInCheck = false;
+	_bool					m_bCheckIn = false;
+>>>>>>> 763671df696a78e2247104d8f8547f8d45e72ab2:Client/Public/IconUI.h
 
 	_float3					m_vEffectPos;
 private:

@@ -181,18 +181,24 @@ HRESULT CPlayer_Attack::SetUp_RenderState()
 		return E_FAIL;
 
 	m_pGraphic_Device->SetRenderState(D3DRS_ALPHATESTENABLE, TRUE);
+<<<<<<< HEAD
 
+=======
+>>>>>>> 763671df696a78e2247104d8f8547f8d45e72ab2
 	//m_pGraphic_Device->SetRenderState(D3DRS_ALPHAREF, 250);
 	//m_pGraphic_Device->SetRenderState(D3DRS_ALPHAFUNC, D3DCMP_GREATEREQUAL);
 
 	//m_pGraphic_Device->SetRenderState(D3DRS_FILLMODE, D3DFILL_WIREFRAME);
 
+<<<<<<< HEAD
 
 	//m_pGraphic_Device->SetRenderState(D3DRS_ALPHAREF, 0);
 	//m_pGraphic_Device->SetRenderState(D3DRS_ALPHAFUNC, D3DCMP_GREATER);
 
 	//m_pGraphic_Device->SetRenderState(D3DRS_CULLMODE, D3DCULL_NONE);
 
+=======
+>>>>>>> 763671df696a78e2247104d8f8547f8d45e72ab2
 	return S_OK;
 }
 

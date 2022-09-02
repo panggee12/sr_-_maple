@@ -29,9 +29,15 @@ HRESULT CInventoryUI::Initialize(void* pArg)
 	D3DXMatrixOrthoLH(&m_ProjMatrix, g_iWinSizeX, g_iWinSizeY, 0.f, 1.f);
 
 	m_fSizeX = 400.f;
+<<<<<<< HEAD
 	m_fSizeY = 600.f;
 	m_fX = 500.f;
 	m_fY = 400.f;
+=======
+	m_fSizeY = 500.f;
+	m_fX = 650.f;
+	m_fY = 280.f;
+>>>>>>> 763671df696a78e2247104d8f8547f8d45e72ab2
 
 	if (FAILED(SetUp_Components()))
 		return E_FAIL;
@@ -55,8 +61,13 @@ void CInventoryUI::Tick(_float fTimeDelta)
 	
 	if(!m_bMoveUi)
 		SetRect(&m_rcRect, m_fX - m_fSizeX * 0.5f, m_fY - m_fSizeY * 0.5f, m_fX + m_fSizeX * 0.5f, m_fY - m_fSizeY * 0.4f);
+<<<<<<< HEAD
 	//300 //100 700 160
 	POINT		ptMouse;
+=======
+
+	POINT      ptMouse;
+>>>>>>> 763671df696a78e2247104d8f8547f8d45e72ab2
 	GetCursorPos(&ptMouse);
 	ScreenToClient(g_hWnd, &ptMouse);
 
@@ -87,37 +98,80 @@ void CInventoryUI::Tick(_float fTimeDelta)
 	//SetRect(&m_rcRect, m_fX - m_fDifDis.x - m_fSizeX * 0.5f, m_fY + m_fDifDis.y - m_fSizeY * 0.5f, m_fX - m_fDifDis.x + m_fSizeX * 0.5f, m_fY + m_fDifDis.y - m_fSizeY * 0.4f);
 	_char         MouseMove = 0;
 	bool         bDown = false;
-	if (PtInRect(&m_rcRect, ptMouse)) //눌렀을때 마우스 위치를 기록해놔야함
+
+	m_pTransformCom->Set_State(CTransform::STATE_POSITION, _float3(m_fX - m_fDifDis.x - m_fSizeX*1.595f, m_fY + m_fDifDis.y - m_fSizeY*0.4f, 0.f));
+	SetRect(&m_rcRect, m_fX - m_fSizeX * 0.5f - m_fDifDis.x, m_fY - m_fDifDis.y - m_fSizeY * 0.5f, m_fX + m_fSizeX * 0.5f - m_fDifDis.x, m_fY - m_fSizeY * 0.4f - m_fDifDis.y);
+	/*
+	if (pGameInstance->Key_Down(VK_SPACE))
 	{
-		if ((MouseMove = pGameInstance->Get_DIMKeyState(DIMK_LBUTTON)) && !m_bMoveUi)
+	if (PtInRect(&m_rcRect, ptMouse))
+	{
+	ERR_MSG(TEXT("충돌"));
+	}
+	}
+	*/
+	if (pGameInstance->Key_Pressing(VK_LBUTTON) && !m_bMoveUi)
+	{
+		if (PtInRect(&m_rcRect, ptMouse))
 		{
 			m_bMoveUi = true;
+<<<<<<< HEAD
 			m_fMousePos.x = ptMouse.x;
 			m_fMousePos.y = ptMouse.y;
 			m_iCheck++;
 		}
 		else if(m_bMoveUi&& !(MouseMove = pGameInstance->Get_DIMKeyState(DIMK_LBUTTON)))
 			m_bMoveUi = false;
+=======
+			if (!m_bFirst)
+			{
+				m_fMousePos.x = ptMouse.x;
+				m_fMousePos.y = ptMouse.y;
+				m_bFirst = true;
+			}
+			m_iCheck++;
+		}
+>>>>>>> 763671df696a78e2247104d8f8547f8d45e72ab2
 	}
+
+	else if (pGameInstance->Key_Up(VK_LBUTTON) && m_bMoveUi)
+		m_bMoveUi = false;
+
 	if (m_bMoveUi)
 	{
 		m_fDifDis.x = m_fMousePos.x - ptMouse.x;
 		m_fDifDis.y = m_fMousePos.y - ptMouse.y;
 	}
+<<<<<<< HEAD
 	m_pTransformCom->Set_State(CTransform::STATE_POSITION, _float3(m_fX - m_fDifDis.x - m_fSizeX*1.25f, m_fY + m_fDifDis.y - m_fSizeY*0.7f, 0.f));
 	SetRect(&m_rcRect, m_fX - m_fDifDis.x - m_fSizeX * 0.5f, m_fY + m_fDifDis.y - m_fSizeY * 0.5f, m_fX - m_fDifDis.x + m_fSizeX * 0.5f, m_fY + m_fDifDis.y - m_fSizeY * 0.4f);
 
 	if (m_iCheck > 1)
 		int a = 10;
+=======
+>>>>>>> 763671df696a78e2247104d8f8547f8d45e72ab2
 	Safe_Release(pGameInstance);
-
 }
 
 void CInventoryUI::Late_Tick(_float fTimeDelta)
 {
 	__super::Late_Tick(fTimeDelta);
 
+<<<<<<< HEAD
 	if (GetKeyState('I') & 0x0001)
+=======
+	POINT      ptMouse;
+	GetCursorPos(&ptMouse);
+	ScreenToClient(g_hWnd, &ptMouse);
+
+	CGameInstance* pGameInstance = CGameInstance::Get_Instance();
+
+	Safe_AddRef(pGameInstance);
+
+	_ushort shCount = 0;
+
+	if (m_bOnCheck == false && pGameInstance->Key_Down('I'))
+>>>>>>> 763671df696a78e2247104d8f8547f8d45e72ab2
 	{
 		if (m_bOnCheck == true)
 		{
@@ -140,7 +194,7 @@ HRESULT CInventoryUI::Render()
 	if (FAILED(m_pTransformCom->Bind_OnGraphicDev()))
 		return E_FAIL;
 
-	_float4x4		ViewMatrix;
+	_float4x4      ViewMatrix;
 	D3DXMatrixIdentity(&ViewMatrix);
 	
 	m_pGraphic_Device->SetTransform(D3DTS_VIEW, &ViewMatrix);
@@ -163,6 +217,45 @@ HRESULT CInventoryUI::Render()
 	return S_OK;
 }
 
+<<<<<<< HEAD
+=======
+void CInventoryUI::Show_Inven()
+{
+	_float fLeft = m_fX - m_fSizeX * 0.5f;
+	_float fTop = m_fY - m_fSizeY * 0.5f;
+
+	if (nullptr != m_pRendererCom)
+		m_pRendererCom->Add_RenderGroup(CRenderer::RENDER_UI, this);
+
+	POINT      ptMouse;
+	GetCursorPos(&ptMouse);
+	ScreenToClient(g_hWnd, &ptMouse);
+
+	for (_uint i = 0; i < 8; ++i) //y
+	{
+		for (_uint j = 0; j < 6; ++j) //x
+		{
+			RECT rcRect;
+
+			SetRect(&m_Inven.rcRect,
+				fLeft + 30.f + j * 58.f,
+				fTop + 80.f + i * 48.f,
+				fLeft + 30.f + j * 58.f + 58.f,
+				fTop + 80.f + i * 48.f + 48.f);
+
+			m_Inven.RectX = m_Inven.rcRect.left + (m_Inven.rcRect.right - m_Inven.rcRect.left) * 0.5f;
+			m_Inven.RectY = m_Inven.rcRect.top + (m_Inven.rcRect.bottom - m_Inven.rcRect.top) * 0.5f;
+
+			m_vecInven.push_back(m_Inven);
+
+			int a = 10;
+		}
+	}
+
+
+}
+
+>>>>>>> 763671df696a78e2247104d8f8547f8d45e72ab2
 HRESULT CInventoryUI::SetUp_Components()
 {
 	/* For.Com_Renderer */
@@ -179,7 +272,7 @@ HRESULT CInventoryUI::SetUp_Components()
 
 
 	/* For.Com_Transform */
-	CTransform::TRANSFORMDESC		TransformDesc;
+	CTransform::TRANSFORMDESC      TransformDesc;
 	ZeroMemory(&TransformDesc, sizeof(CTransform::TRANSFORMDESC));
 
 	TransformDesc.fSpeedPerSec = 5.f;
@@ -213,7 +306,7 @@ HRESULT CInventoryUI::Release_RenderState()
 
 CInventoryUI * CInventoryUI::Create(LPDIRECT3DDEVICE9 pGraphic_Device)
 {
-	CInventoryUI*	pInstance = new CInventoryUI(pGraphic_Device);
+	CInventoryUI*   pInstance = new CInventoryUI(pGraphic_Device);
 
 	if (FAILED(pInstance->Initialize_Prototype()))
 	{
@@ -226,7 +319,7 @@ CInventoryUI * CInventoryUI::Create(LPDIRECT3DDEVICE9 pGraphic_Device)
 
 CGameObject * CInventoryUI::Clone(void* pArg)
 {
-	CInventoryUI*	pInstance = new CInventoryUI(*this);
+	CInventoryUI*   pInstance = new CInventoryUI(*this);
 
 	if (FAILED(pInstance->Initialize(pArg)))
 	{

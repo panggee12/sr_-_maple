@@ -88,8 +88,20 @@ void CSkillbookUI::Tick(_float fTimeDelta)
 			m_iCheck++;
 		}
 	}
+
 	else if (pGameInstance->Key_Up(VK_LBUTTON) && m_bMoveUi)
 		m_bMoveUi = false;
+<<<<<<< HEAD
+=======
+
+
+	if (m_bMoveUi)
+	{									//100						99
+		m_fDifDis.x = m_fMousePos.x - ptMouse.x;
+		m_fDifDis.y = m_fMousePos.y - ptMouse.y;
+	}
+
+>>>>>>> 763671df696a78e2247104d8f8547f8d45e72ab2
 
 
 	if (m_iCheck > 1)

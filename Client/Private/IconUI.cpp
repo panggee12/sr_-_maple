@@ -28,8 +28,9 @@ HRESULT CIconUI::Initialize(void* pArg)
 
 	D3DXMatrixOrthoLH(&m_ProjMatrix, g_iWinSizeX, g_iWinSizeY, 0.f, 1.f);
 
-	m_fSizeX = 68.f;
-	m_fSizeY = 67.f;
+
+	m_fSizeX = 57.f;
+	m_fSizeY = 47.f;
 	m_fX = 0.f;
 	m_fY = 0.f;
 
@@ -59,6 +60,7 @@ void CIconUI::Tick(_float fTimeDelta)
 	ScreenToClient(g_hWnd, &ptMouse);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 	auto pInven = pGameInstance->Find_Target(LEVEL_GAMEPLAY, TEXT("Layer_InvenUI"));
 
 	if (PtInRect(&m_rcRect, ptMouse))
@@ -87,18 +89,40 @@ void CIconUI::Tick(_float fTimeDelta)
 	_float fMX = ptMouse.x;
 	_float fMY = ptMouse.y;
 
+=======
+>>>>>>> 763671df696a78e2247104d8f8547f8d45e72ab2
 	auto pInven = pGameInstance->Find_Target(LEVEL_GAMEPLAY, TEXT("Layer_InvenUI"));
 
 	if (PtInRect(&m_rcRect, ptMouse))
+	{
 		m_bRectInCheck = true;
+		if (pGameInstance->Key_Pressing(VK_LBUTTON) && !m_bMoveUi)
+		{
+			m_bMoveUi = true;
+			m_fMousePos.x = ptMouse.x;
+			m_fMousePos.y = ptMouse.y;
+		}
+		else if (m_bMoveUi && !pGameInstance->Key_Pressing(VK_LBUTTON))
+			m_bMoveUi = false;
+	}
+	if (m_bMoveUi)
+	{
+		m_fDifDis.x = m_fMousePos.x - ptMouse.x;
+		m_fDifDis.y = m_fMousePos.y - ptMouse.y;
+	}
+
 
 	if (pGameInstance->Key_Pressing(VK_LBUTTON) && m_bRectInCheck)
 	{
+<<<<<<< HEAD
 		m_pTransformCom->Set_State(CTransform::STATE_POSITION, _float3(fMX - g_iWinSizeX * 0.5f, -fMY + g_iWinSizeY * 0.5f, 0.f));
 >>>>>>> aa192b3238a5dae7f5a2cf8c530fc184cccd860b
+=======
+		m_pTransformCom->Set_State(CTransform::STATE_POSITION, _float3(ptMouse.x - g_iWinSizeX * 0.5f, -ptMouse.y + g_iWinSizeY * 0.5f, 0.f));
+>>>>>>> 763671df696a78e2247104d8f8547f8d45e72ab2
 	}
 
-	if (pGameInstance->Key_Up(VK_LBUTTON))
+	if (pGameInstance->Key_Up(VK_LBUTTON)) 
 	{
 		for (auto& pInven : static_cast<CInventoryUI*>(pInven)->Get_InvenInfo())
 		{

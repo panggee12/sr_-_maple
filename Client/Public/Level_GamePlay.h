@@ -47,6 +47,7 @@ private://«¡∑π¿”
 private:
 	list<CTestBox::CUBEDESC> m_CubeInfoList;
 	_float					m_fLayerPos[200][20][200];
+	vector<class CItemInfoUI*> m_vecQuickItem;
 public:
 	static CLevel_GamePlay* Create(LPDIRECT3DDEVICE9 pGraphic_Device);
 	virtual void Free() override;

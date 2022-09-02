@@ -270,9 +270,13 @@ HRESULT CPlayer_Litening::Lite_Ning_Effect_On(const _tchar * pLayerTag, _float f
 
 	_float3 vPosition_S = m_pTransformCom->Get_State(CTransform::STATE_POSITION);
 
+<<<<<<< HEAD
 
 	if (FAILED(pGameInstance->Add_GameObject(TEXT("Prototype_GameObject_Litenig_Effect"), LEVEL_GAMEPLAY, pLayerTag, vPos_Efect)))
 
+=======
+	if (FAILED(pGameInstance->Add_GameObject(TEXT("Prototype_GameObject_Effect"), LEVEL_GAMEPLAY, pLayerTag, vPosition_S)))
+>>>>>>> 763671df696a78e2247104d8f8547f8d45e72ab2
 		return E_FAIL;
 
 	//m_fSkillTime = m_fSkillTime + 0.5f;

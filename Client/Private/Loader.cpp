@@ -27,9 +27,14 @@
 #include "Player_Attack.h"
 #include "Effect.h"
 #include "ConsumItem.h"
+<<<<<<< HEAD
 #include "Litening_Effect.h"
 #include "Body_Effect.h"
 #include "Meteo_Effect.h"
+=======
+#include "IconUI.h"
+
+>>>>>>> 763671df696a78e2247104d8f8547f8d45e72ab2
 
 
 CLoader::CLoader(LPDIRECT3DDEVICE9 pGraphic_Device)
@@ -135,11 +140,15 @@ HRESULT CLoader::Loading_ForGamePlayLevel()
 		return E_FAIL;
 
 	if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, TEXT("Prototype_Component_Texture_ItemInfoUI"),
+<<<<<<< HEAD
 		CTexture::Create(m_pGraphic_Device, CTexture::TYPE_DEFAULT, TEXT("../Bin/Resources/Textures/Icon/Item/Quick/Quick_Item_%d.png"), 3))))
 		return E_FAIL;
 
 	if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, TEXT("Prototype_Component_Texture_InventoryUI"),
 		CTexture::Create(m_pGraphic_Device, CTexture::TYPE_DEFAULT, TEXT("../Bin/Resources/Textures/UI/Inventory_%d.png"), 1))))
+=======
+		CTexture::Create(m_pGraphic_Device, CTexture::TYPE_DEFAULT, TEXT("../Bin/Resources/Textures/UI/PlayerInfo%d.png"), 1))))
+>>>>>>> 763671df696a78e2247104d8f8547f8d45e72ab2
 		return E_FAIL;
 
 	if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, TEXT("Prototype_Component_Texture_PlayerInfoUI"),
@@ -148,10 +157,6 @@ HRESULT CLoader::Loading_ForGamePlayLevel()
 
 	if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, TEXT("Prototype_Component_Texture_SkillbookUI"),
 		CTexture::Create(m_pGraphic_Device, CTexture::TYPE_DEFAULT, TEXT("../Bin/Resources/Textures/UI/SkillBook%d.png"), 1))))
-		return E_FAIL;
-
-	if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, TEXT("Prototype_Component_Texture_ConsumItem"),
-		CTexture::Create(m_pGraphic_Device, CTexture::TYPE_DEFAULT, TEXT("../Bin/Resources/Textures/Icon/Item/ConsumItem/Item_%d.png"), 4))))
 		return E_FAIL;
 
 
@@ -281,6 +286,8 @@ HRESULT CLoader::Loading_ForGamePlayLevel()
 
 	/* 按眉 积己 吝. */
 	//lstrcpy(m_szLoadingText, TEXT("按眉 积己 吝."));
+
+	/*For.Prototype_GameObject_UI */
 
 	/*For.Prototype_GameObject_UI */
 	if (FAILED(pGameInstance->Add_Prototype(TEXT("Prototype_GameObject_InventoryUI"),

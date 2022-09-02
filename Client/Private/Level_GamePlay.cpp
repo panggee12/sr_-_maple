@@ -19,9 +19,8 @@ HRESULT CLevel_GamePlay::Initialize()
 
 	LoadMapData();
 
-	if (FAILED(Ready_Layer_Camera(TEXT("Layer_Camera"))))
-		return E_FAIL;
 
+<<<<<<< HEAD
 	if (FAILED(Ready_Layer_TestBox(TEXT("Layer_TestBox"))))
 		return E_FAIL;
 
@@ -36,8 +35,46 @@ HRESULT CLevel_GamePlay::Initialize()
 
 	if (FAILED(Ready_Layer_UI(TEXT("Layer_UI"))))
 		return E_FAIL;
+=======
+	if (FAILED(Ready_Layer_IconUI(TEXT("Layer_IconUI"))))
+		return E_FAIL;
 
+	if (FAILED(Ready_Layer_PlayerInfoUI(TEXT("Layer_PlayerInfoUI"))))
+		return E_FAIL;
+	if (FAILED(Ready_Layer_SkillInfoUI(TEXT("Layer_SkillInfoUI"))))
+		return E_FAIL;
+	if (FAILED(Ready_Layer_ItemInfoUI(TEXT("Layer_ITemInfoUI"))))
+		return E_FAIL;
+	if (FAILED(Ready_Layer_SkillBookUI(TEXT("Layer_SkillBookUI"))))
+		return E_FAIL;
+	if (FAILED(Ready_Layer_HpBarUI(TEXT("Layer_HpBarUI"))))
+		return E_FAIL;
+	if (FAILED(Ready_Layer_ExpBarUI(TEXT("Layer_ExpBarUI"))))
+		return E_FAIL;
+	if (FAILED(Ready_Layer_InvenUI(TEXT("Layer_InvenUI"))))
+		return E_FAIL;
+>>>>>>> 763671df696a78e2247104d8f8547f8d45e72ab2
 
+	if (FAILED(Ready_Layer_Camera(TEXT("Layer_Camera"))))
+		return E_FAIL;
+
+<<<<<<< HEAD
+=======
+	if (FAILED(Ready_Layer_TestBox(TEXT("Layer_TestBox"))))
+		return E_FAIL;
+
+	if (FAILED(Ready_Layer_Player(TEXT("Layer_Player"))))
+		return E_FAIL;
+
+	for (int i = 0; i < 10; ++i)
+	{
+		if (FAILED(Ready_Layer_Monster(TEXT("Layer_Monster"))))
+			return E_FAIL;
+	}
+
+	/*if (FAILED(Ready_Layer_IconUI(TEXT("Layer_IconUI"))))
+		return E_FAIL;*/
+>>>>>>> 763671df696a78e2247104d8f8547f8d45e72ab2
 
 	return S_OK;
 }
@@ -53,9 +90,15 @@ void CLevel_GamePlay::Tick(_float fTimeDelta)
 	POINT pt = {};
 	GetCursorPos(&pt);					//마우스 받아오기
 	ScreenToClient(g_hWnd, &pt);
+<<<<<<< HEAD
 
 	auto Quick = pGameInstance->Find_Layer(LEVEL_GAMEPLAY, TEXT("Layer_UI"));  //퀵슬록 기능위한 유아이 레이어 받기
 
+=======
+
+	auto Quick = pGameInstance->Find_Layer(LEVEL_GAMEPLAY, TEXT("Layer_ITemInfoUI"));  //퀵슬록 기능위한 유아이 레이어 받기
+
+>>>>>>> 763671df696a78e2247104d8f8547f8d45e72ab2
 	if (pt.y > 550)			//퀵슬롯 기능 구간
 	{
 		_uint iIndex = 0;
@@ -66,7 +109,7 @@ void CLevel_GamePlay::Tick(_float fTimeDelta)
 				_uint iCheck = 0;
 				for (auto& iter : Quick->Get_ObjectList())
 				{
-					if (iCheck - 13 == iIndex)
+					if (iCheck == iIndex)
 					{
 						dynamic_cast<CItemInfoUI*>(iter)->Set_QuickItem();
 						break;
@@ -95,7 +138,8 @@ void CLevel_GamePlay::Tick(_float fTimeDelta)
 	//pGameInstance->Collision(LEVEL_GAMEPLAY, TEXT("Layer_Player"), TEXT("Layer_CubeTerrain"), fTimeDelta);
 
 
-											//프레임 띄우는 구간
+	//프레임 띄우는 구간
+
 	++m_iNumRender;
 
 	if (m_fTimeAcc > 1.0f)
@@ -125,6 +169,10 @@ HRESULT CLevel_GamePlay::Ready_Layer_Player(const _tchar * pLayerTag)
 
 	if (FAILED(pGameInstance->Add_GameObject(TEXT("Prototype_GameObject_Player"), LEVEL_GAMEPLAY, pLayerTag, nullptr)))
 		return E_FAIL;	
+
+	auto Player = dynamic_cast<CPlayer*>(pGameInstance->Find_Target(LEVEL_GAMEPLAY, TEXT("Layer_Player")));
+
+	Player->Set_QuickItem(&m_vecQuickItem);
 
 	Safe_Release(pGameInstance);
 
@@ -265,6 +313,21 @@ HRESULT CLevel_GamePlay::Ready_Layer_UI(const _tchar * pLayerTag)
 			return E_FAIL;
 	}
 
+<<<<<<< HEAD
+=======
+	Safe_Release(pGameInstance);
+
+	return S_OK;
+}
+
+HRESULT CLevel_GamePlay::Ready_Layer_ItemInfoUI(const _tchar * pLayerTag)
+{
+	CGameInstance*			pGameInstance = CGameInstance::Get_Instance();
+	Safe_AddRef(pGameInstance);
+
+	auto Player = pGameInstance->Find_Target(LEVEL_GAMEPLAY, TEXT("Layer_Player"));
+
+>>>>>>> 763671df696a78e2247104d8f8547f8d45e72ab2
 	for (_uint i = 0; i < 8; ++i)
 	{
 		_float3 vPos = {};
@@ -286,10 +349,19 @@ HRESULT CLevel_GamePlay::Ready_Layer_UI(const _tchar * pLayerTag)
 
 		RECT rc = {};
 
+<<<<<<< HEAD
 		SetRect(&rc, vPos.x - 33 + 770.f , vPos.y - 33, vPos.x + 33 + 770.f, vPos.y + 33);
 
 		m_eQuickInfo[i].iIndex = i;
 		m_eQuickInfo[i].rc = rc;
+=======
+		SetRect(&rc, vPos.x - 33 + 770.f, vPos.y - 33, vPos.x + 33 + 770.f, vPos.y + 33);
+
+		m_eQuickInfo[i].iIndex = i;
+		m_eQuickInfo[i].rc = rc;
+
+		m_vecQuickItem.push_back(dynamic_cast<class CItemInfoUI*>(pGameInstance->Get_BackObject(LEVEL_GAMEPLAY, pLayerTag)));
+>>>>>>> 763671df696a78e2247104d8f8547f8d45e72ab2
 	}
 	Safe_Release(pGameInstance);
 }
