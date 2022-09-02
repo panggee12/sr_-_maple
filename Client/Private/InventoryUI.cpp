@@ -29,15 +29,10 @@ HRESULT CInventoryUI::Initialize(void* pArg)
 	D3DXMatrixOrthoLH(&m_ProjMatrix, g_iWinSizeX, g_iWinSizeY, 0.f, 1.f);
 
 	m_fSizeX = 400.f;
-<<<<<<< HEAD
-	m_fSizeY = 600.f;
-	m_fX = 500.f;
-	m_fY = 400.f;
-=======
 	m_fSizeY = 500.f;
 	m_fX = 650.f;
 	m_fY = 280.f;
->>>>>>> 763671df696a78e2247104d8f8547f8d45e72ab2
+
 
 	if (FAILED(SetUp_Components()))
 		return E_FAIL;
@@ -61,13 +56,10 @@ void CInventoryUI::Tick(_float fTimeDelta)
 	
 	if(!m_bMoveUi)
 		SetRect(&m_rcRect, m_fX - m_fSizeX * 0.5f, m_fY - m_fSizeY * 0.5f, m_fX + m_fSizeX * 0.5f, m_fY - m_fSizeY * 0.4f);
-<<<<<<< HEAD
+
 	//300 //100 700 160
 	POINT		ptMouse;
-=======
 
-	POINT      ptMouse;
->>>>>>> 763671df696a78e2247104d8f8547f8d45e72ab2
 	GetCursorPos(&ptMouse);
 	ScreenToClient(g_hWnd, &ptMouse);
 
@@ -115,14 +107,6 @@ void CInventoryUI::Tick(_float fTimeDelta)
 		if (PtInRect(&m_rcRect, ptMouse))
 		{
 			m_bMoveUi = true;
-<<<<<<< HEAD
-			m_fMousePos.x = ptMouse.x;
-			m_fMousePos.y = ptMouse.y;
-			m_iCheck++;
-		}
-		else if(m_bMoveUi&& !(MouseMove = pGameInstance->Get_DIMKeyState(DIMK_LBUTTON)))
-			m_bMoveUi = false;
-=======
 			if (!m_bFirst)
 			{
 				m_fMousePos.x = ptMouse.x;
@@ -131,7 +115,6 @@ void CInventoryUI::Tick(_float fTimeDelta)
 			}
 			m_iCheck++;
 		}
->>>>>>> 763671df696a78e2247104d8f8547f8d45e72ab2
 	}
 
 	else if (pGameInstance->Key_Up(VK_LBUTTON) && m_bMoveUi)
@@ -142,14 +125,7 @@ void CInventoryUI::Tick(_float fTimeDelta)
 		m_fDifDis.x = m_fMousePos.x - ptMouse.x;
 		m_fDifDis.y = m_fMousePos.y - ptMouse.y;
 	}
-<<<<<<< HEAD
-	m_pTransformCom->Set_State(CTransform::STATE_POSITION, _float3(m_fX - m_fDifDis.x - m_fSizeX*1.25f, m_fY + m_fDifDis.y - m_fSizeY*0.7f, 0.f));
-	SetRect(&m_rcRect, m_fX - m_fDifDis.x - m_fSizeX * 0.5f, m_fY + m_fDifDis.y - m_fSizeY * 0.5f, m_fX - m_fDifDis.x + m_fSizeX * 0.5f, m_fY + m_fDifDis.y - m_fSizeY * 0.4f);
 
-	if (m_iCheck > 1)
-		int a = 10;
-=======
->>>>>>> 763671df696a78e2247104d8f8547f8d45e72ab2
 	Safe_Release(pGameInstance);
 }
 
@@ -157,9 +133,7 @@ void CInventoryUI::Late_Tick(_float fTimeDelta)
 {
 	__super::Late_Tick(fTimeDelta);
 
-<<<<<<< HEAD
-	if (GetKeyState('I') & 0x0001)
-=======
+
 	POINT      ptMouse;
 	GetCursorPos(&ptMouse);
 	ScreenToClient(g_hWnd, &ptMouse);
@@ -171,7 +145,7 @@ void CInventoryUI::Late_Tick(_float fTimeDelta)
 	_ushort shCount = 0;
 
 	if (m_bOnCheck == false && pGameInstance->Key_Down('I'))
->>>>>>> 763671df696a78e2247104d8f8547f8d45e72ab2
+
 	{
 		if (m_bOnCheck == true)
 		{
@@ -217,8 +191,6 @@ HRESULT CInventoryUI::Render()
 	return S_OK;
 }
 
-<<<<<<< HEAD
-=======
 void CInventoryUI::Show_Inven()
 {
 	_float fLeft = m_fX - m_fSizeX * 0.5f;
@@ -255,7 +227,7 @@ void CInventoryUI::Show_Inven()
 
 }
 
->>>>>>> 763671df696a78e2247104d8f8547f8d45e72ab2
+
 HRESULT CInventoryUI::SetUp_Components()
 {
 	/* For.Com_Renderer */

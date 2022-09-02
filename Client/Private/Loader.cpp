@@ -22,19 +22,18 @@
 #include "ExpBarUI.h"
 #include "SkillInfoUI.h"
 #include "ItemInfoUI.h"
+
 #include "Player_Skill.h"
 #include "Skill_Meteo.h"
 #include "Player_Attack.h"
 #include "Effect.h"
 #include "ConsumItem.h"
-<<<<<<< HEAD
 #include "Litening_Effect.h"
 #include "Body_Effect.h"
 #include "Meteo_Effect.h"
-=======
 #include "IconUI.h"
 
->>>>>>> 763671df696a78e2247104d8f8547f8d45e72ab2
+
 
 
 CLoader::CLoader(LPDIRECT3DDEVICE9 pGraphic_Device)
@@ -140,15 +139,12 @@ HRESULT CLoader::Loading_ForGamePlayLevel()
 		return E_FAIL;
 
 	if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, TEXT("Prototype_Component_Texture_ItemInfoUI"),
-<<<<<<< HEAD
+
 		CTexture::Create(m_pGraphic_Device, CTexture::TYPE_DEFAULT, TEXT("../Bin/Resources/Textures/Icon/Item/Quick/Quick_Item_%d.png"), 3))))
 		return E_FAIL;
 
 	if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, TEXT("Prototype_Component_Texture_InventoryUI"),
 		CTexture::Create(m_pGraphic_Device, CTexture::TYPE_DEFAULT, TEXT("../Bin/Resources/Textures/UI/Inventory_%d.png"), 1))))
-=======
-		CTexture::Create(m_pGraphic_Device, CTexture::TYPE_DEFAULT, TEXT("../Bin/Resources/Textures/UI/PlayerInfo%d.png"), 1))))
->>>>>>> 763671df696a78e2247104d8f8547f8d45e72ab2
 		return E_FAIL;
 
 	if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, TEXT("Prototype_Component_Texture_PlayerInfoUI"),
@@ -328,14 +324,9 @@ HRESULT CLoader::Loading_ForGamePlayLevel()
 		CPlayer::Create(m_pGraphic_Device))))
 		return E_FAIL;
 
-	///*For.Prototype_GameObject_Efect*/
-	//if (FAILED(pGameInstance->Add_Prototype(TEXT("Prototype_GameObject_Effect"),
-	//	CEffect::Create(m_pGraphic_Device))))
-	//	return E_FAIL;
-
 	/*For.Prototype_GameObject_Player_Skill*/
 	if (FAILED(pGameInstance->Add_Prototype(TEXT("Prototype_GameObject_Player_Skill"),
-		CPlayer_Skill::Create(m_pGraphic_Device))))
+		CPlayer_Litening::Create(m_pGraphic_Device))))
 		return E_FAIL;
 
 	/*For.Prototype_GameObject_Skill_Meteor*/

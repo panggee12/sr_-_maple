@@ -55,42 +55,10 @@ void CIconUI::Tick(_float fTimeDelta)
 
 	SetRect(&m_rcRect, m_fX - m_fSizeX * 0.5f, m_fY - m_fSizeY * 0.5f, m_fX + m_fSizeX * 0.5f, m_fY + m_fSizeY * 0.5f);
 
-	POINT		ptMouse;
+	POINT      ptMouse;
 	GetCursorPos(&ptMouse);
 	ScreenToClient(g_hWnd, &ptMouse);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-	auto pInven = pGameInstance->Find_Target(LEVEL_GAMEPLAY, TEXT("Layer_InvenUI"));
-
-	if (PtInRect(&m_rcRect, ptMouse))
-	{
-		m_bRectInCheck = true;
-		if (pGameInstance->Key_Pressing(VK_LBUTTON) && !m_bMoveUi)
-		{
-			m_bMoveUi = true;
-			m_fMousePos.x = ptMouse.x;
-			m_fMousePos.y = ptMouse.y;
-		}
-		else if (m_bMoveUi && !pGameInstance->Key_Pressing(VK_LBUTTON))
-			m_bMoveUi = false;
-	}
-	if (m_bMoveUi)
-	{
-		m_fDifDis.x = m_fMousePos.x - ptMouse.x;
-		m_fDifDis.y = m_fMousePos.y - ptMouse.y;
-	}
-		
-	
-	if (pGameInstance->Key_Pressing(VK_LBUTTON) && m_bRectInCheck )
-	{
-		m_pTransformCom->Set_State(CTransform::STATE_POSITION, _float3(ptMouse.x - m_fDifDis.x - g_iWinSizeX * 0.5f, -ptMouse.y - m_fDifDis.y + g_iWinSizeY * 0.5f, 0.f));
-=======
-	_float fMX = ptMouse.x;
-	_float fMY = ptMouse.y;
-
-=======
->>>>>>> 763671df696a78e2247104d8f8547f8d45e72ab2
 	auto pInven = pGameInstance->Find_Target(LEVEL_GAMEPLAY, TEXT("Layer_InvenUI"));
 
 	if (PtInRect(&m_rcRect, ptMouse))
@@ -114,15 +82,10 @@ void CIconUI::Tick(_float fTimeDelta)
 
 	if (pGameInstance->Key_Pressing(VK_LBUTTON) && m_bRectInCheck)
 	{
-<<<<<<< HEAD
-		m_pTransformCom->Set_State(CTransform::STATE_POSITION, _float3(fMX - g_iWinSizeX * 0.5f, -fMY + g_iWinSizeY * 0.5f, 0.f));
->>>>>>> aa192b3238a5dae7f5a2cf8c530fc184cccd860b
-=======
 		m_pTransformCom->Set_State(CTransform::STATE_POSITION, _float3(ptMouse.x - g_iWinSizeX * 0.5f, -ptMouse.y + g_iWinSizeY * 0.5f, 0.f));
->>>>>>> 763671df696a78e2247104d8f8547f8d45e72ab2
 	}
 
-	if (pGameInstance->Key_Up(VK_LBUTTON)) 
+	if (pGameInstance->Key_Up(VK_LBUTTON))
 	{
 		for (auto& pInven : static_cast<CInventoryUI*>(pInven)->Get_InvenInfo())
 		{
@@ -164,7 +127,7 @@ HRESULT CIconUI::Render()
 	if (FAILED(m_pTransformCom->Bind_OnGraphicDev()))
 		return E_FAIL;
 
-	_float4x4		ViewMatrix;
+	_float4x4      ViewMatrix;
 	D3DXMatrixIdentity(&ViewMatrix);
 
 	m_pGraphic_Device->SetTransform(D3DTS_VIEW, &ViewMatrix);
@@ -202,7 +165,7 @@ HRESULT CIconUI::SetUp_Components()
 
 
 	/* For.Com_Transform */
-	CTransform::TRANSFORMDESC		TransformDesc;
+	CTransform::TRANSFORMDESC      TransformDesc;
 	ZeroMemory(&TransformDesc, sizeof(CTransform::TRANSFORMDESC));
 
 	TransformDesc.fSpeedPerSec = 5.f;
@@ -235,7 +198,7 @@ HRESULT CIconUI::Release_RenderState()
 
 CIconUI * CIconUI::Create(LPDIRECT3DDEVICE9 pGraphic_Device)
 {
-	CIconUI*	pInstance = new CIconUI(pGraphic_Device);
+	CIconUI*   pInstance = new CIconUI(pGraphic_Device);
 
 	if (FAILED(pInstance->Initialize_Prototype()))
 	{
@@ -248,7 +211,7 @@ CIconUI * CIconUI::Create(LPDIRECT3DDEVICE9 pGraphic_Device)
 
 CGameObject * CIconUI::Clone(void* pArg)
 {
-	CIconUI*	pInstance = new CIconUI(*this);
+	CIconUI*   pInstance = new CIconUI(*this);
 
 	if (FAILED(pInstance->Initialize(pArg)))
 	{

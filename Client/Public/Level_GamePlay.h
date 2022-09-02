@@ -31,9 +31,17 @@ public:
 	HRESULT Ready_Layer_BackGround(const _tchar* pLayerTag);
 	HRESULT Ready_Layer_CubeTerrain(const _tchar* pLayerTag);
 	HRESULT Ready_Layer_Camera(const _tchar* pLayerTag);
-	HRESULT Ready_Layer_UI(const _tchar* pLayerTag);
+	HRESULT Ready_Layer_InvenUI(const _tchar* pLayerTag);
+	HRESULT Ready_Layer_IconUI(const _tchar* pLayerTag);
+	HRESULT Ready_Layer_PlayerInfoUI(const _tchar* pLayerTag);
+	HRESULT Ready_Layer_SkillInfoUI(const _tchar* pLayerTag);
+	HRESULT Ready_Layer_ItemInfoUI(const _tchar* pLayerTag);
+	HRESULT Ready_Layer_SkillBookUI(const _tchar* pLayerTag);
+	HRESULT Ready_Layer_HpBarUI(const _tchar* pLayerTag);
+	HRESULT Ready_Layer_ExpBarUI(const _tchar* pLayerTag);
 
 	void LoadMapData(); // ¸Ê ºÒ·¯¿À±â
+
 
 private:
 	void Check_Collision_Cube(const _tchar* pLayerTag, _float fTimeDelta, TEXTUREPOS ePos);

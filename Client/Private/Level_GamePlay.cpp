@@ -6,6 +6,7 @@
 #include "Player.h"
 #include "Layer.h"
 #include "ItemInfoUI.h"
+
 CLevel_GamePlay::CLevel_GamePlay(LPDIRECT3DDEVICE9 pGraphic_Device)
 	: CLevel(pGraphic_Device)
 {
@@ -19,8 +20,6 @@ HRESULT CLevel_GamePlay::Initialize()
 
 	LoadMapData();
 
-
-<<<<<<< HEAD
 	if (FAILED(Ready_Layer_TestBox(TEXT("Layer_TestBox"))))
 		return E_FAIL;
 
@@ -33,9 +32,7 @@ HRESULT CLevel_GamePlay::Initialize()
 			return E_FAIL;
 	}
 
-	if (FAILED(Ready_Layer_UI(TEXT("Layer_UI"))))
-		return E_FAIL;
-=======
+
 	if (FAILED(Ready_Layer_IconUI(TEXT("Layer_IconUI"))))
 		return E_FAIL;
 
@@ -53,13 +50,10 @@ HRESULT CLevel_GamePlay::Initialize()
 		return E_FAIL;
 	if (FAILED(Ready_Layer_InvenUI(TEXT("Layer_InvenUI"))))
 		return E_FAIL;
->>>>>>> 763671df696a78e2247104d8f8547f8d45e72ab2
 
 	if (FAILED(Ready_Layer_Camera(TEXT("Layer_Camera"))))
 		return E_FAIL;
 
-<<<<<<< HEAD
-=======
 	if (FAILED(Ready_Layer_TestBox(TEXT("Layer_TestBox"))))
 		return E_FAIL;
 
@@ -72,9 +66,6 @@ HRESULT CLevel_GamePlay::Initialize()
 			return E_FAIL;
 	}
 
-	/*if (FAILED(Ready_Layer_IconUI(TEXT("Layer_IconUI"))))
-		return E_FAIL;*/
->>>>>>> 763671df696a78e2247104d8f8547f8d45e72ab2
 
 	return S_OK;
 }
@@ -90,15 +81,9 @@ void CLevel_GamePlay::Tick(_float fTimeDelta)
 	POINT pt = {};
 	GetCursorPos(&pt);					//마우스 받아오기
 	ScreenToClient(g_hWnd, &pt);
-<<<<<<< HEAD
-
-	auto Quick = pGameInstance->Find_Layer(LEVEL_GAMEPLAY, TEXT("Layer_UI"));  //퀵슬록 기능위한 유아이 레이어 받기
-
-=======
 
 	auto Quick = pGameInstance->Find_Layer(LEVEL_GAMEPLAY, TEXT("Layer_ITemInfoUI"));  //퀵슬록 기능위한 유아이 레이어 받기
 
->>>>>>> 763671df696a78e2247104d8f8547f8d45e72ab2
 	if (pt.y > 550)			//퀵슬롯 기능 구간
 	{
 		_uint iIndex = 0;
@@ -273,30 +258,52 @@ HRESULT CLevel_GamePlay::Ready_Layer_Camera(const _tchar * pLayerTag)
 	return S_OK;
 }
 
-HRESULT CLevel_GamePlay::Ready_Layer_UI(const _tchar * pLayerTag)
+HRESULT CLevel_GamePlay::Ready_Layer_InvenUI(const _tchar * pLayerTag)
 {
-	CGameInstance*			pGameInstance = CGameInstance::Get_Instance();
+	CGameInstance*         pGameInstance = CGameInstance::Get_Instance();
 	Safe_AddRef(pGameInstance);
 
 	if (FAILED(pGameInstance->Add_GameObject(TEXT("Prototype_GameObject_InventoryUI"), LEVEL_GAMEPLAY, pLayerTag)))
 		return E_FAIL;
+	Safe_Release(pGameInstance);
+
+	return S_OK;
+}
+
+HRESULT CLevel_GamePlay::Ready_Layer_IconUI(const _tchar * pLayerTag)
+{
+	CGameInstance*         pGameInstance = CGameInstance::Get_Instance();
+	Safe_AddRef(pGameInstance);
+
+	if (FAILED(pGameInstance->Add_GameObject(TEXT("Prototype_GameObject_IconUI"), LEVEL_GAMEPLAY, pLayerTag)))
+		return E_FAIL;
+
+	Safe_Release(pGameInstance);
+
+	return S_OK;
+}
+
+HRESULT CLevel_GamePlay::Ready_Layer_PlayerInfoUI(const _tchar * pLayerTag)
+{
+	CGameInstance*         pGameInstance = CGameInstance::Get_Instance();
+	Safe_AddRef(pGameInstance);
 
 	if (FAILED(pGameInstance->Add_GameObject(TEXT("Prototype_GameObject_PlayerInfoUI"), LEVEL_GAMEPLAY, pLayerTag)))
 		return E_FAIL;
 
-	if (FAILED(pGameInstance->Add_GameObject(TEXT("Prototype_GameObject_SkillbookUI"), LEVEL_GAMEPLAY, pLayerTag)))
-		return E_FAIL;
+	Safe_Release(pGameInstance);
 
-	if (FAILED(pGameInstance->Add_GameObject(TEXT("Prototype_GameObject_ExpBarUI"), LEVEL_GAMEPLAY, pLayerTag)))
-		return E_FAIL;
+	return S_OK;
+}
 
-	if (FAILED(pGameInstance->Add_GameObject(TEXT("Prototype_GameObject_HpbarUI"), LEVEL_GAMEPLAY, pLayerTag)))
-		return E_FAIL;
+HRESULT CLevel_GamePlay::Ready_Layer_SkillInfoUI(const _tchar * pLayerTag)
+{
+	CGameInstance*         pGameInstance = CGameInstance::Get_Instance();
+	Safe_AddRef(pGameInstance);
 
 	for (_uint i = 0; i < 8; ++i)
 	{
 		_float3 vPos = {};
-
 		if (i < 4)
 		{
 			vPos.x = 70.f * i;
@@ -313,8 +320,6 @@ HRESULT CLevel_GamePlay::Ready_Layer_UI(const _tchar * pLayerTag)
 			return E_FAIL;
 	}
 
-<<<<<<< HEAD
-=======
 	Safe_Release(pGameInstance);
 
 	return S_OK;
@@ -322,12 +327,11 @@ HRESULT CLevel_GamePlay::Ready_Layer_UI(const _tchar * pLayerTag)
 
 HRESULT CLevel_GamePlay::Ready_Layer_ItemInfoUI(const _tchar * pLayerTag)
 {
-	CGameInstance*			pGameInstance = CGameInstance::Get_Instance();
+	CGameInstance*         pGameInstance = CGameInstance::Get_Instance();
 	Safe_AddRef(pGameInstance);
 
 	auto Player = pGameInstance->Find_Target(LEVEL_GAMEPLAY, TEXT("Layer_Player"));
 
->>>>>>> 763671df696a78e2247104d8f8547f8d45e72ab2
 	for (_uint i = 0; i < 8; ++i)
 	{
 		_float3 vPos = {};
@@ -349,22 +353,95 @@ HRESULT CLevel_GamePlay::Ready_Layer_ItemInfoUI(const _tchar * pLayerTag)
 
 		RECT rc = {};
 
-<<<<<<< HEAD
-		SetRect(&rc, vPos.x - 33 + 770.f , vPos.y - 33, vPos.x + 33 + 770.f, vPos.y + 33);
-
-		m_eQuickInfo[i].iIndex = i;
-		m_eQuickInfo[i].rc = rc;
-=======
 		SetRect(&rc, vPos.x - 33 + 770.f, vPos.y - 33, vPos.x + 33 + 770.f, vPos.y + 33);
 
 		m_eQuickInfo[i].iIndex = i;
 		m_eQuickInfo[i].rc = rc;
 
 		m_vecQuickItem.push_back(dynamic_cast<class CItemInfoUI*>(pGameInstance->Get_BackObject(LEVEL_GAMEPLAY, pLayerTag)));
->>>>>>> 763671df696a78e2247104d8f8547f8d45e72ab2
 	}
+
 	Safe_Release(pGameInstance);
+
+	return S_OK;
 }
+
+HRESULT CLevel_GamePlay::Ready_Layer_SkillBookUI(const _tchar * pLayerTag)
+{
+	CGameInstance*         pGameInstance = CGameInstance::Get_Instance();
+	Safe_AddRef(pGameInstance);
+
+	if (FAILED(pGameInstance->Add_GameObject(TEXT("Prototype_GameObject_SkillbookUI"), LEVEL_GAMEPLAY, pLayerTag)))
+		return E_FAIL;
+
+	Safe_Release(pGameInstance);
+
+	return S_OK;
+}
+
+HRESULT CLevel_GamePlay::Ready_Layer_HpBarUI(const _tchar * pLayerTag)
+{
+	CGameInstance*         pGameInstance = CGameInstance::Get_Instance();
+	Safe_AddRef(pGameInstance);
+
+	if (FAILED(pGameInstance->Add_GameObject(TEXT("Prototype_GameObject_HpbarUI"), LEVEL_GAMEPLAY, pLayerTag)))
+		return E_FAIL;
+
+	Safe_Release(pGameInstance);
+
+	return S_OK;
+}
+
+HRESULT CLevel_GamePlay::Ready_Layer_ExpBarUI(const _tchar * pLayerTag)
+{
+	CGameInstance*         pGameInstance = CGameInstance::Get_Instance();
+	Safe_AddRef(pGameInstance);
+
+	if (FAILED(pGameInstance->Add_GameObject(TEXT("Prototype_GameObject_ExpBarUI"), LEVEL_GAMEPLAY, pLayerTag)))
+		return E_FAIL;
+
+	Safe_Release(pGameInstance);
+
+	return S_OK;
+}
+//HRESULT CLevel_GamePlay::Ready_Layer_ItemInfoUI(const _tchar * pLayerTag)
+//{
+//	CGameInstance*			pGameInstance = CGameInstance::Get_Instance();
+//	Safe_AddRef(pGameInstance);
+//
+//	auto Player = pGameInstance->Find_Target(LEVEL_GAMEPLAY, TEXT("Layer_Player"));
+//
+//	for (_uint i = 0; i < 8; ++i)
+//	{
+//		_float3 vPos = {};
+//
+//		if (i < 4)
+//		{
+//			vPos.x = 70.f * i;
+//			vPos.y = 600.f;
+//		}
+//		else if (i >= 4)
+//		{
+//			vPos.x = 70.f * i - 290.f;
+//			vPos.y = 670.f;
+//		}
+//		vPos.z = 0.f;
+//
+//		if (FAILED(pGameInstance->Add_GameObject(TEXT("Prototype_GameObject_ItemInfoUI"), LEVEL_GAMEPLAY, pLayerTag, &vPos)))
+//			return E_FAIL;
+//
+//		RECT rc = {};
+//
+//
+//		SetRect(&rc, vPos.x - 33 + 770.f, vPos.y - 33, vPos.x + 33 + 770.f, vPos.y + 33);
+//
+//		m_eQuickInfo[i].iIndex = i;
+//		m_eQuickInfo[i].rc = rc;
+//
+//		m_vecQuickItem.push_back(dynamic_cast<class CItemInfoUI*>(pGameInstance->Get_BackObject(LEVEL_GAMEPLAY, pLayerTag)));
+//	}
+//	Safe_Release(pGameInstance);
+//}
 
 void CLevel_GamePlay::LoadMapData()
 {
