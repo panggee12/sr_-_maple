@@ -16,7 +16,7 @@ BEGIN(Client)
 class CPlayer final : public CGameObject
 {
 
-	enum PLAYER_STATE { PLAYER_IDLE, PLAYER_MOVE_STATE, PLAYER_ATTACK, PLAYER_SKILL, PLAYER_END };
+	enum PLAYER_STATE { PLAYER_IDLE, PLAYER_MOVE, PLAYER_ATTACK, PLAYER_SKILL, PLAYER_END };
 	enum PLAYER_DIR { UP, DOWN, LEFT, RIGHT, RU, LU, RD, LD, STOP, END_ };
 
 
@@ -76,12 +76,16 @@ private:
 	_float m_fFrameTime = 0.f;
 	_float m_PlyerTime = 0.f;
 
-	_float m_AttackTime = 0.f;
+	_float m_fAttackTime = 0.f;
+
 
 	//Player_State
 	PLAYER_STATE   m_ePlayer_State = PLAYER_IDLE;
 	//이전
 	PLAYER_STATE  m_ePlayer_brfore = PLAYER_END;
+	//Net	
+	PLAYER_STATE  m_ePlayer_Next = PLAYER_MOVE;
+
 
 	// 방향 
 	PLAYER_DIR		m_ePlayer_Dir = END_;
