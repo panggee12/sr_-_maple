@@ -45,7 +45,7 @@ void CCamera_Dynamic::Tick(_float fTimeDelta)
 
 	_float3 PlayerPos = dynamic_cast<CPlayer*>(player)->Get_TransformCom()->Get_State(CTransform::STATE_POSITION);
 
-	m_pTransform->Set_State(CTransform::STATE_POSITION, _float3(PlayerPos.x, PlayerPos.y-1 + m_fCameraZoomY, PlayerPos.z+3 - m_fCameraZoomZ));
+	m_pTransform->Set_State(CTransform::STATE_POSITION, _float3(PlayerPos.x, PlayerPos.y-5 + m_fCameraZoomY, PlayerPos.z+3 - m_fCameraZoomZ));
 	m_pTransform->LookAt(PlayerPos);
 
 	// Ä«¸Þ¶ó µ¹¸®±â
@@ -62,12 +62,12 @@ void CCamera_Dynamic::Tick(_float fTimeDelta)
 		if (bDown&&m_fCameraZoomY < 8) //ÁÜ¾Æ¿ô
 		{
 			m_fCameraZoomY += 0.42f;
-			m_fCameraZoomZ += 0.3f;
+			m_fCameraZoomZ += 0.5f;
 		}
 		else if (!bDown&&m_fCameraZoomY>0.5) //ÁÜÀÎ
 		{
 			m_fCameraZoomY -= 0.42f;
-			m_fCameraZoomZ -= 0.3f;
+			m_fCameraZoomZ -= 0.5f;
 		}//¤·¤·
 	}
 

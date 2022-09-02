@@ -15,6 +15,7 @@ BEGIN(Client)
 
 class CPlayer final : public CGameObject
 {
+<<<<<<< HEAD
 //	enum PLAYER_STATE { PLAYER_IDLE, PLAYER_MOVE_STATE, PLAYER_ATTACK, PLAYER_SKILL, PLAYER_END };
 //	enum PLAYER_DIR { UP, DOWN, LEFT, RIGHT, RU, LU, RD, LD, STOP, END_ };
 //
@@ -47,6 +48,9 @@ class CPlayer final : public CGameObject
 //	HRESULT Ready_Layer_Player_Skill(const _tchar * pLayerTag, _float fTimeDelta);
 //	HRESULT Ready_Layer_Player_Attack(const _tchar * pLayerTag, _float fTimeDelta);
 //	HRESULT Ready_Layer_Player_Meteor(const _tchar * pLayerTag, _float fTimeDelta);
+=======
+
+>>>>>>> BaeH
 	enum PLAYER_STATE { PLAYER_IDLE, PLAYER_MOVE, PLAYER_ATTACK, PLAYER_SKILL, PLAYER_END };
 	enum PLAYER_DIR { UP, DOWN, LEFT, RIGHT, RU, LU, RD, LD, STOP, END_ };
 
@@ -125,6 +129,11 @@ private:
 	_float m_PlyerTime = 0.f;
 
 	_float m_fAttackTime = 0.f;
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> BaeH
 	//Player_State
 	PLAYER_STATE   m_ePlayer_State = PLAYER_IDLE;
 	//¿Ã¿¸
