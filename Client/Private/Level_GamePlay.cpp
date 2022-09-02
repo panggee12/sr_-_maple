@@ -35,6 +35,7 @@ HRESULT CLevel_GamePlay::Initialize()
 			return E_FAIL;
 	}
 	*/
+
 	if (FAILED(Ready_Layer_IconUI(TEXT("Layer_IconUI"))))
 		return E_FAIL;
 	if (FAILED(Ready_Layer_PlayerInfoUI(TEXT("Layer_PlayerInfoUI"))))
@@ -222,7 +223,8 @@ void CLevel_GamePlay::Tick(_float fTimeDelta)
 	//pGameInstance->Collision(LEVEL_GAMEPLAY, TEXT("Layer_Player"), TEXT("Layer_CubeTerrain"), fTimeDelta);
 
 
-											//프레임 띄우는 구간
+	//프레임 띄우는 구간
+
 	++m_iNumRender;
 
 	if (m_fTimeAcc > 1.0f)

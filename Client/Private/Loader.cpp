@@ -27,6 +27,7 @@
 #include "Effect.h"
 #include "IconUI.h"
 
+
 CLoader::CLoader(LPDIRECT3DDEVICE9 pGraphic_Device)
 	: m_pGraphic_Device(pGraphic_Device)
 {

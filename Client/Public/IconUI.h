@@ -41,6 +41,7 @@ private:
 	_float2					m_fDifDis;
 	RECT					m_rcRect;
 	_bool					m_bRectInCheck = false;
+	_bool					m_bCheckIn = false;
 
 private:
 	HRESULT SetUp_Components();

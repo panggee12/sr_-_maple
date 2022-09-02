@@ -27,10 +27,10 @@ HRESULT CInventoryUI::Initialize(void* pArg)
 
 	D3DXMatrixOrthoLH(&m_ProjMatrix, g_iWinSizeX, g_iWinSizeY, 0.f, 1.f);
 
-	m_fSizeX = 468.f;
-	m_fSizeY = 702.f;
-	m_fX = 500.f;
-	m_fY = 400.f;
+	m_fSizeX = 400.f;
+	m_fSizeY = 500.f;
+	m_fX = 650.f;
+	m_fY = 280.f;
 
 
 	if (FAILED(SetUp_Components()))
@@ -63,27 +63,42 @@ void CInventoryUI::Tick(_float fTimeDelta)
 
 	_char         MouseMove = 0;
 	bool         bDown = false;
-	if (PtInRect(&m_rcRect, ptMouse)) //눌렀을때 마우스 위치를 기록해놔야함
+
+	m_pTransformCom->Set_State(CTransform::STATE_POSITION, _float3(m_fX - m_fDifDis.x - m_fSizeX*1.595f, m_fY + m_fDifDis.y - m_fSizeY*0.4f, 0.f));
+	SetRect(&m_rcRect, m_fX - m_fSizeX * 0.5f - m_fDifDis.x, m_fY - m_fDifDis.y - m_fSizeY * 0.5f, m_fX + m_fSizeX * 0.5f - m_fDifDis.x, m_fY - m_fSizeY * 0.4f - m_fDifDis.y);
+	/*
+	if (pGameInstance->Key_Down(VK_SPACE))
 	{
-		if ((MouseMove = pGameInstance->Get_DIMKeyState(DIMK_LBUTTON)) && !m_bMoveUi)
+		if (PtInRect(&m_rcRect, ptMouse))
+		{
+			ERR_MSG(TEXT("충돌"));
+		}
+	}
+	*/
+	if (pGameInstance->Key_Pressing(VK_LBUTTON) && !m_bMoveUi)
+	{
+		if (PtInRect(&m_rcRect, ptMouse))
 		{
 			m_bMoveUi = true;
-			m_fMousePos.x = ptMouse.x;
-			m_fMousePos.y = ptMouse.y;
+			if(!m_bFirst)
+			{
+				m_fMousePos.x = ptMouse.x;
+				m_fMousePos.y = ptMouse.y;
+				m_bFirst = true;
+			}
+			m_iCheck++;
 		}
-		else if (m_bMoveUi && !(MouseMove = pGameInstance->Get_DIMKeyState(DIMK_LBUTTON)))
-			m_bMoveUi = false;
 	}
+
+	else if (pGameInstance->Key_Up(VK_LBUTTON) && m_bMoveUi)
+		m_bMoveUi = false;
+
 	if (m_bMoveUi)
 	{
 		m_fDifDis.x = m_fMousePos.x - ptMouse.x;
 		m_fDifDis.y = m_fMousePos.y - ptMouse.y;
 	}
-	m_pTransformCom->Set_State(CTransform::STATE_POSITION, _float3(m_fX - m_fDifDis.x - m_fSizeX*1.25f, m_fY + m_fDifDis.y - m_fSizeY*0.7f, 0.f));
-	SetRect(&m_rcRect, m_fX - m_fDifDis.x - m_fSizeX * 0.5f, m_fY + m_fDifDis.y - m_fSizeY * 0.5f, m_fX - m_fDifDis.x + m_fSizeX * 0.5f, m_fY + m_fDifDis.y - m_fSizeY * 0.4f);
-
 	Safe_Release(pGameInstance);
-
 }
 
 void CInventoryUI::Late_Tick(_float fTimeDelta)
@@ -157,6 +172,10 @@ void CInventoryUI::Show_Inven()
 	if (nullptr != m_pRendererCom)
 		m_pRendererCom->Add_RenderGroup(CRenderer::RENDER_UI, this);
 
+	POINT		ptMouse;
+	GetCursorPos(&ptMouse);
+	ScreenToClient(g_hWnd, &ptMouse);
+
 	for (_uint i = 0; i < 8; ++i) //y
 	{
 		for (_uint j = 0; j < 6; ++j) //x
@@ -164,17 +183,21 @@ void CInventoryUI::Show_Inven()
 			RECT rcRect;
 
 			SetRect(&m_Inven.rcRect,
-				fLeft + 85.f + j * 68.f,
-				fTop + 164.f + i * 67.f,
-				fLeft + 85.f + j * 68.f + 68.f,
-				fTop + 164.f + i * 67.f + 67.f);
+				fLeft +  30.f + j * 58.f,
+				fTop + 80.f + i * 48.f,
+				fLeft + 30.f + j * 58.f + 58.f,
+				fTop + 80.f + i * 48.f + 48.f);
 
 			m_Inven.RectX = m_Inven.rcRect.left + (m_Inven.rcRect.right - m_Inven.rcRect.left) * 0.5f;
 			m_Inven.RectY = m_Inven.rcRect.top + (m_Inven.rcRect.bottom - m_Inven.rcRect.top) * 0.5f;
 
 			m_vecInven.push_back(m_Inven);
+
+			int a = 10;
 		}
 	}
+
+
 }
 
 HRESULT CInventoryUI::SetUp_Components()

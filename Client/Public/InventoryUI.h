@@ -52,11 +52,13 @@ private:
 	_float2					m_fMousePos;
 	_float2					m_fDifDis;
 	RECT					m_rcRect;
+	int						m_iCheck=0;//µð¹ö±ë¿ë
 	vector<INVEN>			m_vecInven;
 	INVEN					m_Inven;
 	_float					m_fRectX = 0.f;
 	_float					m_fRectY = 0.f;
-
+	_bool					m_bFirst = false;
+	_bool					m_bTest = false;
 private:
 	HRESULT SetUp_Components();
 	HRESULT SetUp_RenderState();

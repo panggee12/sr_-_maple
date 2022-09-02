@@ -69,14 +69,6 @@ void CSkillbookUI::Tick(_float fTimeDelta)
 	SetRect(&m_rcRect, m_fX - m_fSizeX * 0.5f - m_fDifDis.x, m_fY - m_fDifDis.y - m_fSizeY * 0.5f, m_fX + m_fSizeX * 0.5f - m_fDifDis.x, m_fY - m_fSizeY * 0.4f - m_fDifDis.y);
 
 
-	if (pGameInstance->Key_Down(VK_SPACE))
-	{
-		if (PtInRect(&m_rcRect, ptMouse))
-		{
-			ERR_MSG(TEXT("Ãæµ¹"));
-		}
-	}
-
 	_float fMx, fMy;
 
 	_char         MouseMove = 0;
@@ -95,10 +87,9 @@ void CSkillbookUI::Tick(_float fTimeDelta)
 			m_iCheck++;
 		}
 	}
+
 	else if (pGameInstance->Key_Up(VK_LBUTTON) && m_bMoveUi)
-	{
 		m_bMoveUi = false;
-	}
 
 	if (m_bMoveUi)
 	{									//100						99
