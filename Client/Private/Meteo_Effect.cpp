@@ -1,18 +1,18 @@
 #include "stdafx.h"
-#include "..\Public\Effect.h"
+#include "..\Public\Meteo_Effect.h"
 #include "GameInstance.h"
 
-CEffect::CEffect(LPDIRECT3DDEVICE9 pGraphic_Device)
+CMeteo_Effect::CMeteo_Effect(LPDIRECT3DDEVICE9 pGraphic_Device)
 	: CGameObject(pGraphic_Device)
 {
 }
 
-CEffect::CEffect(const CEffect & rhs)
+CMeteo_Effect::CMeteo_Effect(const CMeteo_Effect & rhs)
 	: CGameObject(rhs)
 {
 }
 
-HRESULT CEffect::Initialize_Prototype()
+HRESULT CMeteo_Effect::Initialize_Prototype()
 {
 	if (FAILED(__super::Initialize_Prototype()))
 		return E_FAIL;
@@ -20,14 +20,14 @@ HRESULT CEffect::Initialize_Prototype()
 	return S_OK;
 }
 
-HRESULT CEffect::Initialize(void* pArg)
+HRESULT CMeteo_Effect::Initialize(void* pArg)
 {
 	if (FAILED(__super::Initialize(pArg)))
 		return E_FAIL;
 
 
 	m_fSizeX = 5.0f;
-	m_fSizeY = 5.0f;
+	m_fSizeY = 2.0f;
 	/*m_fX = 10.f;
 	m_fY = 10.f;*/
 
@@ -45,7 +45,7 @@ HRESULT CEffect::Initialize(void* pArg)
 	return S_OK;
 }
 
-void CEffect::Tick(_float fTimeDelta)
+void CMeteo_Effect::Tick(_float fTimeDelta)
 {
 	__super::Tick(fTimeDelta);
 
@@ -54,7 +54,7 @@ void CEffect::Tick(_float fTimeDelta)
 
 	m_EffectFrame += fTimeDelta + 0.2f;
 
-	if (m_EffectFrame <= 0 || m_EffectFrame >= 8)
+	if (m_EffectFrame <= 0 || m_EffectFrame >= 16)
 	{
 		m_bDead = true;
 
@@ -66,7 +66,7 @@ void CEffect::Tick(_float fTimeDelta)
 
 }
 
-void CEffect::Late_Tick(_float fTimeDelta)
+void CMeteo_Effect::Late_Tick(_float fTimeDelta)
 {
 	__super::Late_Tick(fTimeDelta);
 
@@ -74,7 +74,7 @@ void CEffect::Late_Tick(_float fTimeDelta)
 		m_pRendererCom->Add_RenderGroup(CRenderer::RENDER_NONALPHABLEND, this);
 }
 
-HRESULT CEffect::Render()
+HRESULT CMeteo_Effect::Render()
 {
 	if (FAILED(__super::Render()))
 		return E_FAIL;
@@ -100,14 +100,14 @@ HRESULT CEffect::Render()
 	return S_OK;
 }
 
-HRESULT CEffect::SetUp_Components()
+HRESULT CMeteo_Effect::SetUp_Components()
 {
 	/* For.Com_Renderer */
 	if (FAILED(__super::Add_Components(TEXT("Com_Renderer"), LEVEL_STATIC, TEXT("Prototype_Component_Renderer"), (CComponent**)&m_pRendererCom)))
 		return E_FAIL;
 
 	/* For.Com_Texture */
-	if (FAILED(__super::Add_Components(TEXT("Com_Texture"), LEVEL_GAMEPLAY, TEXT("Prototype_Component_Texture_Attack_Fire_Effect"), (CComponent**)&m_pTextureCom)))
+	if (FAILED(__super::Add_Components(TEXT("Com_Texture"), LEVEL_GAMEPLAY, TEXT("Prototype_Component_Texture_Meteor_Fire_Effect"), (CComponent**)&m_pTextureCom)))
 		return E_FAIL;
 
 	/* For.Com_VIBuffer */
@@ -129,7 +129,7 @@ HRESULT CEffect::SetUp_Components()
 	return S_OK;
 }
 
-HRESULT CEffect::SetUp_RenderState()
+HRESULT CMeteo_Effect::SetUp_RenderState()
 {
 	if (nullptr == m_pGraphic_Device)
 		return E_FAIL;
@@ -140,40 +140,40 @@ HRESULT CEffect::SetUp_RenderState()
 	return S_OK;
 }
 
-HRESULT CEffect::Release_RenderState()
+HRESULT CMeteo_Effect::Release_RenderState()
 {
 	//m_pGraphic_Device->SetRenderState(D3DRS_FILLMODE, D3DFILL_SOLID);
 
 	return S_OK;
 }
 
-CEffect * CEffect::Create(LPDIRECT3DDEVICE9 pGraphic_Device)
+CMeteo_Effect * CMeteo_Effect::Create(LPDIRECT3DDEVICE9 pGraphic_Device)
 {
-	CEffect*	pInstance = new CEffect(pGraphic_Device);
+	CMeteo_Effect*	pInstance = new CMeteo_Effect(pGraphic_Device);
 
 	if (FAILED(pInstance->Initialize_Prototype()))
 	{
-		ERR_MSG(TEXT("Failed to Created : CEffect"));
+		ERR_MSG(TEXT("Failed to Created : CMeteo_Effect"));
 		Safe_Release(pInstance);
 	}
 
 	return pInstance;
 }
 
-CGameObject * CEffect::Clone(void* pArg)
+CGameObject * CMeteo_Effect::Clone(void* pArg)
 {
-	CEffect*	pInstance = new CEffect(*this);
+	CMeteo_Effect*	pInstance = new CMeteo_Effect(*this);
 
 	if (FAILED(pInstance->Initialize(pArg)))
 	{
-		ERR_MSG(TEXT("Failed to Cloned : CEffect"));
+		ERR_MSG(TEXT("Failed to Cloned : CMeteo_Effect"));
 		Safe_Release(pInstance);
 	}
 
 	return pInstance;
 }
 
-void CEffect::Free()
+void CMeteo_Effect::Free()
 {
 	__super::Free();
 

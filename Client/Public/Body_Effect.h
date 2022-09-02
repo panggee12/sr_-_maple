@@ -12,12 +12,12 @@ END
 
 BEGIN(Client)
 
-class CPlayer_Skill final : public CGameObject
+class CBody_Effect final : public CGameObject
 {
 private:
-	CPlayer_Skill(LPDIRECT3DDEVICE9 pGraphic_Device);
-	CPlayer_Skill(const CPlayer_Skill& rhs);
-	virtual ~CPlayer_Skill() = default;
+	CBody_Effect(LPDIRECT3DDEVICE9 pGraphic_Device);
+	CBody_Effect(const CBody_Effect& rhs);
+	virtual ~CBody_Effect() = default;
 
 public:
 	virtual HRESULT Initialize_Prototype() override;
@@ -34,43 +34,24 @@ private: /* For.Components */
 private:
 	_float4x4				m_ProjMatrix;
 	_float					m_fX, m_fY, m_fSizeX, m_fSizeY;
-	_float					m_fSkill_Frame = 0.f;
-	_float					m_Skill_Time_L=0.f;
-
-<<<<<<< HEAD
-	_float3					m_vSkillPosition_2;
+	_float					m_EffectFrame = 0.f;
+	_float					m_Skill_Time_L = 0.f;
+	CGameObject* pPlayer = nullptr;
+	_float3					m_vEffectPos;
 private:
 	HRESULT SetUp_Components();
 	HRESULT SetUp_RenderState();
 	HRESULT Release_RenderState();
-	HRESULT Efect_On(const _tchar * pLayerTag);
 
 public:
-
-	
-
 	void LiteNing_Skill(_float _Player_Skill, _float fTimeDelta);
 	void Fireball_Skill(_float _Player_Skill, _float fTimeDelta);
 	/*void LiteNing_Skill(_float _Player_Skill, _float fTimeDelta);
 	void LiteNing_Skill(_float _Player_Skill, _float fTimeDelta);
 	*/
-=======
-	_bool m_bMotionCheck = false;
-	_float3 m_vPosition;
-	_float3 m_vMyLook;
-	_float	m_fDistance = 0.f;
-	_float  m_Skill_Daed = 0.f;
-
 
 public:
-	virtual HRESULT SetUp_Components();
-	virtual HRESULT SetUp_RenderState();
-	HRESULT Lite_Ning_Effect_On(const _tchar * pLayerTag, _float fTimeDelta);
-	virtual HRESULT Release_RenderState();
->>>>>>> BaeH
-
-public:
-	static CPlayer_Skill* Create(LPDIRECT3DDEVICE9 pGraphic_Device);
+	static CBody_Effect* Create(LPDIRECT3DDEVICE9 pGraphic_Device);
 	virtual CGameObject* Clone(void* pArg = nullptr) override;
 	virtual void Free() override;
 };

@@ -34,6 +34,11 @@ protected: /* For.Components */
 	CTexture*				m_pTextureCom = nullptr;
 	CRenderer*				m_pRendererCom = nullptr;
 	CVIBuffer_Rect*			m_pVIBufferCom = nullptr;
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> BaeH
 
 protected:
 	STATE m_eState = STATE_IDLE;
@@ -54,6 +59,9 @@ protected:
 	virtual HRESULT SetUp_RenderState();
 	virtual HRESULT Release_RenderState();
 
+
+public:
+	STATE Get_State_Monster() { return m_eState; }
 public:
 	virtual CGameObject* Clone(void* pArg = nullptr) = 0;
 	virtual void Free() override;

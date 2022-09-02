@@ -118,8 +118,28 @@
     <Filter Include="02.GameObject\Item">
       <UniqueIdentifier>{5152df02-b298-4fbb-bbc0-0b6dab3c89ab}</UniqueIdentifier>
     </Filter>
+<<<<<<< HEAD
     <Filter Include="02.GameObject\Item\ConsumItem">
       <UniqueIdentifier>{b1a3c765-d8c9-436d-b934-e844addab2ff}</UniqueIdentifier>
+=======
+    <Filter Include="03.Effect\Body_Effect">
+      <UniqueIdentifier>{e5719b5b-f7ae-453b-9465-359ea6b03152}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObject\Player\Skill\Player_LiteNing">
+      <UniqueIdentifier>{5cf8e7ed-3ccc-4fb0-8bf6-29d133152ec9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObject\Player\Skill\Meteo">
+      <UniqueIdentifier>{e477b669-e6c0-4172-be83-21e0d3acd7bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03.Effect\Meteo_Effect">
+      <UniqueIdentifier>{7abd4559-fcaf-4d6b-9a20-464b758774ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03.Effect\Meteo_Effect\Meteo_Down_Effect">
+      <UniqueIdentifier>{38662a7c-a149-4196-844d-b216b96fd7d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03.Effect\Meteo_Effect\Meteo_Up_Effect">
+      <UniqueIdentifier>{894cc7da-4e72-4549-ac60-e6e8eade2c74}</UniqueIdentifier>
+>>>>>>> BaeH
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -176,9 +196,6 @@
     </ClInclude>
     <ClInclude Include="..\Public\Monster.h">
       <Filter>02.GameObject\Monster</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Public\Player_Skill.h">
-      <Filter>02.GameObject\Player\Skill</Filter>
     </ClInclude>
     <ClInclude Include="..\Public\LupangMonster.h">
       <Filter>02.GameObject\Monster\LupangMonster</Filter>
@@ -240,6 +257,18 @@
     <ClInclude Include="..\Public\Item.h">
       <Filter>02.GameObject\Item</Filter>
     </ClInclude>
+    <ClInclude Include="..\public\Body_Effect.h">
+      <Filter>03.Effect\Body_Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Player_Skill.h">
+      <Filter>02.GameObject\Player\Skill\Player_LiteNing</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\Meteo_Effect.h">
+      <Filter>03.Effect\Meteo_Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\Skill_Meteo.h">
+      <Filter>02.GameObject\Player\Skill\Meteo</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Private\MainApp.cpp">
@@ -283,9 +312,6 @@
     </ClCompile>
     <ClCompile Include="..\Private\Monster.cpp">
       <Filter>02.GameObject\Monster</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Private\Player_Skill.cpp">
-      <Filter>02.GameObject\Player\Skill</Filter>
     </ClCompile>
     <ClCompile Include="..\Private\LupangMonster.cpp">
       <Filter>02.GameObject\Monster\LupangMonster</Filter>
@@ -346,6 +372,18 @@
     </ClCompile>
     <ClCompile Include="..\Private\Item.cpp">
       <Filter>02.GameObject\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\Body_Effect.cpp">
+      <Filter>03.Effect\Body_Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\Player_Skill.cpp">
+      <Filter>02.GameObject\Player\Skill\Player_LiteNing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\Meteo_Effect.cpp">
+      <Filter>03.Effect\Meteo_Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\Skill_Meteo.cpp">
+      <Filter>02.GameObject\Player\Skill\Meteo</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

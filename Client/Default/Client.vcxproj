@@ -161,6 +161,7 @@
   <ItemGroup>
     <ClInclude Include="..\public\BackGround.h" />
     <ClInclude Include="..\Public\BellaMonster.h" />
+    <ClInclude Include="..\public\Body_Effect.h" />
     <ClInclude Include="..\Public\Camera_Dynamic.h" />
     <ClInclude Include="..\Public\Client_Defines.h" />
     <ClInclude Include="..\Public\ConsumItem.h" />
@@ -181,6 +182,8 @@
     <ClInclude Include="..\Public\LupangMonster.h" />
     <ClInclude Include="..\Public\LupangSkill.h" />
     <ClInclude Include="..\Public\MainApp.h" />
+    <ClInclude Include="..\public\Skill_Meteo.h" />
+    <ClInclude Include="..\public\Meteo_Effect.h" />
     <ClInclude Include="..\Public\Monster.h" />
     <ClInclude Include="..\Public\Player.h" />
     <ClInclude Include="..\Public\PlayerInfoUI.h" />
@@ -201,6 +204,7 @@
   <ItemGroup>
     <ClCompile Include="..\private\BackGround.cpp" />
     <ClCompile Include="..\Private\BellaMonster.cpp" />
+    <ClCompile Include="..\private\Body_Effect.cpp" />
     <ClCompile Include="..\Private\Camera_Dynamic.cpp" />
     <ClCompile Include="..\Private\ConsumItem.cpp" />
     <ClCompile Include="..\Private\CubeTerrain.cpp" />
@@ -220,6 +224,8 @@
     <ClCompile Include="..\Private\LupangMonster.cpp" />
     <ClCompile Include="..\Private\LupangSkill.cpp" />
     <ClCompile Include="..\Private\MainApp.cpp" />
+    <ClCompile Include="..\private\Skill_Meteo.cpp" />
+    <ClCompile Include="..\private\Meteo_Effect.cpp" />
     <ClCompile Include="..\Private\Monster.cpp" />
     <ClCompile Include="..\Private\Player.cpp" />
     <ClCompile Include="..\Private\PlayerInfoUI.cpp" />
