@@ -142,7 +142,7 @@ void CPlayer::Tick(_float fTimeDelta)
 			m_ePlayer_State = PLAYER_ATTACK;
 
 			if (FAILED(Ready_Layer_Player_Skill(TEXT("Layer_Playe_Skill"), fTimeDelta)));
-			return;
+			//return;
 		}
 
 	}
@@ -156,17 +156,29 @@ void CPlayer::Tick(_float fTimeDelta)
 		if (pGameInstance->Check_Layer(LEVEL_GAMEPLAY, TEXT("Layer_Monster")))
 		{
 
-			
-
-
 			if (FAILED(Ready_Layer_Player_Attack(TEXT("Layer_Playe_Attack"), fTimeDelta)));
-			return;
+			//return;
 		}
 
-		if (FAILED(Ready_Layer_Player_Attack(TEXT("Layer_Fire_Body_Effect"), fTimeDelta)));
-		return;
+	/*	if (FAILED(Ready_Layer_Player_Attack(TEXT("Layer_Fire_Body_Effect"), fTimeDelta)));
+		return;*/
 	}
+	else if (Key_Down('W') && m_bPlayer_Attack == true)
+	{
 
+		Player_Attack(m_ePlayer_Dir, fTimeDelta);
+
+
+		if (pGameInstance->Check_Layer(LEVEL_GAMEPLAY, TEXT("Layer_Monster")))
+		{
+
+			if (FAILED(Ready_Layer_Player_Meteor(TEXT("Layer_Playe_Skill_Meteor"), fTimeDelta)));
+			//return;
+		}
+
+		/*	if (FAILED(Ready_Layer_Player_Attack(TEXT("Layer_Fire_Body_Effect"), fTimeDelta)));
+		return;*/
+	}
 
 	else if (Key_Down('C') && !m_pTransformCom->Get_Fall())
 	{
@@ -554,8 +566,16 @@ void CPlayer::Player_Attack(PLAYER_DIR _PlayerAttack, float fTimeDelta)
 	}
 	else
 	{
+		m_AttackTime += 0.1;
+		
+		if (m_AttackTime > 1.f)
+		{
+			m_bPlayer_Attack = false;
+		}
 				m_bPlayer_Attack = false;
 
+
+				m_ePlayer_State == PLAYER_ATTACK;
 	}
 }
 
@@ -594,6 +614,24 @@ HRESULT CPlayer::Ready_Layer_Player_Attack(const _tchar * pLayerTag, _float fTim
 
 	return S_OK;
 }
+
+
+HRESULT CPlayer::Ready_Layer_Player_Meteor(const _tchar * pLayerTag, _float fTimeDelta)
+{
+	CGameInstance*			pGameInstance = CGameInstance::Get_Instance();
+	Safe_AddRef(pGameInstance);
+	//pGameInstance->AddRef();
+
+	_float3 vPosition_ = m_pTransformCom->Get_State(CTransform::STATE_POSITION);
+
+	if (FAILED(pGameInstance->Add_GameObject(TEXT("Prototype_GameObject_Meteo_Skill"), LEVEL_GAMEPLAY, pLayerTag, vPosition_)))
+		return E_FAIL;
+
+	Safe_Release(pGameInstance);
+
+	return S_OK;
+}
+
 
 CPlayer * CPlayer::Create(LPDIRECT3DDEVICE9 pGraphic_Device)
 {

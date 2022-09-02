@@ -27,7 +27,7 @@
 //		return m_pInstance;
 //	}
 //
-//	//void			Destroy_Instance(void);
+//	void			Destroy_Instance(void);
 //
 //private:
 //	CKeyMgr*		m_pInstance;

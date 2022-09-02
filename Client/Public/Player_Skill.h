@@ -44,11 +44,13 @@ private:
 	_float3 m_vPosition;
 	_float3 m_vMyLook;
 	_float	m_fDistance = 0.f;
+	_float  m_Skill_Daed = 0.f;
+
 
 public:
 	virtual HRESULT SetUp_Components();
 	virtual HRESULT SetUp_RenderState();
-	HRESULT Fire_Efect_On(const _tchar * pLayerTag, _float fTimeDelta);
+	HRESULT Lite_Ning_Effect_On(const _tchar * pLayerTag, _float fTimeDelta);
 	virtual HRESULT Release_RenderState();
 
 public:

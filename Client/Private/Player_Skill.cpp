@@ -36,24 +36,33 @@ void CPlayer_Litening::Tick(_float fTimeDelta)
 {
 	__super::Tick(fTimeDelta);
 
+	m_Skill_Daed += fTimeDelta + 0.2f;
+
 	_float3 vPos = m_pTransformCom->Get_State(CTransform::STATE_POSITION);
 
 	vPos = vPos + m_vMyLook * 0.1f;
 
-	//m_fDistance += 0.1f;
+	m_fDistance += 0.1f;
 
-	//if (m_fDistance >= 8.f)
-	//	m_bDead = true;
+	if (m_fDistance >= 8.f)
+		m_bDead = true;
 
 	CGameInstance* pGameInstance = CGameInstance::Get_Instance();
 
 	Safe_AddRef(pGameInstance);
 
-	if (pGameInstance->Collision_Attacked(LEVEL_GAMEPLAY, TEXT("Layer_Monster"), TEXT("Layer_Playe_Skill"), fTimeDelta, 1, _float3(0.15f, 0.3f, 0.15f), _float3(0.3f, 0.3f, 0.3f)))
+	if (pGameInstance->Collision_Attacked(LEVEL_GAMEPLAY, TEXT("Layer_Playe_Skill"), TEXT("Layer_Monster"), fTimeDelta, 1, _float3(0.15f, 0.3f, 0.15f), _float3(0.3f, 0.3f, 0.3f)))
 	{
-		m_bDead = true;
 
-		Fire_Efect_On(TEXT("Layer_Attack"), fTimeDelta);
+		Lite_Ning_Effect_On(TEXT("Layer_Skill_Effect"), fTimeDelta);
+
+		if (m_Skill_Daed > 20.f)
+		{
+			m_bDead = true;
+
+		}
+
+		//Fire_Efect_On(TEXT("Layer_Attack"), fTimeDelta);
 	}
 
 	Safe_Release(pGameInstance);
@@ -156,7 +165,7 @@ HRESULT CPlayer_Litening::SetUp_RenderState()
 	m_pGraphic_Device->SetRenderState(D3DRS_CULLMODE, D3DCULL_NONE);
 	return S_OK;
 }
-HRESULT CPlayer_Litening::Fire_Efect_On(const _tchar * pLayerTag, _float fTimeDelta)
+HRESULT CPlayer_Litening::Lite_Ning_Effect_On(const _tchar * pLayerTag, _float fTimeDelta)
 {
 	CGameInstance*			pGameInstance = CGameInstance::Get_Instance();
 	Safe_AddRef(pGameInstance);
@@ -168,10 +177,7 @@ HRESULT CPlayer_Litening::Fire_Efect_On(const _tchar * pLayerTag, _float fTimeDe
 
 	Safe_Release(pGameInstance);
 
-	/*if (fTimeDelta > 0.2f)
-	{
-		__super::Free();
-	}*/
+	
 	return S_OK;
 }
 

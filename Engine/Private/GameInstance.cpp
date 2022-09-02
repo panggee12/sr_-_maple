@@ -167,6 +167,8 @@ HRESULT CGameInstance::Add_GameObject(const _tchar * pPrototypeTag, _uint iLevel
 	if (nullptr == m_pObject_Manager)
 		return E_FAIL;
 
+
+
 	return m_pObject_Manager->Add_GameObject(pPrototypeTag, iLevelIndex, pLayerTag, pArg);
 }
 

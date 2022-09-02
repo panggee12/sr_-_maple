@@ -180,6 +180,8 @@
     <ClInclude Include="..\Public\LupangMonster.h" />
     <ClInclude Include="..\Public\LupangSkill.h" />
     <ClInclude Include="..\Public\MainApp.h" />
+    <ClInclude Include="..\public\Skill_Meteo.h" />
+    <ClInclude Include="..\public\Meteo_Effect.h" />
     <ClInclude Include="..\Public\Monster.h" />
     <ClInclude Include="..\Public\Player.h" />
     <ClInclude Include="..\Public\PlayerInfoUI.h" />
@@ -219,6 +221,8 @@
     <ClCompile Include="..\Private\LupangMonster.cpp" />
     <ClCompile Include="..\Private\LupangSkill.cpp" />
     <ClCompile Include="..\Private\MainApp.cpp" />
+    <ClCompile Include="..\private\Skill_Meteo.cpp" />
+    <ClCompile Include="..\private\Meteo_Effect.cpp" />
     <ClCompile Include="..\Private\Monster.cpp" />
     <ClCompile Include="..\Private\Player.cpp" />
     <ClCompile Include="..\Private\PlayerInfoUI.cpp" />

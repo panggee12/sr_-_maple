@@ -49,6 +49,10 @@ private:
 	void Player_Attack(PLAYER_DIR _PlayerAttack, float fTimeDelta);
 	HRESULT Ready_Layer_Player_Skill(const _tchar * pLayerTag, _float fTimeDelta);
 	HRESULT Ready_Layer_Player_Attack(const _tchar * pLayerTag, _float fTimeDelta);
+	HRESULT Ready_Layer_Player_Meteor(const _tchar * pLayerTag, _float fTimeDelta);
+public:
+	PLAYER_DIR Get_DirState() { return m_ePlayer_Dir; }
+
 public:
 	_bool Key_Up(int _Key);
 	_bool Key_Down(int _Key);
@@ -71,6 +75,8 @@ private:
 	_float m_fSkillTime = 0.f;
 	_float m_fFrameTime = 0.f;
 	_float m_PlyerTime = 0.f;
+
+	_float m_AttackTime = 0.f;
 
 	//Player_State
 	PLAYER_STATE   m_ePlayer_State = PLAYER_IDLE;
