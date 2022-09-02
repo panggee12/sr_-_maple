@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "..\Public\Player.h"
 #include "GameInstance.h"
-
+#include "ItemInfoUI.h"
 CPlayer::CPlayer(LPDIRECT3DDEVICE9 pGraphic_Device)
 	: CGameObject(pGraphic_Device)
 {
@@ -24,6 +24,8 @@ HRESULT CPlayer::Initialize(void* pArg)
 {
 	if (FAILED(__super::Initialize(pArg)))
 		return E_FAIL;
+
+
 
 	if (FAILED(SetUp_Components()))
 		return E_FAIL;
@@ -235,7 +237,10 @@ void CPlayer::Tick(_float fTimeDelta)
 		m_pTransformCom->Set_SecSavePosOn(false);
 		m_pTransformCom->Save_Collision_Pos(fTimeDelta);
 	}*/
+	Use_Quick_Item(); 
+	//퀵슬롯에 있는 아이템 사용 퀵슬롯은 벡터, 플레이어에 벡터 전달해줘서 인덱스에 맞는 칸 찾고 그 칸의 아이템 정보를 받아 아이템 사용여부, 효과 처리
 
+	m_iHp;
 	m_pTransformCom->Set_Fall(true);
 
 	Safe_Release(pGameInstance);
@@ -456,6 +461,52 @@ HRESULT CPlayer::Ready_Layer_Player_Attack(const _tchar * pLayerTag, _float fTim
 	//Set_State(CTransform::STATE_LOOK, *D3DXVec3Normalize(&vLook, &vLook) * vScale.z);
 	//}
 	return S_OK;
+}
+
+void CPlayer::Use_Quick_Item()
+{
+	CGameInstance* pGameInstance = CGameInstance::Get_Instance();
+
+	if (pGameInstance->Key_Down('1'))
+	{
+		auto iter = m_vecQuickItem->at(0);
+		iter->Use_Item();
+	}
+	else if (pGameInstance->Key_Down('2'))
+	{
+		auto iter = m_vecQuickItem->at(1);
+		iter->Use_Item();
+	}
+	else if (pGameInstance->Key_Down('3'))
+	{
+		auto iter = m_vecQuickItem->at(2);
+		iter->Use_Item();
+	}
+	else if (pGameInstance->Key_Down('4'))
+	{
+		auto iter = m_vecQuickItem->at(3);
+		iter->Use_Item();
+	}
+	else if (pGameInstance->Key_Down('5'))
+	{
+		auto iter = m_vecQuickItem->at(4);
+		iter->Use_Item();
+	}
+	else if (pGameInstance->Key_Down('6'))
+	{
+		auto iter = m_vecQuickItem->at(5);
+		iter->Use_Item();
+	}
+	else if (pGameInstance->Key_Down('7'))
+	{
+		auto iter = m_vecQuickItem->at(6);
+		iter->Use_Item();
+	}
+	else if (pGameInstance->Key_Down('8'))
+	{
+		auto iter = m_vecQuickItem->at(7);
+		iter->Use_Item();
+	}
 }
 
 CPlayer * CPlayer::Create(LPDIRECT3DDEVICE9 pGraphic_Device)

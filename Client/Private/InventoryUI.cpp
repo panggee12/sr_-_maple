@@ -57,7 +57,7 @@ void CInventoryUI::Tick(_float fTimeDelta)
 	if (!m_bMoveUi)
 		SetRect(&m_rcRect, m_fX - m_fSizeX * 0.5f, m_fY - m_fSizeY * 0.5f, m_fX + m_fSizeX * 0.5f, m_fY - m_fSizeY * 0.4f);
 
-	POINT		ptMouse;
+	POINT      ptMouse;
 	GetCursorPos(&ptMouse);
 	ScreenToClient(g_hWnd, &ptMouse);
 
@@ -69,10 +69,10 @@ void CInventoryUI::Tick(_float fTimeDelta)
 	/*
 	if (pGameInstance->Key_Down(VK_SPACE))
 	{
-		if (PtInRect(&m_rcRect, ptMouse))
-		{
-			ERR_MSG(TEXT("충돌"));
-		}
+	if (PtInRect(&m_rcRect, ptMouse))
+	{
+	ERR_MSG(TEXT("충돌"));
+	}
 	}
 	*/
 	if (pGameInstance->Key_Pressing(VK_LBUTTON) && !m_bMoveUi)
@@ -80,7 +80,7 @@ void CInventoryUI::Tick(_float fTimeDelta)
 		if (PtInRect(&m_rcRect, ptMouse))
 		{
 			m_bMoveUi = true;
-			if(!m_bFirst)
+			if (!m_bFirst)
 			{
 				m_fMousePos.x = ptMouse.x;
 				m_fMousePos.y = ptMouse.y;
@@ -105,7 +105,7 @@ void CInventoryUI::Late_Tick(_float fTimeDelta)
 {
 	__super::Late_Tick(fTimeDelta);
 
-	POINT		ptMouse;
+	POINT      ptMouse;
 	GetCursorPos(&ptMouse);
 	ScreenToClient(g_hWnd, &ptMouse);
 
@@ -141,7 +141,7 @@ HRESULT CInventoryUI::Render()
 	if (FAILED(m_pTransformCom->Bind_OnGraphicDev()))
 		return E_FAIL;
 
-	_float4x4		ViewMatrix;
+	_float4x4      ViewMatrix;
 	D3DXMatrixIdentity(&ViewMatrix);
 
 	m_pGraphic_Device->SetTransform(D3DTS_VIEW, &ViewMatrix);
@@ -172,7 +172,7 @@ void CInventoryUI::Show_Inven()
 	if (nullptr != m_pRendererCom)
 		m_pRendererCom->Add_RenderGroup(CRenderer::RENDER_UI, this);
 
-	POINT		ptMouse;
+	POINT      ptMouse;
 	GetCursorPos(&ptMouse);
 	ScreenToClient(g_hWnd, &ptMouse);
 
@@ -183,7 +183,7 @@ void CInventoryUI::Show_Inven()
 			RECT rcRect;
 
 			SetRect(&m_Inven.rcRect,
-				fLeft +  30.f + j * 58.f,
+				fLeft + 30.f + j * 58.f,
 				fTop + 80.f + i * 48.f,
 				fLeft + 30.f + j * 58.f + 58.f,
 				fTop + 80.f + i * 48.f + 48.f);
@@ -216,7 +216,7 @@ HRESULT CInventoryUI::SetUp_Components()
 
 
 	/* For.Com_Transform */
-	CTransform::TRANSFORMDESC		TransformDesc;
+	CTransform::TRANSFORMDESC      TransformDesc;
 	ZeroMemory(&TransformDesc, sizeof(CTransform::TRANSFORMDESC));
 
 	TransformDesc.fSpeedPerSec = 5.f;
@@ -250,7 +250,7 @@ HRESULT CInventoryUI::Release_RenderState()
 
 CInventoryUI * CInventoryUI::Create(LPDIRECT3DDEVICE9 pGraphic_Device)
 {
-	CInventoryUI*	pInstance = new CInventoryUI(pGraphic_Device);
+	CInventoryUI*   pInstance = new CInventoryUI(pGraphic_Device);
 
 	if (FAILED(pInstance->Initialize_Prototype()))
 	{
@@ -263,7 +263,7 @@ CInventoryUI * CInventoryUI::Create(LPDIRECT3DDEVICE9 pGraphic_Device)
 
 CGameObject * CInventoryUI::Clone(void* pArg)
 {
-	CInventoryUI*	pInstance = new CInventoryUI(*this);
+	CInventoryUI*   pInstance = new CInventoryUI(*this);
 
 	if (FAILED(pInstance->Initialize(pArg)))
 	{

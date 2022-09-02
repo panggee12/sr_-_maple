@@ -56,7 +56,7 @@ void CCamera_Dynamic::Tick(_float fTimeDelta)
 		if (MouseMove < 0)
 			bDown = true;
 
-		if (bDown&&m_fCameraZoomY < 12) //ÁÜ¾Æ¿ô
+		if (bDown&&m_fCameraZoomY < 8) //ÁÜ¾Æ¿ô
 		{
 			m_fCameraZoomY += 0.42f;
 			m_fCameraZoomZ += 0.3f;

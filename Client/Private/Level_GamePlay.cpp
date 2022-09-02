@@ -19,25 +19,10 @@ HRESULT CLevel_GamePlay::Initialize()
 
 	LoadMapData();
 
-	if (FAILED(Ready_Layer_Camera(TEXT("Layer_Camera"))))
-		return E_FAIL;
-
-	if (FAILED(Ready_Layer_TestBox(TEXT("Layer_TestBox"))))
-		return E_FAIL;
-
-	if (FAILED(Ready_Layer_Player(TEXT("Layer_Player"))))
-		return E_FAIL;
-
-	/*
-	for (int i = 0; i < 1; ++i)
-	{
-		if (FAILED(Ready_Layer_Monster(TEXT("Layer_Monster"))))
-			return E_FAIL;
-	}
-	*/
 
 	if (FAILED(Ready_Layer_IconUI(TEXT("Layer_IconUI"))))
 		return E_FAIL;
+
 	if (FAILED(Ready_Layer_PlayerInfoUI(TEXT("Layer_PlayerInfoUI"))))
 		return E_FAIL;
 	if (FAILED(Ready_Layer_SkillInfoUI(TEXT("Layer_SkillInfoUI"))))
@@ -52,6 +37,24 @@ HRESULT CLevel_GamePlay::Initialize()
 		return E_FAIL;
 	if (FAILED(Ready_Layer_InvenUI(TEXT("Layer_InvenUI"))))
 		return E_FAIL;
+
+	if (FAILED(Ready_Layer_Camera(TEXT("Layer_Camera"))))
+		return E_FAIL;
+
+	if (FAILED(Ready_Layer_TestBox(TEXT("Layer_TestBox"))))
+		return E_FAIL;
+
+	if (FAILED(Ready_Layer_Player(TEXT("Layer_Player"))))
+		return E_FAIL;
+
+	for (int i = 0; i < 10; ++i)
+	{
+		if (FAILED(Ready_Layer_Monster(TEXT("Layer_Monster"))))
+			return E_FAIL;
+	}
+
+	/*if (FAILED(Ready_Layer_IconUI(TEXT("Layer_IconUI"))))
+		return E_FAIL;*/
 
 	return S_OK;
 }
@@ -68,7 +71,7 @@ void CLevel_GamePlay::Tick(_float fTimeDelta)
 	GetCursorPos(&pt);					//마우스 받아오기
 	ScreenToClient(g_hWnd, &pt);
 
-	auto Quick = pGameInstance->Find_Layer(LEVEL_GAMEPLAY, TEXT("Layer_UI"));  //퀵슬록 기능위한 유아이 레이어 받기
+	auto Quick = pGameInstance->Find_Layer(LEVEL_GAMEPLAY, TEXT("Layer_ITemInfoUI"));  //퀵슬록 기능위한 유아이 레이어 받기
 
 	if (pt.y > 550)			//퀵슬롯 기능 구간
 	{
@@ -80,7 +83,7 @@ void CLevel_GamePlay::Tick(_float fTimeDelta)
 				_uint iCheck = 0;
 				for (auto& iter : Quick->Get_ObjectList())
 				{
-					if (iCheck - 13 == iIndex)
+					if (iCheck == iIndex)
 					{
 						dynamic_cast<CItemInfoUI*>(iter)->Set_QuickItem();
 						break;
@@ -94,128 +97,14 @@ void CLevel_GamePlay::Tick(_float fTimeDelta)
 	}
 	//충돌처리 구간
 
-	auto Player = pGameInstance->Find_Target(LEVEL_GAMEPLAY, TEXT("Layer_Player"));      //플레이어 찾아오기
+	Check_Collision_Cube(TEXT("Layer_Player"), fTimeDelta, Pos_Player);
 
-	_float3 vPlayerPos = Player->Get_Transform()->Get_State(CTransform::STATE_POSITION); //플레이어 위치
+	Check_Collision_Cube(TEXT("Layer_MonkeyMonster"), fTimeDelta, Pos_Monkey);
 
-	//vPlayerPos.x = round(vPlayerPos.x);
-	//vPlayerPos.y = round(vPlayerPos.y);//플레이어 위치 반올림
-	//vPlayerPos.z = round(vPlayerPos.z);
+	Check_Collision_Cube(TEXT("Layer_BellaMonster"), fTimeDelta, Pos_Under_Bella);
 
-	_float3 vPpos;
-	vPpos.x = round(vPlayerPos.x);
-	vPpos.y = round(vPlayerPos.y);
-	vPpos.z = round(vPlayerPos.z);
+	Check_Collision_Cube(TEXT("Layer_YetiMonster"), fTimeDelta, Pos_Under_Yeti);
 
-	for (int i = -1; i < 2; ++i) //x
-	{
-		for (int j = -1; j < 2; ++j) //z
-		{
-			for (int k = -1; k < 2; ++k) //y
-			{
-				/*if (_uint(vPlayerPos.x + i)<0)
-				{
-					if (_uint(vPlayerPos.y) + k < 0)
-					{
-						if (_uint(vPlayerPos.z + j)<0)
-						{
-							continue;
-						}
-						continue;
-					}
-					continue;
-				}*/
-
-				if (m_fLayerPos[_uint(vPpos.x + i)][_uint(vPpos.y) + k][_uint(vPpos.z + j)] == 1)
-				{
-					pGameInstance->Collision_Rect_Cube(LEVEL_GAMEPLAY, Player->Get_Transform(), vPlayerPos,
-						_float3(vPpos.x + i, vPpos.y + k, vPpos.z + j), fTimeDelta, _float3(0.2f, 0.3f, 0.2f));
-				}
-			}
-		}
-	}	
-	/*
-	auto Monster1 = pGameInstance->Find_Layer(LEVEL_GAMEPLAY, TEXT("Layer_MonkeyMonster"));      //플레이어 찾아오기
-
-	for (auto& mObj : Monster1->Get_ObjectList())
-	{
-		_float3 vMonsterPos = mObj->Get_Transform()->Get_State(CTransform::STATE_POSITION); //플레이어 위치
-
-		_float3 vMpos;
-		vMpos.x = round(vMonsterPos.x);
-		vMpos.y = round(vMonsterPos.y);
-		vMpos.z = round(vMonsterPos.z);
-
-		for (int i = -1; i < 2; ++i) //x
-		{
-			for (int j = -1; j < 2; ++j) //z
-			{
-				for (int k = -1; k < 2; ++k) //y
-				{
-					if (m_fLayerPos[_uint(vMpos.x + i)][_uint(vMpos.y) + k][_uint(vMpos.z + j)] == 1)
-					{
-						pGameInstance->Collision_Rect_Cube(LEVEL_GAMEPLAY, mObj->Get_Transform(), vMonsterPos,
-							_float3(vMpos.x + i, vMpos.y + k, vMpos.z + j), fTimeDelta, _float3(0.5f, 0.5f, 0.5f));
-					}
-				}
-			}
-		}
-	}
-
-	auto Monster2 = pGameInstance->Find_Layer(LEVEL_GAMEPLAY, TEXT("Layer_BellaMonster"));      //플레이어 찾아오기
-
-	for (auto& mObj : Monster2->Get_ObjectList())
-	{
-		_float3 vMonsterPos = mObj->Get_Transform()->Get_State(CTransform::STATE_POSITION); //플레이어 위치
-
-		_float3 vMpos;
-		vMpos.x = round(vMonsterPos.x);
-		vMpos.y = round(vMonsterPos.y);
-		vMpos.z = round(vMonsterPos.z);
-
-		for (int i = -1; i < 2; ++i) //x
-		{
-			for (int j = -1; j < 2; ++j) //z
-			{
-				for (int k = -1; k < 2; ++k) //y
-				{
-					if (m_fLayerPos[_uint(vMpos.x + i)][_uint(vMpos.y) + k][_uint(vMpos.z + j)] == 1)
-					{
-						pGameInstance->Collision_Rect_Cube(LEVEL_GAMEPLAY, mObj->Get_Transform(), vMonsterPos,
-							_float3(vMpos.x + i, vMpos.y + k, vMpos.z + j), fTimeDelta, _float3(0.5f, 0.5f, 0.5f));
-					}
-				}
-			}
-		}
-	}
-
-	auto Monster3 = pGameInstance->Find_Layer(LEVEL_GAMEPLAY, TEXT("Layer_YetiMonster"));      //플레이어 찾아오기
-
-	for (auto& mObj : Monster3->Get_ObjectList())
-	{
-		_float3 vMonsterPos = mObj->Get_Transform()->Get_State(CTransform::STATE_POSITION); //플레이어 위치
-
-		_float3 vMpos;
-		vMpos.x = round(vMonsterPos.x);
-		vMpos.y = round(vMonsterPos.y);
-		vMpos.z = round(vMonsterPos.z);
-
-		for (int i = -1; i < 2; ++i) //x
-		{
-			for (int j = -1; j < 2; ++j) //z
-			{
-				for (int k = -1; k < 2; ++k) //y
-				{
-					if (m_fLayerPos[_uint(vMpos.x + i)][_uint(vMpos.y) + k][_uint(vMpos.z + j)] == 1)
-					{
-						pGameInstance->Collision_Rect_Cube(LEVEL_GAMEPLAY, mObj->Get_Transform(), vMonsterPos,
-							_float3(vMpos.x + i, vMpos.y + k, vMpos.z + j), fTimeDelta, _float3(0.5f, 0.5f, 0.5f));
-					}
-				}
-			}
-		}
-	}
-	*/
 	//pGameInstance->Collision_Rect_Cube(LEVEL_GAMEPLAY, TEXT("Layer_Monster"), TEXT("Layer_TestBox"), fTimeDelta, _float3(0.15f, 0.3f, 0.15f));
 
 	//pGameInstance->Collision_Attacked(LEVEL_GAMEPLAY, TEXT("Layer_Player"), TEXT("Layer_Monster"), fTimeDelta, 2, _float3(0.15f, 0.3f, 0.15f), _float3(0.45f, 0.45f, 0.45f));
@@ -254,6 +143,10 @@ HRESULT CLevel_GamePlay::Ready_Layer_Player(const _tchar * pLayerTag)
 
 	if (FAILED(pGameInstance->Add_GameObject(TEXT("Prototype_GameObject_Player"), LEVEL_GAMEPLAY, pLayerTag, nullptr)))
 		return E_FAIL;	
+
+	auto Player = dynamic_cast<CPlayer*>(pGameInstance->Find_Target(LEVEL_GAMEPLAY, TEXT("Layer_Player")));
+
+	Player->Set_QuickItem(&m_vecQuickItem);
 
 	Safe_Release(pGameInstance);
 
@@ -426,6 +319,8 @@ HRESULT CLevel_GamePlay::Ready_Layer_ItemInfoUI(const _tchar * pLayerTag)
 	CGameInstance*			pGameInstance = CGameInstance::Get_Instance();
 	Safe_AddRef(pGameInstance);
 
+	auto Player = pGameInstance->Find_Target(LEVEL_GAMEPLAY, TEXT("Layer_Player"));
+
 	for (_uint i = 0; i < 8; ++i)
 	{
 		_float3 vPos = {};
@@ -444,6 +339,15 @@ HRESULT CLevel_GamePlay::Ready_Layer_ItemInfoUI(const _tchar * pLayerTag)
 
 		if (FAILED(pGameInstance->Add_GameObject(TEXT("Prototype_GameObject_ItemInfoUI"), LEVEL_GAMEPLAY, pLayerTag, &vPos)))
 			return E_FAIL;
+
+		RECT rc = {};
+
+		SetRect(&rc, vPos.x - 33 + 770.f, vPos.y - 33, vPos.x + 33 + 770.f, vPos.y + 33);
+
+		m_eQuickInfo[i].iIndex = i;
+		m_eQuickInfo[i].rc = rc;
+
+		m_vecQuickItem.push_back(dynamic_cast<class CItemInfoUI*>(pGameInstance->Get_BackObject(LEVEL_GAMEPLAY, pLayerTag)));
 	}
 
 	Safe_Release(pGameInstance);
@@ -542,6 +446,67 @@ void CLevel_GamePlay::LoadMapData()
 
 
 	//DrawAll_Cube();
+}
+
+void CLevel_GamePlay::Check_Collision_Cube(const _tchar * pLayerTag, _float fTimeDelta, TEXTUREPOS ePos)
+{
+	CGameInstance* pGameInstance = CGameInstance::Get_Instance();
+
+	Safe_AddRef(pGameInstance);
+
+	auto Search = pGameInstance->Find_Layer(LEVEL_GAMEPLAY, pLayerTag);      //객체 레이어 찾아오기
+
+	for (auto& mObj : Search->Get_ObjectList())
+	{
+		_float3 vSearchPos = mObj->Get_Transform()->Get_State(CTransform::STATE_POSITION); //객체 위치
+
+		_float3 vPpos;
+		vPpos.x = round(vSearchPos.x);
+		vPpos.y = round(vSearchPos.y);
+		vPpos.z = round(vSearchPos.z);
+		
+		for (int i = -1; i < 2; ++i) //x
+		{
+			for (int j = -1; j < 2; ++j) //z
+			{
+				for (int k = -1; k < 2; ++k) //y
+				{
+					if (int(vPpos.x) + i >= 0)
+					{
+						if (int(vPpos.y) + k >= 0)
+						{
+							if (int(vPpos.z) + j >= 0)
+							{
+								if (m_fLayerPos[int(vPpos.x) + i][int(vPpos.y) + k][int(vPpos.z) + j] == 1)
+								{
+									switch (ePos)
+									{
+									case Client::CLevel_GamePlay::Pos_Player:
+										pGameInstance->Collision_Rect_Cube(LEVEL_GAMEPLAY, mObj->Get_Transform(), vSearchPos,
+											_float3(vPpos.x + i, vPpos.y + k, vPpos.z + j), fTimeDelta, _float3(0.25f, 0.3f, 0.2f));
+										break;
+									case Client::CLevel_GamePlay::Pos_Monkey:
+										pGameInstance->Collision_Rect_Cube(LEVEL_GAMEPLAY, mObj->Get_Transform(), vSearchPos,
+											_float3(vPpos.x + i, vPpos.y + k, vPpos.z + j), fTimeDelta, _float3(0.4f, 0.3f, 0.2f));
+										break;
+									case Client::CLevel_GamePlay::Pos_Under_Bella:
+										pGameInstance->Collision_Rect_Cube(LEVEL_GAMEPLAY, mObj->Get_Transform(), vSearchPos,
+											_float3(vPpos.x + i, vPpos.y + k + mObj->Get_Transform()->Get_Scale().y*0.5f, vPpos.z + j), fTimeDelta, _float3(0.3f, 0.3f, 0.2f));
+										break;		
+									case Client::CLevel_GamePlay::Pos_Under_Yeti:
+										pGameInstance->Collision_Rect_Cube(LEVEL_GAMEPLAY, mObj->Get_Transform(), vSearchPos,
+											_float3(vPpos.x + i, vPpos.y + k , vPpos.z + j), fTimeDelta, _float3(0.25f, 0.25f, 0.2f));
+										break;
+									}									
+								}
+							}
+						}
+					}					
+				}
+			}
+		}
+	}
+	Safe_Release(pGameInstance);
 }
 
 

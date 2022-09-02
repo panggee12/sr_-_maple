@@ -25,7 +25,9 @@
 #include "Player_Skill.h"
 #include "Player_Attack.h"
 #include "Effect.h"
+#include "ConsumItem.h"
 #include "IconUI.h"
+
 
 
 CLoader::CLoader(LPDIRECT3DDEVICE9 pGraphic_Device)
@@ -249,6 +251,8 @@ HRESULT CLoader::Loading_ForGamePlayLevel()
 	//lstrcpy(m_szLoadingText, TEXT("°´Ã¼ »ý¼º Áß."));
 
 	/*For.Prototype_GameObject_UI */
+
+	/*For.Prototype_GameObject_UI */
 	if (FAILED(pGameInstance->Add_Prototype(TEXT("Prototype_GameObject_InventoryUI"),
 		CInventoryUI::Create(m_pGraphic_Device))))
 		return E_FAIL;
@@ -357,6 +361,10 @@ HRESULT CLoader::Loading_ForGamePlayLevel()
 	/*For.Prototype_GameObject_Camera_Dynamic */
 	if (FAILED(pGameInstance->Add_Prototype(TEXT("Prototype_GameObject_Camera_Dynamic"),
 		CCamera_Dynamic::Create(m_pGraphic_Device))))
+		return E_FAIL;
+
+	if (FAILED(pGameInstance->Add_Prototype(TEXT("Prototype_GameObject_ConsumItem"),
+		CConsumItem::Create(m_pGraphic_Device))))
 		return E_FAIL;
 	
 

@@ -122,7 +122,7 @@
       <UniqueIdentifier>{b1a3c765-d8c9-436d-b934-e844addab2ff}</UniqueIdentifier>
     </Filter>
     <Filter Include="02.GameObject\UI\GamePlayUI\IconUI">
-      <UniqueIdentifier>{d05d31ef-e8ff-49b5-9936-420392804b2b}</UniqueIdentifier>
+      <UniqueIdentifier>{a2ba5353-89b4-4c5d-ba92-6398e2c0679a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -139,9 +139,6 @@
       <Filter>98.Default</Filter>
     </ClInclude>
     <ClInclude Include="targetver.h">
-      <Filter>98.Default</Filter>
-    </ClInclude>
-    <ClInclude Include="stdafx.h">
       <Filter>98.Default</Filter>
     </ClInclude>
     <ClInclude Include="..\Public\Client_Defines.h">
@@ -236,6 +233,9 @@
     </ClInclude>
     <ClInclude Include="..\Public\YetiSkill.h">
       <Filter>02.GameObject\Monster\YetiMonster\YetiSkill</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>98.Default</Filter>
     </ClInclude>
     <ClInclude Include="..\Public\ConsumItem.h">
       <Filter>02.GameObject\Item\ConsumItem</Filter>

@@ -47,7 +47,9 @@ private:
 	HRESULT Ready_Layer_Player_Skill(const _tchar * pLayerTag, _float fTimeDelta);
 	HRESULT Ready_Layer_Player_Attack(const _tchar * pLayerTag, _float fTimeDelta);
 
-
+public:
+	void Set_QuickItem(vector<class CItemInfoUI*>* pVecItem) { m_vecQuickItem = pVecItem; }
+	void Use_Quick_Item();
 public:
 	static CPlayer* Create(LPDIRECT3DDEVICE9 pGraphic_Device);
 	virtual CGameObject* Clone(void* pArg = nullptr) override;
@@ -74,7 +76,7 @@ private:
 	_bool   m_bSkill = false;
 	_bool	m_KeyInput = false;
 
-
+	vector<class CItemInfoUI*>* m_vecQuickItem;
 };
 
 END

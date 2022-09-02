@@ -28,7 +28,7 @@ public:
 
 public:
 	void		Set_QuickItem() { m_iCheck++; }//아이템 충돌 변환 체크용 
-
+	void		Use_Item();
 private: /* For.Components */
 	CTexture*				m_pTextureCom = nullptr;
 	CRenderer*				m_pRendererCom = nullptr;

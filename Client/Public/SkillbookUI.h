@@ -40,7 +40,7 @@ private:
 	_float2					m_fDifDis;
 	RECT					m_rcRect;
 	int						m_iCheck = 0;//µð¹ö±ë¿ë
-	_bool					m_bFirst = false;
+
 
 private:
 	HRESULT SetUp_Components();

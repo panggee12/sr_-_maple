@@ -17,7 +17,7 @@ class CInventoryUI final : public CGameObject
 private:
 	typedef struct tagInventory
 	{
-		RECT	rcRect;
+		RECT   rcRect;
 		_float  RectX;
 		_float  RectY;
 	}INVEN;
@@ -39,26 +39,26 @@ public:
 	_bool Get_OnCheck() { return m_bOnCheck; }
 
 private: /* For.Components */
-	CTexture*				m_pTextureCom = nullptr;
-	CRenderer*				m_pRendererCom = nullptr;
-	CVIBuffer_Rect*			m_pVIBufferCom = nullptr;
+	CTexture*            m_pTextureCom = nullptr;
+	CRenderer*            m_pRendererCom = nullptr;
+	CVIBuffer_Rect*         m_pVIBufferCom = nullptr;
 
 
 private:
-	_float4x4				m_ProjMatrix;
-	_float					m_fX, m_fY, m_fSizeX, m_fSizeY;
-	_bool					m_bOnCheck = false;
-	_bool					m_bMoveUi = false;
-	_float2					m_fMousePos;
-	_float2					m_fDifDis;
-	RECT					m_rcRect;
-	int						m_iCheck=0;//µð¹ö±ë¿ë
-	vector<INVEN>			m_vecInven;
-	INVEN					m_Inven;
-	_float					m_fRectX = 0.f;
-	_float					m_fRectY = 0.f;
-	_bool					m_bFirst = false;
-	_bool					m_bTest = false;
+	_float4x4            m_ProjMatrix;
+	_float               m_fX, m_fY, m_fSizeX, m_fSizeY;
+	_bool               m_bOnCheck = false;
+	_bool               m_bMoveUi = false;
+	_float2               m_fMousePos;
+	_float2               m_fDifDis;
+	RECT               m_rcRect;
+	int                  m_iCheck = 0;//µð¹ö±ë¿ë
+	vector<INVEN>         m_vecInven;
+	INVEN               m_Inven;
+	_float               m_fRectX = 0.f;
+	_float               m_fRectY = 0.f;
+	_bool               m_bFirst = false;
+	_bool               m_bTest = false;
 private:
 	HRESULT SetUp_Components();
 	HRESULT SetUp_RenderState();

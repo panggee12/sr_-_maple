@@ -8,7 +8,7 @@ CItem::CItem(LPDIRECT3DDEVICE9 pGraphic_Device)
 
 CItem::CItem(const CItem & rhs)
 	: CGameObject(rhs)
-{
+{ 
 }
 
 HRESULT CItem::Initialize_Prototype()
