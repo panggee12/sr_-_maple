@@ -26,14 +26,10 @@
 #include "Skill_Meteo.h"
 #include "Player_Attack.h"
 #include "Effect.h"
-<<<<<<< HEAD
 #include "ConsumItem.h"
-=======
 #include "Litening_Effect.h"
 #include "Body_Effect.h"
 #include "Meteo_Effect.h"
-
->>>>>>> BaeH
 
 
 CLoader::CLoader(LPDIRECT3DDEVICE9 pGraphic_Device)
@@ -335,15 +331,12 @@ HRESULT CLoader::Loading_ForGamePlayLevel()
 		CPlayer_Skill::Create(m_pGraphic_Device))))
 		return E_FAIL;
 
-<<<<<<< HEAD
-=======
 	/*For.Prototype_GameObject_Skill_Meteor*/
 	if (FAILED(pGameInstance->Add_Prototype(TEXT("Prototype_GameObject_Meteo_Skill"),
 		CMeteo_Skill::Create(m_pGraphic_Device))))
 		return E_FAIL;
 
 	
->>>>>>> BaeH
 	/*For.Prototype_GameObject_Player_Attack*/
 	if (FAILED(pGameInstance->Add_Prototype(TEXT("Prototype_GameObject_Player_Attack"),
 		CPlayer_Attack::Create(m_pGraphic_Device))))

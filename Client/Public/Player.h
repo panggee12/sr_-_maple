@@ -15,16 +15,12 @@ BEGIN(Client)
 
 class CPlayer final : public CGameObject
 {
-<<<<<<< HEAD
-	enum PLAYER_STATE {PLAYER_IDLE,UP_STATE,DOWN_STATE,LEFT_STATE,RIGHT_STATE,RT_STATE, LT_STATE, LD_STATE, RD_STATE, PLAYER_ATTACK,PLAYER_SKILL,PLAYER_END};
-	enum PLAYER_ATTACK_ {UP_ATTACK,DOWN_ATTACK,LEFT_ATTACK,RIGHT_ATTACK,ATTACK_END};
-=======
 
 	enum PLAYER_STATE { PLAYER_IDLE, PLAYER_MOVE_STATE, PLAYER_ATTACK, PLAYER_SKILL, PLAYER_END };
 	enum PLAYER_DIR { UP, DOWN, LEFT, RIGHT, RU, LU, RD, LD, STOP, END_ };
 
 
->>>>>>> BaeH
+
 
 private:
 	CPlayer(LPDIRECT3DDEVICE9 pGraphic_Device);
@@ -58,8 +54,7 @@ private:
 public:
 	PLAYER_DIR Get_DirState() { return m_ePlayer_Dir; }
 
-<<<<<<< HEAD
-=======
+
 public:
 	_bool Key_Up(int _Key);
 	_bool Key_Down(int _Key);
@@ -67,7 +62,7 @@ public:
 public:
 	HRESULT Fire_Body_On(const _tchar* pEffet_LayerTag, _float fTimeDelta);
 
->>>>>>> BaeH
+
 
 public:
 	static CPlayer* Create(LPDIRECT3DDEVICE9 pGraphic_Device);
@@ -79,24 +74,16 @@ private:
 	_float m_fFallSpeed = 0.f;
 	_float m_fMaxFallSpeed = 3.f;
 	_float m_fJumpPower = 0.f; //점프, 블럭에서 떨어지는 행동 관련 
-
 	_float m_uFrameNum = 0;
-
 	_float m_fSkillTime = 0.f;
-
 	_float m_fFrameTime = 0.f;
-
-<<<<<<< HEAD
-	PLAYER_STATE   m_ePlayer_State= PLAYER_IDLE;
-	PLAYER_ATTACK_  m_ePlayer_Attack = ATTACK_END;
-=======
 	_float m_AttackTime = 0.f;
 
 	//Player_State
 	PLAYER_STATE   m_ePlayer_State = PLAYER_IDLE;
 	//이전
 	PLAYER_STATE  m_ePlayer_brfore = PLAYER_END;
->>>>>>> BaeH
+
 
 	_bool	m_bPlayer_Move=false;
 	_bool	m_bPlayer_Idle = true;

@@ -31,14 +31,15 @@ private: /* For.Components */
 	CRenderer*				m_pRendererCom = nullptr;
 	CVIBuffer_Rect*			m_pVIBufferCom = nullptr;
 
+
 private:
 	_float4x4				m_ProjMatrix;
 	_float					m_fX, m_fY, m_fSizeX, m_fSizeY;
 	_float					m_fSkill_Frame = 0.f;
 	_float					m_Skill_Time_L=0.f;
 
-<<<<<<< HEAD
 	_float3					m_vSkillPosition_2;
+
 private:
 	HRESULT SetUp_Components();
 	HRESULT SetUp_RenderState();
@@ -49,12 +50,9 @@ public:
 
 	
 
-	void LiteNing_Skill(_float _Player_Skill, _float fTimeDelta);
-	void Fireball_Skill(_float _Player_Skill, _float fTimeDelta);
-	/*void LiteNing_Skill(_float _Player_Skill, _float fTimeDelta);
-	void LiteNing_Skill(_float _Player_Skill, _float fTimeDelta);
-	*/
-=======
+	//void LiteNing_Skill(_float _Player_Skill, _float fTimeDelta);
+	//void Fireball_Skill(_float _Player_Skill, _float fTimeDelta);
+
 	_bool m_bMotionCheck = false;
 	_float3 m_vPosition;
 	_float3 m_vMyLook;
@@ -67,7 +65,6 @@ public:
 	virtual HRESULT SetUp_RenderState();
 	HRESULT Lite_Ning_Effect_On(const _tchar * pLayerTag, _float fTimeDelta);
 	virtual HRESULT Release_RenderState();
->>>>>>> BaeH
 
 public:
 	static CPlayer_Skill* Create(LPDIRECT3DDEVICE9 pGraphic_Device);

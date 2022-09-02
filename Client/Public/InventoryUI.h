@@ -25,14 +25,13 @@ public:
 	virtual void Tick(_float fTimeDelta)override;
 	virtual void Late_Tick(_float fTimeDelta)override;
 	virtual HRESULT Render() override;
-<<<<<<< HEAD
+
 	void Show_Inven();
 
 	vector<INVEN> Get_InvenInfo() { return m_vecInven; }
 	_bool Get_OnCheck() { return m_bOnCheck; }
 	_float2 Get_DifDis() { return m_fDifDis; }
-=======
->>>>>>> parent of 70b6c74 (디벨롭 가져오기)
+
 
 private: /* For.Components */
 	CTexture*				m_pTextureCom = nullptr;

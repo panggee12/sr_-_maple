@@ -34,11 +34,6 @@ protected: /* For.Components */
 	CTexture*				m_pTextureCom = nullptr;
 	CRenderer*				m_pRendererCom = nullptr;
 	CVIBuffer_Rect*			m_pVIBufferCom = nullptr;
-<<<<<<< HEAD
-=======
-
-
->>>>>>> BaeH
 
 protected:
 	STATE m_eState = STATE_IDLE;

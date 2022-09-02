@@ -16,7 +16,7 @@ HRESULT CPlayer::Initialize_Prototype()
 {
 	if (FAILED(__super::Initialize_Prototype()))
 		return E_FAIL;
-	
+
 	return S_OK;
 }
 
@@ -48,137 +48,100 @@ void CPlayer::Tick(_float fTimeDelta)
 	//m_pTransformCom->Down(fTimeDelta*1.0f);
 
 
+
+
 	if (GetKeyState(VK_UP) < 0)
 	{
 		if (GetKeyState(VK_RIGHT) < 0)
 		{
-<<<<<<< HEAD
-=======
+
 			m_ePlayer_State = CPlayer::PLAYER_MOVE_STATE;
 			m_ePlayer_Dir = CPlayer::RU;
->>>>>>> BaeH
 			m_pTransformCom->Go_RT(fTimeDelta);
-			m_ePlayer_State = CPlayer::RT_STATE;
-			m_ePlayer_Attack = CPlayer::UP_ATTACK;
+
 			m_bPlayer_Move = true;
 			m_bPlayer_Idle = false;
 		}
 		else if (GetKeyState(VK_LEFT) < 0)
 		{
-<<<<<<< HEAD
-=======
+
 			m_ePlayer_State = CPlayer::PLAYER_MOVE_STATE;
 			m_ePlayer_Dir = CPlayer::LU;
->>>>>>> BaeH
+
 			m_pTransformCom->Go_LT(fTimeDelta);
-			m_ePlayer_State = CPlayer::LT_STATE;
-			m_ePlayer_Attack = CPlayer::UP_ATTACK;
 			m_bPlayer_Move = true;
 			m_bPlayer_Idle = false;
 		}
 		else
 		{
-<<<<<<< HEAD
-=======
 			m_ePlayer_State = CPlayer::PLAYER_MOVE_STATE;
 			m_ePlayer_Dir = CPlayer::UP;
->>>>>>> BaeH
 			m_pTransformCom->Go_Straight(fTimeDelta);
-			m_ePlayer_State = CPlayer::UP_STATE;
-			m_ePlayer_Attack = CPlayer::UP_ATTACK;
+
 			m_bPlayer_Move = true;
 			m_bPlayer_Idle = false;
 		}
 	}
 
-	else if (GetKeyState(VK_DOWN) < 0 )
+	else if (GetKeyState(VK_DOWN) < 0)
 	{
 		if (GetKeyState(VK_RIGHT) < 0)
 		{
-<<<<<<< HEAD
-=======
+
 			m_ePlayer_State = CPlayer::PLAYER_MOVE_STATE;
 			m_ePlayer_Dir = CPlayer::RD;
->>>>>>> BaeH
 			m_pTransformCom->Go_Right(fTimeDelta);
 			m_pTransformCom->Go_Backward(fTimeDelta);
-			m_ePlayer_State = CPlayer::RD_STATE;
-			m_ePlayer_Attack = CPlayer::UP_ATTACK;
 			m_bPlayer_Move = true;
 			m_bPlayer_Idle = false;
 		}
 		else if (GetKeyState(VK_LEFT) < 0)
 		{
-<<<<<<< HEAD
-=======
-			
 			m_ePlayer_State = CPlayer::PLAYER_MOVE_STATE;
 			m_ePlayer_Dir = LD;
->>>>>>> BaeH
+
 			m_pTransformCom->Go_Left(fTimeDelta);
 			m_pTransformCom->Go_Backward(fTimeDelta);
-			m_ePlayer_State = CPlayer::LD_STATE;
-			m_ePlayer_Attack = CPlayer::UP_ATTACK;
+
 			m_bPlayer_Move = true;
 			m_bPlayer_Idle = false;
 		}
 		else
 		{
-<<<<<<< HEAD
-=======
+
 			m_ePlayer_State = CPlayer::PLAYER_MOVE_STATE;
 			m_ePlayer_Dir = CPlayer::DOWN;
->>>>>>> BaeH
 			m_pTransformCom->Go_Backward(fTimeDelta);
-			m_ePlayer_State = CPlayer::DOWN_STATE;
-			m_ePlayer_Attack = CPlayer::DOWN_ATTACK;
+
 			m_bPlayer_Move = true;
 			m_bPlayer_Idle = false;
 		}
 	}
 
-	else if (GetKeyState(VK_LEFT) < 0 )
+	else if (GetKeyState(VK_LEFT) < 0)
 	{
-<<<<<<< HEAD
-=======
 
 		m_ePlayer_State = CPlayer::PLAYER_MOVE_STATE;
 		m_ePlayer_Dir = CPlayer::LEFT;
->>>>>>> BaeH
+
 		m_pTransformCom->Go_Left(fTimeDelta);
-		m_ePlayer_State = CPlayer::LEFT_STATE;
-		m_ePlayer_Attack = CPlayer::LEFT_ATTACK;
 		m_bPlayer_Move = true;
-		//m_bPlayer_Attack = true;
 		m_bPlayer_Idle = false;
-
-
 	}
 
-	else if (GetKeyState(VK_RIGHT) < 0 )
+	else if (GetKeyState(VK_RIGHT) < 0)
 	{
-<<<<<<< HEAD
-=======
-
 		m_ePlayer_State = CPlayer::PLAYER_MOVE_STATE;
 		m_ePlayer_Dir = CPlayer::RIGHT;
->>>>>>> BaeH
 		m_pTransformCom->Go_Right(fTimeDelta);
 		m_ePlayer_State = CPlayer::RIGHT_STATE;
 		m_ePlayer_Attack = CPlayer::RIGHT_ATTACK;
 		m_bPlayer_Move = true;
-		//m_bPlayer_Attack = true;
 		m_bPlayer_Idle = false;
 
 	}
-<<<<<<< HEAD
-	
-	if (GetKeyState('A') & 0x8000)
-=======
 
-
-	else if (Key_Down('Q')&& m_bPlayer_Attack==true)
->>>>>>> BaeH
+	else if (Key_Down('Q') && m_bPlayer_Attack == true)
 	{
 		if (pGameInstance->Check_Layer(LEVEL_GAMEPLAY, TEXT("Layer_MonkeyMonster")))
 		{
@@ -188,29 +151,18 @@ void CPlayer::Tick(_float fTimeDelta)
 			//return;
 		}
 	}
-
-<<<<<<< HEAD
-	else if (pGameInstance->Key_Down('X'))
-	{
-		if (pGameInstance->Check_Layer(LEVEL_GAMEPLAY, TEXT("Layer_MonkeyMonster")))
-=======
 	else if (Key_Down('X') && m_bPlayer_Attack == true)
 	{
-		
-		Player_Attack(m_ePlayer_Dir, fTimeDelta);
+		if (pGameInstance->Check_Layer(LEVEL_GAMEPLAY, TEXT("Layer_MonkeyMonster")))
 
-
-		if (pGameInstance->Check_Layer(LEVEL_GAMEPLAY, TEXT("Layer_Monster")))
->>>>>>> BaeH
+			Player_Attack(m_ePlayer_Dir, fTimeDelta);
 		{
-			Player_Attack(m_ePlayer_State, m_ePlayer_Attack, fTimeDelta);
 
 			if (FAILED(Ready_Layer_Player_Attack(TEXT("Layer_Playe_Attack"), fTimeDelta)));
+
 			//return;
 		}
 
-	/*	if (FAILED(Ready_Layer_Player_Attack(TEXT("Layer_Fire_Body_Effect"), fTimeDelta)));
-		return;*/
 	}
 	else if (Key_Down('W') && m_bPlayer_Attack == true)
 	{
@@ -228,16 +180,16 @@ void CPlayer::Tick(_float fTimeDelta)
 		/*	if (FAILED(Ready_Layer_Player_Attack(TEXT("Layer_Fire_Body_Effect"), fTimeDelta)));
 		return;*/
 	}
-	
 
-<<<<<<< HEAD
+
+
 	_uint			Keyboard;
 	bool			bDown = false;
 	if (Keyboard = pGameInstance->Get_DIKState(DIK_Z))
 	{
 		m_ePlayer_State = PLAYER_ATTACK;
 	}
-	
+
 	if (Keyboard = pGameInstance->Get_DIKState(DIK_U))
 	{
 		m_pTransformCom->Down(fTimeDelta);
@@ -247,58 +199,21 @@ void CPlayer::Tick(_float fTimeDelta)
 		m_pTransformCom->Up(fTimeDelta);
 	}
 	//m_pTransformCom->Fall(fTimeDelta);
-	
-	if (Keyboard = pGameInstance->Get_DIKState(DIK_C)&& !m_pTransformCom->Get_Fall())
-=======
+
+	if (Keyboard = pGameInstance->Get_DIKState(DIK_C) && !m_pTransformCom->Get_Fall())
+
 	else if (Key_Down('C') && !m_pTransformCom->Get_Fall())
->>>>>>> BaeH
+
 	{
 		m_pTransformCom->Set_Jump(true);
 		m_pTransformCom->Set_Fall(true);
 	}
 
-	if (m_ePlayer_State == UP_STATE&&m_bPlayer_Move==true)
-	{
-		Player_Move(UP_STATE, fTimeDelta);
-	}
-	else if (m_ePlayer_State == RIGHT_STATE&&m_bPlayer_Move == true )
-	{
-		Player_Move(RIGHT_STATE, fTimeDelta);
-	}
-	else if (m_ePlayer_State == LEFT_STATE&&m_bPlayer_Move == true )
-	{
-		Player_Move(LEFT_STATE, fTimeDelta);
-	}
-	else if (m_ePlayer_State == DOWN_STATE&&m_bPlayer_Move == true)
-	{
-		Player_Move(DOWN_STATE, fTimeDelta);
-	}
-	else if (m_ePlayer_State == RT_STATE&&m_bPlayer_Move == true)
-	{
-		Player_Move(RT_STATE, fTimeDelta);
-	}
-	else if (m_ePlayer_State == LT_STATE&&m_bPlayer_Move == true)
-	{
-		Player_Move(LT_STATE, fTimeDelta);
-	}
-	else if (m_ePlayer_State == LD_STATE&&m_bPlayer_Move == true)
-	{
-		Player_Move(LD_STATE, fTimeDelta);
-	}
-	else if (m_ePlayer_State == RD_STATE&&m_bPlayer_Move == true)
-	{
-		Player_Move(RD_STATE, fTimeDelta);
-	}
-	else if (m_ePlayer_State == PLAYER_ATTACK&&m_bPlayer_Move == false)
-	{
-		Player_Attack(m_ePlayer_State, m_ePlayer_Attack,fTimeDelta);
-	}
-
-	if (m_pTransformCom->Get_Jump())			
-		m_fJumpPower = 1.2f;	
-	else	
+	if (m_pTransformCom->Get_Jump())
+		m_fJumpPower = 1.2f;
+	else
 		m_fJumpPower = 0.f;
-		
+
 	if (m_pTransformCom->Get_Fall())
 	{
 		m_fFallSpeed += 0.04f;
@@ -335,7 +250,7 @@ HRESULT CPlayer::Render()
 {
 	if (FAILED(__super::Render()))
 		return E_FAIL;
-	
+
 	if (FAILED(m_pTransformCom->Bind_OnGraphicDev()))
 		return E_FAIL;
 
@@ -352,9 +267,6 @@ HRESULT CPlayer::Render()
 
 	return S_OK;
 }
-
-<<<<<<< HEAD
-=======
 _bool CPlayer::Key_Up(int _Key)
 {
 
@@ -415,7 +327,6 @@ HRESULT CPlayer::Fire_Body_On(const _tchar * pEffet_LayerTag, _float fTimeDelta)
 	return S_OK;
 }
 
->>>>>>> BaeH
 HRESULT CPlayer::SetUp_Components()
 {
 	/* For.Com_Renderer */
@@ -449,7 +360,7 @@ HRESULT CPlayer::SetUp_Components()
 HRESULT CPlayer::SetUp_RenderState()
 {
 	if (nullptr == m_pGraphic_Device)
-		return E_FAIL;	
+		return E_FAIL;
 
 	//m_pGraphic_Device->SetRenderState(D3DRS_FILLMODE, D3DFILL_WIREFRAME);
 	m_pGraphic_Device->SetRenderState(D3DRS_ALPHATESTENABLE, TRUE);
@@ -466,28 +377,26 @@ HRESULT CPlayer::Release_RenderState()
 	return S_OK;
 }
 
-void CPlayer::Player_Idel(PLAYER_STATE _PlayerState,_float fTimeDelta)
+void CPlayer::Player_Idel(PLAYER_STATE _PlayerState, _float fTimeDelta)
 {
-	if (m_ePlayer_State==PLAYER_IDLE&&m_bPlayer_Move == false)
+	if (m_ePlayer_State == PLAYER_IDLE&&m_bPlayer_Move == false)
 	{
 		if (m_uFrameNum <= 0 || m_uFrameNum >= 7)
 		{
 			m_uFrameNum = 0;
 		}
-<<<<<<< HEAD
-	}				
-=======
-	
+
+
 	}
 
 	//RIGHT
-	 if (_ePlayer_Dir_State == CPlayer::RIGHT)
+	if (_ePlayer_Dir_State == CPlayer::RIGHT)
 	{
 		if (m_uFrameNum <= 88 || m_uFrameNum >= 95)
 		{
 			m_uFrameNum = 88;
 		}
-		
+
 
 	}
 	//RU
@@ -497,7 +406,7 @@ void CPlayer::Player_Idel(PLAYER_STATE _PlayerState,_float fTimeDelta)
 		{
 			m_uFrameNum = 96;
 		}
-		
+
 	}
 	//UP
 	else if (_ePlayer_Dir_State == CPlayer::UP)
@@ -506,7 +415,7 @@ void CPlayer::Player_Idel(PLAYER_STATE _PlayerState,_float fTimeDelta)
 		{
 			m_uFrameNum = 104;
 		}
-		
+
 	}
 	//LU
 	else if (_ePlayer_Dir_State == CPlayer::LU)
@@ -515,7 +424,7 @@ void CPlayer::Player_Idel(PLAYER_STATE _PlayerState,_float fTimeDelta)
 		{
 			m_uFrameNum = 112;
 		}
-		
+
 	}
 	//LEFT
 	else if (_ePlayer_Dir_State == CPlayer::LEFT)
@@ -524,7 +433,7 @@ void CPlayer::Player_Idel(PLAYER_STATE _PlayerState,_float fTimeDelta)
 		{
 			m_uFrameNum = 120;
 		}
-		
+
 	}
 
 	//LD
@@ -534,7 +443,7 @@ void CPlayer::Player_Idel(PLAYER_STATE _PlayerState,_float fTimeDelta)
 		{
 			m_uFrameNum = 128;
 		}
-		
+
 	}
 	//DOWN
 	else if (_ePlayer_Dir_State == CPlayer::DOWN)
@@ -543,7 +452,7 @@ void CPlayer::Player_Idel(PLAYER_STATE _PlayerState,_float fTimeDelta)
 		{
 			m_uFrameNum = 137;
 		}
-		
+
 	}
 	//RD
 	else if (_ePlayer_Dir_State == CPlayer::RD)
@@ -552,7 +461,7 @@ void CPlayer::Player_Idel(PLAYER_STATE _PlayerState,_float fTimeDelta)
 		{
 			m_uFrameNum = 145;
 		}
-		
+
 	}
 	else
 	{
@@ -562,9 +471,10 @@ void CPlayer::Player_Idel(PLAYER_STATE _PlayerState,_float fTimeDelta)
 
 	}
 
-	
->>>>>>> BaeH
+
+
 }
+
 void CPlayer::Player_Move(PLAYER_STATE _PlayerState, _float fTimeDelta)
 {
 	if (m_ePlayer_State == UP_STATE)
@@ -582,14 +492,14 @@ void CPlayer::Player_Move(PLAYER_STATE _PlayerState, _float fTimeDelta)
 		}
 	}
 
-	else if (m_ePlayer_State == LEFT_STATE )
+	else if (m_ePlayer_State == LEFT_STATE)
 	{
 		if (m_uFrameNum <= 24 || m_uFrameNum >= 32)
 		{
 			m_uFrameNum = 24;
 		}
 	}
-	else if (m_ePlayer_State == DOWN_STATE )
+	else if (m_ePlayer_State == DOWN_STATE)
 	{
 		if (m_uFrameNum <= 32 || m_uFrameNum >= 40)
 		{
@@ -626,33 +536,27 @@ void CPlayer::Player_Move(PLAYER_STATE _PlayerState, _float fTimeDelta)
 		}
 	}
 	else
-<<<<<<< HEAD
 		m_ePlayer_State == PLAYER_IDLE;
-=======
 	{
 		m_AttackTime += 0.1;
-		
+
 		if (m_AttackTime > 1.f)
 		{
 			m_bPlayer_Attack = false;
 		}
-				m_bPlayer_Attack = false;
-
-
-				m_ePlayer_State == PLAYER_ATTACK;
+		m_ePlayer_State == PLAYER_ATTACK;
 	}
->>>>>>> BaeH
 }
 
 void CPlayer::Player_Attack(PLAYER_STATE _PlayerState, PLAYER_ATTACK_ _PlayerAttack, float fTimeDelta)
 {
 
-	if (m_ePlayer_State == RIGHT_STATE ||m_ePlayer_Attack == RIGHT_ATTACK&&m_uFrameNum <= 40 || m_uFrameNum >= 47)
+	if (m_ePlayer_State == RIGHT_STATE || m_ePlayer_Attack == RIGHT_ATTACK&&m_uFrameNum <= 40 || m_uFrameNum >= 47)
 	{
 		m_uFrameNum = 40;
 	}
 
-	 else if (m_ePlayer_State == UP_STATE||m_ePlayer_Attack == UP_ATTACK&&m_uFrameNum <= 47 || m_uFrameNum >= 55)	
+	else if (m_ePlayer_State == UP_STATE || m_ePlayer_Attack == UP_ATTACK&&m_uFrameNum <= 47 || m_uFrameNum >= 55)
 	{
 		m_uFrameNum = 48;
 	}

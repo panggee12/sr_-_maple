@@ -48,7 +48,7 @@ void CPlayer_Skill::Tick(_float fTimeDelta)
 {
 	__super::Tick(fTimeDelta);
 
-<<<<<<< HEAD
+
 	CGameInstance*			pGameInstance = CGameInstance::Get_Instance();
 	Safe_AddRef(pGameInstance);
 
@@ -57,7 +57,7 @@ void CPlayer_Skill::Tick(_float fTimeDelta)
 		m_bDead = true;
 		Safe_Release(pGameInstance);
 		return;
-=======
+
 	m_Skill_Daed += fTimeDelta + 0.2f;
 
 	_float3 vPos = m_pTransformCom->Get_State(CTransform::STATE_POSITION);
@@ -84,8 +84,6 @@ void CPlayer_Skill::Tick(_float fTimeDelta)
 
 		}
 
-		//Fire_Efect_On(TEXT("Layer_Attack"), fTimeDelta);
->>>>>>> BaeH
 	}
 
 	m_Skill_Time_L += fTimeDelta;
@@ -254,7 +252,7 @@ HRESULT CPlayer_Skill::SetUp_RenderState()
 
 	return S_OK;
 }
-<<<<<<< HEAD
+
 
 HRESULT CPlayer_Skill::Release_RenderState()
 {
@@ -263,10 +261,8 @@ HRESULT CPlayer_Skill::Release_RenderState()
 	return S_OK;
 }
 
-HRESULT CPlayer_Skill::Efect_On(const _tchar * pLayerTag)
-=======
 HRESULT CPlayer_Litening::Lite_Ning_Effect_On(const _tchar * pLayerTag, _float fTimeDelta)
->>>>>>> BaeH
+
 {
 	CGameInstance*			pGameInstance = CGameInstance::Get_Instance();
 	Safe_AddRef(pGameInstance);
@@ -274,11 +270,9 @@ HRESULT CPlayer_Litening::Lite_Ning_Effect_On(const _tchar * pLayerTag, _float f
 
 	_float3 vPosition_S = m_pTransformCom->Get_State(CTransform::STATE_POSITION);
 
-<<<<<<< HEAD
-	if (FAILED(pGameInstance->Add_GameObject(TEXT("Prototype_GameObject_Effect"), LEVEL_GAMEPLAY, pLayerTag, vPosition_S)))
-=======
+
 	if (FAILED(pGameInstance->Add_GameObject(TEXT("Prototype_GameObject_Litenig_Effect"), LEVEL_GAMEPLAY, pLayerTag, vPos_Efect)))
->>>>>>> BaeH
+
 		return E_FAIL;
 
 	//m_fSkillTime = m_fSkillTime + 0.5f;
@@ -288,11 +282,7 @@ HRESULT CPlayer_Litening::Lite_Ning_Effect_On(const _tchar * pLayerTag, _float f
 
 
 	Safe_Release(pGameInstance);
-<<<<<<< HEAD
-=======
 
-	
->>>>>>> BaeH
 	return S_OK;
 }
 
