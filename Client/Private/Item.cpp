@@ -8,11 +8,7 @@ CItem::CItem(LPDIRECT3DDEVICE9 pGraphic_Device)
 
 CItem::CItem(const CItem & rhs)
 	: CGameObject(rhs)
-<<<<<<< .merge_file_EqSxE1
 { 
-=======
-{
->>>>>>> .merge_file_2lDVos
 }
 
 HRESULT CItem::Initialize_Prototype()

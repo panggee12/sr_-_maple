@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 
 #include "Client_Defines.h"
 #include "GameObject.h"
@@ -14,7 +14,6 @@ BEGIN(Client)
 
 class CItemInfoUI final : public CGameObject
 {
-
 private:
 	CItemInfoUI(LPDIRECT3DDEVICE9 pGraphic_Device);
 	CItemInfoUI(const CItemInfoUI& rhs);
@@ -28,11 +27,7 @@ public:
 	virtual HRESULT Render() override;
 
 public:
-<<<<<<< HEAD
-	void		Set_QuickItem() { m_iCheck++; }//¾ÆÀÌÅÛ Ãæµ¹ º¯È¯ Ã¼Å©¿ë 
-=======
 	void		Set_QuickItem() { m_iCheck++; }//������ �浹 ��ȯ üũ�� 
->>>>>>> aa192b3238a5dae7f5a2cf8c530fc184cccd860b
 
 private: /* For.Components */
 	CTexture*				m_pTextureCom = nullptr;
@@ -41,11 +36,7 @@ private: /* For.Components */
 
 private:
 	_float4x4						m_ProjMatrix;
-<<<<<<< HEAD
-	_float							m_fX, m_fY, m_fSizeX, m_fSizeY;
-=======
 	_float							m_fX, m_fY, m_fSizeX, m_fSizeY;	
->>>>>>> aa192b3238a5dae7f5a2cf8c530fc184cccd860b
 	QUICK_ITEM						m_eQuick_Item = Quick_Normal;
 	_uint							m_iCheck = 0;
 private:

@@ -64,7 +64,6 @@ void CSkillbookUI::Tick(_float fTimeDelta)
 	GetCursorPos(&ptMouse);
 	ScreenToClient(g_hWnd, &ptMouse);
 
-<<<<<<< .merge_file_AKZeR6
 	if (m_bMoveUi)
 	{									//100						99
 		m_fDifDis.x = m_fMousePos.x - ptMouse.x;
@@ -75,21 +74,6 @@ void CSkillbookUI::Tick(_float fTimeDelta)
 	SetRect(&m_rcRect, m_fX - m_fSizeX * 0.5f-m_fDifDis.x, m_fY - m_fSizeY * 0.5f+ m_fDifDis.y, m_fX + m_fSizeX * 0.5f- m_fDifDis.x, m_fY - m_fSizeY * 0.4f+ m_fDifDis.y);
 
 
-=======
-
-	m_pTransformCom->Set_State(CTransform::STATE_POSITION, _float3(m_fX - g_iWinSizeX * 0.5f - m_fDifDis.x, -m_fY + g_iWinSizeY * 0.5f + m_fDifDis.y, 0.f));
-	SetRect(&m_rcRect, m_fX - m_fSizeX * 0.5f - m_fDifDis.x, m_fY - m_fDifDis.y - m_fSizeY * 0.5f, m_fX + m_fSizeX * 0.5f - m_fDifDis.x, m_fY - m_fSizeY * 0.4f - m_fDifDis.y);
-
-
-	if (pGameInstance->Key_Down(VK_SPACE))
-	{
-		if (PtInRect(&m_rcRect, ptMouse))
-		{
-			ERR_MSG(TEXT("Ãæµ¹"));
-		}
-	}
-
->>>>>>> .merge_file_RbAXNn
 	_float fMx, fMy;
 
 	_char         MouseMove = 0;
@@ -99,34 +83,13 @@ void CSkillbookUI::Tick(_float fTimeDelta)
 		if (PtInRect(&m_rcRect, ptMouse))
 		{
 			m_bMoveUi = true;
-<<<<<<< .merge_file_AKZeR6
 			m_fMousePos.x = ptMouse.x;
 			m_fMousePos.y = ptMouse.y;
-=======
-			if (!m_bFirst)
-			{
-				m_fMousePos.x = ptMouse.x;
-				m_fMousePos.y = ptMouse.y;
-				m_bFirst = true;
-			}
->>>>>>> .merge_file_RbAXNn
 			m_iCheck++;
 		}
 	}
 	else if (pGameInstance->Key_Up(VK_LBUTTON) && m_bMoveUi)
-<<<<<<< .merge_file_AKZeR6
 		m_bMoveUi = false;
-=======
-	{
-		m_bMoveUi = false;
-	}
-
-	if (m_bMoveUi)
-	{									//100						99
-		m_fDifDis.x = m_fMousePos.x - ptMouse.x;
-		m_fDifDis.y = m_fMousePos.y - ptMouse.y;
-	}
->>>>>>> .merge_file_RbAXNn
 
 
 	if (m_iCheck > 1)
@@ -159,15 +122,9 @@ void CSkillbookUI::Late_Tick(_float fTimeDelta)
 		ScreenToClient(g_hWnd, &ptMouse);*/
 
 		/*if (PtInRect(&rcRect, ptMouse))
-<<<<<<< .merge_file_AKZeR6
 		{
 		if (GetKeyState(VK_LBUTTON) & 0x8000)
 		{
-=======
-		{
-		if (GetKeyState(VK_LBUTTON) & 0x8000)
-		{
->>>>>>> .merge_file_RbAXNn
 		m_pTransformCom->Set_State(CTransform::STATE_POSITION, _float3(ptMouse.x, ptMouse.y * -1.f, 0.f));
 		}
 

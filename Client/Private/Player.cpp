@@ -52,14 +52,6 @@ void CPlayer::Tick(_float fTimeDelta)
 	{
 		if (GetKeyState(VK_RIGHT) < 0)
 		{
-<<<<<<< .merge_file_N3p2Bg
-=======
-<<<<<<< HEAD
-			m_ePlayer_State = CPlayer::PLAYER_MOVE_STATE;
-			m_ePlayer_Dir = CPlayer::RU;
-=======
->>>>>>> aa192b3238a5dae7f5a2cf8c530fc184cccd860b
->>>>>>> .merge_file_3DwWH8
 			m_pTransformCom->Go_RT(fTimeDelta);
 			m_ePlayer_State = CPlayer::RT_STATE;
 			m_ePlayer_Attack = CPlayer::UP_ATTACK;
@@ -68,14 +60,6 @@ void CPlayer::Tick(_float fTimeDelta)
 		}
 		else if (GetKeyState(VK_LEFT) < 0)
 		{
-<<<<<<< .merge_file_N3p2Bg
-=======
-<<<<<<< HEAD
-			m_ePlayer_State = CPlayer::PLAYER_MOVE_STATE;
-			m_ePlayer_Dir = CPlayer::LU;
-=======
->>>>>>> aa192b3238a5dae7f5a2cf8c530fc184cccd860b
->>>>>>> .merge_file_3DwWH8
 			m_pTransformCom->Go_LT(fTimeDelta);
 			m_ePlayer_State = CPlayer::LT_STATE;
 			m_ePlayer_Attack = CPlayer::UP_ATTACK;
@@ -84,14 +68,6 @@ void CPlayer::Tick(_float fTimeDelta)
 		}
 		else
 		{
-<<<<<<< .merge_file_N3p2Bg
-=======
-<<<<<<< HEAD
-			m_ePlayer_State = CPlayer::PLAYER_MOVE_STATE;
-			m_ePlayer_Dir = CPlayer::UP;
-=======
->>>>>>> aa192b3238a5dae7f5a2cf8c530fc184cccd860b
->>>>>>> .merge_file_3DwWH8
 			m_pTransformCom->Go_Straight(fTimeDelta);
 			m_ePlayer_State = CPlayer::UP_STATE;
 			m_ePlayer_Attack = CPlayer::UP_ATTACK;
@@ -104,14 +80,6 @@ void CPlayer::Tick(_float fTimeDelta)
 	{
 		if (GetKeyState(VK_RIGHT) < 0)
 		{
-<<<<<<< .merge_file_N3p2Bg
-=======
-<<<<<<< HEAD
-			m_ePlayer_State = CPlayer::PLAYER_MOVE_STATE;
-			m_ePlayer_Dir = CPlayer::RD;
-=======
->>>>>>> aa192b3238a5dae7f5a2cf8c530fc184cccd860b
->>>>>>> .merge_file_3DwWH8
 			m_pTransformCom->Go_Right(fTimeDelta);
 			m_pTransformCom->Go_Backward(fTimeDelta);
 			m_ePlayer_State = CPlayer::RD_STATE;
@@ -121,15 +89,6 @@ void CPlayer::Tick(_float fTimeDelta)
 		}
 		else if (GetKeyState(VK_LEFT) < 0)
 		{
-<<<<<<< .merge_file_N3p2Bg
-=======
-<<<<<<< HEAD
-
-			m_ePlayer_State = CPlayer::PLAYER_MOVE_STATE;
-			m_ePlayer_Dir = LD;
-=======
->>>>>>> aa192b3238a5dae7f5a2cf8c530fc184cccd860b
->>>>>>> .merge_file_3DwWH8
 			m_pTransformCom->Go_Left(fTimeDelta);
 			m_pTransformCom->Go_Backward(fTimeDelta);
 			m_ePlayer_State = CPlayer::LD_STATE;
@@ -139,14 +98,6 @@ void CPlayer::Tick(_float fTimeDelta)
 		}
 		else
 		{
-<<<<<<< .merge_file_N3p2Bg
-=======
-<<<<<<< HEAD
-			m_ePlayer_State = CPlayer::PLAYER_MOVE_STATE;
-			m_ePlayer_Dir = CPlayer::DOWN;
-=======
->>>>>>> aa192b3238a5dae7f5a2cf8c530fc184cccd860b
->>>>>>> .merge_file_3DwWH8
 			m_pTransformCom->Go_Backward(fTimeDelta);
 			m_ePlayer_State = CPlayer::DOWN_STATE;
 			m_ePlayer_Attack = CPlayer::DOWN_ATTACK;
@@ -157,15 +108,6 @@ void CPlayer::Tick(_float fTimeDelta)
 
 	else if (GetKeyState(VK_LEFT) < 0 )
 	{
-<<<<<<< .merge_file_N3p2Bg
-=======
-<<<<<<< HEAD
-
-		m_ePlayer_State = CPlayer::PLAYER_MOVE_STATE;
-		m_ePlayer_Dir = CPlayer::LEFT;
-=======
->>>>>>> aa192b3238a5dae7f5a2cf8c530fc184cccd860b
->>>>>>> .merge_file_3DwWH8
 		m_pTransformCom->Go_Left(fTimeDelta);
 		m_ePlayer_State = CPlayer::LEFT_STATE;
 		m_ePlayer_Attack = CPlayer::LEFT_ATTACK;
@@ -178,15 +120,6 @@ void CPlayer::Tick(_float fTimeDelta)
 
 	else if (GetKeyState(VK_RIGHT) < 0 )
 	{
-<<<<<<< .merge_file_N3p2Bg
-=======
-<<<<<<< HEAD
-
-		m_ePlayer_State = CPlayer::PLAYER_MOVE_STATE;
-		m_ePlayer_Dir = CPlayer::RIGHT;
-=======
->>>>>>> aa192b3238a5dae7f5a2cf8c530fc184cccd860b
->>>>>>> .merge_file_3DwWH8
 		m_pTransformCom->Go_Right(fTimeDelta);
 		m_ePlayer_State = CPlayer::RIGHT_STATE;
 		m_ePlayer_Attack = CPlayer::RIGHT_ATTACK;
@@ -195,50 +128,10 @@ void CPlayer::Tick(_float fTimeDelta)
 		m_bPlayer_Idle = false;
 
 	}
-<<<<<<< .merge_file_N3p2Bg
 	
 	if (GetKeyState('A') & 0x8000)
 	{
 		if (pGameInstance->Check_Layer(LEVEL_GAMEPLAY, TEXT("Layer_MonkeyMonster")))
-=======
-<<<<<<< HEAD
-
-
-	//else if (Key_Down('Q')&& m_bPlayer_Attack==true)
-	//{
-
-	//	if (pGameInstance->Check_Layer(LEVEL_GAMEPLAY, TEXT("Layer_MonkeyMonster")))
-
-	//	Player_Attack(m_ePlayer_Dir, fTimeDelta);
-
-	///*	if (pGameInstance->Check_Layer(LEVEL_GAMEPLAY, TEXT("Layer_Monster")))
-
-	//*/
-	//if (GetKeyState('A') & 0x8000)
-	//{
-	//	if (pGameInstance->Check_Layer(LEVEL_GAMEPLAY, TEXT("Layer_MonkeyMonster")))
-	//	{
-	//		m_ePlayer_State = PLAYER_ATTACK;
-
-	//		if (FAILED(Ready_Layer_Player_Skill(TEXT("Layer_Playe_Skill"), fTimeDelta)));
-	//		return;
-	//	}
-	//}
-
-
-
-	else if (Key_Down('Q') && m_bPlayer_Attack == true)
-	{
-		Player_Attack(m_ePlayer_Dir, fTimeDelta);
-
-		if (pGameInstance->Check_Layer(LEVEL_GAMEPLAY, TEXT("Layer_Monster")))
-=======
-	
-	if (GetKeyState('A') & 0x8000)
-	{
-		if (pGameInstance->Check_Layer(LEVEL_GAMEPLAY, TEXT("Layer_MonkeyMonster")))
->>>>>>> aa192b3238a5dae7f5a2cf8c530fc184cccd860b
->>>>>>> .merge_file_3DwWH8
 		{
 			m_ePlayer_State = PLAYER_ATTACK;
 
@@ -247,53 +140,18 @@ void CPlayer::Tick(_float fTimeDelta)
 		}
 	}
 
-<<<<<<< .merge_file_N3p2Bg
 	else if (pGameInstance->Key_Down('X'))
 	{
 		if (pGameInstance->Check_Layer(LEVEL_GAMEPLAY, TEXT("Layer_MonkeyMonster")))
 		{
 			Player_Attack(m_ePlayer_State, m_ePlayer_Attack, fTimeDelta);
-=======
-<<<<<<< HEAD
-	else if (Key_Down('X') && m_bPlayer_Attack == true)
-	{
-
-		Player_Attack(m_ePlayer_Dir, fTimeDelta);
-
-
-		if (pGameInstance->Check_Layer(LEVEL_GAMEPLAY, TEXT("Layer_MonkeyMonster")))
-		{
-=======
-	else if (pGameInstance->Key_Down('X'))
-	{
-		if (pGameInstance->Check_Layer(LEVEL_GAMEPLAY, TEXT("Layer_MonkeyMonster")))
-		{
-			Player_Attack(m_ePlayer_State, m_ePlayer_Attack, fTimeDelta);
->>>>>>> aa192b3238a5dae7f5a2cf8c530fc184cccd860b
->>>>>>> .merge_file_3DwWH8
 
 			if (FAILED(Ready_Layer_Player_Attack(TEXT("Layer_Playe_Attack"), fTimeDelta)));
 			return;
 		}
-<<<<<<< HEAD
-
-	/*	if (FAILED(Ready_Layer_Player_Attack(TEXT("Layer_Fire_Body_Effect"), fTimeDelta)));
-		return;*/
-=======
->>>>>>> aa192b3238a5dae7f5a2cf8c530fc184cccd860b
 	}
 	
 
-<<<<<<< .merge_file_N3p2Bg
-=======
-<<<<<<< HEAD
-
-//	else if (Key_Down('C') && !m_pTransformCom->Get_Fall())
-
-	
-	/*if (Keyboard = pGameInstance->Get_DIKState(DIK_C)&& !m_pTransformCom->Get_Fall())
-=======
->>>>>>> .merge_file_3DwWH8
 	_uint			Keyboard;
 	bool			bDown = false;
 	if (Keyboard = pGameInstance->Get_DIKState(DIK_Z))
@@ -312,15 +170,10 @@ void CPlayer::Tick(_float fTimeDelta)
 	//m_pTransformCom->Fall(fTimeDelta);
 	
 	if (Keyboard = pGameInstance->Get_DIKState(DIK_C)&& !m_pTransformCom->Get_Fall())
-<<<<<<< .merge_file_N3p2Bg
-=======
->>>>>>> aa192b3238a5dae7f5a2cf8c530fc184cccd860b
->>>>>>> .merge_file_3DwWH8
 	{
 		m_pTransformCom->Set_Jump(true);
 		m_pTransformCom->Set_Fall(true);
 	}
-<<<<<<< .merge_file_N3p2Bg
 
 	if (m_ePlayer_State == UP_STATE&&m_bPlayer_Move==true)
 	{
@@ -357,54 +210,7 @@ void CPlayer::Tick(_float fTimeDelta)
 	else if (m_ePlayer_State == PLAYER_ATTACK&&m_bPlayer_Move == false)
 	{
 		Player_Attack(m_ePlayer_State, m_ePlayer_Attack,fTimeDelta);
-=======
-*/
-	/*if (m_ePlayer_State == UP_STATE&&m_bPlayer_Move==true)
-	{
-<<<<<<< HEAD
-		m_ePlayer_State = CPlayer::PLAYER_IDLE;
-		Player_Idle(m_ePlayer_Dir, fTimeDelta);
-		m_bPlayer_Attack = true;
-
-		Player_Move(UP_STATE, fTimeDelta);
-	}*/
-=======
-		Player_Move(UP_STATE, fTimeDelta);
 	}
-	else if (m_ePlayer_State == RIGHT_STATE&&m_bPlayer_Move == true )
-	{
-		Player_Move(RIGHT_STATE, fTimeDelta);
-	}
-	else if (m_ePlayer_State == LEFT_STATE&&m_bPlayer_Move == true )
-	{
-		Player_Move(LEFT_STATE, fTimeDelta);
-	}
-	else if (m_ePlayer_State == DOWN_STATE&&m_bPlayer_Move == true)
-	{
-		Player_Move(DOWN_STATE, fTimeDelta);
-	}
-	else if (m_ePlayer_State == RT_STATE&&m_bPlayer_Move == true)
-	{
-		Player_Move(RT_STATE, fTimeDelta);
->>>>>>> .merge_file_3DwWH8
-	}
-	else if (m_ePlayer_State == LT_STATE&&m_bPlayer_Move == true)
-	{
-		Player_Move(LT_STATE, fTimeDelta);
-	}
-	else if (m_ePlayer_State == LD_STATE&&m_bPlayer_Move == true)
-	{
-		Player_Move(LD_STATE, fTimeDelta);
-	}
-	else if (m_ePlayer_State == RD_STATE&&m_bPlayer_Move == true)
-	{
-		Player_Move(RD_STATE, fTimeDelta);
-	}
-	else if (m_ePlayer_State == PLAYER_ATTACK&&m_bPlayer_Move == false)
-	{
-		Player_Attack(m_ePlayer_State, m_ePlayer_Attack,fTimeDelta);
-	}
->>>>>>> aa192b3238a5dae7f5a2cf8c530fc184cccd860b
 
 	if (m_pTransformCom->Get_Jump())			
 		m_fJumpPower = 1.2f;	
@@ -419,15 +225,9 @@ void CPlayer::Tick(_float fTimeDelta)
 	}
 	else
 		m_fFallSpeed = 0.f;
-<<<<<<< .merge_file_N3p2Bg
 
 	m_pTransformCom->Jump(fTimeDelta, m_fJumpPower, m_fFallSpeed);
 
-=======
-
-	m_pTransformCom->Jump(fTimeDelta, m_fJumpPower, m_fFallSpeed);
-
->>>>>>> .merge_file_3DwWH8
 	//m_pTransformCom->Set_Fall(true);
 
 	/*if (m_pTransformCom->Check_SecSavePos())
@@ -471,71 +271,6 @@ HRESULT CPlayer::Render()
 	return S_OK;
 }
 
-<<<<<<< .merge_file_N3p2Bg
-=======
-<<<<<<< HEAD
-_bool CPlayer::Key_Up(int _Key)
-{
-
-	if (m_bKeyState[_Key] && !(GetAsyncKeyState(_Key) & 0x8000))
-	{
-		m_bKeyState[_Key] = !m_bKeyState[_Key];
-		return true;
-	}
-
-	for (int i = 0; i < VK_MAX; ++i)
-	{
-		if (!m_bKeyState[_Key] && (GetAsyncKeyState(_Key) & 0x8000))
-			m_bKeyState[_Key] = !m_bKeyState[_Key];
-	}
-
-	return false;
-}
-
-_bool CPlayer::Key_Down(int _Key)
-{
-	if (!m_bKeyState[_Key] && (GetAsyncKeyState(_Key) & 0x8000))
-	{
-		m_bKeyState[_Key] = !m_bKeyState[_Key];
-		return true;
-	}
-
-	for (int i = 0; i < VK_MAX; ++i)
-	{
-		if (m_bKeyState[_Key] && !(GetAsyncKeyState(_Key) & 0x8000))
-			m_bKeyState[_Key] = !m_bKeyState[_Key];
-	}
-
-	return false;
-}
-
-_bool CPlayer::Key_Pressing(int _Key)
-{
-	if (GetAsyncKeyState(_Key) & 0x8000)
-		return true;
-
-	return false;
-}
-
-HRESULT CPlayer::Fire_Body_On(const _tchar * pEffet_LayerTag, _float fTimeDelta)
-{
-	CGameInstance*			pGameInstance = CGameInstance::Get_Instance();
-	Safe_AddRef(pGameInstance);
-	//pGameInstance->AddRef();
-
-	_float3 vPosition_B = m_pTransformCom->Get_State(CTransform::STATE_POSITION);
-
-	if (FAILED(pGameInstance->Add_GameObject(TEXT("Prototype_GameObject_FireBody_Effect"), LEVEL_GAMEPLAY, pEffet_LayerTag, vPosition_B)))
-		return E_FAIL;
-
-	//m_fSkillTime = m_fSkillTime + 0.5f;
-
-	Safe_Release(pGameInstance);
-	return S_OK;
-}
-=======
->>>>>>> aa192b3238a5dae7f5a2cf8c530fc184cccd860b
->>>>>>> .merge_file_3DwWH8
 HRESULT CPlayer::SetUp_Components()
 {
 	/* For.Com_Renderer */
@@ -594,30 +329,16 @@ void CPlayer::Player_Idel(PLAYER_STATE _PlayerState,_float fTimeDelta)
 		{
 			m_uFrameNum = 0;
 		}
-<<<<<<< .merge_file_N3p2Bg
 	}				
 }
 void CPlayer::Player_Move(PLAYER_STATE _PlayerState, _float fTimeDelta)
 {
 	if (m_ePlayer_State == UP_STATE)
-=======
-<<<<<<< HEAD
-
-	}
-
-	//RIGHT
-	if (_ePlayer_Dir_State == CPlayer::RIGHT)
->>>>>>> .merge_file_3DwWH8
 	{
 		if (m_uFrameNum <= 8 || m_uFrameNum >= 15)
 		{
 			m_uFrameNum = 8;
 		}
-<<<<<<< .merge_file_N3p2Bg
-=======
-
-
->>>>>>> .merge_file_3DwWH8
 	}
 	else if (m_ePlayer_State == RIGHT_STATE)
 	{
@@ -625,10 +346,6 @@ void CPlayer::Player_Move(PLAYER_STATE _PlayerState, _float fTimeDelta)
 		{
 			m_uFrameNum = 16;
 		}
-<<<<<<< .merge_file_N3p2Bg
-=======
-
->>>>>>> .merge_file_3DwWH8
 	}
 
 	else if (m_ePlayer_State == LEFT_STATE )
@@ -637,10 +354,6 @@ void CPlayer::Player_Move(PLAYER_STATE _PlayerState, _float fTimeDelta)
 		{
 			m_uFrameNum = 24;
 		}
-<<<<<<< .merge_file_N3p2Bg
-=======
-
->>>>>>> .merge_file_3DwWH8
 	}
 	else if (m_ePlayer_State == DOWN_STATE )
 	{
@@ -648,10 +361,6 @@ void CPlayer::Player_Move(PLAYER_STATE _PlayerState, _float fTimeDelta)
 		{
 			m_uFrameNum = 32;
 		}
-<<<<<<< .merge_file_N3p2Bg
-=======
-
->>>>>>> .merge_file_3DwWH8
 	}
 	else if (m_ePlayer_State == RT_STATE)
 	{
@@ -659,10 +368,6 @@ void CPlayer::Player_Move(PLAYER_STATE _PlayerState, _float fTimeDelta)
 		{
 			m_uFrameNum = 56;
 		}
-<<<<<<< .merge_file_N3p2Bg
-=======
-
->>>>>>> .merge_file_3DwWH8
 	}
 	else if (m_ePlayer_State == LT_STATE)
 	{
@@ -670,10 +375,6 @@ void CPlayer::Player_Move(PLAYER_STATE _PlayerState, _float fTimeDelta)
 		{
 			m_uFrameNum = 64;
 		}
-<<<<<<< .merge_file_N3p2Bg
-=======
-
->>>>>>> .merge_file_3DwWH8
 	}
 
 	else if (m_ePlayer_State == LD_STATE)
@@ -682,10 +383,6 @@ void CPlayer::Player_Move(PLAYER_STATE _PlayerState, _float fTimeDelta)
 		{
 			m_uFrameNum = 72;
 		}
-<<<<<<< .merge_file_N3p2Bg
-=======
-
->>>>>>> .merge_file_3DwWH8
 	}
 	else if (m_ePlayer_State == RD_STATE)
 	{
@@ -693,130 +390,18 @@ void CPlayer::Player_Move(PLAYER_STATE _PlayerState, _float fTimeDelta)
 		{
 			m_uFrameNum = 80;
 		}
-<<<<<<< .merge_file_N3p2Bg
 	}
 	else
 		m_ePlayer_State == PLAYER_IDLE;
-=======
-
-	}
-	else
-	{
-		m_ePlayer_State = PLAYER_IDLE;
-		m_ePlayer_brfore = PLAYER_IDLE;
-		m_bPlayer_Attack = true;
-
-	}
-
-
-=======
-	}				
->>>>>>> aa192b3238a5dae7f5a2cf8c530fc184cccd860b
->>>>>>> .merge_file_3DwWH8
 }
 
 void CPlayer::Player_Attack(PLAYER_STATE _PlayerState, PLAYER_ATTACK_ _PlayerAttack, float fTimeDelta)
 {
-<<<<<<< .merge_file_N3p2Bg
-=======
-
-	if (_ePlayer_Move_State == CPlayer::RIGHT)
-	{
-		if (m_uFrameNum <= 16 || m_uFrameNum >= 23)
-		{
-			m_uFrameNum = 16;
-		}
-	}
-	else if (_ePlayer_Move_State == CPlayer::RU)
-	{
-		if (m_uFrameNum <= 56 || m_uFrameNum >= 63)
-		{
-			m_uFrameNum = 56;
-		}
-	}
-	else if (_ePlayer_Move_State == CPlayer::UP)
-	{
-		if (m_uFrameNum <= 8 || m_uFrameNum >= 15)
-		{
-			m_uFrameNum = 8;
-		}
-	}
-	else if (_ePlayer_Move_State == CPlayer::LU)
-	{
-		if (m_uFrameNum <= 64 || m_uFrameNum >= 71)
-		{
-			m_uFrameNum = 64;
-		}
-	}
-	else if (_ePlayer_Move_State == CPlayer::LEFT)
-	{
-		if (m_uFrameNum <= 24 || m_uFrameNum >= 32)
-		{
-			m_uFrameNum = 24;
-		}
-	}
-	else if (_ePlayer_Move_State == CPlayer::LD)
-	{
-		if (m_uFrameNum <= 72 || m_uFrameNum >= 79)
-		{
-			m_uFrameNum = 72;
-		}
-	}
-	else if (_ePlayer_Move_State == CPlayer::DOWN)
-	{
-		if (m_uFrameNum <= 32 || m_uFrameNum >= 40)
-		{
-			m_uFrameNum = 32;
-		}
-	}
-	else if (_ePlayer_Move_State == CPlayer::RD)
-	{
-		if (m_uFrameNum <= 80 || m_uFrameNum >= 87)
-		{
-			m_uFrameNum = 80;
-		}
-	}
-	else
-	{
-		m_ePlayer_State = PLAYER_MOVE_STATE;
-		m_ePlayer_brfore = PLAYER_MOVE_STATE;
-		m_bPlayer_Attack = false;
-
-	}
-}
->>>>>>> .merge_file_3DwWH8
 
 	if (m_ePlayer_State == RIGHT_STATE ||m_ePlayer_Attack == RIGHT_ATTACK&&m_uFrameNum <= 40 || m_uFrameNum >= 47)
 	{
 		m_uFrameNum = 40;
 	}
-<<<<<<< .merge_file_N3p2Bg
-=======
-	else if (_PlayerAttack == CPlayer::LD)
-	{
-		if (m_uFrameNum <= 176 || m_uFrameNum >= 183)
-		{
-			m_uFrameNum = 176;
-		}
-	}
-	else if (_PlayerAttack == CPlayer::DOWN)
-	{
-		if (m_uFrameNum <= 184 || m_uFrameNum >= 191)
-		{
-			m_uFrameNum = 184;
-		}
-	}
-	else if (_PlayerAttack == CPlayer::RD)
-	{
-		if (m_uFrameNum <= 192 || m_uFrameNum >= 199)
-		{
-			m_uFrameNum = 192;
-		}
-	}
-	else
-	{
-		m_bPlayer_Attack = false;
->>>>>>> .merge_file_3DwWH8
 
 	 else if (m_ePlayer_State == UP_STATE||m_ePlayer_Attack == UP_ATTACK&&m_uFrameNum <= 47 || m_uFrameNum >= 55)	
 	{

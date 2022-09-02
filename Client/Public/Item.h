@@ -38,13 +38,6 @@ protected:
 	_float m_iTextureCount = 0.f;
 	_float m_iTextureMaxCount = 10.f;
 	_bool m_bChase = false;
-<<<<<<< .merge_file_2rWud8
-=======
-<<<<<<< HEAD
-
-=======
->>>>>>> aa192b3238a5dae7f5a2cf8c530fc184cccd860b
->>>>>>> .merge_file_e5xa2S
 	CGameObject* pPlayer = nullptr;
 	_bool m_bMotionCheck = false;
 

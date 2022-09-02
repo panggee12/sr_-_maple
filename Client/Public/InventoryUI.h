@@ -15,14 +15,6 @@ BEGIN(Client)
 class CInventoryUI final : public CGameObject
 {
 private:
-	typedef struct tagInventory
-	{
-		RECT	rcRect;
-		_float  RectX;
-		_float  RectY;
-	}INVEN;
-
-private:
 	CInventoryUI(LPDIRECT3DDEVICE9 pGraphic_Device);
 	CInventoryUI(const CInventoryUI& rhs);
 	virtual ~CInventoryUI() = default;
@@ -33,17 +25,19 @@ public:
 	virtual void Tick(_float fTimeDelta)override;
 	virtual void Late_Tick(_float fTimeDelta)override;
 	virtual HRESULT Render() override;
+<<<<<<< HEAD
 	void Show_Inven();
 
 	vector<INVEN> Get_InvenInfo() { return m_vecInven; }
 	_bool Get_OnCheck() { return m_bOnCheck; }
 	_float2 Get_DifDis() { return m_fDifDis; }
+=======
+>>>>>>> parent of 70b6c74 (ë””ë²¨ë¡­ ê°€ì ¸ì˜¤ê¸°)
 
 private: /* For.Components */
 	CTexture*				m_pTextureCom = nullptr;
 	CRenderer*				m_pRendererCom = nullptr;
 	CVIBuffer_Rect*			m_pVIBufferCom = nullptr;
-
 
 private:
 	_float4x4				m_ProjMatrix;
@@ -53,11 +47,7 @@ private:
 	_float2					m_fMousePos;
 	_float2					m_fDifDis;
 	RECT					m_rcRect;
-	vector<INVEN>			m_vecInven;
-	INVEN					m_Inven;
-	_float					m_fRectX = 0.f;
-	_float					m_fRectY = 0.f;
-
+	int						m_iCheck=0;//µð¹ö±ë¿ë
 private:
 	HRESULT SetUp_Components();
 	HRESULT SetUp_RenderState();

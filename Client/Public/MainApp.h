@@ -1,7 +1,5 @@
 #pragma once
 
-
-//Git TEST
 #include "Client_Defines.h"
 #include "Base.h"
 
