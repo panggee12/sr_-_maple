@@ -1,3 +1,93 @@
-﻿  Lite_Ning_Skill.cpp
-  Client.vcxproj -> D:\project\Visual Studio 2015\Projects\팀포폴 6\새 폴더 (3)\sr_-_maple\sr_-_maple\Client\Default\..\Bin\Client.exe
+﻿  stdafx.cpp
+  Client.cpp
+  YetiSkill.cpp
+  YetiMonster.cpp
+d:\project\visual studio 2015\projects\팀포폴 6\teampol6th\sr_-_maple\client\private\yetimonster.cpp(239): warning C4244: '=': 'int'에서 'Engine::_float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  TestBox.cpp
+  Terrain.cpp
+  Sky.cpp
+  SkillInfoUI.cpp
+d:\project\visual studio 2015\projects\팀포폴 6\teampol6th\sr_-_maple\client\private\skillinfoui.cpp(33): warning C4244: '인수': 'const unsigned int'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  SkillbookUI.cpp
+d:\project\visual studio 2015\projects\팀포폴 6\teampol6th\sr_-_maple\client\private\skillbookui.cpp(29): warning C4244: '인수': 'const unsigned int'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\project\visual studio 2015\projects\팀포폴 6\teampol6th\sr_-_maple\client\private\skillbookui.cpp(43): warning C4244: '인수': 'Engine::_float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\project\visual studio 2015\projects\팀포폴 6\teampol6th\sr_-_maple\client\private\skillbookui.cpp(74): warning C4244: '인수': 'Engine::_float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\project\visual studio 2015\projects\팀포폴 6\teampol6th\sr_-_maple\client\private\skillbookui.cpp(86): warning C4244: '=': 'LONG'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\project\visual studio 2015\projects\팀포폴 6\teampol6th\sr_-_maple\client\private\skillbookui.cpp(87): warning C4244: '=': 'LONG'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\project\visual studio 2015\projects\팀포폴 6\teampol6th\sr_-_maple\client\private\skillbookui.cpp(77): warning C4101: 'fMy' :참조되지 않은 지역 변수입니다.
+d:\project\visual studio 2015\projects\팀포폴 6\teampol6th\sr_-_maple\client\private\skillbookui.cpp(77): warning C4101: 'fMx' :참조되지 않은 지역 변수입니다.
+  Skill.cpp
+  Meteor_Skill.cpp
+  Player_Attack.cpp
+  PlayerInfoUI.cpp
+d:\project\visual studio 2015\projects\팀포폴 6\teampol6th\sr_-_maple\client\private\playerinfoui.cpp(29): warning C4244: '인수': 'const unsigned int'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\project\visual studio 2015\projects\팀포폴 6\teampol6th\sr_-_maple\client\private\playerinfoui.cpp(51): warning C4244: '인수': 'Engine::_float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\project\visual studio 2015\projects\팀포폴 6\teampol6th\sr_-_maple\client\private\playerinfoui.cpp(64): warning C4244: '인수': 'LONG'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\project\visual studio 2015\projects\팀포폴 6\teampol6th\sr_-_maple\client\private\playerinfoui.cpp(57): warning C4101: 'fMy' :참조되지 않은 지역 변수입니다.
+d:\project\visual studio 2015\projects\팀포폴 6\teampol6th\sr_-_maple\client\private\playerinfoui.cpp(57): warning C4101: 'fMx' :참조되지 않은 지역 변수입니다.
+  Player.cpp
+d:\project\visual studio 2015\projects\팀포폴 6\teampol6th\sr_-_maple\client\private\player.cpp(57): warning C4244: '+=': 'double'에서 'Engine::_float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\project\visual studio 2015\projects\팀포폴 6\teampol6th\sr_-_maple\client\private\player.cpp(215): warning C4390: ';': 제어된 빈 문이 있습니다. 이 문이 필요합니까?
+d:\project\visual studio 2015\projects\팀포폴 6\teampol6th\sr_-_maple\client\private\player.cpp(233): warning C4390: ';': 제어된 빈 문이 있습니다. 이 문이 필요합니까?
+d:\project\visual studio 2015\projects\팀포폴 6\teampol6th\sr_-_maple\client\private\player.cpp(252): warning C4390: ';': 제어된 빈 문이 있습니다. 이 문이 필요합니까?
+d:\project\visual studio 2015\projects\팀포폴 6\teampol6th\sr_-_maple\client\private\player.cpp(275): warning C4390: ';': 제어된 빈 문이 있습니다. 이 문이 필요합니까?
+d:\project\visual studio 2015\projects\팀포폴 6\teampol6th\sr_-_maple\client\private\player.cpp(300): warning C4244: '인수': 'Engine::_float'에서 'Engine::_uint'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\project\visual studio 2015\projects\팀포폴 6\teampol6th\sr_-_maple\client\private\player.cpp(634): warning C4305: '+=': 'double'에서 'Engine::_float'(으)로 잘립니다.
+  Monster.cpp
+  Meteor_Effect.cpp
+d:\project\visual studio 2015\projects\팀포폴 6\teampol6th\sr_-_maple\client\private\meteor_effect.cpp(87): warning C4244: '인수': 'Engine::_float'에서 'Engine::_uint'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  MainApp.cpp
+  LupangSkill.cpp
+  LupangMonster.cpp
+d:\project\visual studio 2015\projects\팀포폴 6\teampol6th\sr_-_maple\client\private\lupangmonster.cpp(239): warning C4244: '=': 'int'에서 'Engine::_float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  LogoUI.cpp
+d:\project\visual studio 2015\projects\팀포폴 6\teampol6th\sr_-_maple\client\private\logoui.cpp(29): warning C4244: '인수': 'const unsigned int'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Loader.cpp
+  코드를 생성하고 있습니다...
+d:\project\visual studio 2015\projects\팀포폴 6\teampol6th\sr_-_maple\client\private\monster.cpp(62): warning C4715: 'Client::CMonster::Render': 모든 제어 경로에서 값을 반환하지는 않습니다.
+d:\project\visual studio 2015\projects\팀포폴 6\teampol6th\sr_-_maple\client\private\skill.cpp(48): warning C4715: 'Client::CSkill::Render': 모든 제어 경로에서 값을 반환하지는 않습니다.
+  컴파일하고 있습니다...
+  Lite_Ning_Skill.cpp
+  Litening_Effect.cpp
+d:\project\visual studio 2015\projects\팀포폴 6\teampol6th\sr_-_maple\client\private\litening_effect.cpp(92): warning C4244: '인수': 'Engine::_float'에서 'Engine::_uint'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Level_Logo.cpp
+  Level_Loading.cpp
+  Level_GamePlay.cpp
+d:\project\visual studio 2015\projects\팀포폴 6\teampol6th\sr_-_maple\client\private\level_gameplay.cpp(348): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  ItemInfoUI.cpp
+d:\project\visual studio 2015\projects\팀포폴 6\teampol6th\sr_-_maple\client\private\iteminfoui.cpp(34): warning C4244: '인수': 'const unsigned int'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Item.cpp
+  InventoryUI.cpp
+d:\project\visual studio 2015\projects\팀포폴 6\teampol6th\sr_-_maple\client\private\inventoryui.cpp(28): warning C4244: '인수': 'const unsigned int'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\project\visual studio 2015\projects\팀포폴 6\teampol6th\sr_-_maple\client\private\inventoryui.cpp(58): warning C4244: '인수': 'Engine::_float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\project\visual studio 2015\projects\팀포폴 6\teampol6th\sr_-_maple\client\private\inventoryui.cpp(68): warning C4244: '인수': 'Engine::_float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\project\visual studio 2015\projects\팀포폴 6\teampol6th\sr_-_maple\client\private\inventoryui.cpp(85): warning C4244: '=': 'LONG'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\project\visual studio 2015\projects\팀포폴 6\teampol6th\sr_-_maple\client\private\inventoryui.cpp(86): warning C4244: '=': 'LONG'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\project\visual studio 2015\projects\팀포폴 6\teampol6th\sr_-_maple\client\private\inventoryui.cpp(189): warning C4244: '인수': 'Engine::_float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\project\visual studio 2015\projects\팀포폴 6\teampol6th\sr_-_maple\client\private\inventoryui.cpp(183): warning C4101: 'rcRect' :참조되지 않은 지역 변수입니다.
+  InventoryButtonUI.cpp
+d:\project\visual studio 2015\projects\팀포폴 6\teampol6th\sr_-_maple\client\private\inventorybuttonui.cpp(29): warning C4244: '인수': 'const unsigned int'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  IconUI.cpp
+d:\project\visual studio 2015\projects\팀포폴 6\teampol6th\sr_-_maple\client\private\iconui.cpp(29): warning C4244: '인수': 'const unsigned int'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\project\visual studio 2015\projects\팀포폴 6\teampol6th\sr_-_maple\client\private\iconui.cpp(56): warning C4244: '인수': 'Engine::_float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\project\visual studio 2015\projects\팀포폴 6\teampol6th\sr_-_maple\client\private\iconui.cpp(70): warning C4244: '=': 'LONG'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\project\visual studio 2015\projects\팀포폴 6\teampol6th\sr_-_maple\client\private\iconui.cpp(71): warning C4244: '=': 'LONG'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  HpBarUI.cpp
+d:\project\visual studio 2015\projects\팀포폴 6\teampol6th\sr_-_maple\client\private\hpbarui.cpp(29): warning C4244: '인수': 'const unsigned int'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Fire_Wall.cpp
+  ExpBarUI.cpp
+d:\project\visual studio 2015\projects\팀포폴 6\teampol6th\sr_-_maple\client\private\expbarui.cpp(29): warning C4244: '인수': 'const unsigned int'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Effect.cpp
+d:\project\visual studio 2015\projects\팀포폴 6\teampol6th\sr_-_maple\client\private\effect.cpp(87): warning C4244: '인수': 'Engine::_float'에서 'Engine::_uint'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  CubeTerrain.cpp
+  ConsumItem.cpp
+  Camera_Dynamic.cpp
+  BellaMonster.cpp
+d:\project\visual studio 2015\projects\팀포폴 6\teampol6th\sr_-_maple\client\private\bellamonster.cpp(138): warning C4244: '=': 'int'에서 'Engine::_float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  BackGround.cpp
+  코드를 생성하고 있습니다...
+d:\project\visual studio 2015\projects\팀포폴 6\teampol6th\sr_-_maple\client\private\item.cpp(48): warning C4715: 'Client::CItem::Render': 모든 제어 경로에서 값을 반환하지는 않습니다.
+d:\project\visual studio 2015\projects\팀포폴 6\teampol6th\sr_-_maple\client\private\level_gameplay.cpp(197): warning C4715: 'Client::CLevel_GamePlay::Ready_Layer_TestBox': 모든 제어 경로에서 값을 반환하지는 않습니다.
+  LINK : ..\Bin\Client.exe을(를) 찾을 수 없거나 마지막 증분 링크에 의해 빌드되지 않았습니다. 전체 링크를 수행하고 있습니다.
+  Client.vcxproj -> D:\project\Visual Studio 2015\Projects\팀포폴 6\TeamPol6th\sr_-_maple\Client\Default\..\Bin\Client.exe
   Client.vcxproj -> ..\Bin\Client.pdb (Full PDB)
