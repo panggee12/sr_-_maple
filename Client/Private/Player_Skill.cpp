@@ -105,7 +105,7 @@ HRESULT CPlayer_Litening::SetUp_Components()
 	m_pGameInstance = CGameInstance::Get_Instance();
 	Safe_AddRef(m_pGameInstance);
 
-	pPlayer = m_pGameInstance->Find_Target(LEVEL_GAMEPLAY, TEXT("Layer_Monster"));
+	  = m_pGameInstance->Find_Target(LEVEL_GAMEPLAY, TEXT("Layer_Monster"));
 
 	Safe_Release(m_pGameInstance);
 

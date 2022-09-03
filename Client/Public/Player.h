@@ -33,7 +33,7 @@ public:
 	virtual void Late_Tick(_float fTimeDelta)override;
 	virtual HRESULT Render() override;
 public:
-	CTransform* Get_TransformCom() { return m_pTransformCom; }
+ 	CTransform* Get_TransformCom() { return m_pTransformCom; }
 
 private: /* For.Components */
 	CTexture*				m_pTextureCom = nullptr;
