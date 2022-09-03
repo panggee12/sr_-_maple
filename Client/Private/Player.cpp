@@ -12,7 +12,7 @@ CPlayer::CPlayer(const CPlayer & rhs)
 {
 }
 
-HRESULT CPlayer::Initialize_Prototype()=
+HRESULT CPlayer::Initialize_Prototype()
 {
 	if (FAILED(__super::Initialize_Prototype()))
 		return E_FAIL;

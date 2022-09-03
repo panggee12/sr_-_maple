@@ -162,7 +162,7 @@ HRESULT CLoader::Loading_ForGamePlayLevel()
 		return E_FAIL;*/
 
 	if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, TEXT("Prototype_Component_Texture_Player"),
-		CTexture::Create(m_pGraphic_Device, CTexture::TYPE_DEFAULT, TEXT("../Bin/Resources/Textures/Player/C_%d.png"), 152))))
+		CTexture::Create(m_pGraphic_Device, CTexture::TYPE_DEFAULT, TEXT("../Bin/Resources/Textures/Player/C_%d.png"), 200))))
 		return E_FAIL;
 
 	if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, TEXT("Prototype_Component_Texture_Player_Skill_Litening"),
@@ -326,7 +326,7 @@ HRESULT CLoader::Loading_ForGamePlayLevel()
 
 	/*For.Prototype_GameObject_Player_Skill*/
 	if (FAILED(pGameInstance->Add_Prototype(TEXT("Prototype_GameObject_Player_Skill"),
-		CPlayer_Litening::Create(m_pGraphic_Device))))
+		CLite_Ning_Skill::Create(m_pGraphic_Device))))
 		return E_FAIL;
 
 	/*For.Prototype_GameObject_Skill_Meteor*/
@@ -334,7 +334,13 @@ HRESULT CLoader::Loading_ForGamePlayLevel()
 		CMeteo_Skill::Create(m_pGraphic_Device))))
 		return E_FAIL;
 
-	
+	/*For.Prototype_GameObject_Skill_Meteor*/
+	if (FAILED(pGameInstance->Add_Prototype(TEXT("Prototype_GameObject_Fire_Wall_Skill"),
+		CFire_wall::Create(m_pGraphic_Device))))
+		return E_FAIL;
+
+
+
 	/*For.Prototype_GameObject_Player_Attack*/
 	if (FAILED(pGameInstance->Add_Prototype(TEXT("Prototype_GameObject_Player_Attack"),
 		CPlayer_Attack::Create(m_pGraphic_Device))))
@@ -355,6 +361,39 @@ HRESULT CLoader::Loading_ForGamePlayLevel()
 	if (FAILED(pGameInstance->Add_Prototype(TEXT("Prototype_GameObject_Litenig_Effect"),
 		CLitening_Effect::Create(m_pGraphic_Device))))
 		return E_FAIL;
+
+
+	///*For.Prototype_GameObject_Player_Skill*/
+	//if (FAILED(pGameInstance->Add_Prototype(TEXT("Prototype_GameObject_Player_Skill"),
+	//	CPlayer_Litening::Create(m_pGraphic_Device))))
+	//	return E_FAIL;
+
+	///*For.Prototype_GameObject_Skill_Meteor*/
+	//if (FAILED(pGameInstance->Add_Prototype(TEXT("Prototype_GameObject_Meteo_Skill"),
+	//	CMeteo_Skill::Create(m_pGraphic_Device))))
+	//	return E_FAIL;
+
+	//
+	///*For.Prototype_GameObject_Player_Attack*/
+	//if (FAILED(pGameInstance->Add_Prototype(TEXT("Prototype_GameObject_Player_Attack"),
+	//	CPlayer_Attack::Create(m_pGraphic_Device))))
+	//	return E_FAIL;
+
+
+	///*For.Prototype_GameObject_Player_Attack_Efect*/
+	//if (FAILED(pGameInstance->Add_Prototype(TEXT("Prototype_GameObject_Fire_Effect"),
+	//	CEffect::Create(m_pGraphic_Device))))
+	//	return E_FAIL;
+
+	///*For.Prototype_GameObject_Player_Meteor_Efect*/
+	//if (FAILED(pGameInstance->Add_Prototype(TEXT("Prototype_GameObject_Meteor_Effect"),
+	//	CMeteo_Effect::Create(m_pGraphic_Device))))
+	//	return E_FAIL;
+
+	///*For.Prototype_GameObject_Player_Skill_Efect*/
+	//if (FAILED(pGameInstance->Add_Prototype(TEXT("Prototype_GameObject_Litenig_Effect"),
+	//	CLitening_Effect::Create(m_pGraphic_Device))))
+	//	return E_FAIL;
 
 
 	//if (FAILED(pGameInstance->Add_Prototype(TEXT("Prototype_GameObject_Meteor_Effect"),

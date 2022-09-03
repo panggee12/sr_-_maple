@@ -249,6 +249,9 @@
     <ClInclude Include="..\Public\IconUI.h">
       <Filter>02.GameObject\UI\GamePlayUI\IconUI</Filter>
     </ClInclude>
+    <ClInclude Include="..\Public\Skill.h">
+      <Filter>02.GameObject\Player\Skill</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Private\MainApp.cpp">
@@ -361,6 +364,9 @@
     <ClCompile Include="..\private\Meteo_Effect.cpp" />
     <ClCompile Include="..\Private\IconUI.cpp">
       <Filter>02.GameObject\UI\GamePlayUI\IconUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\Skill.cpp">
+      <Filter>02.GameObject\Player\Skill</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
