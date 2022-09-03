@@ -51,12 +51,53 @@ void CPlayer_Attack::Tick(_float fTimeDelta)
 
 	Safe_AddRef(pGameInstance);
 
-	if (pGameInstance->Collision_Attacked(LEVEL_GAMEPLAY, TEXT("Layer_Playe_Attack"), TEXT("Layer_Monster"), fTimeDelta, 1, _float3(0.15f, 0.3f, 0.15f), _float3(0.3f, 0.3f, 0.3f)))
+	/*if (pGameInstance->Collision_Attacked(LEVEL_GAMEPLAY, TEXT("Layer_Playe_Attack"), TEXT("Layer_Monster"), fTimeDelta, 1, _float3(0.15f, 0.3f, 0.15f), _float3(0.3f, 0.3f, 0.3f)))
 	{
 
 		Fire_Efect_On(TEXT("Layer_Attack"), fTimeDelta);
 		m_bDead = true;
 
+	}
+*/
+	if (pGameInstance->Collision_Attacked(LEVEL_GAMEPLAY, TEXT("Layer_Playe_Attack"), TEXT("Layer_MonkeyMonster"), fTimeDelta, 1, _float3(0.15f, 0.3f, 0.15f), _float3(0.3f, 0.3f, 0.3f)))
+	{
+
+		Fire_Efect_On(TEXT("Layer_Skill_Effect"), fTimeDelta);
+		m_bDead = true;
+		//if (m_Skill_Daed > 20.f)
+		//{
+		//	m_bDead = true;
+
+		//}
+
+		//Fire_Efect_On(TEXT("Layer_Attack"), fTimeDelta);
+	}
+	if (pGameInstance->Collision_Attacked(LEVEL_GAMEPLAY, TEXT("Layer_Playe_Attack"), TEXT("Layer_YetiMonster"), fTimeDelta, 1, _float3(0.15f, 0.3f, 0.15f), _float3(0.3f, 0.3f, 0.3f)))
+	{
+
+		Fire_Efect_On(TEXT("Layer_Skill_Effect"), fTimeDelta);
+		m_bDead = true;
+		//if (m_Skill_Daed > 20.f)
+		//{
+		//	m_bDead = true;
+
+		//}
+
+		//Fire_Efect_On(TEXT("Layer_Attack"), fTimeDelta);
+	}
+
+	if (pGameInstance->Collision_Attacked(LEVEL_GAMEPLAY, TEXT("Layer_Playe_Attack"), TEXT("Layer_BellaMonster"), fTimeDelta, 1, _float3(0.15f, 0.3f, 0.15f), _float3(0.3f, 0.3f, 0.3f)))
+	{
+
+		Fire_Efect_On(TEXT("Layer_Skill_Effect"), fTimeDelta);
+		m_bDead = true;
+	/*	if (m_Skill_Daed > 20.f)
+		{
+			m_bDead = true;
+
+		}
+*/
+		//Fire_Efect_On(TEXT("Layer_Attack"), fTimeDelta);
 	}
 
 	Safe_Release(pGameInstance);
@@ -99,7 +140,7 @@ HRESULT CPlayer_Attack::SetUp_Components()
 	m_pGameInstance = CGameInstance::Get_Instance();
 	Safe_AddRef(m_pGameInstance);
 
-	pPlayer = m_pGameInstance->Find_Target(LEVEL_GAMEPLAY, TEXT("Layer_Monster"));
+	pPlayer = m_pGameInstance->Find_Target(LEVEL_GAMEPLAY, TEXT("Layer_MonkeyMonster"));
 
 	Safe_Release(m_pGameInstance);
 
@@ -167,8 +208,8 @@ HRESULT CPlayer_Attack::Fire_Efect_On(const _tchar * pLayerTag, _float fTimeDelt
 
 	_float3 vPos_Efect = m_pTransformCom->Get_State(CTransform::STATE_POSITION);
 
-		if (FAILED(pGameInstance->Add_GameObject(TEXT("Prototype_GameObject_Fire_Effect"), LEVEL_GAMEPLAY, pLayerTag, vPos_Efect)))
-			return E_FAIL;
+	if (FAILED(pGameInstance->Add_GameObject(TEXT("Prototype_GameObject_Fire_Effect"), LEVEL_GAMEPLAY, pLayerTag, vPos_Efect)))
+		return E_FAIL;
 
 	Safe_Release(pGameInstance);
 

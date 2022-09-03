@@ -26,8 +26,8 @@ HRESULT CLitening_Effect::Initialize(void* pArg)
 		return E_FAIL;
 
 
-	m_fSizeX = 4.0f;
-	m_fSizeY = 2.0f;
+	m_fSizeX = 15.0f;
+	m_fSizeY = 15.0f;
 	/*m_fX = 10.f;
 	m_fY = 10.f;*/
 
@@ -38,7 +38,7 @@ HRESULT CLitening_Effect::Initialize(void* pArg)
 
 	m_pTransformCom->Set_State(CTransform::STATE_POSITION, m_vEffectPos);
 
-	m_pTransformCom->Set_Scaled(_float3(2.0f, 2.0f, 1.f));
+	//m_pTransformCom->Set_Scaled(_float3(m_fSizeX, m_fSizeY, 1.f));
 
 	//m_pTransformCom->Set_Scaled(_float3(m_fSizeX, m_fSizeY, 1.f));
 
@@ -56,17 +56,16 @@ void CLitening_Effect::Tick(_float fTimeDelta)
 
 	if (m_EffectFrame <= 0 || m_EffectFrame >= 4)
 	{
-		m_bDead = true;	
+		m_EffectFrame = 0;
 
 	}
+	if (m_EffectFrame == 4)
+	{
+		Free();
+	}
 
-	//if (m_EffectFrame == 4)
-	//{
-	//	Free();
-	//}
-
-	//CGameInstance*			pGameInstance = CGameInstance::Get_Instance();
-	//Safe_AddRef(pGameInstance);
+	CGameInstance*			pGameInstance = CGameInstance::Get_Instance();
+	Safe_AddRef(pGameInstance);
 
 
 
@@ -139,14 +138,9 @@ HRESULT CLitening_Effect::SetUp_RenderState()
 {
 	if (nullptr == m_pGraphic_Device)
 		return E_FAIL;
-	//m_pGraphic_Device->SetRenderState(D3DRS_ALPHATESTENABLE, TRUE);
+	m_pGraphic_Device->SetRenderState(D3DRS_ALPHATESTENABLE, TRUE);
 
 	//m_pGraphic_Device->SetRenderState(D3DRS_FILLMODE, D3DFILL_WIREFRAME);
-	m_pGraphic_Device->SetRenderState(D3DRS_ALPHATESTENABLE, TRUE);
-	m_pGraphic_Device->SetRenderState(D3DRS_ALPHAREF, 0);
-	m_pGraphic_Device->SetRenderState(D3DRS_ALPHAFUNC, D3DCMP_GREATER);
-
-	m_pGraphic_Device->SetRenderState(D3DRS_CULLMODE, D3DCULL_NONE);
 
 	return S_OK;
 }

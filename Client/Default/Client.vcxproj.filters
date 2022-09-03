@@ -46,9 +46,6 @@
     <Filter Include="02.GameObject\Player">
       <UniqueIdentifier>{8a64d64b-c7a5-4ff0-bdc8-f8e746588a56}</UniqueIdentifier>
     </Filter>
-    <Filter Include="02.GameObject\TestBox">
-      <UniqueIdentifier>{c5a8d62e-d7c2-4252-8c26-15cbe92feeb8}</UniqueIdentifier>
-    </Filter>
     <Filter Include="02.GameObject\CubeTerrain">
       <UniqueIdentifier>{ee8ab145-d89a-43b2-92da-609c2c9887f1}</UniqueIdentifier>
     </Filter>
@@ -118,23 +115,32 @@
     <Filter Include="02.GameObject\Item">
       <UniqueIdentifier>{5152df02-b298-4fbb-bbc0-0b6dab3c89ab}</UniqueIdentifier>
     </Filter>
+    <Filter Include="02.GameObject\Item\ConsumItem">
+      <UniqueIdentifier>{b1a3c765-d8c9-436d-b934-e844addab2ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObject\UI\GamePlayUI\IconUI">
+      <UniqueIdentifier>{a2ba5353-89b4-4c5d-ba92-6398e2c0679a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObject\Player\Skill\Lite_ning_Skill">
+      <UniqueIdentifier>{2675ef6c-2981-4e4d-98f3-4cd06c6687e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03.Effect\NewFilter1">
+      <UniqueIdentifier>{c5fc7001-4db6-49a5-8dac-17fab321019e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03.Effect\Meteor_Effect">
+      <UniqueIdentifier>{43f6208b-cf6b-4597-86bf-cc5b9ad97dd4}</UniqueIdentifier>
+    </Filter>
     <Filter Include="03.Effect\Body_Effect">
-      <UniqueIdentifier>{e5719b5b-f7ae-453b-9465-359ea6b03152}</UniqueIdentifier>
+      <UniqueIdentifier>{c5fb4f34-7699-499d-8563-dbbd04b17ffb}</UniqueIdentifier>
     </Filter>
-    <Filter Include="02.GameObject\Player\Skill\Player_LiteNing">
-      <UniqueIdentifier>{5cf8e7ed-3ccc-4fb0-8bf6-29d133152ec9}</UniqueIdentifier>
+    <Filter Include="02.GameObject\Player\Skill\Meteor_Skill">
+      <UniqueIdentifier>{e1622c18-d086-47da-a0f1-30db44f48edf}</UniqueIdentifier>
     </Filter>
-    <Filter Include="02.GameObject\Player\Skill\Meteo">
-      <UniqueIdentifier>{e477b669-e6c0-4172-be83-21e0d3acd7bc}</UniqueIdentifier>
+    <Filter Include="02.GameObject\UI\TestBox">
+      <UniqueIdentifier>{c5a8d62e-d7c2-4252-8c26-15cbe92feeb8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="03.Effect\Meteo_Effect">
-      <UniqueIdentifier>{7abd4559-fcaf-4d6b-9a20-464b758774ab}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="03.Effect\Meteo_Effect\Meteo_Down_Effect">
-      <UniqueIdentifier>{38662a7c-a149-4196-844d-b216b96fd7d7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="03.Effect\Meteo_Effect\Meteo_Up_Effect">
-      <UniqueIdentifier>{894cc7da-4e72-4549-ac60-e6e8eade2c74}</UniqueIdentifier>
+    <Filter Include="02.GameObject\Player\Skill\FIre_wall">
+      <UniqueIdentifier>{30e0086c-96c7-4634-ad3e-9c5bc0fbcd2c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -151,9 +157,6 @@
       <Filter>98.Default</Filter>
     </ClInclude>
     <ClInclude Include="targetver.h">
-      <Filter>98.Default</Filter>
-    </ClInclude>
-    <ClInclude Include="stdafx.h">
       <Filter>98.Default</Filter>
     </ClInclude>
     <ClInclude Include="..\Public\Client_Defines.h">
@@ -187,7 +190,7 @@
       <Filter>02.GameObject\Player</Filter>
     </ClInclude>
     <ClInclude Include="..\Public\TestBox.h">
-      <Filter>02.GameObject\TestBox</Filter>
+      <Filter>02.GameObject\UI\TestBox</Filter>
     </ClInclude>
     <ClInclude Include="..\Public\CubeTerrain.h">
       <Filter>02.GameObject\CubeTerrain</Filter>
@@ -246,20 +249,32 @@
     <ClInclude Include="..\Public\YetiSkill.h">
       <Filter>02.GameObject\Monster\YetiMonster\YetiSkill</Filter>
     </ClInclude>
-    <ClInclude Include="..\public\Skill.h">
+    <ClInclude Include="stdafx.h">
+      <Filter>98.Default</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\ConsumItem.h">
+      <Filter>02.GameObject\Item\ConsumItem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Item.h">
+      <Filter>02.GameObject\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\IconUI.h">
+      <Filter>02.GameObject\UI\GamePlayUI\IconUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\Meteor_Effect.h">
+      <Filter>03.Effect\Meteor_Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Meteor_Skill.h">
+      <Filter>02.GameObject\Player\Skill\Meteor_Skill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Lite_Ning_Skill.h">
+      <Filter>02.GameObject\Player\Skill\Lite_ning_Skill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Skill.h">
       <Filter>02.GameObject\Player\Skill</Filter>
     </ClInclude>
-    <ClInclude Include="..\public\Body_Effect.h">
-      <Filter>03.Effect\Body_Effect</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Public\Player_Skill.h">
-      <Filter>02.GameObject\Player\Skill\Player_LiteNing</Filter>
-    </ClInclude>
-    <ClInclude Include="..\public\Meteo_Effect.h">
-      <Filter>03.Effect\Meteo_Effect</Filter>
-    </ClInclude>
-    <ClInclude Include="..\public\Skill_Meteo.h">
-      <Filter>02.GameObject\Player\Skill\Meteo</Filter>
+    <ClInclude Include="..\public\Fire_Wall.h">
+      <Filter>02.GameObject\Player\Skill\FIre_wall</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -297,7 +312,7 @@
       <Filter>02.GameObject\Player</Filter>
     </ClCompile>
     <ClCompile Include="..\Private\TestBox.cpp">
-      <Filter>02.GameObject\TestBox</Filter>
+      <Filter>02.GameObject\UI\TestBox</Filter>
     </ClCompile>
     <ClCompile Include="..\Private\CubeTerrain.cpp">
       <Filter>02.GameObject\CubeTerrain</Filter>
@@ -347,9 +362,6 @@
     <ClCompile Include="..\private\Litening_Effect.cpp">
       <Filter>03.Effect\Skill_Efect</Filter>
     </ClCompile>
-    <ClCompile Include="..\Private\Level_GamePlay.cpp">
-      <Filter>01.Levels\GamePlay</Filter>
-    </ClCompile>
     <ClCompile Include="..\Private\BellaMonster.cpp">
       <Filter>02.GameObject\Monster\BellaMonster</Filter>
     </ClCompile>
@@ -359,20 +371,32 @@
     <ClCompile Include="..\Private\YetiSkill.cpp">
       <Filter>02.GameObject\Monster\YetiMonster\YetiSkill</Filter>
     </ClCompile>
-    <ClCompile Include="..\private\Skill.cpp">
+    <ClCompile Include="..\Private\Level_GamePlay.cpp">
+      <Filter>01.Levels\GamePlay</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\ConsumItem.cpp">
+      <Filter>02.GameObject\Item\ConsumItem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\Item.cpp">
+      <Filter>02.GameObject\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\IconUI.cpp">
+      <Filter>02.GameObject\UI\GamePlayUI\IconUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\Meteor_Effect.cpp">
+      <Filter>03.Effect\Meteor_Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\Meteor_Skill.cpp">
+      <Filter>02.GameObject\Player\Skill\Meteor_Skill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\Lite_Ning_Skill.cpp">
+      <Filter>02.GameObject\Player\Skill\Lite_ning_Skill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\Skill.cpp">
       <Filter>02.GameObject\Player\Skill</Filter>
     </ClCompile>
-    <ClCompile Include="..\private\Body_Effect.cpp">
-      <Filter>03.Effect\Body_Effect</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Private\Player_Skill.cpp">
-      <Filter>02.GameObject\Player\Skill\Player_LiteNing</Filter>
-    </ClCompile>
-    <ClCompile Include="..\private\Meteo_Effect.cpp">
-      <Filter>03.Effect\Meteo_Effect</Filter>
-    </ClCompile>
-    <ClCompile Include="..\private\Skill_Meteo.cpp">
-      <Filter>02.GameObject\Player\Skill\Meteo</Filter>
+    <ClCompile Include="..\private\Fire_Wall.cpp">
+      <Filter>02.GameObject\Player\Skill\FIre_wall</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

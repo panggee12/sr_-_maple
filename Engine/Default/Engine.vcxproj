@@ -76,7 +76,7 @@
     <LinkIncremental>true</LinkIncremental>
     <OutDir>..\Bin\</OutDir>
     <IncludePath>D:\project\Visual Studio 2015\Projects\Dx\Include;$(IncludePath)</IncludePath>
-    <LibraryPath>D:\project\Visual Studio 2015\Projects\Dx\Lib\x64;$(LibraryPath)</LibraryPath>
+    <LibraryPath>D:\project\Visual Studio 2015\Projects\Dx\Include;$(IncludePath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -85,7 +85,7 @@
     <LinkIncremental>false</LinkIncremental>
     <OutDir>..\Bin\</OutDir>
     <IncludePath>D:\project\Visual Studio 2015\Projects\Dx\Include;$(IncludePath)</IncludePath>
-    <LibraryPath>D:\project\Visual Studio 2015\Projects\Dx\Lib\x64;$(LibraryPath)</LibraryPath>
+    <LibraryPath>D:\project\Visual Studio 2015\Projects\Dx\Include;$(IncludePath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -171,7 +171,7 @@
     <ClInclude Include="..\Public\Graphic_Device.h" />
     <ClInclude Include="..\Public\Input_Device.h" />
     <ClInclude Include="..\Public\KeyMgr.h" />
-    <ClInclude Include="..\public\Layer.h" />
+    <ClInclude Include="..\Public\Layer.h" />
     <ClInclude Include="..\public\Level.h" />
     <ClInclude Include="..\public\Level_Manager.h" />
     <ClInclude Include="..\public\Object_Manager.h" />
@@ -197,7 +197,7 @@
     <ClCompile Include="..\Private\Graphic_Device.cpp" />
     <ClCompile Include="..\Private\Input_Device.cpp" />
     <ClCompile Include="..\Private\KeyMgr.cpp" />
-    <ClCompile Include="..\private\Layer.cpp" />
+    <ClCompile Include="..\Private\Layer.cpp" />
     <ClCompile Include="..\private\Level.cpp" />
     <ClCompile Include="..\private\Level_Manager.cpp" />
     <ClCompile Include="..\private\Object_Manager.cpp" />

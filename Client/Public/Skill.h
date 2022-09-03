@@ -48,12 +48,12 @@ protected:
 	_int m_iUpDown = 0;
 
 protected:
-	virtual void MonsterMove();
 	virtual HRESULT SetUp_Components();
 	virtual HRESULT SetUp_RenderState();
 	virtual HRESULT Release_RenderState();
 
 public:
+
 	virtual CGameObject* Clone(void* pArg = nullptr) = 0;
 	virtual void Free() override;
 };

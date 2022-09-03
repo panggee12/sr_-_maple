@@ -19,8 +19,6 @@ class CPlayer final : public CGameObject
 	enum PLAYER_STATE { PLAYER_IDLE, PLAYER_MOVE, PLAYER_ATTACK, PLAYER_SKILL, PLAYER_END };
 	enum PLAYER_DIR { UP, DOWN, LEFT, RIGHT, RU, LU, RD, LD, STOP, END_ };
 
-
-
 private:
 	CPlayer(LPDIRECT3DDEVICE9 pGraphic_Device);
 	CPlayer(const CPlayer& rhs);
@@ -33,12 +31,12 @@ public:
 	virtual void Late_Tick(_float fTimeDelta)override;
 	virtual HRESULT Render() override;
 public:
- 	CTransform* Get_TransformCom() { return m_pTransformCom; }
-
+	CTransform* Get_TransformCom() { return m_pTransformCom; }
+	//void		Set_OnBlock(bool bOn) { m_bOnBlock = bOn; }
 private: /* For.Components */
 	CTexture*				m_pTextureCom = nullptr;
 	CRenderer*				m_pRendererCom = nullptr;
-	CVIBuffer_Rect*			m_pVIBufferCom = nullptr;
+	CVIBuffer_Rect*		m_pVIBufferCom = nullptr;
 
 private:
 	HRESULT SetUp_Components();
@@ -50,15 +48,17 @@ private:
 	HRESULT Ready_Layer_Player_Skill(const _tchar * pLayerTag, _float fTimeDelta);
 	HRESULT Ready_Layer_Player_Attack(const _tchar * pLayerTag, _float fTimeDelta);
 	HRESULT Ready_Layer_Player_Meteor(const _tchar * pLayerTag, _float fTimeDelta);
-public:
-	PLAYER_DIR Get_DirState() { return m_ePlayer_Dir; }
+	HRESULT Ready_Layer_Player_Fire_Wall(const _tchar * pLayerTag, _float fTimeDelta);
 
+
+public:
+	void Set_QuickItem(vector<class CItemInfoUI*>* pVecItem) { m_vecQuickItem = pVecItem; }
+	void Use_Quick_Item();
 public:
 	_bool Key_Up(int _Key);
 	_bool Key_Down(int _Key);
 	_bool Key_Pressing(int _Key);
-public:
-	HRESULT Fire_Body_On(const _tchar* pEffet_LayerTag, _float fTimeDelta);
+
 
 
 public:
@@ -66,7 +66,12 @@ public:
 	virtual CGameObject* Clone(void* pArg = nullptr) override;
 	virtual void Free() override;
 
+
+
+
+
 private:
+
 
 	_float m_fFallSpeed = 0.f;
 	_float m_fMaxFallSpeed = 3.f;
@@ -99,6 +104,8 @@ private:
 	_bool	m_bKeyInput = false;
 	_bool	m_bKeyState[VK_MAX];
 
+
+	vector<class CItemInfoUI*>* m_vecQuickItem;
 };
 
 END

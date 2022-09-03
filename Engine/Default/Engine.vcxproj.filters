@@ -79,8 +79,8 @@
     <Filter Include="01.Utility\03.Components\Transform\VIBuffer\CubeTerrain">
       <UniqueIdentifier>{c11dea58-34b1-4da9-92c6-ec118319cbf7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="01.Utility\03.Components\keyManager">
-      <UniqueIdentifier>{f07852c9-313d-4143-a3bd-0712df40bb65}</UniqueIdentifier>
+    <Filter Include="01.Utility\05.KeyManager">
+      <UniqueIdentifier>{a071826a-c573-45ae-82d8-631f442fe172}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -150,11 +150,11 @@
     <ClCompile Include="..\private\VIBuffer.cpp">
       <Filter>01.Utility\03.Components\Transform\VIBuffer</Filter>
     </ClCompile>
-    <ClCompile Include="..\Private\KeyMgr.cpp">
-      <Filter>01.Utility\03.Components\keyManager</Filter>
-    </ClCompile>
     <ClCompile Include="..\Private\CollisionMgr.cpp">
       <Filter>01.Utility\04.Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\KeyMgr.cpp">
+      <Filter>01.Utility\05.KeyManager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -239,11 +239,11 @@
     <ClInclude Include="..\Public\VIBuffer_CubeTerrain.h">
       <Filter>01.Utility\03.Components\Transform\VIBuffer\CubeTerrain</Filter>
     </ClInclude>
-    <ClInclude Include="..\Public\KeyMgr.h">
-      <Filter>01.Utility\03.Components\keyManager</Filter>
-    </ClInclude>
     <ClInclude Include="..\Public\CollisionMgr.h">
       <Filter>01.Utility\04.Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\KeyMgr.h">
+      <Filter>01.Utility\05.KeyManager</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

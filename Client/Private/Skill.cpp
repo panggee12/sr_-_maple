@@ -47,9 +47,7 @@ HRESULT CSkill::Render()
 
 }
 
-void CSkill::MonsterMove()
-{
-}
+
 
 HRESULT CSkill::SetUp_Components()
 {
@@ -61,17 +59,17 @@ HRESULT CSkill::SetUp_RenderState()
 {
 	if (nullptr == m_pGraphic_Device)
 		return E_FAIL;
-
+/*
 	m_pGraphic_Device->SetRenderState(D3DRS_ALPHATESTENABLE, TRUE);
 	m_pGraphic_Device->SetRenderState(D3DRS_ALPHAREF, 100);
 	m_pGraphic_Device->SetRenderState(D3DRS_ALPHAFUNC, D3DCMP_GREATEREQUAL);
-	m_pGraphic_Device->SetRenderState(D3DRS_CULLMODE, D3DCULL_NONE);
+	m_pGraphic_Device->SetRenderState(D3DRS_CULLMODE, D3DCULL_NONE);*/
 	return S_OK;
 }
 
 HRESULT CSkill::Release_RenderState()
 {
-	m_pGraphic_Device->SetRenderState(D3DRS_ALPHATESTENABLE, FALSE);
+//	m_pGraphic_Device->SetRenderState(D3DRS_ALPHATESTENABLE, FALSE);
 
 	return S_OK;
 }
@@ -82,7 +80,7 @@ void CSkill::Free()
 	__super::Free();
 
 	//Safe_Release(m_pTransformCom);
-	//Safe_Release(m_pVIBufferCom);
-	//Safe_Release(m_pRendererCom);
-	//Safe_Release(m_pTextureCom);
+	Safe_Release(m_pVIBufferCom);
+	Safe_Release(m_pRendererCom);
+	Safe_Release(m_pTextureCom);
 }

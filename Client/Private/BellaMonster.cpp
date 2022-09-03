@@ -99,13 +99,13 @@ HRESULT CBellaMonster::SetUp_Components()
 	CTransform::TRANSFORMDESC      TransformDesc;
 	ZeroMemory(&TransformDesc, sizeof(CTransform::TRANSFORMDESC));
 
-	TransformDesc.fSpeedPerSec = 3.f;
+	TransformDesc.fSpeedPerSec = 1.f;
 	TransformDesc.fRotationPerSec = D3DXToRadian(90.0f);
 
 	if (FAILED(__super::Add_Components(TEXT("Com_Transform"), LEVEL_STATIC, TEXT("Prototype_Component_Transform"), (CComponent**)&m_pTransformCom, &TransformDesc)))
 		return E_FAIL;
 
-	m_pTransformCom->Set_State(CTransform::STATE_POSITION, _float3(5.0f, 2.5f, 1.0f));
+	m_pTransformCom->Set_State(CTransform::STATE_POSITION, _float3(30.0f, 2.5f, 14.0f));
 
 	m_pTransformCom->Set_Scaled(_float3(-2.f, 2.f, 2.f));
 
@@ -208,6 +208,29 @@ void CBellaMonster::HitCheck(_float fTimeDelta)
 				m_pTransformCom->Go_Backward(fTimeDelta * 0.5f);
 			}
 		}
+	}
+}
+
+void CBellaMonster::CreateItem()
+{
+
+	int iRand = rand() % 3 + 1;
+
+	if (iRand == 1)
+	{
+
+		CGameInstance* m_pGameInstance = CGameInstance::Get_Instance();
+		Safe_AddRef(m_pGameInstance);
+
+		_float3 vScale = m_pTransformCom->Get_Scale();
+		_float3 vPosition = m_pTransformCom->Get_State(CTransform::STATE_POSITION);
+
+		vPosition.y -= vScale.y * 0.5f;
+
+		if (FAILED(m_pGameInstance->Add_GameObject(TEXT("Prototype_GameObject_ConsumItem"), LEVEL_GAMEPLAY, TEXT("ConsumItem"), &vPosition)))
+			return;
+
+		Safe_Release(m_pGameInstance);
 	}
 }
 

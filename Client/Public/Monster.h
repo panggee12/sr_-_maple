@@ -29,13 +29,12 @@ public:
 	virtual void Tick(_float fTimeDelta)override;
 	virtual void Late_Tick(_float fTimeDelta)override;
 	virtual HRESULT Render() override;
+protected:
 
 protected: /* For.Components */
 	CTexture*				m_pTextureCom = nullptr;
 	CRenderer*				m_pRendererCom = nullptr;
 	CVIBuffer_Rect*			m_pVIBufferCom = nullptr;
-
-
 
 protected:
 	STATE m_eState = STATE_IDLE;
@@ -46,16 +45,16 @@ protected:
 	CGameObject* pPlayer = nullptr;
 	_bool m_bMotionCheck = false;
 	_int m_iUpDown = 0;
+	_float m_fFallSpeed = 0.f;
+	_float m_fMaxFallSpeed = 3.f;
 
 protected:
+	virtual void CreateItem();
 	virtual void MonsterMove();
 	virtual HRESULT SetUp_Components();
 	virtual HRESULT SetUp_RenderState();
 	virtual HRESULT Release_RenderState();
 
-
-public:
-	STATE Get_State_Monster() { return m_eState; }
 public:
 	virtual CGameObject* Clone(void* pArg = nullptr) = 0;
 	virtual void Free() override;

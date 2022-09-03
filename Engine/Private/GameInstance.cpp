@@ -1,5 +1,5 @@
 #include "..\Public\GameInstance.h"
-#include "Layer.h"
+
 
 IMPLEMENT_SINGLETON(CGameInstance)
 
@@ -11,11 +11,11 @@ CGameInstance::CGameInstance()
 	, m_pTimer_Manager(CTimer_Manager::Get_Instance())
 	, m_pComponent_Manager(CComponent_Manager::Get_Instance())
 	, m_pCollision_Manager(CCollisionMgr::Get_Instance())
-	//, m_pKeyComponent_Manager(CComponent_Manager::Get_Instance())
+	, m_pKey_Manager(CKeyMgr::Get_Instance())
 
 {
 
-	//Safe_AddRef(m_pKeyComponent_Manager);
+	Safe_AddRef(m_pKey_Manager);
 	Safe_AddRef(m_pComponent_Manager);
 	Safe_AddRef(m_pTimer_Manager);
 	Safe_AddRef(m_pObject_Manager);
@@ -27,7 +27,7 @@ CGameInstance::CGameInstance()
 
 HRESULT CGameInstance::Initialize_Engine(HINSTANCE hInst, _uint iNumLevels, const GRAPHIC_DESC& GraphicDesc, LPDIRECT3DDEVICE9* ppOut)
 {
-	if (nullptr == m_pGraphic_Device || 
+	if (nullptr == m_pGraphic_Device ||
 		nullptr == m_pObject_Manager)
 		return E_FAIL;
 
@@ -50,7 +50,7 @@ HRESULT CGameInstance::Initialize_Engine(HINSTANCE hInst, _uint iNumLevels, cons
 	if (FAILED(m_pComponent_Manager->Reserve_Container(iNumLevels)))
 		return E_FAIL;
 
-	
+
 
 
 	return S_OK;
@@ -58,7 +58,7 @@ HRESULT CGameInstance::Initialize_Engine(HINSTANCE hInst, _uint iNumLevels, cons
 
 void CGameInstance::Tick_Engine(_float fTimeDelta)
 {
-	if (nullptr == m_pLevel_Manager || 
+	if (nullptr == m_pLevel_Manager ||
 		nullptr == m_pObject_Manager)
 		return;
 
@@ -74,7 +74,7 @@ void CGameInstance::Tick_Engine(_float fTimeDelta)
 
 void CGameInstance::Clear(_uint iLevelIndex)
 {
-	if (nullptr == m_pObject_Manager || 
+	if (nullptr == m_pObject_Manager ||
 		nullptr == m_pComponent_Manager)
 		return;
 
@@ -103,7 +103,7 @@ _char CGameInstance::Get_DIKState(_uchar eKeyID)
 	if (nullptr == m_pInput_Device)
 		return 0;
 
-	return m_pInput_Device->Get_DIKState(eKeyID);	
+	return m_pInput_Device->Get_DIKState(eKeyID);
 }
 
 _char CGameInstance::Get_DIMKeyState(DIMK eMouseKeyID)
@@ -127,7 +127,7 @@ HRESULT CGameInstance::Add_Timer(const _tchar * pTimerTag)
 	if (nullptr == m_pTimer_Manager)
 		return E_FAIL;
 
-	return m_pTimer_Manager->Add_Timer(pTimerTag);	
+	return m_pTimer_Manager->Add_Timer(pTimerTag);
 }
 
 _float CGameInstance::Get_TimeDelta(const _tchar * pTimerTag)
@@ -159,15 +159,13 @@ HRESULT CGameInstance::Add_Prototype(const _tchar * pPrototypeTag, CGameObject *
 	if (nullptr == m_pObject_Manager)
 		return E_FAIL;
 
-	return m_pObject_Manager->Add_Prototype(pPrototypeTag, pPrototype);	
+	return m_pObject_Manager->Add_Prototype(pPrototypeTag, pPrototype);
 }
 
 HRESULT CGameInstance::Add_GameObject(const _tchar * pPrototypeTag, _uint iLevelIndex, const _tchar * pLayerTag, void* pArg)
 {
 	if (nullptr == m_pObject_Manager)
 		return E_FAIL;
-
-
 
 	return m_pObject_Manager->Add_GameObject(pPrototypeTag, iLevelIndex, pLayerTag, pArg);
 }
@@ -210,7 +208,7 @@ bool CGameInstance::Collision(_uint iLevelIndex, const _tchar * col1, const _tch
 	return false;
 }
 
-int CGameInstance::Collision_Rect_Cube(_uint iLevelIndex, const _tchar * col1, _float3 fPos, _float fTimeDelta, _float3 fScale)
+int CGameInstance::Collision_Rect_Cube(_uint iLevelIndex, CTransform* p1Trans, _float3 vPos1, _float3 vPos2, _float fTimeDelta, _float3 fScale)
 {
 	if (nullptr == m_pObject_Manager ||
 		nullptr == m_pCollision_Manager)
@@ -218,15 +216,9 @@ int CGameInstance::Collision_Rect_Cube(_uint iLevelIndex, const _tchar * col1, _
 
 	int iReturn = 0;
 
-	auto Col1Target = m_pObject_Manager->Find_Layer(iLevelIndex, col1);
-
-	for (auto& Target1 : Col1Target->Get_ObjectList())
+	if (m_pCollision_Manager->Collision_Rect_Cube(p1Trans,vPos1, vPos2, fTimeDelta, fScale))
 	{
-		if (m_pCollision_Manager->Collision_Rect_Cube(Target1->Get_Transform(), Target1->Get_Transform()->Get_State(CTransform::STATE_POSITION),
-			fPos, fTimeDelta, fScale))
-		{
-			iReturn = 1;
-		}	
+		iReturn = 1;
 	}
 
 	return iReturn;
@@ -273,7 +265,16 @@ bool CGameInstance::Check_Layer(_uint iLevelIndex, const _tchar * pLayerTag)
 	if (nullptr == m_pObject_Manager)
 		return false;
 
+
 	return m_pObject_Manager->Check_Layer(iLevelIndex, pLayerTag);
+}
+
+CLayer * CGameInstance::Find_Layer(_uint iLevelIndex, const _tchar * pLayerTag)
+{
+	if (nullptr == m_pObject_Manager)
+		return false;
+
+	return m_pObject_Manager->Find_Layer(iLevelIndex, pLayerTag);
 }
 
 HRESULT CGameInstance::Add_Prototype(_uint iLevelIndex, const _tchar * pPrototypeTag, CComponent * pPrototype)
@@ -281,7 +282,7 @@ HRESULT CGameInstance::Add_Prototype(_uint iLevelIndex, const _tchar * pPrototyp
 	if (nullptr == m_pComponent_Manager)
 		return E_FAIL;
 
-	return m_pComponent_Manager->Add_Prototype(iLevelIndex, pPrototypeTag, pPrototype);	
+	return m_pComponent_Manager->Add_Prototype(iLevelIndex, pPrototypeTag, pPrototype);
 }
 
 CComponent * CGameInstance::Clone_Component(_uint iLevelIndex, const _tchar * pPrototypeTag, void * pArg)
@@ -290,6 +291,30 @@ CComponent * CGameInstance::Clone_Component(_uint iLevelIndex, const _tchar * pP
 		return nullptr;
 
 	return m_pComponent_Manager->Clone_Component(iLevelIndex, pPrototypeTag, pArg);
+}
+
+bool CGameInstance::Key_Pressing(int _Key)
+{
+	if (nullptr == m_pKey_Manager)
+		return false;
+
+	return m_pKey_Manager->Key_Pressing(_Key);
+}
+
+bool CGameInstance::Key_Up(int _Key)
+{
+	if (nullptr == m_pKey_Manager)
+		return false;
+
+	return m_pKey_Manager->Key_Up(_Key);
+}
+
+bool CGameInstance::Key_Down(int _Key)
+{
+	if (nullptr == m_pKey_Manager)
+		return false;
+
+	return m_pKey_Manager->Key_Down(_Key);
 }
 
 void CGameInstance::Release_Engine()
@@ -308,11 +333,14 @@ void CGameInstance::Release_Engine()
 
 	CInput_Device::Get_Instance()->Destroy_Instance();
 
+	CKeyMgr::Get_Instance()->Destroy_Instance();
+
 	CGraphic_Device::Get_Instance()->Destroy_Instance();
 }
 
 void CGameInstance::Free()
 {
+	Safe_Release(m_pKey_Manager);
 	Safe_Release(m_pComponent_Manager);
 	Safe_Release(m_pTimer_Manager);
 	Safe_Release(m_pObject_Manager);
