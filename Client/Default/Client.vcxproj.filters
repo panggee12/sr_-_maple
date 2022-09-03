@@ -124,6 +124,21 @@
     <Filter Include="02.GameObject\UI\GamePlayUI\IconUI">
       <UniqueIdentifier>{a2ba5353-89b4-4c5d-ba92-6398e2c0679a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="02.GameObject\Player\Skill\Lite_Ning">
+      <UniqueIdentifier>{1c56dda9-f1c7-4a6f-b0fd-0e58fa841c32}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObject\Player\Skill\Meteor_Skill">
+      <UniqueIdentifier>{b30aa9a5-7595-462e-b8ea-91f168f9dd45}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObject\Player\Skill\Fire_Wall">
+      <UniqueIdentifier>{4e8ba50b-7ab0-419d-9dc5-d9a3404274e6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03.Effect\Body_Effect">
+      <UniqueIdentifier>{e97deb1d-515d-4706-a356-e3dd9a6cd95b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03.Effect\Meteor_Effect">
+      <UniqueIdentifier>{ba56da9e-f59b-4cf1-8a04-6d83d926e504}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -179,9 +194,6 @@
     </ClInclude>
     <ClInclude Include="..\Public\Monster.h">
       <Filter>02.GameObject\Monster</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Public\Player_Skill.h">
-      <Filter>02.GameObject\Player\Skill</Filter>
     </ClInclude>
     <ClInclude Include="..\Public\LupangMonster.h">
       <Filter>02.GameObject\Monster\LupangMonster</Filter>
@@ -243,14 +255,26 @@
     <ClInclude Include="..\Public\Item.h">
       <Filter>02.GameObject\Item</Filter>
     </ClInclude>
-    <ClInclude Include="..\public\Body_Effect.h" />
-    <ClInclude Include="..\public\Skill_Meteo.h" />
-    <ClInclude Include="..\public\Meteo_Effect.h" />
     <ClInclude Include="..\Public\IconUI.h">
       <Filter>02.GameObject\UI\GamePlayUI\IconUI</Filter>
     </ClInclude>
+    <ClInclude Include="..\public\Skill_Meteo.h">
+      <Filter>02.GameObject\Player\Skill\Meteor_Skill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Fire_Wall.h">
+      <Filter>02.GameObject\Player\Skill\Fire_Wall</Filter>
+    </ClInclude>
     <ClInclude Include="..\Public\Skill.h">
       <Filter>02.GameObject\Player\Skill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\Body_Effect.h">
+      <Filter>03.Effect\Body_Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\Meteo_Effect.h">
+      <Filter>03.Effect\Meteor_Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Lite_Ning_Skill.h">
+      <Filter>02.GameObject\Player\Skill\Lite_Ning</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -295,9 +319,6 @@
     </ClCompile>
     <ClCompile Include="..\Private\Monster.cpp">
       <Filter>02.GameObject\Monster</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Private\Player_Skill.cpp">
-      <Filter>02.GameObject\Player\Skill</Filter>
     </ClCompile>
     <ClCompile Include="..\Private\LupangMonster.cpp">
       <Filter>02.GameObject\Monster\LupangMonster</Filter>
@@ -359,14 +380,26 @@
     <ClCompile Include="..\Private\Item.cpp">
       <Filter>02.GameObject\Item</Filter>
     </ClCompile>
-    <ClCompile Include="..\private\Body_Effect.cpp" />
-    <ClCompile Include="..\private\Skill_Meteo.cpp" />
-    <ClCompile Include="..\private\Meteo_Effect.cpp" />
     <ClCompile Include="..\Private\IconUI.cpp">
       <Filter>02.GameObject\UI\GamePlayUI\IconUI</Filter>
     </ClCompile>
+    <ClCompile Include="..\private\Skill_Meteo.cpp">
+      <Filter>02.GameObject\Player\Skill\Meteor_Skill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\Fire_Wall.cpp">
+      <Filter>02.GameObject\Player\Skill\Fire_Wall</Filter>
+    </ClCompile>
     <ClCompile Include="..\Private\Skill.cpp">
       <Filter>02.GameObject\Player\Skill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\Body_Effect.cpp">
+      <Filter>03.Effect\Body_Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\Meteo_Effect.cpp">
+      <Filter>03.Effect\Meteor_Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\Lite_Ning_Skill.cpp">
+      <Filter>02.GameObject\Player\Skill\Lite_Ning</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

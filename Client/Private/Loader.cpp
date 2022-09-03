@@ -23,15 +23,17 @@
 #include "SkillInfoUI.h"
 #include "ItemInfoUI.h"
 
-#include "Player_Skill.h"
+#include "Lite_Ning_Skill.h"
 #include "Skill_Meteo.h"
 #include "Player_Attack.h"
+#include "Fire_Wall.h"
 #include "Effect.h"
 #include "ConsumItem.h"
 #include "Litening_Effect.h"
 #include "Body_Effect.h"
 #include "Meteo_Effect.h"
 #include "IconUI.h"
+
 
 
 
@@ -198,10 +200,10 @@ HRESULT CLoader::Loading_ForGamePlayLevel()
 		CTexture::Create(m_pGraphic_Device, CTexture::TYPE_DEFAULT, TEXT("../Bin/Resources/Textures/Player/Skill/Meteor/Meteor_Effect/Attack%d.png"), 17))))
 		return E_FAIL;
 
-	/*Prototype_Component_Texture_Meteor_Fire_Effect*/
-	if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, TEXT("Prototype_Component_Texture_Meteor_Boom_Effect"),
-		CTexture::Create(m_pGraphic_Device, CTexture::TYPE_DEFAULT, TEXT("../Bin/Resources/Textures/Player/Skill/Meteor/Meteor_Effect/Attack%d.png"), 17))))
-		return E_FAIL;
+	///*Prototype_Component_Texture_Meteor_Fire_Effect*/
+	//if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, TEXT("Prototype_Component_Texture_Meteor_Boom_Effect"),
+	//	CTexture::Create(m_pGraphic_Device, CTexture::TYPE_DEFAULT, TEXT("../Bin/Resources/Textures/Player/Skill/Meteor/Meteor_Effect/Attack%d.png"), 17))))
+	//	return E_FAIL;
 
 	/*Prototype_Component_Texture_LiteNing_Effect*/
 	if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, TEXT("Prototype_Component_Texture_LiteNing_Effect"),
@@ -215,17 +217,17 @@ HRESULT CLoader::Loading_ForGamePlayLevel()
 		return E_FAIL;
 
 	/*For.Prototype_Component_Texture_Monster */
-	if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, TEXT("Prototype_Component_Texture_Monster"),
-		CTexture::Create(m_pGraphic_Device, CTexture::TYPE_DEFAULT, TEXT("../Bin/Resources/Textures/Monster/NornilAttack%d.png"), 20))))
-		return E_FAIL;
+	//if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, TEXT("Prototype_Component_Texture_Monster"),
+	//	CTexture::Create(m_pGraphic_Device, CTexture::TYPE_DEFAULT, TEXT("../Bin/Resources/Textures/Monster/NornilAttack%d.png"), 20))))
+	//	return E_FAIL;
 
 	//if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, TEXT("Prototype_Component_Texture_Monster2"),
 	//	CTexture::Create(m_pGraphic_Device, CTexture::TYPE_DEFAULT, TEXT("../Bin/Resources/Textures/Monster/monster%d.png"), 1))))
 	//	return E_FAIL;
 
-	if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, TEXT("Prototype_Component_Texture_Monster3"),
+	/*if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, TEXT("Prototype_Component_Texture_Monster3"),
 		CTexture::Create(m_pGraphic_Device, CTexture::TYPE_DEFAULT, TEXT("../Bin/Resources/Textures/Monster/cow/M_%d.png"), 32))))
-		return E_FAIL;
+		return E_FAIL;*/
 
 	if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, TEXT("Prototype_Component_Texture_Equip"),
 		CTexture::Create(m_pGraphic_Device, CTexture::TYPE_DEFAULT, TEXT("../Bin/Resources/Textures/Icon/Equip/Equip_%d.png"), 14)))) //Àåºñ
@@ -361,45 +363,6 @@ HRESULT CLoader::Loading_ForGamePlayLevel()
 	if (FAILED(pGameInstance->Add_Prototype(TEXT("Prototype_GameObject_Litenig_Effect"),
 		CLitening_Effect::Create(m_pGraphic_Device))))
 		return E_FAIL;
-
-
-	///*For.Prototype_GameObject_Player_Skill*/
-	//if (FAILED(pGameInstance->Add_Prototype(TEXT("Prototype_GameObject_Player_Skill"),
-	//	CPlayer_Litening::Create(m_pGraphic_Device))))
-	//	return E_FAIL;
-
-	///*For.Prototype_GameObject_Skill_Meteor*/
-	//if (FAILED(pGameInstance->Add_Prototype(TEXT("Prototype_GameObject_Meteo_Skill"),
-	//	CMeteo_Skill::Create(m_pGraphic_Device))))
-	//	return E_FAIL;
-
-	//
-	///*For.Prototype_GameObject_Player_Attack*/
-	//if (FAILED(pGameInstance->Add_Prototype(TEXT("Prototype_GameObject_Player_Attack"),
-	//	CPlayer_Attack::Create(m_pGraphic_Device))))
-	//	return E_FAIL;
-
-
-	///*For.Prototype_GameObject_Player_Attack_Efect*/
-	//if (FAILED(pGameInstance->Add_Prototype(TEXT("Prototype_GameObject_Fire_Effect"),
-	//	CEffect::Create(m_pGraphic_Device))))
-	//	return E_FAIL;
-
-	///*For.Prototype_GameObject_Player_Meteor_Efect*/
-	//if (FAILED(pGameInstance->Add_Prototype(TEXT("Prototype_GameObject_Meteor_Effect"),
-	//	CMeteo_Effect::Create(m_pGraphic_Device))))
-	//	return E_FAIL;
-
-	///*For.Prototype_GameObject_Player_Skill_Efect*/
-	//if (FAILED(pGameInstance->Add_Prototype(TEXT("Prototype_GameObject_Litenig_Effect"),
-	//	CLitening_Effect::Create(m_pGraphic_Device))))
-	//	return E_FAIL;
-
-
-	//if (FAILED(pGameInstance->Add_Prototype(TEXT("Prototype_GameObject_Meteor_Effect"),
-	//	CBody_Effect::Create(m_pGraphic_Device))))
-	//	return E_FAIL;
-
 
 	/*For.Prototype_GameObject_MonkeyMonster ·çÆÎ(¿ø¼þÀÌ¸ó½ºÅÍ)*/
 	if (FAILED(pGameInstance->Add_Prototype(TEXT("Prototype_GameObject_MonkeyMonster"),

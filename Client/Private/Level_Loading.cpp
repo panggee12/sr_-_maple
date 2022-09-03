@@ -43,6 +43,8 @@ void CLevel_Loading::Tick(_float fTimeDelta)
 				pNewLevel = CLevel_Logo::Create(m_pGraphic_Device);
 				break;
 			case LEVEL_GAMEPLAY:
+
+
 				pNewLevel = CLevel_GamePlay::Create(m_pGraphic_Device);
 				break;
 			}

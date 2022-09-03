@@ -168,6 +168,7 @@
     <ClInclude Include="..\Public\CubeTerrain.h" />
     <ClInclude Include="..\public\Effect.h" />
     <ClInclude Include="..\Public\ExpBarUI.h" />
+    <ClInclude Include="..\Public\Fire_Wall.h" />
     <ClInclude Include="..\Public\HpBarUI.h" />
     <ClInclude Include="..\Public\IconUI.h" />
     <ClInclude Include="..\Public\InventoryButtonUI.h" />
@@ -190,7 +191,7 @@
     <ClInclude Include="..\Public\Player.h" />
     <ClInclude Include="..\Public\PlayerInfoUI.h" />
     <ClInclude Include="..\Public\Player_Attack.h" />
-    <ClInclude Include="..\Public\Player_Skill.h" />
+    <ClInclude Include="..\Public\Lite_Ning_Skill.h" />
     <ClInclude Include="..\Public\SkillbookUI.h" />
     <ClInclude Include="..\Public\SkillInfoUI.h" />
     <ClInclude Include="..\Public\Sky.h" />
@@ -212,6 +213,7 @@
     <ClCompile Include="..\Private\CubeTerrain.cpp" />
     <ClCompile Include="..\private\Effect.cpp" />
     <ClCompile Include="..\Private\ExpBarUI.cpp" />
+    <ClCompile Include="..\Private\Fire_Wall.cpp" />
     <ClCompile Include="..\Private\HpBarUI.cpp" />
     <ClCompile Include="..\Private\IconUI.cpp" />
     <ClCompile Include="..\Private\InventoryButtonUI.cpp" />
@@ -234,7 +236,7 @@
     <ClCompile Include="..\Private\Player.cpp" />
     <ClCompile Include="..\Private\PlayerInfoUI.cpp" />
     <ClCompile Include="..\Private\Player_Attack.cpp" />
-    <ClCompile Include="..\Private\Player_Skill.cpp" />
+    <ClCompile Include="..\Private\Lite_Ning_Skill.cpp" />
     <ClCompile Include="..\Private\SkillbookUI.cpp" />
     <ClCompile Include="..\Private\SkillInfoUI.cpp" />
     <ClCompile Include="..\Private\Sky.cpp" />
