@@ -1,3 +1,83 @@
-﻿  Level_Loading.cpp
-  Client.vcxproj -> D:\project\Visual Studio 2015\Projects\팀포폴 6\TeamPol6th\sr_-_maple\Client\Default\..\Bin\Client.exe
-  Client.vcxproj -> ..\Bin\Client.pdb (Full PDB)
+﻿  Client.cpp
+c:\users\user\desktop\maple2srteam\sr_-_maple\client\public\client_defines.h(19): fatal error C1083: 포함 파일을 열 수 없습니다. 'process.h': No such file or directory
+  Skill_Meteo.cpp
+c:\users\user\desktop\maple2srteam\sr_-_maple\client\public\client_defines.h(19): fatal error C1083: 포함 파일을 열 수 없습니다. 'process.h': No such file or directory
+  Meteo_Effect.cpp
+c:\users\user\desktop\maple2srteam\sr_-_maple\client\public\client_defines.h(19): fatal error C1083: 포함 파일을 열 수 없습니다. 'process.h': No such file or directory
+  Loader.cpp
+c:\users\user\desktop\maple2srteam\sr_-_maple\client\private\loader.cpp(1): fatal error C1041: 프로그램 데이터베이스 'C:\Users\user\Desktop\Maple2SrTeam\sr_-_maple\Client\Default\x64\Debug\vc140.pdb'을(를) 열 수 없습니다. 여러 CL.EXE에서 동일한 .PDB 파일에 쓰는 경우 /FS를 사용하십시오.
+  Litening_Effect.cpp
+c:\users\user\desktop\maple2srteam\sr_-_maple\client\private\litening_effect.cpp(1): fatal error C1041: 프로그램 데이터베이스 'C:\Users\user\Desktop\Maple2SrTeam\sr_-_maple\Client\Default\x64\Debug\vc140.pdb'을(를) 열 수 없습니다. 여러 CL.EXE에서 동일한 .PDB 파일에 쓰는 경우 /FS를 사용하십시오.
+  Level_Logo.cpp
+c:\users\user\desktop\maple2srteam\sr_-_maple\client\public\client_defines.h(19): fatal error C1083: 포함 파일을 열 수 없습니다. 'process.h': No such file or directory
+  Effect.cpp
+c:\users\user\desktop\maple2srteam\sr_-_maple\client\public\client_defines.h(19): fatal error C1083: 포함 파일을 열 수 없습니다. 'process.h': No such file or directory
+  Body_Effect.cpp
+c:\users\user\desktop\maple2srteam\sr_-_maple\client\public\client_defines.h(19): fatal error C1083: 포함 파일을 열 수 없습니다. 'process.h': No such file or directory
+  BackGround.cpp
+c:\users\user\desktop\maple2srteam\sr_-_maple\client\public\client_defines.h(19): fatal error C1083: 포함 파일을 열 수 없습니다. 'process.h': No such file or directory
+  YetiSkill.cpp
+c:\users\user\desktop\maple2srteam\sr_-_maple\client\public\client_defines.h(19): fatal error C1083: 포함 파일을 열 수 없습니다. 'process.h': No such file or directory
+  YetiMonster.cpp
+c:\users\user\desktop\maple2srteam\sr_-_maple\client\public\client_defines.h(19): fatal error C1083: 포함 파일을 열 수 없습니다. 'process.h': No such file or directory
+  TestBox.cpp
+c:\users\user\desktop\maple2srteam\sr_-_maple\client\public\client_defines.h(19): fatal error C1083: 포함 파일을 열 수 없습니다. 'process.h': No such file or directory
+  Terrain.cpp
+c:\users\user\desktop\maple2srteam\sr_-_maple\client\public\client_defines.h(19): fatal error C1083: 포함 파일을 열 수 없습니다. 'process.h': No such file or directory
+  Sky.cpp
+c:\users\user\desktop\maple2srteam\sr_-_maple\client\public\client_defines.h(19): fatal error C1083: 포함 파일을 열 수 없습니다. 'process.h': No such file or directory
+  SkillbookUI.cpp
+c:\users\user\desktop\maple2srteam\sr_-_maple\client\public\client_defines.h(19): fatal error C1083: 포함 파일을 열 수 없습니다. 'process.h': No such file or directory
+  SkillInfoUI.cpp
+c:\users\user\desktop\maple2srteam\sr_-_maple\client\public\client_defines.h(19): fatal error C1083: 포함 파일을 열 수 없습니다. 'process.h': No such file or directory
+  Skill.cpp
+c:\users\user\desktop\maple2srteam\sr_-_maple\client\public\client_defines.h(19): fatal error C1083: 포함 파일을 열 수 없습니다. 'process.h': No such file or directory
+  Player_Attack.cpp
+c:\users\user\desktop\maple2srteam\sr_-_maple\client\public\client_defines.h(19): fatal error C1083: 포함 파일을 열 수 없습니다. 'process.h': No such file or directory
+  PlayerInfoUI.cpp
+c:\users\user\desktop\maple2srteam\sr_-_maple\client\public\client_defines.h(19): fatal error C1083: 포함 파일을 열 수 없습니다. 'process.h': No such file or directory
+  Player.cpp
+c:\users\user\desktop\maple2srteam\sr_-_maple\client\public\client_defines.h(19): fatal error C1083: 포함 파일을 열 수 없습니다. 'process.h': No such file or directory
+  코드를 생성하고 있습니다...
+  컴파일하고 있습니다...
+  Monster.cpp
+c:\users\user\desktop\maple2srteam\sr_-_maple\client\public\client_defines.h(19): fatal error C1083: 포함 파일을 열 수 없습니다. 'process.h': No such file or directory
+  MainApp.cpp
+c:\users\user\desktop\maple2srteam\sr_-_maple\client\public\client_defines.h(19): fatal error C1083: 포함 파일을 열 수 없습니다. 'process.h': No such file or directory
+  LupangSkill.cpp
+c:\users\user\desktop\maple2srteam\sr_-_maple\client\public\client_defines.h(19): fatal error C1083: 포함 파일을 열 수 없습니다. 'process.h': No such file or directory
+  LupangMonster.cpp
+c:\users\user\desktop\maple2srteam\sr_-_maple\client\public\client_defines.h(19): fatal error C1083: 포함 파일을 열 수 없습니다. 'process.h': No such file or directory
+  LogoUI.cpp
+c:\users\user\desktop\maple2srteam\sr_-_maple\client\public\client_defines.h(19): fatal error C1083: 포함 파일을 열 수 없습니다. 'process.h': No such file or directory
+  Lite_Ning_Skill.cpp
+c:\users\user\desktop\maple2srteam\sr_-_maple\client\public\client_defines.h(19): fatal error C1083: 포함 파일을 열 수 없습니다. 'process.h': No such file or directory
+  Level_Loading.cpp
+c:\users\user\desktop\maple2srteam\sr_-_maple\client\public\client_defines.h(19): fatal error C1083: 포함 파일을 열 수 없습니다. 'process.h': No such file or directory
+  Level_GamePlay.cpp
+c:\users\user\desktop\maple2srteam\sr_-_maple\client\public\client_defines.h(19): fatal error C1083: 포함 파일을 열 수 없습니다. 'process.h': No such file or directory
+  ItemInfoUI.cpp
+c:\users\user\desktop\maple2srteam\sr_-_maple\client\public\client_defines.h(19): fatal error C1083: 포함 파일을 열 수 없습니다. 'process.h': No such file or directory
+  Item.cpp
+c:\users\user\desktop\maple2srteam\sr_-_maple\client\public\client_defines.h(19): fatal error C1083: 포함 파일을 열 수 없습니다. 'process.h': No such file or directory
+  InventoryUI.cpp
+c:\users\user\desktop\maple2srteam\sr_-_maple\client\public\client_defines.h(19): fatal error C1083: 포함 파일을 열 수 없습니다. 'process.h': No such file or directory
+  InventoryButtonUI.cpp
+c:\users\user\desktop\maple2srteam\sr_-_maple\client\public\client_defines.h(19): fatal error C1083: 포함 파일을 열 수 없습니다. 'process.h': No such file or directory
+  IconUI.cpp
+c:\users\user\desktop\maple2srteam\sr_-_maple\client\public\client_defines.h(19): fatal error C1083: 포함 파일을 열 수 없습니다. 'process.h': No such file or directory
+  HpBarUI.cpp
+c:\users\user\desktop\maple2srteam\sr_-_maple\client\public\client_defines.h(19): fatal error C1083: 포함 파일을 열 수 없습니다. 'process.h': No such file or directory
+  Fire_Wall.cpp
+c:\users\user\desktop\maple2srteam\sr_-_maple\client\public\client_defines.h(19): fatal error C1083: 포함 파일을 열 수 없습니다. 'process.h': No such file or directory
+  ExpBarUI.cpp
+c:\users\user\desktop\maple2srteam\sr_-_maple\client\public\client_defines.h(19): fatal error C1083: 포함 파일을 열 수 없습니다. 'process.h': No such file or directory
+  CubeTerrain.cpp
+c:\users\user\desktop\maple2srteam\sr_-_maple\client\public\client_defines.h(19): fatal error C1083: 포함 파일을 열 수 없습니다. 'process.h': No such file or directory
+  ConsumItem.cpp
+c:\users\user\desktop\maple2srteam\sr_-_maple\client\public\client_defines.h(19): fatal error C1083: 포함 파일을 열 수 없습니다. 'process.h': No such file or directory
+  Camera_Dynamic.cpp
+c:\users\user\desktop\maple2srteam\sr_-_maple\client\public\client_defines.h(19): fatal error C1083: 포함 파일을 열 수 없습니다. 'process.h': No such file or directory
+  BellaMonster.cpp
+c:\users\user\desktop\maple2srteam\sr_-_maple\client\public\client_defines.h(19): fatal error C1083: 포함 파일을 열 수 없습니다. 'process.h': No such file or directory
+  코드를 생성하고 있습니다...
